@@ -10,11 +10,8 @@ config_version=5
 
 [application]
 
-<<<<<<< HEAD
 config/name="PizzaWizard"
 run/main_scene="res://Main.tscn"
-=======
-config/name="Pizza Wizard 144X"
->>>>>>> ddf627459515e38dada55aca49e2e0985891131d
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<HEADconfig/name="PizzaWizard"
