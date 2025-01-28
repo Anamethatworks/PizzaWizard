@@ -1,3 +1,58 @@
-[gd_scene format=3 uid="uid://55fh5e6ithbj"]
+[gd_scene load_steps=9 format=3 uid="uid://55fh5e6ithbj"]
 
-[node name="Node3D" type="Node3D"]
+[ext_resource type="Script" path="res://Player.gd" id="1_ifwap"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kelcd"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_1rn0k"]
+sky_material = SubResource("ProceduralSkyMaterial_kelcd")
+
+[sub_resource type="Environment" id="Environment_0wquq"]
+background_mode = 2
+sky = SubResource("Sky_1rn0k")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1qtpa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l8ed7"]
+size = Vector3(1.99951, 0.535034, 1.99609)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m83y5"]
+
+[node name="World_Root" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0wquq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("PlaneMesh_1qtpa")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00366211, -0.244617, -0.00195313)
+shape = SubResource("BoxShape3D_l8ed7")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.03182, 1.16124, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.627249, 0)
+script = ExtResource("1_ifwap")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("BoxShape3D_qawn3")
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("BoxMesh_m83y5")
+skeleton = NodePath("../..")
