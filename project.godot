@@ -14,8 +14,12 @@ config/name="PizzaWizard"
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<< HEAD
+<<<<<<<HEADconfig/name="PizzaWizard"
+=======
 
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+>>>>>>> fd8b3e96458e92a7b1557e3c2d5133ce193728a6
