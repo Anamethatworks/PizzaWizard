@@ -1,0 +1,46 @@
+extends Area3D
+class_name DropoffPoint
+## A location that can order pizzas
+
+## The current [Order] this location has, or [code]null[/code] if there is none
+var current_order: Order = null
+## A timer for the cooldown between orders
+var order_cooldown: float = 0.0
+ ## If set to [code]true[/code], this location will not have a cooldown between placing orders.
+@export var ignore_cooldown: bool = false
+
+## The minimum time (sec) in-between two orders being placed from the same location
+const ORDER_COOLDOWN_DURATION: float = 30.0
+
+## A timer for how long the order has been waiting
+var time_since_order: float = 0.0
+
+func _ready() -> void:
+	monitoring = false
+
+## Adds a new order at this location (if possible). Returns [code]true[/code] if successful, [code]false[/code] otherwise
+func add_order() -> bool:
+	if is_instance_valid(current_order) or order_cooldown > 0.0:
+		# There is already an order here or this location is still on cooldown
+		return false
+	var par_time: float = 1.0 # TODO: Calculate par time
+	current_order = Order.new(self, par_time)
+	monitoring = true
+	return true
+
+func _process(delta: float) -> void:
+	if order_cooldown > 0.0:
+		order_cooldown -= delta
+
+## Fulfills the order and gives the player their points + money
+func deliver_pizza() -> void:
+	var pizza_temp: float = 0.0 # Get pizza temperature (TODO)
+	current_order.fulfill(pizza_temp, time_since_order)
+	current_order = null
+	if not ignore_cooldown:
+		order_cooldown = ORDER_COOLDOWN_DURATION
+	monitoring = false
+
+func _on_body_entered(body: Node3D) -> void:
+	# Determine if the body is the player
+	deliver_pizza()
