@@ -1,20 +1,24 @@
 extends Object
 class_name Score
+## Class for score (should be globally loaded)
 
-const TEMPERATURE_TOLERANCE: float = 10.0 # How tolerant the score function is of temperature difference
-# High -> The temperature can be far from the goal temperature and still get decent points
-# Low  -> The temperature has to be extremely close to the goal to avoid being heavily penalized
+## How tolerant the score function is of temperature difference
+## High -> The temperature can be far from the goal temperature and still get decent points
+## Low  -> The temperature has to be extremely close to the goal to avoid being heavily penalized
+const TEMPERATURE_TOLERANCE: float = 10.0
 
-const BASE_SCORE: int = 100 # The score the player will get if they deliver at the perfect temp
-# at exactly the par time
+## The score the player will get if they deliver at the perfect temp
+## at exactly the par time
+const BASE_SCORE: int = 100
 
+## The minimum score the player can get for delivering a pizza
 const MINIMUM_SCORE: int = 10
 
-# If this script is autoloaded, this function can be called from anywhere using Score.get_score()
-# temp: the temperature of the pizza
-# goal_temp: the temperature the customer wants it
-# time: the time since the order was placed (sec)
-# par_time: the expected time for the pizza (sec)
+## If this script is autoloaded, this function can be called from anywhere using [method Score.get_score()]
+## [param temp]: the temperature of the pizza
+## [param goal_temp]: the temperature the customer wants it
+## [param time]: the time since the order was placed (sec)
+## [param par_time]: the expected time for the pizza (sec)
 static func get_score(temp: float, goal_temp: float, time: float, par_time: float) -> int:
 	assert(par_time > 0.0, "Cannot calculate score with par time of " + str(par_time) + " seconds!")
 	var temp_difference := absf(temp - goal_temp)
