@@ -22,11 +22,8 @@ static func get_payout(temp: float, goal_temp: float, time: float, par_time: flo
 	var time_ratio := time / par_time
 	var temp_multiplier := exp(-pow(temp_difference / TEMPERATURE_TOLERANCE, 2.0))
 	var time_multiplier := exp(-(time_ratio - 1.0))
-	# The customer will only pay in whole dollars (or whatever currency we're using)
 	var total_payment := roundi(BASE_TIP * temp_multiplier * time_multiplier * price)
-	# But the cost of the pizza doesn't go to the player (it goes to the store)
-	# So the player only gets the tip
-	return maxi(0, total_payment - price)
+	return maxi(0, total_payment)
 
 ## Gives the player this amount
 static func earn_money(amount: int) -> void:
