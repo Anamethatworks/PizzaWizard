@@ -39,17 +39,16 @@ func _init(location: DropoffPoint, par_time: float) -> void:
 
 ## Pays the player, gives them points, and clears the order
 func fulfill(real_temp: float, real_time: float) -> void:
-	var payout: float = Money.get_payout(real_temp, goalTemperature, real_time, parTime, price)
-	# Give the player the money (TODO)
-	var score: int = Score.get_score(real_temp, goalTemperature, real_time, parTime)
-	# Give the player the score (TODO)
-
+	Money.earn_money(Money.get_payout(real_temp, goalTemperature, real_time, parTime, price))
+	Score.player_score += Score.get_score( real_temp, goalTemperature, real_time, parTime)
+	Score.orders_completed += 1
+	ordered_pizza.free()
 	DeliveryManager.finish_order(self) # Tell DeliveryManager that the order has been fulfilled
-
 	free() # Remove the order now that it's been fulfilled
 
 ## Removes the order without giving the player money or points
 func failOrder() -> void:
 	# I don't know if there will be any circumstances in which the player can
 	# fail an order, but I added this function just in case
+	ordered_pizza.free()
 	free()
