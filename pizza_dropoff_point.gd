@@ -4,6 +4,7 @@ class_name DropoffPoint
 
 ## The current [Order] this location has, or [code]null[/code] if there is none
 var current_order: Order = null
+
 ## A timer for the cooldown between orders
 var order_cooldown: float = 0.0
  ## If set to [code]true[/code], this location will not have a cooldown between placing orders.
@@ -34,7 +35,7 @@ func _process(delta: float) -> void:
 
 ## Fulfills the order and gives the player their points + money
 func deliver_pizza() -> void:
-	var pizza_temp: float = 0.0 # Get pizza temperature (TODO)
+	var pizza_temp := current_order.ordered_pizza.temperature
 	current_order.fulfill(pizza_temp, time_since_order)
 	current_order = null
 	if not ignore_cooldown:
