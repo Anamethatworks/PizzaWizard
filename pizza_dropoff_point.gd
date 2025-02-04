@@ -19,15 +19,15 @@ var time_since_order: float = 0.0
 func _ready() -> void:
 	monitoring = false
 
-## Adds a new order at this location (if possible). Returns [code]true[/code] if successful, [code]false[/code] otherwise
-func add_order() -> bool:
+## Adds a new order at this location (if possible). Returns [code]current_order[/code] if successful, [code]null[/code] otherwise
+func add_order() -> Order:
 	if is_instance_valid(current_order) or order_cooldown > 0.0:
 		# There is already an order here or this location is still on cooldown
-		return false
+		return null
 	var par_time: float = 1.0 # TODO: Calculate par time
 	current_order = Order.new(self, par_time)
 	monitoring = true
-	return true
+	return current_order
 
 func _process(delta: float) -> void:
 	if order_cooldown > 0.0:

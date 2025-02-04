@@ -43,7 +43,9 @@ func fulfill(real_temp: float, real_time: float) -> void:
 	# Give the player the money (TODO)
 	var score: int = Score.get_score(real_temp, goalTemperature, real_time, parTime)
 	# Give the player the score (TODO)
-	
+
+	DeliveryManager.finish_order(self) # Tell DeliveryManager that the order has been fulfilled
+
 	free() # Remove the order now that it's been fulfilled
 
 ## Removes the order without giving the player money or points
