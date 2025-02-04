@@ -4,6 +4,7 @@ class_name DropoffPoint
 
 ## The current [Order] this location has, or [code]null[/code] if there is none
 var current_order: Order = null
+
 ## A timer for the cooldown between orders
 var order_cooldown: float = 0.0
  ## If set to [code]true[/code], this location will not have a cooldown between placing orders.
