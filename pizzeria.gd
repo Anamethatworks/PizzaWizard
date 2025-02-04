@@ -40,3 +40,8 @@ func get_pizza_from_queue(keep_in_queue: bool = false) -> Pizza:
 	if not keep_in_queue:
 		return pizza_queue.pop_front()
 	return pizza_queue[0]
+
+func _on_body_entered(body: Node3D) -> void:
+	# Determine if the body is the player
+	# TODO: Pickup pizzas
+	Score.earn_bonuses()
