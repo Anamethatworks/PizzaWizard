@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://x86ejv2g0gmr"
-path.s3tc="res://.godot/imported/pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg-eceec639bed4ca685bc033bcc79c5cec.s3tc.ctex"
+path.s3tc="res://.godot/imported/pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg-07bec3a8037d69032b2ed398b4f7e61f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg"
-dest_files=["res://.godot/imported/pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg-eceec639bed4ca685bc033bcc79c5cec.s3tc.ctex"]
+source_file="res://assets/textures/pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg"
+dest_files=["res://.godot/imported/pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg-07bec3a8037d69032b2ed398b4f7e61f.s3tc.ctex"]
 
 [params]
 

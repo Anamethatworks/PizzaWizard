@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://55fh5e6ithbj"]
 
-[ext_resource type="Texture2D" uid="uid://x86ejv2g0gmr" path="res://pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg" id="1_425vp"]
-[ext_resource type="Script" path="res://Player.gd" id="1_ifwap"]
-[ext_resource type="Script" path="res://delivery_manager.gd" id="1_mu2q4"]
-[ext_resource type="Script" path="res://camera_rig.gd" id="2_3c1ni"]
-[ext_resource type="PackedScene" uid="uid://buxobhp1h3auw" path="res://Car_08.blend" id="4_og8q0"]
+[ext_resource type="Script" path="res://scripts/delivery_manager.gd" id="1_k4mol"]
+[ext_resource type="Texture2D" uid="uid://x86ejv2g0gmr" path="res://assets/textures/pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg" id="2_j287l"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="3_jcyip"]
+[ext_resource type="Script" path="res://scripts/camera_rig.gd" id="4_tdnyy"]
+[ext_resource type="PackedScene" uid="uid://buxobhp1h3auw" path="res://assets/models/Car_08.blend" id="5_fnn5p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kelcd"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -22,7 +22,7 @@ glow_enabled = true
 [sub_resource type="PlaneMesh" id="PlaneMesh_1qtpa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5piy"]
-albedo_texture = ExtResource("1_425vp")
+albedo_texture = ExtResource("2_j287l")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l8ed7"]
 size = Vector3(1.99951, 0.535034, 1.99609)
@@ -32,7 +32,7 @@ size = Vector3(1.99951, 0.535034, 1.99609)
 [node name="World_Root" type="Node3D"]
 
 [node name="DeliveryManager" type="Node" parent="."]
-script = ExtResource("1_mu2q4")
+script = ExtResource("1_k4mol")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -54,10 +54,10 @@ shape = SubResource("BoxShape3D_l8ed7")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.627249, 0)
-script = ExtResource("1_ifwap")
+script = ExtResource("3_jcyip")
 
 [node name="CameraRig" type="Node3D" parent="CharacterBody3D"]
-script = ExtResource("2_3c1ni")
+script = ExtResource("4_tdnyy")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraRig"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0259258, 7.48674, 0.271881)
@@ -65,5 +65,5 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0259
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("BoxShape3D_qawn3")
 
-[node name="Car_08" parent="CharacterBody3D" instance=ExtResource("4_og8q0")]
+[node name="Car_08" parent="CharacterBody3D" instance=ExtResource("5_fnn5p")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
