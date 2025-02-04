@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 
 ## Fulfills the order and gives the player their points + money
 func deliver_pizza() -> void:
-	var pizza_temp: float = 0.0 # Get pizza temperature (TODO)
+	var pizza_temp := current_order.ordered_pizza.temperature
 	current_order.fulfill(pizza_temp, time_since_order)
 	current_order = null
 	if not ignore_cooldown:
