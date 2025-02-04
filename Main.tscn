@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://55fh5e6ithbj"]
+[gd_scene load_steps=13 format=3 uid="uid://55fh5e6ithbj"]
 
 [ext_resource type="Texture2D" uid="uid://x86ejv2g0gmr" path="res://pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg" id="1_425vp"]
 [ext_resource type="Script" path="res://Player.gd" id="1_ifwap"]
+[ext_resource type="Script" path="res://delivery_manager.gd" id="1_mu2q4"]
 [ext_resource type="Script" path="res://camera_rig.gd" id="2_3c1ni"]
 [ext_resource type="PackedScene" uid="uid://buxobhp1h3auw" path="res://Car_08.blend" id="4_og8q0"]
 
@@ -29,6 +30,9 @@ size = Vector3(1.99951, 0.535034, 1.99609)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
 
 [node name="World_Root" type="Node3D"]
+
+[node name="DeliveryManager" type="Node" parent="."]
+script = ExtResource("1_mu2q4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
