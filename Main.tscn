@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://emjxr3a2d3su"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_ifwap"]
+[ext_resource type="Script" path="res://camera_rig.gd" id="2_3c1ni"]
+[ext_resource type="PackedScene" uid="uid://buxobhp1h3auw" path="res://assets/models/Car_08.blend" id="3_ggayf"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kelcd"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_1rn0k"]
+sky_material = SubResource("ProceduralSkyMaterial_kelcd")
+
+[sub_resource type="Environment" id="Environment_0wquq"]
+background_mode = 2
+sky = SubResource("Sky_1rn0k")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
+
+[node name="World_Root" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0wquq")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.627249, 0)
+script = ExtResource("1_ifwap")
+
+[node name="CameraRig" type="Node3D" parent="Player"]
+script = ExtResource("2_3c1ni")
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraRig"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0259258, 7.48674, 0.271881)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("BoxShape3D_qawn3")
+
+[node name="Car_08" parent="Player" instance=ExtResource("3_ggayf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.427986, -0.40218, 0.5)

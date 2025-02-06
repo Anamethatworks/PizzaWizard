@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwvjlxdc1wfjm"]
+
+[ext_resource type="PackedScene" uid="uid://cmgnui2dmypbu" path="res://scenes/packed scenes/StraightRoad.tscn" id="1_hnq0d"]
+[ext_resource type="PackedScene" uid="uid://cy3dp54s6vhc5" path="res://scenes/packed scenes/TSectionRoad.tscn" id="2_yc7xj"]
+
+[node name="City_Root" type="Node3D"]
+
+[node name="City_Roads" type="Node3D" parent="."]
+
+[node name="Straight1" type="Node3D" parent="City_Roads"]
+
+[node name="Straight_Street_Piece" parent="City_Roads/Straight1" instance=ExtResource("1_hnq0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.782, 0, -0.114)
+
+[node name="Straight_Street_Piece2" parent="City_Roads/Straight1" instance=ExtResource("1_hnq0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.219, 0, -0.114)
+
+[node name="Straight_Street_Piece3" parent="City_Roads/Straight1" instance=ExtResource("1_hnq0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.778, 0, -0.114)
+
+[node name="T_Street_Piece" parent="." instance=ExtResource("2_yc7xj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.722, 0.415, -0.114)

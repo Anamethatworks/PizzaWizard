@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmgnui2dmypbu"]
+
+[ext_resource type="PackedScene" uid="uid://3aliq1nb613l" path="res://assets/models/Street_Straight.fbx" id="1_0iohs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1h62f"]
+size = Vector3(20.004, 0.416916, 10.0045)
+
+[node name="Straight_Street_Piece" type="Node3D"]
+
+[node name="Street_Straight" parent="." instance=ExtResource("1_0iohs")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Street_Straight"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Street_Straight/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000495911, 0.207008, 0.00141907)
+shape = SubResource("BoxShape3D_1h62f")
