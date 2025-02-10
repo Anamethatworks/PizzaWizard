@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/delivery_manager.gd" id="1_k4mol"]
 [ext_resource type="Texture2D" uid="uid://x86ejv2g0gmr" path="res://assets/textures/pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg" id="2_j287l"]
-[ext_resource type="Script" path="res://scripts/advanced_car.gd" id="3_16ml4"]
+[ext_resource type="Script" path="res://scripts/car.gd" id="3_35jrj"]
 [ext_resource type="Script" path="res://scripts/camera_rig.gd" id="4_tdnyy"]
 [ext_resource type="PackedScene" uid="uid://buxobhp1h3auw" path="res://assets/models/Car_08.blend" id="5_fnn5p"]
 
@@ -28,6 +28,7 @@ albedo_texture = ExtResource("2_j287l")
 size = Vector3(1.99951, 0.535034, 1.99609)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
+size = Vector3(1.475, 1.32617, 4.72877)
 
 [node name="World_Root" type="Node3D"]
 
@@ -52,17 +53,44 @@ surface_material_override/0 = SubResource("StandardMaterial3D_u5piy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00366211, -0.244617, -0.00195313)
 shape = SubResource("BoxShape3D_l8ed7")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-script = ExtResource("3_16ml4")
+[node name="VehicleBody3D" type="VehicleBody3D" parent="."]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+mass = 1600.0
+can_sleep = false
+script = ExtResource("3_35jrj")
 
-[node name="CameraRig" type="Node3D" parent="CharacterBody3D"]
+[node name="CameraRig" type="Node3D" parent="VehicleBody3D"]
 script = ExtResource("4_tdnyy")
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraRig"]
+[node name="Camera3D" type="Camera3D" parent="VehicleBody3D/CameraRig"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0259258, 7.48674, 0.271881)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.837305, -0.471088)
 shape = SubResource("BoxShape3D_qawn3")
 
-[node name="Car_08" parent="CharacterBody3D" instance=ExtResource("5_fnn5p")]
+[node name="Car_08" parent="VehicleBody3D" instance=ExtResource("5_fnn5p")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="WheelFR" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.641952, 0.319571, -2.07409)
+use_as_traction = true
+use_as_steering = true
+wheel_radius = 0.3
+
+[node name="WheelBR" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.642, 0.32, 1.02366)
+use_as_traction = true
+wheel_radius = 0.3
+
+[node name="WheelBL" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.642, 0.32, 1.024)
+use_as_traction = true
+wheel_radius = 0.3
+
+[node name="WheelFL" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.642, 0.32, -2.074)
+use_as_traction = true
+use_as_steering = true
+wheel_radius = 0.3

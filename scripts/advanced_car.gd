@@ -126,18 +126,16 @@ func _physics_process(delta: float) -> void:
 			brake = false
 			throttle = move_toward(throttle, 0.0, THROTTLE_MOVE_SPEED * delta)
 	#endregion
+
+	steering = move_toward(steering, Input.get_axis("MoveLeft", "MoveRight"), STEERING_SPEED * delta)
 	
-	
-	brake = (Input.is_action_pressed("MoveBackward") and longitudinal_velocity > 0.0) or \
-			(Input.is_action_pressed("MoveForward" ) and longitudinal_velocity < 0.0)
-	if brake:
-		throttle = 0.0
+	# Update tire angles
 	
 	
 	var global_velocity := get_global_vector(local_velocity.x, local_velocity.y)
 	velocity.x = global_velocity.x
 	velocity.z = global_velocity.y
-	steering = move_toward(steering, Input.get_axis("MoveLeft", "MoveRight"), STEERING_SPEED * delta)
+	
 	
 	move_and_slide()
 
