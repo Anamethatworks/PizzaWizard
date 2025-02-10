@@ -17,6 +17,8 @@ func _process(delta: float) -> void:
 func take_orders(number: int) -> void:
 	for i in range(number):
 		var dropoffs = len(dropoffPoints)
+		if dropoffs == 0:
+				return
 		var new_order
 		while true:
 			new_order = dropoffPoints[randi_range(0, dropoffs)].add_order()

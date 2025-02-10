@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/delivery_manager.gd" id="1_k4mol"]
 [ext_resource type="Texture2D" uid="uid://x86ejv2g0gmr" path="res://assets/textures/pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg" id="2_j287l"]
-[ext_resource type="Script" path="res://scripts/Player.gd" id="3_jcyip"]
+[ext_resource type="Script" path="res://scripts/advanced_car.gd" id="3_16ml4"]
 [ext_resource type="Script" path="res://scripts/camera_rig.gd" id="4_tdnyy"]
 [ext_resource type="PackedScene" uid="uid://buxobhp1h3auw" path="res://assets/models/Car_08.blend" id="5_fnn5p"]
 
@@ -53,8 +53,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00366211, -0.244617, -0.00
 shape = SubResource("BoxShape3D_l8ed7")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.627249, 0)
-script = ExtResource("3_jcyip")
+script = ExtResource("3_16ml4")
 
 [node name="CameraRig" type="Node3D" parent="CharacterBody3D"]
 script = ExtResource("4_tdnyy")

@@ -7,6 +7,7 @@ var current_order: Order = null
 
 ## A timer for the cooldown between orders
 var order_cooldown: float = 0.0
+
  ## If set to [code]true[/code], this location will not have a cooldown between placing orders.
 @export var ignore_cooldown: bool = false
 

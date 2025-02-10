@@ -15,10 +15,6 @@ run/main_scene="res://scenes/Main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/pwxicon.svg"
 
-[display]
-
-window/size/mode=3
-
 [editor]
 
 version_control/plugin_name="GitPlugin"
