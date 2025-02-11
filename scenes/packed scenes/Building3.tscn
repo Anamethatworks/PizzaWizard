@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3kbuy4smqit4"]
+
+[ext_resource type="PackedScene" uid="uid://jabcg2yx33au" path="res://assets/models/Building03.fbx" id="1_gip0k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_285nv"]
+size = Vector3(15.0012, 9.00127, 15.0008)
+
+[node name="Building3" type="Node3D"]
+
+[node name="Building03" parent="." instance=ExtResource("1_gip0k")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Building03"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Building03/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5001, 4.49958, 6.4997)
+shape = SubResource("BoxShape3D_285nv")

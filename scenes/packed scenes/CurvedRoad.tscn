@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://4yc67cjhxbdl"]
+
+[ext_resource type="PackedScene" uid="uid://ddwrw8g337fcd" path="res://assets/models/Street_Curved.fbx" id="1_lhajb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_33x5u"]
+size = Vector3(14.9334, 0.418457, 14.9287)
+
+[node name="Curved_Street_Piece" type="Node3D"]
+
+[node name="Street_Curved" parent="." instance=ExtResource("1_lhajb")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Street_Curved"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Street_Curved/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.53373, 0.208496, 2.53668)
+shape = SubResource("BoxShape3D_33x5u")

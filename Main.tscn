@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://emjxr3a2d3su"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_ifwap"]
-[ext_resource type="Script" path="res://camera_rig.gd" id="2_3c1ni"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_ifwap"]
+[ext_resource type="Script" path="res://scripts/camera_rig.gd" id="2_3c1ni"]
 [ext_resource type="PackedScene" uid="uid://buxobhp1h3auw" path="res://assets/models/Car_08.blend" id="3_ggayf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kelcd"]

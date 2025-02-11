@@ -2,25 +2,25 @@
 
 [ext_resource type="PackedScene" uid="uid://bu021xsqsn145" path="res://assets/models/Street_T_Section.fbx" id="1_s1nj0"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_rycx2"]
-size = Vector3(15.0018, 0.424316, 10.0139)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_4v1lq"]
 size = Vector3(10.0325, 0.4263, 20.0004)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rycx2"]
+size = Vector3(15.0018, 0.424316, 10.0139)
 
 [node name="T_Street_Piece" type="Node3D"]
 
 [node name="Street_T_Section" parent="." instance=ExtResource("1_s1nj0")]
 transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Area3D" type="Area3D" parent="Street_T_Section"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Street_T_Section"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Street_T_Section/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49982, 0.209717, 0.00354004)
-shape = SubResource("BoxShape3D_rycx2")
-
-[node name="Area3D2" type="Area3D" parent="Street_T_Section"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Street_T_Section/Area3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Street_T_Section/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0161667, 0.212753, -0.00037384)
 shape = SubResource("BoxShape3D_4v1lq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Street_T_Section"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Street_T_Section/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49982, 0.209717, 0.00354004)
+shape = SubResource("BoxShape3D_rycx2")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddv4dv1nc7fge"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_7ujnp"]
+[ext_resource type="Script" path="res://scripts/camera_rig.gd" id="2_yk03r"]
+[ext_resource type="PackedScene" uid="uid://buxobhp1h3auw" path="res://assets/models/Car_08.blend" id="3_2gv7o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.627249, 0)
+script = ExtResource("1_7ujnp")
+
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("2_yk03r")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0259258, 7.48674, 0.271881)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_qawn3")
+
+[node name="Car_08" parent="." instance=ExtResource("3_2gv7o")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

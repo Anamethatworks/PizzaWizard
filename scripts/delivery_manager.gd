@@ -8,7 +8,8 @@ class_name DeliveryManager
 static var current_orders := []
 
 func _ready() -> void:
-	take_orders(1) # For Testing
+	pass
+	#take_orders(1) # For Testing
 
 func _process(delta: float) -> void:
 	pass
