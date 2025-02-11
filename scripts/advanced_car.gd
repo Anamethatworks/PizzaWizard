@@ -1,4 +1,8 @@
 extends CharacterBody3D
+
+## DEPRECATED!!!
+## I'm just keeping this file because I kept so many equations in here
+
 # I went fully down the driving physics rabbit hole
 # Many equations taken from or derived from the contents of "The Physics of Racing" by Brian Beckman
 # http://autoxer.skiblack.com/phys_racing/contents.htm

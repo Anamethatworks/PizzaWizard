@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0o6mq08mfgp6"]
+
+[ext_resource type="Script" path="res://scripts/car.gd" id="1_fbag5"]
+[ext_resource type="Script" path="res://scripts/camera_rig.gd" id="2_i16p3"]
+[ext_resource type="PackedScene" uid="uid://buxobhp1h3auw" path="res://assets/models/Car_08.blend" id="3_2a36c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
+size = Vector3(1.475, 1.32617, 4.72877)
+
+[node name="VehicleBody3D" type="VehicleBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+mass = 1600.0
+can_sleep = false
+script = ExtResource("1_fbag5")
+
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("2_i16p3")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0259258, 7.48674, 0.271881)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.837, 0.054)
+shape = SubResource("BoxShape3D_qawn3")
+
+[node name="Car_08" parent="." instance=ExtResource("3_2a36c")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0.525)
+
+[node name="WheelFR" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.642, 0.32, -1.549)
+use_as_traction = true
+use_as_steering = true
+wheel_radius = 0.3
+
+[node name="WheelBR" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.642, 0.32, 1.549)
+use_as_traction = true
+wheel_radius = 0.3
+
+[node name="WheelBL" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.642, 0.32, 1.549)
+use_as_traction = true
+wheel_radius = 0.3
+
+[node name="WheelFL" type="VehicleWheel3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.642, 0.32, -1.549)
+use_as_traction = true
+use_as_steering = true
+wheel_radius = 0.3
