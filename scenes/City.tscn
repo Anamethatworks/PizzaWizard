@@ -1,0 +1,93 @@
+[gd_scene load_steps=17 format=3 uid="uid://de1pf3fwvdxx6"]
+
+[ext_resource type="Texture2D" uid="uid://x86ejv2g0gmr" path="res://assets/textures/pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg" id="2_xa6vl"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="3_3n77w"]
+[ext_resource type="Script" path="res://scripts/camera_rig.gd" id="4_mngga"]
+[ext_resource type="PackedScene" uid="uid://buxobhp1h3auw" path="res://assets/models/Car_08.blend" id="5_mtjjk"]
+[ext_resource type="PackedScene" uid="uid://dli05vaockrff" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="6_7kxbt"]
+[ext_resource type="PackedScene" uid="uid://b4rcdd6tiu1as" path="res://scenes/packed scenes/pizza_pickup_point.tscn" id="6_u5i5a"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dmqis"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_1rn0k"]
+sky_material = SubResource("ProceduralSkyMaterial_dmqis")
+
+[sub_resource type="Environment" id="Environment_4hcs5"]
+background_mode = 2
+sky = SubResource("Sky_1rn0k")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rnn47"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exfkb"]
+albedo_texture = ExtResource("2_xa6vl")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x4ixn"]
+size = Vector3(1.99951, 0.535034, 1.99609)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_18an1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o47mr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o650e"]
+albedo_color = Color(1, 0.603922, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bad8k"]
+albedo_color = Color(0, 0.720236, 0.720236, 1)
+
+[node name="City" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4hcs5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(125, 0, 0, 0, 125, 0, 0, 0, 125, 0, 0, 0)
+mesh = SubResource("PlaneMesh_rnn47")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_exfkb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00366211, -0.244617, -0.00195313)
+shape = SubResource("BoxShape3D_x4ixn")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.627249, 0)
+script = ExtResource("3_3n77w")
+
+[node name="CameraRig" type="Node3D" parent="Player"]
+script = ExtResource("4_mngga")
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraRig"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0259258, 7.48674, 0.271881)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("BoxShape3D_18an1")
+
+[node name="Car_08" parent="Player" instance=ExtResource("5_mtjjk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Pizzeria" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.898, 0, -13.025)
+mesh = SubResource("BoxMesh_o47mr")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_o650e")
+
+[node name="PizzaPickupPoint" parent="Pizzeria" instance=ExtResource("6_u5i5a")]
+
+[node name="PizzaPoint" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.103, 0, -38.133)
+mesh = SubResource("BoxMesh_o47mr")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_bad8k")
+
+[node name="PizzaDropoffPoint" parent="PizzaPoint" instance=ExtResource("6_7kxbt")]
+ignore_cooldown = true

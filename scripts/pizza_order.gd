@@ -44,7 +44,6 @@ func fulfill(real_temp: float, real_time: float) -> void:
 	Score.orders_completed += 1
 	ordered_pizza.free()
 	DeliveryManager.finish_order(self) # Tell DeliveryManager that the order has been fulfilled
-	free() # Remove the order now that it's been fulfilled
 
 ## Removes the order without giving the player money or points
 func failOrder() -> void:

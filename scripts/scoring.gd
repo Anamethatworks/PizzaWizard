@@ -15,6 +15,8 @@ class ScoreCashBonus extends Object:
 		bonus_amount = payout
 	## Tests if the requirements for this bonus have been met
 	func test_requirements_met() -> bool:
+		if Score.orders_completed == 0:
+			return 0
 		return (float(Score.player_score / Score.orders_completed) >= min_average_score) and \
 		(Score.orders_completed >= min_total_orders)
 	## Gives the player the reward money and marks the bonus as earned

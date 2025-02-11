@@ -14,6 +14,10 @@ var pizza_queue: Array[Pizza] = []
 ## The location will be capable of storing an indefinite amount
 const MAX_QUEUED_PIZZAS: int = 5
 
+## Sets this location as active on ready
+func _ready() -> void:
+	set_active()	# TODO : Add support for multiple pizzerias
+
 ## Sets this pizzeria to the active location
 func set_active() -> void:
 	if is_instance_valid(active_location):
@@ -43,5 +47,6 @@ func get_pizza_from_queue(keep_in_queue: bool = false) -> Pizza:
 
 func _on_body_entered(body: Node3D) -> void:
 	# Determine if the body is the player
-	# TODO: Pickup pizzas
-	Score.earn_bonuses()
+	if body.name == "Player":
+		DeliveryManager.take_orders(1)
+		Score.earn_bonuses()

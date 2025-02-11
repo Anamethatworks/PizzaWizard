@@ -18,6 +18,7 @@ const ORDER_COOLDOWN_DURATION: float = 30.0
 var time_since_order: float = 0.0
 
 func _ready() -> void:
+	DeliveryManager.addDropoffPoint(self)
 	monitoring = false
 
 ## Adds a new order at this location (if possible). Returns [code]current_order[/code] if successful, [code]null[/code] otherwise
@@ -41,8 +42,9 @@ func deliver_pizza() -> void:
 	current_order = null
 	if not ignore_cooldown:
 		order_cooldown = ORDER_COOLDOWN_DURATION
-	monitoring = false
+	set_deferred("monitoring", false)
 
 func _on_body_entered(body: Node3D) -> void:
 	# Determine if the body is the player
-	deliver_pizza()
+	if body.name == "Player":
+		deliver_pizza()
