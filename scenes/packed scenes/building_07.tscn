@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqd8ys8chxsgw"]
+
+[ext_resource type="PackedScene" uid="uid://c4midl5g687vu" path="res://assets/models/Building07.fbx" id="1_3aj8p"]
+[ext_resource type="Material" uid="uid://cp1jq1pielgk0" path="res://assets/materials/Building07Mat.tres" id="2_jqoqn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bitqv"]
+size = Vector3(14.9609, 4.19147, 15.4194)
+
+[node name="Building07" instance=ExtResource("1_3aj8p")]
+
+[node name="Building07" parent="." index="0"]
+material_override = ExtResource("2_jqoqn")
+
+[node name="Pizza" parent="." index="1"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50781, 2.08701, -6.5106)
+shape = SubResource("BoxShape3D_bitqv")
