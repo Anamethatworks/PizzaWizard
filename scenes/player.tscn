@@ -48,3 +48,5 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.642
 use_as_traction = true
 use_as_steering = true
 wheel_radius = 0.3
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
