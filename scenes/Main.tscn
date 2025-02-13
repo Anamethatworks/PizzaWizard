@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://55fh5e6ithbj"]
+[gd_scene load_steps=9 format=3 uid="uid://55fh5e6ithbj"]
 
 [ext_resource type="Script" path="res://scripts/delivery_manager.gd" id="1_k4mol"]
-[ext_resource type="Texture2D" uid="uid://x86ejv2g0gmr" path="res://assets/textures/pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg" id="2_j287l"]
 [ext_resource type="PackedScene" uid="uid://d0o6mq08mfgp6" path="res://scenes/player.tscn" id="3_pd1um"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kelcd"]
@@ -20,7 +19,7 @@ glow_enabled = true
 [sub_resource type="PlaneMesh" id="PlaneMesh_1qtpa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5piy"]
-albedo_texture = ExtResource("2_j287l")
+albedo_color = Color(1, 0.678431, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l8ed7"]
 size = Vector3(1.99951, 0.535034, 1.99609)
