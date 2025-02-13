@@ -37,12 +37,12 @@ func _init(location: DropoffPoint, par_time: float) -> void:
 		# the max order limit), so cancel this order.
 		free()
 
+
 ## Pays the player, gives them points, and clears the order
 func fulfill(real_temp: float, real_time: float) -> void:
 	Money.earn_money(Money.get_payout(real_temp, goalTemperature, real_time, parTime, price))
 	Score.player_score += Score.get_score( real_temp, goalTemperature, real_time, parTime)
 	Score.orders_completed += 1
-	ordered_pizza.free()
 	DeliveryManager.finish_order(self) # Tell DeliveryManager that the order has been fulfilled
 
 ## Removes the order without giving the player money or points
