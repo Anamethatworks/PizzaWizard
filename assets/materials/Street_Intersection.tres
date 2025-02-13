@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dmug2ic6ovbuk"]
+
+[ext_resource type="Texture2D" uid="uid://brn0y2c3rkedt" path="res://assets/textures/StreetIntersection.png" id="1_d7ypl"]
+
+[resource]
+albedo_color = Color(0.470076, 0.470076, 0.470076, 1)
+albedo_texture = ExtResource("1_d7ypl")
+albedo_texture_force_srgb = true

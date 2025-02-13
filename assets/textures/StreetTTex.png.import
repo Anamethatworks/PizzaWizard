@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr80dte4q7kvc"
-path.s3tc="res://.godot/imported/RoadStraightTex.png-602e3cb498d667880aeb411ad8364943.s3tc.ctex"
+uid="uid://ce6rlmt7go6q8"
+path.s3tc="res://.godot/imported/StreetTTex.png-3edf1ffcf21cd742240d9194977387e3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/RoadStraightTex.png"
-dest_files=["res://.godot/imported/RoadStraightTex.png-602e3cb498d667880aeb411ad8364943.s3tc.ctex"]
+source_file="res://assets/textures/StreetTTex.png"
+dest_files=["res://.godot/imported/StreetTTex.png-3edf1ffcf21cd742240d9194977387e3.s3tc.ctex"]
 
 [params]
 

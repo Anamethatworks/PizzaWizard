@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bed3w7n1gdq0k"]
+
+[ext_resource type="PackedScene" uid="uid://cph6xelwt8rmy" path="res://assets/models/Street_Curved.fbx" id="1_01g0b"]
+[ext_resource type="Material" uid="uid://dtnv4kmo41c2c" path="res://assets/materials/Street_CurvedMat.tres" id="2_5tqld"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xan44"]
+size = Vector3(0.149712, 0.149055, 0.00418663)
+
+[node name="Street_Curved" instance=ExtResource("1_01g0b")]
+
+[node name="Street_Curve" parent="." index="0"]
+material_override = ExtResource("2_5tqld")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Street_Curve" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Street_Curve/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 2.84217e-14, 1, 0.0250664, -0.0244866, 0.00200554)
+shape = SubResource("BoxShape3D_xan44")

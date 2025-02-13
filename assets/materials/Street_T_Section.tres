@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://2j7m1tu4xdt2"]
+
+[ext_resource type="Texture2D" uid="uid://ce6rlmt7go6q8" path="res://assets/textures/StreetTTex.png" id="1_cv2m3"]
+
+[resource]
+albedo_color = Color(0.470076, 0.470076, 0.470076, 1)
+albedo_texture = ExtResource("1_cv2m3")
+albedo_texture_force_srgb = true

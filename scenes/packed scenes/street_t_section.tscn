@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6527kuwkmfa1"]
+
+[ext_resource type="PackedScene" uid="uid://77cuk4yn4quy" path="res://assets/models/Street_T_Section.fbx" id="1_00x57"]
+[ext_resource type="Material" uid="uid://2j7m1tu4xdt2" path="res://assets/materials/Street_T_Section.tres" id="2_u1ii2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4wvoq"]
+size = Vector3(0.149689, 0.199036, 0.00263929)
+
+[node name="Street_T_Section" instance=ExtResource("1_00x57")]
+
+[node name="Street_T_Section" parent="." index="0"]
+material_override = ExtResource("2_u1ii2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Street_T_Section" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Street_T_Section/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 2.84217e-14, 1, -0.0251007, 3.05567e-05, 0.00122824)
+shape = SubResource("BoxShape3D_4wvoq")
