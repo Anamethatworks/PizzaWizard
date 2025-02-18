@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://55fh5e6ithbj"]
+[gd_scene load_steps=16 format=3 uid="uid://55fh5e6ithbj"]
 
 [ext_resource type="Script" path="res://scripts/delivery_manager.gd" id="1_k4mol"]
 [ext_resource type="AudioStream" uid="uid://1w65le37nahk" path="res://assets/Sounds/Start&Accerlate.mp3" id="3_nmgu6"]
@@ -29,6 +29,8 @@ albedo_color = Color(1, 0.678431, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l8ed7"]
 size = Vector3(1.99951, 0.535034, 1.99609)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_cxp7t"]
 
 [node name="World_Root" type="Node3D"]
 
@@ -75,3 +77,6 @@ stream = ExtResource("7_ysd6w")
 
 [node name="Building01" parent="." instance=ExtResource("8_0lnfb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00931, 0.0960157, -20.3528)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_cxp7t")
