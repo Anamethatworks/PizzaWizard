@@ -31,7 +31,8 @@ func _init(location: DropoffPoint, par_time: float) -> void:
 	goalTemperature = randfn(GOAL_TEMP_MEAN, GOAL_TEMP_STANDARD_DEVIATION)
 	
 	# Create pizza instance at pizzeria
-	ordered_pizza = Pizzeria.active_location.create_pizza()
+	Pizzeria.active_location.create_pizza()
+	ordered_pizza = Pizzeria.active_location.get_pizza_from_queue()
 	if not is_instance_valid(ordered_pizza):
 		# The pizzeria couldn't create an order (possibly because it was at
 		# the max order limit), so cancel this order.

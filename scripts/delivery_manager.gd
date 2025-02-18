@@ -1,41 +1,58 @@
 extends Object
 class_name DeliveryManager
 
-## An array of [DropoffPoint]s set in the editor
-static var dropoffPoints : Array[DropoffPoint] = []
+## An array of all [DropoffPoint]s
+static var dropoff_points : Array[DropoffPoint] = []
+
+## An array of all [DropoffPoint]s without an associated order
+static var available_dropoff_points : Array[DropoffPoint] = []
 
 ## An array of [Order]s currently unfulfilled
 static var current_orders : Array[Order] = []
 
 ## Adds a [DropoffPoint] to [dropoffPoints]
 static func addDropoffPoint(point : DropoffPoint) -> void:
-	dropoffPoints.append(point)
+	dropoff_points.append(point)
+	available_dropoff_points.append(point)
+
+## Ranks orders based on how close they are to their [parTime]s
+static func rank_orders() -> void:
+	var reordered : Array[Order] = []
+	var top : int
+	var top_time_to_par : float
+	var time_to_par : float
+	while !current_orders.is_empty():
+		top = 0
+		top_time_to_par = current_orders[top].parTime - current_orders[top].dropoffPoint.time_since_order
+		for i in range(len(current_orders)):
+			time_to_par = current_orders[i].parTime - current_orders[i].dropoffPoint.time_since_order
+			if time_to_par < top_time_to_par:
+				top = i
+				top_time_to_par = time_to_par
+		reordered.append(current_orders.pop_at(top))
+	current_orders = reordered
 
 ## Creates a number of [Order]s randomly at various [DropoffPoint]s in [dropoffPoints]
 static func take_orders(number: int) -> void:
+	var dropoffs : int
+	var index : int
+	var new_order : Order
 	for i in range(number):
-		var dropoffs = len(dropoffPoints)
+		dropoffs = len(available_dropoff_points)
 		if dropoffs == 0:
 			break
-			
-		var index : int
-		var new_order : Order
-		while true:
-			index = randi_range(0, dropoffs - 1)
-			new_order = dropoffPoints[index].add_order()
-			if new_order != null:
-				break
-		dropoffPoints.pop_at(index)
-		current_orders.append(new_order)
-		print("Pizza picked up!")
-		print("Price: %d\nTemp: %d" % [new_order.price, new_order.ordered_pizza.temperature])
+		index = randi_range(0, dropoffs - 1)
+		new_order = available_dropoff_points[index].add_order()
+		if new_order:
+			available_dropoff_points.pop_at(index)
+			current_orders.append(new_order)
+	rank_orders()
 
 ## Removes an [Order] from the array of [current_orders] and destroys it
 static func finish_order(order: Order) -> void:
 	if order in current_orders:
-		dropoffPoints.append(order.dropoffPoint)
-		print("Pizza delivered!")
-		print("Price: %d\nTemp: %d" % [order.price, order.ordered_pizza.temperature])
+		available_dropoff_points.append(order.dropoffPoint)
 		order.ordered_pizza.free()
 		current_orders.erase(order)
 		order.call_deferred("free")
+	rank_orders()
