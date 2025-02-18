@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://huqxtvcmi7ob"
+path="res://.godot/imported/NormalHorn loop.wav-767113d9b24606069d92e80cab91ead8.sample"
+
+[deps]
+
+source_file="res://assets/Sounds/NormalHorn loop.wav"
+dest_files=["res://.godot/imported/NormalHorn loop.wav-767113d9b24606069d92e80cab91ead8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

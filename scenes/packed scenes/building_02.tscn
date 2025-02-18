@@ -11,8 +11,10 @@ size = Vector3(20.08, 5.15063, 15.1341)
 [node name="Building02" parent="." index="0"]
 material_override = ExtResource("2_qepwt")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+[node name="CrashType" type="Node3D" parent="." index="1"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="CrashType" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CrashType/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0498962, 2.72791, -0.561371)
 shape = SubResource("BoxShape3D_j84uc")

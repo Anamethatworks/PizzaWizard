@@ -5,6 +5,7 @@ const BRAKE_FORCE: float = 4400.0
 const MAX_STEERING_ANGLE: float = TAU / 16.0
 const THROTTLE_SPEED: float = 100000.0
 const STEERING_SPEED: float = 10.0
+var Moving = 0
 
 # NOTE: For the car to feel better while driving, these can be different than the actual car model
 @export var track_front: float = 1.284 ## Distance between front tires
@@ -18,19 +19,24 @@ func _ready() -> void:
 	$WheelBR.position = Vector3(track_rear *  0.5, 0.32,   rear_wheel_base)
 	$WheelBL.position = Vector3(track_rear * -0.5, 0.32,   rear_wheel_base)
 	$WheelFL.position = Vector3(track_rear * -0.5, 0.32, -front_wheel_base)
+	
+	$SoundController/StartSound.play()
 
 func _physics_process(delta: float) -> void:	
 	## The minimum longitudinal velocity for the car controller
 	## To begin accelerating in the opposite direction instead of braking
+	Moving = 0
 	const MIN_BRAKE_VELOCITY: float = 100.0
 	
 	var longitudinal_velocity := -cos(rotation.y) * linear_velocity.z - sin(rotation.y) * linear_velocity.x
 	
 	#region throttle control
 	if Input.is_action_pressed("MoveForward") and Input.is_action_pressed("MoveBackward"):
+		Moving = 1
 		set_engine_force(move_toward(get_engine_force(), 0.5 * ENGINE_FORCE, THROTTLE_SPEED * delta))
 		set_brake(BRAKE_FORCE * 0.5)
 	elif Input.is_action_pressed("MoveForward"):
+		Moving = 1
 		if longitudinal_velocity < -MIN_BRAKE_VELOCITY:
 			set_engine_force(move_toward(get_engine_force(), 0.0, THROTTLE_SPEED * delta))
 			set_brake(BRAKE_FORCE)
@@ -38,6 +44,7 @@ func _physics_process(delta: float) -> void:
 			set_brake(0.0)
 			set_engine_force(move_toward(get_engine_force(), ENGINE_FORCE, THROTTLE_SPEED * delta))
 	elif Input.is_action_pressed("MoveBackward"):
+		Moving = 1
 		if longitudinal_velocity > MIN_BRAKE_VELOCITY:
 			set_engine_force(move_toward(get_engine_force(), 0.0, THROTTLE_SPEED * delta))
 			set_brake(BRAKE_FORCE)
@@ -48,7 +55,27 @@ func _physics_process(delta: float) -> void:
 			set_brake(0.0)
 			set_engine_force(move_toward(get_engine_force(), 0.0, THROTTLE_SPEED * delta))
 	#endregion
-
+	
+	#checks for Sound FX
+	
+	if Input.is_action_just_pressed("Honk"):
+		$SoundController/HonkSound.play()
+		
+	
+	if (Moving == 1):
+		if $SoundController/StartSound.playing == true:
+			$SoundController/StartSound.stop()
+		if $SoundController/IdleSound.playing == true:
+			$SoundController/IdleSound.stop()
+		if $SoundController/DrivingSound.playing == false:
+			$SoundController/DrivingSound.play()
+	else:
+		if $SoundController/StartSound.playing == false:
+			if $SoundController/DrivingSound.playing == true:
+				$SoundController/DrivingSound.stop()
+			if $SoundController/IdleSound.playing == false:
+				$SoundController/IdleSound.play()
+	
 	set_steering(move_toward(get_steering(), Input.get_axis("MoveRight", "MoveLeft") * MAX_STEERING_ANGLE, STEERING_SPEED * delta))
 
 
@@ -86,3 +113,15 @@ func calculate_weight_transfer_symmetrical_tracks(longitudinal_force: float, lat
 	var Wbr := 0.5 * (Fx + a * W) * ( 1.0 - Fy / t) / (a + b)
 	var Wbl := 0.5 * (Fx + a * W) * ( 1.0 + Fy / t) / (a + b)
 	var Wfl := 0.5 * (Fx - b * W) * (-1.0 - Fy / t) / (a + b)
+	
+	
+
+
+
+func _on_body_entered(body: Node) -> void:
+	if body.get_parent().name == "CrashType":
+		$SoundController/CrashSound.play()
+	#print("checker")
+	#print(body.name)
+	#if body.get  #get_parent().name == "Building01":
+		#$SoundController/CrashSound.play()
