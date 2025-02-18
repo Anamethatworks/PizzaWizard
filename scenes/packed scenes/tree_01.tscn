@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyllxeecirij3"]
+
+[ext_resource type="PackedScene" uid="uid://cdadlvgth7m4c" path="res://assets/models/Tree01.fbx" id="1_f3hue"]
+[ext_resource type="Texture2D" uid="uid://2t307ws7l33a" path="res://assets/textures/TreeTex.png" id="2_bfkdp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83lxn"]
+albedo_texture = ExtResource("2_bfkdp")
+albedo_texture_force_srgb = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o7qot"]
+height = 3.32043
+
+[node name="Tree01" instance=ExtResource("1_f3hue")]
+
+[node name="Tree" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_83lxn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3468, 0)
+shape = SubResource("CapsuleShape3D_o7qot")
