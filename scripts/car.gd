@@ -119,6 +119,9 @@ func calculate_weight_transfer_symmetrical_tracks(longitudinal_force: float, lat
 
 
 func _on_body_entered(body: Node) -> void:
-	pass
+	if body.get_parent().name == "CrashType":
+		$SoundController/CrashSound.play()
+	#print("checker")
+	#print(body.name)
 	#if body.get  #get_parent().name == "Building01":
 		#$SoundController/CrashSound.play()

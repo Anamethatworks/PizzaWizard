@@ -12,6 +12,8 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 mass = 1600.0
 can_sleep = false
+contact_monitor = true
+max_contacts_reported = 5
 script = ExtResource("1_fbag5")
 
 [node name="CameraRig" type="Node3D" parent="."]

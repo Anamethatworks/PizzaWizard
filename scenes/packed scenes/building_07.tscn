@@ -14,8 +14,10 @@ material_override = ExtResource("2_jqoqn")
 [node name="Pizza" parent="." index="1"]
 visible = false
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
+[node name="CrashType" type="Node3D" parent="." index="2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="CrashType" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CrashType/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50781, 2.08701, -6.5106)
 shape = SubResource("BoxShape3D_bitqv")
