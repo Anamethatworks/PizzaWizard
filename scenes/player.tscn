@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0o6mq08mfgp6"]
+[gd_scene load_steps=6 format=3 uid="uid://d0o6mq08mfgp6"]
 
 [ext_resource type="Script" path="res://scripts/car.gd" id="1_fbag5"]
 [ext_resource type="Script" path="res://scripts/camera_rig.gd" id="2_i16p3"]
-[ext_resource type="PackedScene" uid="uid://buxobhp1h3auw" path="res://assets/models/Car_08.blend" id="3_2a36c"]
+[ext_resource type="PackedScene" uid="uid://bhm7l23im7pxj" path="res://scenes/CarModel.tscn" id="3_yf3pd"]
+[ext_resource type="PackedScene" uid="uid://du3etrdw0a8hw" path="res://scenes/car_08.tscn" id="4_xp1wq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
 size = Vector3(1.475, 1.32617, 4.72877)
@@ -24,8 +25,9 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.026,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.837, 0.054)
 shape = SubResource("BoxShape3D_qawn3")
 
-[node name="Car_08" parent="." instance=ExtResource("3_2a36c")]
+[node name="Car_09" parent="." instance=ExtResource("3_yf3pd")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0.525)
+visible = false
 
 [node name="WheelFR" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.642, 0.32, -1.549)
@@ -48,3 +50,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.642
 use_as_traction = true
 use_as_steering = true
 wheel_radius = 0.3
+
+[node name="Car_08" parent="." instance=ExtResource("3_yf3pd")]
+visible = false
+
+[node name="Car_10" parent="." instance=ExtResource("4_xp1wq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0.525)
