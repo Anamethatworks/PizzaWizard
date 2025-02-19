@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu2xdyi52p35h"]
+
+[ext_resource type="PackedScene" uid="uid://wm186cl66c0n" path="res://assets/models/Fence1.fbx" id="1_gf05j"]
+[ext_resource type="Material" uid="uid://bpm6hy7ye320g" path="res://assets/materials/FenceMat.tres" id="2_br1a1"]
+[ext_resource type="Shape3D" uid="uid://0avh06i4rto8" path="res://assets/FenceBox.tres" id="3_tynjp"]
+
+[node name="Fence1" instance=ExtResource("1_gf05j")]
+
+[node name="Fence1" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_br1a1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0720825, 0.996429, 0.0603638)
+shape = ExtResource("3_tynjp")

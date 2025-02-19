@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cic0wn80smuad"]
+
+[ext_resource type="PackedScene" uid="uid://pb5c8c0m54ix" path="res://assets/models/Building08.fbx" id="1_hrmtg"]
+[ext_resource type="Material" uid="uid://cyxn3upwcgho6" path="res://assets/materials/Building08Mat.tres" id="2_i6g38"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3dc41"]
+size = Vector3(0.126461, 0.152344, 0.0230713)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dtkp2"]
+size = Vector3(0.148666, 0.12384, 0.0395966)
+
+[node name="Building08" instance=ExtResource("1_hrmtg")]
+
+[node name="Building08" parent="." index="0"]
+material_override = ExtResource("2_i6g38")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Building08" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Building08/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 2.84217e-14, 1, 0.053282, 0.0664064, 0.0116578)
+shape = SubResource("BoxShape3D_3dc41")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Building08/StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 2.84217e-14, 1, 0.0652237, 0.0776673, 0.0208054)
+shape = SubResource("BoxShape3D_dtkp2")
