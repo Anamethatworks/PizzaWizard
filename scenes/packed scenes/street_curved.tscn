@@ -14,5 +14,5 @@ material_override = ExtResource("2_5tqld")
 [node name="StaticBody3D" type="StaticBody3D" parent="Street_Curve" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Street_Curve/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 2.84217e-14, 1, 0.025, -0.024, 0.001)
+transform = Transform3D(1, 0, 0, 0, 1, -4.26326e-14, 0, 4.26326e-14, 1, 0.025, -0.024, 0.000449072)
 shape = SubResource("BoxShape3D_xan44")

@@ -43,6 +43,10 @@ fog_density = 0.001
 
 [node name="WorldOrigin" type="Node3D"]
 
+[node name="VehicleBody3D" parent="." instance=ExtResource("15_c10cu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.630764, 0)
+axis_lock_linear_y = false
+
 [node name="GroundPlane" parent="." instance=ExtResource("1_ctek8")]
 transform = Transform3D(300, 0, 0, 0, 300, 0, 0, 0, 300, 0, 0.2, 0)
 
@@ -213,31 +217,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 40)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 100)
 
 [node name="Street_Curved" parent="Streets\'" instance=ExtResource("3_dnhjd")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 120, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 120, -0.001, 0)
 
 [node name="Street_Curved4" parent="Streets\'" instance=ExtResource("3_dnhjd")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40, 0, 100)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40, -0.001, 100)
 
 [node name="Street_Curved8" parent="Streets\'" instance=ExtResource("3_dnhjd")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -120, 0, 140)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -120, -0.001, 140)
 
 [node name="Street_Curved5" parent="Streets\'" instance=ExtResource("3_dnhjd")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 120, 0, 100)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 120, -0.001, 100)
 
 [node name="Street_Curved9" parent="Streets\'" instance=ExtResource("3_dnhjd")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 80, 0, 140)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 80, -0.001, 140)
 
 [node name="Street_Curved7" parent="Streets\'" instance=ExtResource("3_dnhjd")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -20, 0, 80)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -20, -0.001, 80)
 
 [node name="Street_Curved2" parent="Streets\'" instance=ExtResource("3_dnhjd")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40, 0, -40)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40, -0.001, -40)
 
 [node name="Street_Curved3" parent="Streets\'" instance=ExtResource("3_dnhjd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -0.001, -40)
 
 [node name="Street_Curved6" parent="Streets\'" instance=ExtResource("3_dnhjd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, -0.001, 0)
 
 [node name="Street_T_Section" parent="Streets\'" instance=ExtResource("4_gbd43")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, 40)
@@ -636,9 +640,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, -0.001, 20)
 
 [node name="Ground02" parent="Buildings" instance=ExtResource("15_seio2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, -0.001, 60)
-
-[node name="VehicleBody3D" parent="." instance=ExtResource("15_c10cu")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.49878, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)

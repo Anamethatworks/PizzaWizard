@@ -55,22 +55,22 @@ shape = SubResource("BoxShape3D_l8ed7")
 
 [node name="VehicleBody3D" parent="." instance=ExtResource("3_pd1um")]
 
-[node name="SoundController" type="Node3D" parent="VehicleBody3D"]
+[node name="SoundController2" type="Node3D" parent="VehicleBody3D"]
 
-[node name="StartSound" type="AudioStreamPlayer3D" parent="VehicleBody3D/SoundController"]
+[node name="StartSound" type="AudioStreamPlayer3D" parent="VehicleBody3D/SoundController2"]
 stream = ExtResource("3_nmgu6")
 
-[node name="IdleSound" type="AudioStreamPlayer3D" parent="VehicleBody3D/SoundController"]
+[node name="IdleSound" type="AudioStreamPlayer3D" parent="VehicleBody3D/SoundController2"]
 stream = ExtResource("3_vnluo")
 parameters/looping = true
 
-[node name="DrivingSound" type="AudioStreamPlayer3D" parent="VehicleBody3D/SoundController"]
+[node name="DrivingSound" type="AudioStreamPlayer3D" parent="VehicleBody3D/SoundController2"]
 stream = ExtResource("5_8dhie")
 
-[node name="HonkSound" type="AudioStreamPlayer3D" parent="VehicleBody3D/SoundController"]
+[node name="HonkSound" type="AudioStreamPlayer3D" parent="VehicleBody3D/SoundController2"]
 stream = ExtResource("6_8jtm4")
 
-[node name="CrashSound" type="AudioStreamPlayer3D" parent="VehicleBody3D/SoundController"]
+[node name="CrashSound" type="AudioStreamPlayer3D" parent="VehicleBody3D/SoundController2"]
 stream = ExtResource("7_ysd6w")
 
 [node name="Building01" parent="." instance=ExtResource("8_0lnfb")]
