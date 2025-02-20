@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/car.gd" id="1_fbag5"]
 [ext_resource type="Script" path="res://scripts/camera_rig.gd" id="2_i16p3"]
-[ext_resource type="PackedScene" uid="uid://du3etrdw0a8hw" path="res://scenes/car_08.tscn" id="3_p1rk1"]
+[ext_resource type="PackedScene" uid="uid://du3etrdw0a8hw" path="res://scenes/packed scenes/car_08.tscn" id="3_p1rk1"]
 [ext_resource type="Script" path="res://scripts/overcomplicated_wheel.gd" id="4_hmo0v"]
 [ext_resource type="AudioStream" uid="uid://cy3xjtyw8u101" path="res://assets/Sounds/EngineStart.wav" id="5_huam1"]
 [ext_resource type="AudioStream" uid="uid://bwafe74gp1enx" path="res://assets/Sounds/Idiling.mp3" id="6_rst2e"]
@@ -13,7 +13,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
 size = Vector3(1.475, 1.206, 4.729)
 
-[node name="VehicleBody3D" type="VehicleBody3D"]
+[node name="Player" type="VehicleBody3D"]
 mass = 1600.0
 center_of_mass_mode = 1
 can_sleep = false
