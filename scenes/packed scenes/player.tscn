@@ -1,13 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0o6mq08mfgp6"]
+[gd_scene load_steps=16 format=3 uid="uid://cyicas688v2qt"]
 
 [ext_resource type="Script" path="res://scripts/car.gd" id="1_fbag5"]
 [ext_resource type="Script" path="res://scripts/camera_rig.gd" id="2_i16p3"]
-[ext_resource type="PackedScene" uid="uid://du3etrdw0a8hw" path="res://scenes/packed scenes/car_08.tscn" id="3_p1rk1"]
+[ext_resource type="PackedScene" path="res://scenes/packed scenes/car_08.tscn" id="3_p1rk1"]
+[ext_resource type="PackedScene" uid="uid://rirv5cogtbwj" path="res://assets/models/Car_Body.fbx" id="4_6eeew"]
 [ext_resource type="Script" path="res://scripts/overcomplicated_wheel.gd" id="4_hmo0v"]
 [ext_resource type="AudioStream" uid="uid://cy3xjtyw8u101" path="res://assets/Sounds/EngineStart.wav" id="5_huam1"]
+[ext_resource type="PackedScene" uid="uid://dnwh1tl3xr74e" path="res://assets/models/FR_Wheel.fbx" id="6_3tdt2"]
 [ext_resource type="AudioStream" uid="uid://bwafe74gp1enx" path="res://assets/Sounds/Idiling.mp3" id="6_rst2e"]
+[ext_resource type="PackedScene" uid="uid://b0tfeijd80566" path="res://assets/models/RR_Wheel.fbx" id="7_an3l5"]
 [ext_resource type="AudioStream" uid="uid://wq1iqdjnfcli" path="res://assets/Sounds/Driving trimmed.wav" id="7_wvg4q"]
 [ext_resource type="AudioStream" uid="uid://3ulpxxknevtw" path="res://assets/Sounds/NormalHorn end.wav" id="8_brjwe"]
+[ext_resource type="PackedScene" uid="uid://bkw2pmkh6utyr" path="res://assets/models/RL_Wheel.fbx" id="8_r2qhb"]
+[ext_resource type="PackedScene" uid="uid://b4odq7vhsv4il" path="res://assets/models/FL_Wheel.fbx" id="9_i0731"]
 [ext_resource type="AudioStream" uid="uid://c813uqslyvsuo" path="res://assets/Sounds/Crash.wav" id="9_qv3xj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
@@ -33,6 +38,10 @@ shape = SubResource("BoxShape3D_qawn3")
 
 [node name="Car_09" parent="." instance=ExtResource("3_p1rk1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0.525)
+visible = false
+
+[node name="Car_Body" parent="." instance=ExtResource("4_6eeew")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0.525)
 
 [node name="WheelFR" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.642, 0.32, -1.549)
@@ -41,12 +50,18 @@ wheel_roll_influence = 1.0
 wheel_radius = 0.3
 script = ExtResource("4_hmo0v")
 
+[node name="FR_Wheel" parent="WheelFR" instance=ExtResource("6_3tdt2")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0.642, -0.32, -2.074)
+
 [node name="WheelBR" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.642, 0.32, 1.549)
 use_as_traction = true
 wheel_roll_influence = 1.0
 wheel_radius = 0.3
 script = ExtResource("4_hmo0v")
+
+[node name="RR_Wheel" parent="WheelBR" instance=ExtResource("7_an3l5")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0.642, -0.32, 1.024)
 
 [node name="WheelBL" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.642, 0.32, 1.549)
@@ -55,12 +70,18 @@ wheel_roll_influence = 1.0
 wheel_radius = 0.3
 script = ExtResource("4_hmo0v")
 
+[node name="RL_Wheel" parent="WheelBL" instance=ExtResource("8_r2qhb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -0.642, -0.32, 1.024)
+
 [node name="WheelFL" type="VehicleWheel3D" parent="."]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.642, 0.32, -1.549)
 use_as_traction = true
 wheel_roll_influence = 1.0
 wheel_radius = 0.3
 script = ExtResource("4_hmo0v")
+
+[node name="FL_Wheel" parent="WheelFL" instance=ExtResource("9_i0731")]
+transform = Transform3D(1.94707e-07, 0, 1, 0, 1, 0, -1, 0, 1.94707e-07, -0.642, -0.32, -2.074)
 
 [node name="SoundController" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77491, -1.6951)
