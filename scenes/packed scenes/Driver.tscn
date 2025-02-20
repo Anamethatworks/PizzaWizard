@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://clvoyyu7amkfi"]
 
-[ext_resource type="Script" path="res://scenes/packed scenes/Driver.gd" id="1_n2u4x"]
+[ext_resource type="Script" path="res://scripts/NPCdriving.gd" id="1_xlabq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ji62k"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_enpw7"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_r8ks3"]
 
 [node name="Driver" type="Node3D"]
+script = ExtResource("1_xlabq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_ji62k")
@@ -14,10 +15,13 @@ skeleton = NodePath("")
 
 [node name="CrashType" type="Node3D" parent="."]
 
-[node name="DriverBody" type="CharacterBody3D" parent="CrashType"]
-script = ExtResource("1_n2u4x")
+[node name="RigidBody3D" type="RigidBody3D" parent="CrashType"]
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 5
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CrashType/DriverBody"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CrashType/RigidBody3D"]
+shape = SubResource("BoxShape3D_r8ks3")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CrashType/DriverBody"]
-shape = SubResource("BoxShape3D_enpw7")
+[connection signal="body_entered" from="CrashType/RigidBody3D" to="." method="_on_rigid_body_3d_body_entered"]
+[connection signal="body_exited" from="CrashType/RigidBody3D" to="." method="_on_rigid_body_3d_body_exited"]
