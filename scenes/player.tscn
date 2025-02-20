@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://c813uqslyvsuo" path="res://assets/Sounds/Crash.wav" id="9_qv3xj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
-size = Vector3(1.475, 1.32617, 4.72877)
+size = Vector3(1.475, 1.206, 4.729)
 
 [node name="VehicleBody3D" type="VehicleBody3D"]
 mass = 1600.0

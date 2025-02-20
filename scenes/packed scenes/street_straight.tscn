@@ -9,16 +9,16 @@ albedo_texture = ExtResource("2_5duek")
 albedo_texture_force_srgb = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rare6"]
-size = Vector3(19.9807, 0.2, 10)
+size = Vector3(20, 0.25, 10)
 
 [node name="Street_Straight" instance=ExtResource("1_4xi40")]
 
 [node name="Street_Straight" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_33bmm")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Street_Straight" index="0"]
-transform = Transform3D(0.01, 0, 0, 0, -1.19209e-09, -0.01, 0, 0.01, -1.19209e-09, 0, 0, 0)
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98428e-13, 0, -2.98428e-13, 1, 0, 0, 0)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Street_Straight/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00720215, 0.125, 0)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
 shape = SubResource("BoxShape3D_rare6")
