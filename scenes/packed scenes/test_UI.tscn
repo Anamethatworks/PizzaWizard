@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3judlgpxuk28"]
+
+[ext_resource type="Script" path="res://scripts/ui_manager.gd" id="1_jur3s"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_doc81"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdad3"]
+transparency = 1
+albedo_color = Color(0.858824, 0.580392, 0.113725, 0.470588)
+
+[node name="UIPanel" type="Panel"]
+offset_right = 272.0
+offset_bottom = 476.0
+
+[node name="UIManager" type="Node" parent="."]
+script = ExtResource("1_jur3s")
+
+[node name="Arrow" type="Node3D" parent="UIManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="ArrowMesh" type="MeshInstance3D" parent="UIManager/Arrow"]
+transform = Transform3D(1.5, 0, 0, 0, -8.74228e-08, 0.25, 0, -2, -1.09278e-08, 0, 5, 0)
+mesh = SubResource("PrismMesh_doc81")
+skeleton = NodePath("../../../../Player")
+surface_material_override/0 = SubResource("StandardMaterial3D_xdad3")
+
+[node name="InfoDisplay" type="TextEdit" parent="."]
+layout_mode = 0
+offset_right = 272.0
+offset_bottom = 476.0
+text = "Total Wallet: $0.00
+Ambient Temperature: 0 F
+Current Orders:
+
+"
+
+[node name="OrderList" type="GridContainer" parent="."]
+layout_mode = 0
+offset_top = 89.0
+offset_right = 272.0
+offset_bottom = 476.0
