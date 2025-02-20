@@ -1,17 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://d7cpua1do3df"]
+[gd_scene load_steps=5 format=3 uid="uid://d7cpua1do3df"]
 
 [ext_resource type="PackedScene" uid="uid://cgiktwspgm6fr" path="res://assets/models/BuildingSide01.fbx" id="1_27rrf"]
 [ext_resource type="Material" uid="uid://4nph7loym2aa" path="res://assets/materials/BuildingSide01Mat.tres" id="2_eo5eh"]
+[ext_resource type="PhysicsMaterial" uid="uid://c48psowu025na" path="res://assets/physics materials/concrete.tres" id="3_iodlt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_grkii"]
-size = Vector3(19.938, 0.476501, 15.0425)
+size = Vector3(20, 0.477, 15)
 
 [node name="BuildingSide01" instance=ExtResource("1_27rrf")]
 
 [node name="BuildingSide01" parent="." index="0"]
+transform = Transform3D(700, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, -0.025, 0.397, 0.05)
 material_override = ExtResource("2_eo5eh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+physics_material_override = ExtResource("3_iodlt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01973, 0.15451, -3.44795)

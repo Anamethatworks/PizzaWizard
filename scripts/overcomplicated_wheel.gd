@@ -24,6 +24,18 @@ func slip_and_grip() -> Vector2:
 	
 	var y := normal_slip  / rho * pacejka_magic_formula_longitudinal(rho * SLIP_SCALE_FACTOR)
 	var x := normal_angle / rho * pacejka_magic_formula_lateral(rho * ANGLE_SCALE_FACTOR)
+	
+	set_friction_slip(10.5)
+	var terrain := get_contact_body()
+	if is_instance_valid(terrain):
+		if terrain is StaticBody3D:
+			if is_instance_valid(terrain.physics_material_override):
+				var friction: float = terrain.physics_material_override.friction
+				x *= friction
+				y *= friction
+				print(friction)
+				set_friction_slip(friction * 10.5)
+	
 	return Vector2(x, y)
 	
 ## A simplified version of Pacejka's magic formula for longitudinal tire slip

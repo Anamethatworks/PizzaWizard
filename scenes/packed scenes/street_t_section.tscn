@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6527kuwkmfa1"]
+[gd_scene load_steps=5 format=3 uid="uid://b6527kuwkmfa1"]
 
 [ext_resource type="PackedScene" uid="uid://77cuk4yn4quy" path="res://assets/models/Street_T_Section.fbx" id="1_00x57"]
 [ext_resource type="Material" uid="uid://2j7m1tu4xdt2" path="res://assets/materials/Street_T_Section.tres" id="2_u1ii2"]
+[ext_resource type="PhysicsMaterial" uid="uid://b7f637a3l4fdb" path="res://assets/physics materials/asphalt.tres" id="3_lloa1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4wvoq"]
 size = Vector3(15, 0.25, 20)
@@ -13,6 +14,7 @@ transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 
 material_override = ExtResource("2_u1ii2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+physics_material_override = ExtResource("3_lloa1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 2.84217e-14, 1, -2.5, 0.125, 0)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyfflb4spf3it"]
+[gd_scene load_steps=5 format=3 uid="uid://dyfflb4spf3it"]
 
 [ext_resource type="PackedScene" uid="uid://cfkkk7cx1y6l0" path="res://assets/models/Alley02.fbx" id="1_ru5ma"]
 [ext_resource type="Material" uid="uid://cqnvkjjhtko01" path="res://assets/materials/AlleyMat.tres" id="2_jqhae"]
+[ext_resource type="PhysicsMaterial" uid="uid://b7f637a3l4fdb" path="res://assets/physics materials/asphalt.tres" id="3_0qbs4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_el2ah"]
 size = Vector3(14.9973, 0.227966, 4.9603)
@@ -12,6 +13,7 @@ size = Vector3(14.9973, 0.227966, 4.9603)
 material_override = ExtResource("2_jqhae")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+physics_material_override = ExtResource("3_0qbs4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4967, 0.313629, -0.495987)
