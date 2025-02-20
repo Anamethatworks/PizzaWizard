@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0o6mq08mfgp6"]
+[gd_scene load_steps=12 format=3 uid="uid://d0o6mq08mfgp6"]
 
 [ext_resource type="Script" path="res://scripts/car.gd" id="1_fbag5"]
 [ext_resource type="Script" path="res://scripts/camera_rig.gd" id="2_i16p3"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://wq1iqdjnfcli" path="res://assets/Sounds/Driving trimmed.wav" id="7_wvg4q"]
 [ext_resource type="AudioStream" uid="uid://3ulpxxknevtw" path="res://assets/Sounds/NormalHorn end.wav" id="8_brjwe"]
 [ext_resource type="AudioStream" uid="uid://c813uqslyvsuo" path="res://assets/Sounds/Crash.wav" id="9_qv3xj"]
+[ext_resource type="Script" path="res://scripts/temp_manager.gd" id="10_8q73a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
 size = Vector3(1.475, 1.206, 4.729)
@@ -83,5 +84,8 @@ stream = ExtResource("8_brjwe")
 
 [node name="CrashSound" type="AudioStreamPlayer3D" parent="SoundController"]
 stream = ExtResource("9_qv3xj")
+
+[node name="PizzaHolder" type="Node" parent="."]
+script = ExtResource("10_8q73a")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
