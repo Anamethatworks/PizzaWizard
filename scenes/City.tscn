@@ -1,14 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://de1pf3fwvdxx6"]
+[gd_scene load_steps=20 format=3 uid="uid://dmv03tyk5tbb1"]
 
 [ext_resource type="Script" path="res://scripts/ui_manager.gd" id="1_1wesl"]
 [ext_resource type="Script" path="res://scripts/temp_zone.gd" id="1_na6vi"]
 [ext_resource type="Texture2D" uid="uid://x86ejv2g0gmr" path="res://assets/textures/pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg" id="2_xa6vl"]
-[ext_resource type="Script" path="res://scripts/Player.gd" id="3_3n77w"]
 [ext_resource type="Script" path="res://scripts/temp_manager.gd" id="3_88qx7"]
-[ext_resource type="Script" path="res://scripts/camera_rig.gd" id="4_mngga"]
-[ext_resource type="PackedScene" uid="uid://buxobhp1h3auw" path="res://assets/models/Car_08.blend" id="5_mtjjk"]
-[ext_resource type="PackedScene" uid="uid://dli05vaockrff" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="6_7kxbt"]
-[ext_resource type="PackedScene" uid="uid://b4rcdd6tiu1as" path="res://scenes/packed scenes/pizza_pickup_point.tscn" id="6_u5i5a"]
+[ext_resource type="PackedScene" uid="uid://d0o6mq08mfgp6" path="res://scenes/player.tscn" id="4_jb266"]
+[ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="6_7kxbt"]
+[ext_resource type="PackedScene" uid="uid://d1t0s5g077ud1" path="res://scenes/packed scenes/pizza_pickup_point.tscn" id="6_u5i5a"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_doc81"]
 
@@ -37,10 +35,7 @@ size = Vector3(14.7939, 12.1153, 14.2777)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exfkb"]
 albedo_texture = ExtResource("2_xa6vl")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_x4ixn"]
-size = Vector3(1.99951, 0.535034, 1.99609)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_18an1"]
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_so2cn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_o47mr"]
 
@@ -58,7 +53,7 @@ offset_bottom = 476.0
 
 [node name="UIManager" type="Node" parent="InfoPanel" node_paths=PackedStringArray("player", "arrow", "info_display", "order_list_display")]
 script = ExtResource("1_1wesl")
-player = NodePath("../../Player")
+player = NodePath("../../VehicleBody3D")
 arrow = NodePath("Arrow")
 info_display = NodePath("../InfoDisplay")
 order_list_display = NodePath("../OrderList")
@@ -69,7 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="ArrowMesh" type="MeshInstance3D" parent="InfoPanel/UIManager/Arrow"]
 transform = Transform3D(1.5, 0, 0, 0, -8.74228e-08, 0.25, 0, -2, -1.09278e-08, 0, 5, 0)
 mesh = SubResource("PrismMesh_doc81")
-skeleton = NodePath("../../../../Player")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_xdad3")
 
 [node name="InfoDisplay" type="TextEdit" parent="InfoPanel"]
@@ -113,27 +108,12 @@ surface_material_override/0 = SubResource("StandardMaterial3D_exfkb")
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00366211, -0.244617, -0.00195313)
-shape = SubResource("BoxShape3D_x4ixn")
+shape = SubResource("WorldBoundaryShape3D_so2cn")
 
-[node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.627249, 0)
-script = ExtResource("3_3n77w")
+[node name="VehicleBody3D" parent="." instance=ExtResource("4_jb266")]
 
-[node name="PizzaHolder" type="Node" parent="Player"]
+[node name="PizzaHolder" type="Node" parent="VehicleBody3D"]
 script = ExtResource("3_88qx7")
-
-[node name="CameraRig" type="Node3D" parent="Player"]
-script = ExtResource("4_mngga")
-
-[node name="Camera3D" type="Camera3D" parent="Player/CameraRig"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0259258, 7.48674, 0.271881)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-shape = SubResource("BoxShape3D_18an1")
-
-[node name="Car_08" parent="Player" instance=ExtResource("5_mtjjk")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Pizzeria" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.898, 0, -13.025)

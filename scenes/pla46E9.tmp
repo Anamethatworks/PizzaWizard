@@ -1,24 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0o6mq08mfgp6"]
+[gd_scene load_steps=6 format=3 uid="uid://d0o6mq08mfgp6"]
 
 [ext_resource type="Script" path="res://scripts/car.gd" id="1_fbag5"]
 [ext_resource type="Script" path="res://scripts/camera_rig.gd" id="2_i16p3"]
 [ext_resource type="PackedScene" uid="uid://buxobhp1h3auw" path="res://assets/models/Car_08.blend" id="3_2a36c"]
-[ext_resource type="Script" path="res://scripts/overcomplicated_wheel.gd" id="4_hmo0v"]
-[ext_resource type="AudioStream" uid="uid://cy3xjtyw8u101" path="res://assets/Sounds/EngineStart.wav" id="5_huam1"]
-[ext_resource type="AudioStream" uid="uid://bwafe74gp1enx" path="res://assets/Sounds/Idiling.mp3" id="6_rst2e"]
-[ext_resource type="AudioStream" uid="uid://wq1iqdjnfcli" path="res://assets/Sounds/Driving trimmed.wav" id="7_wvg4q"]
-[ext_resource type="AudioStream" uid="uid://3ulpxxknevtw" path="res://assets/Sounds/NormalHorn end.wav" id="8_brjwe"]
-[ext_resource type="AudioStream" uid="uid://c813uqslyvsuo" path="res://assets/Sounds/Crash.wav" id="9_qv3xj"]
+[ext_resource type="Script" path="res://overcomplicated_wheel.gd" id="4_hmo0v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
 size = Vector3(1.475, 1.32617, 4.72877)
 
 [node name="VehicleBody3D" type="VehicleBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 mass = 1600.0
-center_of_mass_mode = 1
 can_sleep = false
-contact_monitor = true
-max_contacts_reported = 5
 script = ExtResource("1_fbag5")
 
 [node name="CameraRig" type="Node3D" parent="."]
@@ -56,32 +50,8 @@ wheel_radius = 0.3
 script = ExtResource("4_hmo0v")
 
 [node name="WheelFL" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.642, 0.32, -1.549)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.642, 0.32, -1.549)
 use_as_traction = true
 wheel_roll_influence = 1.0
 wheel_radius = 0.3
 script = ExtResource("4_hmo0v")
-
-[node name="SoundController" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77491, -1.6951)
-
-[node name="StartSound" type="AudioStreamPlayer3D" parent="SoundController"]
-stream = ExtResource("5_huam1")
-autoplay = true
-
-[node name="IdleSound" type="AudioStreamPlayer3D" parent="SoundController"]
-stream = ExtResource("6_rst2e")
-autoplay = true
-parameters/looping = true
-
-[node name="DrivingSound" type="AudioStreamPlayer3D" parent="SoundController"]
-stream = ExtResource("7_wvg4q")
-autoplay = true
-
-[node name="HonkSound" type="AudioStreamPlayer3D" parent="SoundController"]
-stream = ExtResource("8_brjwe")
-
-[node name="CrashSound" type="AudioStreamPlayer3D" parent="SoundController"]
-stream = ExtResource("9_qv3xj")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

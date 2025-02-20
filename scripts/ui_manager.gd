@@ -1,6 +1,6 @@
 extends Node
 
-@export var player : Node3D
+@export var player : VehicleBody3D
 @export var arrow : Node3D
 @export var info_display : TextEdit
 @export var order_list_display : GridContainer
