@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://2j7m1tu4xdt2" path="res://assets/materials/Street_T_Section.tres" id="2_u1ii2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4wvoq"]
-size = Vector3(0.149689, 0.199036, 0.00263929)
+size = Vector3(0.15, 0.2, 0.002)
 
 [node name="Street_T_Section" instance=ExtResource("1_00x57")]
 

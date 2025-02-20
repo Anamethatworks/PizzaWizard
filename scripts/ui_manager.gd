@@ -4,12 +4,16 @@ extends Node
 @export var arrow : Node3D
 @export var info_display : TextEdit
 @export var order_list_display : GridContainer
-var info_format_string = "Total Wallet: $%f\nAmbient Temperature: %d F\nCurrent Orders:"
+var info_format_string = "Total Wallet: $%.*f\nAmbient Temperature: %d F\nCurrent Orders:"
 var order_format_string = "%d.) Temp: %d F\n     Par Time: %ds\n     Time Since Order: %ds\n"
 
 func _process(delta : float) -> void:
 	# Format the info display
-	info_display.text = info_format_string % [Money.player_gold, TempManager.amb_temp]
+	info_display.text = info_format_string % [
+		2,	# pad to 2 decimal places 
+		Money.player_gold,
+		TempManager.amb_temp
+	]
 	
 	# Clear the order list
 	for child in order_list_display.get_children():
