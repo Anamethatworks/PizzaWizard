@@ -10,9 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://3ulpxxknevtw" path="res://assets/Sounds/NormalHorn end.wav" id="8_brjwe"]
 [ext_resource type="AudioStream" uid="uid://c813uqslyvsuo" path="res://assets/Sounds/Crash.wav" id="9_qv3xj"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_njtk7"]
-radius = 0.897734
-height = 5.07488
+[sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
+size = Vector3(1.475, 1.32617, 4.72877)
 
 [node name="VehicleBody3D" type="VehicleBody3D"]
 mass = 1600.0
@@ -26,9 +25,13 @@ script = ExtResource("1_fbag5")
 script = ExtResource("2_i16p3")
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.0259258, 10.4867, 4.27188)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0259258, 7.48674, 0.271881)
 
-[node name="Car_09" parent="." instance=ExtResource("3_1gmv3")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.837, 0.054)
+shape = SubResource("BoxShape3D_qawn3")
+
+[node name="Car_08" parent="." instance=ExtResource("3_2a36c")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0.525)
 
 [node name="WheelFR" type="VehicleWheel3D" parent="."]
@@ -80,27 +83,5 @@ stream = ExtResource("8_brjwe")
 
 [node name="CrashSound" type="AudioStreamPlayer3D" parent="SoundController"]
 stream = ExtResource("9_qv3xj")
-
-[node name="SoundController" type="Node3D" parent="."]
-
-[node name="StartSound" type="AudioStreamPlayer3D" parent="SoundController"]
-stream = ExtResource("4_8665t")
-
-[node name="IdleSound" type="AudioStreamPlayer3D" parent="SoundController"]
-stream = ExtResource("5_qg7na")
-parameters/looping = true
-
-[node name="DrivingSound" type="AudioStreamPlayer3D" parent="SoundController"]
-stream = ExtResource("6_fyq68")
-
-[node name="HonkSound" type="AudioStreamPlayer3D" parent="SoundController"]
-stream = ExtResource("7_upluc")
-
-[node name="CrashSound" type="AudioStreamPlayer3D" parent="SoundController"]
-stream = ExtResource("8_f13ui")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.87087, 0)
-shape = SubResource("CapsuleShape3D_njtk7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
