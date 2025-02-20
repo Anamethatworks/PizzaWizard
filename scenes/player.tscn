@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/car.gd" id="1_fbag5"]
 [ext_resource type="Script" path="res://scripts/camera_rig.gd" id="2_i16p3"]
-[ext_resource type="PackedScene" uid="uid://buxobhp1h3auw" path="res://assets/models/Car_08.blend" id="3_2a36c"]
+[ext_resource type="PackedScene" uid="uid://du3etrdw0a8hw" path="res://scenes/car_08.tscn" id="3_p1rk1"]
 [ext_resource type="Script" path="res://scripts/overcomplicated_wheel.gd" id="4_hmo0v"]
 [ext_resource type="AudioStream" uid="uid://cy3xjtyw8u101" path="res://assets/Sounds/EngineStart.wav" id="5_huam1"]
 [ext_resource type="AudioStream" uid="uid://bwafe74gp1enx" path="res://assets/Sounds/Idiling.mp3" id="6_rst2e"]
@@ -31,7 +31,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0259
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.837, 0.054)
 shape = SubResource("BoxShape3D_qawn3")
 
-[node name="Car_08" parent="." instance=ExtResource("3_2a36c")]
+[node name="Car_09" parent="." instance=ExtResource("3_p1rk1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0.525)
 
 [node name="WheelFR" type="VehicleWheel3D" parent="."]
