@@ -23,7 +23,7 @@ class ScoreCashBonus extends Object:
 		assert(not earned, "Tried to earn the same bonus twice")
 		Money.earn_money(bonus_amount)
 		earned = true
-		free()
+		call_deferred("free")
 
 
 ## How tolerant the score function is of temperature difference

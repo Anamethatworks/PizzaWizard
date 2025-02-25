@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/car.gd" id="1_fbag5"]
 [ext_resource type="Script" path="res://scripts/camera_rig.gd" id="2_i16p3"]
-[ext_resource type="PackedScene" path="res://scenes/packed scenes/car_08.tscn" id="3_p1rk1"]
+[ext_resource type="PackedScene" uid="uid://du3etrdw0a8hw" path="res://scenes/packed scenes/car_08.tscn" id="3_p1rk1"]
 [ext_resource type="PackedScene" uid="uid://rirv5cogtbwj" path="res://assets/models/Car_Body.fbx" id="4_6eeew"]
 [ext_resource type="Script" path="res://scripts/overcomplicated_wheel.gd" id="4_hmo0v"]
 [ext_resource type="AudioStream" uid="uid://cy3xjtyw8u101" path="res://assets/Sounds/EngineStart.wav" id="5_huam1"]
