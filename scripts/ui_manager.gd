@@ -43,14 +43,11 @@ func _process(delta : float) -> void:
 		]
 		
 	# Point the arrow at the target location
-	arrow.position = player.position
-	if DeliveryManager.current_orders.is_empty():
-		arrow.visible = false
-	else:
-		if !arrow.visible:
-			arrow.visible = true
-		var target = DeliveryManager.current_orders[0].dropoffPoint.get_parent_node_3d().position
-		arrow.look_at_from_position(
+	arrow.global_position = player.global_position
+	var target = Pizzeria.active_location.global_position
+	if !DeliveryManager.current_orders.is_empty():
+		target = DeliveryManager.current_orders[0].dropoffPoint.get_parent_node_3d().position
+	arrow.look_at_from_position(
 			Vector3(player.position.x, 0, player.position.z),
 			Vector3(target.x, 0, target.z)
 		)
