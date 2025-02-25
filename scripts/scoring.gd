@@ -2,7 +2,6 @@ extends Object
 class_name Score
 ## Class for score (should be globally loaded)
 
-
 ## A class for a cash bonus the player can get for getting a high enough average score
 class ScoreCashBonus extends Object:
 	var min_average_score: float ## The score threshold for the order

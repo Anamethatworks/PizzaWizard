@@ -26,8 +26,8 @@ func _init(location: DropoffPoint, par_time: float) -> void:
 		price = PRICE_MINIMUM + absf(PRICE_MINIMUM - price)
 	
 	# Initialize goal temperature
-	const GOAL_TEMP_MEAN              : float = 50.0
-	const GOAL_TEMP_STANDARD_DEVIATION: float = 20.0
+	const GOAL_TEMP_MEAN              : float = 150.0
+	const GOAL_TEMP_STANDARD_DEVIATION: float = 30.0
 	goalTemperature = randfn(GOAL_TEMP_MEAN, GOAL_TEMP_STANDARD_DEVIATION)
 	
 	# Create pizza instance at pizzeria
