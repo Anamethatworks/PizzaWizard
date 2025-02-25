@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://clafn50fvnjhe"]
+[gd_scene load_steps=6 format=3 uid="uid://clafn50fvnjhe"]
 
+[ext_resource type="PhysicsMaterial" uid="uid://bgktl7bbs0y2a" path="res://assets/physics materials/grass.tres" id="1_2on0p"]
 [ext_resource type="Texture2D" uid="uid://5jnxt2oq081" path="res://assets/textures/Ground01Tex.png" id="1_8mt6r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a6svr"]
-size = Vector3(2.0022, 0.0887451, 1.99664)
+size = Vector3(600, 0.25, 600)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xpvc5"]
 
@@ -14,11 +15,13 @@ albedo_texture = ExtResource("1_8mt6r")
 [node name="Node3D" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+physics_material_override = ExtResource("1_2on0p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00646973, -0.0448608, -0.00796509)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
 shape = SubResource("BoxShape3D_a6svr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(300, 0, 0, 0, 300, 0, 0, 0, 300, 0, 0, 0)
 mesh = SubResource("PlaneMesh_xpvc5")
 surface_material_override/0 = SubResource("StandardMaterial3D_okaq3")

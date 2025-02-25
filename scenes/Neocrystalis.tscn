@@ -44,10 +44,10 @@ fog_density = 0.001
 [node name="WorldOrigin" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("15_c10cu")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.630764, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.1, 0)
 
 [node name="GroundPlane" parent="." instance=ExtResource("1_ctek8")]
-transform = Transform3D(300, 0, 0, 0, 300, 0, 0, 0, 300, 0, 0.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 
 [node name="Streets\'" type="Node3D" parent="."]
 
