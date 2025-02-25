@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bed3w7n1gdq0k"]
+[gd_scene load_steps=5 format=3 uid="uid://ve1etr7vlfpc"]
 
 [ext_resource type="PackedScene" uid="uid://cph6xelwt8rmy" path="res://assets/models/Street_Curved.fbx" id="1_01g0b"]
 [ext_resource type="Material" uid="uid://dtnv4kmo41c2c" path="res://assets/materials/Street_CurvedMat.tres" id="2_5tqld"]

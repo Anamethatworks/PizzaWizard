@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://clafn50fvnjhe"]
+[gd_scene load_steps=6 format=3 uid="uid://cn3xuf41u7awb"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://bgktl7bbs0y2a" path="res://assets/physics materials/grass.tres" id="1_2on0p"]
 [ext_resource type="Texture2D" uid="uid://5jnxt2oq081" path="res://assets/textures/Ground01Tex.png" id="1_8mt6r"]

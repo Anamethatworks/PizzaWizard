@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddxfok72mad7q"]
+[gd_scene load_steps=4 format=3 uid="uid://c1tp3jbp7b42p"]
 
 [ext_resource type="PackedScene" uid="uid://b55845v7054bv" path="res://assets/models/Fence4.fbx" id="1_4k3a7"]
 [ext_resource type="Material" uid="uid://bpm6hy7ye320g" path="res://assets/materials/FenceMat.tres" id="2_xught"]

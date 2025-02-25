@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyfflb4spf3it"]
+[gd_scene load_steps=5 format=3 uid="uid://eojp7lcevpq5"]
 
 [ext_resource type="PackedScene" uid="uid://cfkkk7cx1y6l0" path="res://assets/models/Alley02.fbx" id="1_ru5ma"]
 [ext_resource type="Material" uid="uid://cqnvkjjhtko01" path="res://assets/materials/AlleyMat.tres" id="2_jqhae"]

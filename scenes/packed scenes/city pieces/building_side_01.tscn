@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d7cpua1do3df"]
+[gd_scene load_steps=5 format=3 uid="uid://druo50mqitvql"]
 
 [ext_resource type="PackedScene" uid="uid://cgiktwspgm6fr" path="res://assets/models/BuildingSide01.fbx" id="1_27rrf"]
 [ext_resource type="Material" uid="uid://4nph7loym2aa" path="res://assets/materials/BuildingSide01Mat.tres" id="2_eo5eh"]

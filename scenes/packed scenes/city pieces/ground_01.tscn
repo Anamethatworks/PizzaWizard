@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpuc7nhxkrckw"]
+[gd_scene load_steps=4 format=3 uid="uid://bb61oad3sl38s"]
 
 [ext_resource type="PackedScene" uid="uid://besys45yhmxkh" path="res://assets/models/Ground01.fbx" id="1_bmf1n"]
 [ext_resource type="PhysicsMaterial" uid="uid://bgktl7bbs0y2a" path="res://assets/physics materials/grass.tres" id="2_kypjd"]

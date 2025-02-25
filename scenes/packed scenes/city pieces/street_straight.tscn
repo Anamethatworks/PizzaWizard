@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://mxioqbsuuut6"]
+[gd_scene load_steps=6 format=3 uid="uid://brhx8i8tpofdj"]
 
 [ext_resource type="PackedScene" uid="uid://c0b6rbqpqm1ig" path="res://assets/models/Street_Straight.fbx" id="1_4xi40"]
 [ext_resource type="Texture2D" uid="uid://cr80dte4q7kvc" path="res://assets/textures/RoadStraightTex.png" id="2_5duek"]

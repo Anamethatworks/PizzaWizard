@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1x0ifchnyao"]
+[gd_scene load_steps=5 format=3 uid="uid://cqe1wp27m126b"]
 
 [ext_resource type="PackedScene" uid="uid://dg4m1shdrmbdp" path="res://assets/models/Street_Intersection.fbx" id="1_6fpop"]
 [ext_resource type="Material" uid="uid://dmug2ic6ovbuk" path="res://assets/materials/Street_Intersection.tres" id="2_tgc60"]
