@@ -34,7 +34,6 @@ func slip_and_grip() -> Vector2:
 				x *= friction
 				y *= friction
 				set_friction_slip(friction * 10.5)
-	
 	return Vector2(x, y)
 	
 ## A simplified version of Pacejka's magic formula for longitudinal tire slip
@@ -79,23 +78,23 @@ func pacejka_magic_formula_lateral(angle: float) -> float:
 ## x: The wheel slip
 ## y: The wheel slip angle
 func get_slip_velocity() -> Vector2:
-	# Inspired by Brian Beckman's "The Physics of Racing, Part 24: Combination Slip"
-	# http://autoxer.skiblack.com/phys_racing/phors24.htm
-	# I did not use his formulae, but the ideas are the same
-	const MIN_LATERAL_SLIP_VELOCITY: float = 2.0
-	var steering_angle_vector := Vector2.from_angle(steer_test)
 	var theoretical_velocity := -get_rpm() * TAU / 60.0 * wheel_radius
-	var dot: float = absf(local_velocity.x * steering_angle_vector.y + local_velocity.y * steering_angle_vector.x)
-	if local_velocity.is_zero_approx():
-		dot = 1.0
-	else:
-		dot /= local_velocity.length()
-	var slip: float = (theoretical_velocity - (local_velocity.length() * signf(local_velocity.y))) * dot
-	var local_angle: float = atan2(local_velocity.x, local_velocity.y)
-	var slip_angle: float = local_angle - steer_test
-	if local_velocity.y < 0.0:
-		slip_angle += PI if local_angle < steer_test else -PI
-	if local_velocity.length_squared() < MIN_LATERAL_SLIP_VELOCITY * MIN_LATERAL_SLIP_VELOCITY:
-		slip_angle *= local_velocity.length() / MIN_LATERAL_SLIP_VELOCITY
-	return Vector2(slip, rad_to_deg(slip_angle))
+	var slip: float = 0.0 if (local_velocity.is_zero_approx()) else (theoretical_velocity - local_velocity.y) / local_velocity.length()
+	if absf(local_velocity.y) < 1.00: # Low velocity failsafe (So the car doesn't shake at rest)
+		slip *= 0.01
+	var tire_velocity: Vector2 = Vector2(local_velocity.y, local_velocity.x).rotated(-steering)
+	var slip_angle: float = atan2(tire_velocity.y, tire_velocity.x)
+	slip_angle = rad_to_deg(slip_angle)
+	while slip_angle > 90.0:
+		slip_angle -= 180.0
+	while slip_angle < -90.0:
+		slip_angle += 180.0
 	
+	# Manual hack to reduce lateral slip, especially when car is moving slowly
+	slip_angle *= sigmoid(local_velocity.length_squared() * 0.001)
+	
+	return Vector2(slip, slip_angle)
+	
+## A sigmoid function for smoothly restricting an input
+func sigmoid(x: float) -> float:
+	return x / sqrt(1.0 + x * x)

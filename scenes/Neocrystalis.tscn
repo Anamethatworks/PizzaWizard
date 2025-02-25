@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://baceer8t705ij" path="res://scenes/packed scenes/city pieces/building_07.tscn" id="12_m2e2x"]
 [ext_resource type="PackedScene" uid="uid://dqmn40hjq2om6" path="res://scenes/packed scenes/city pieces/alley_01.tscn" id="12_vxrlu"]
 [ext_resource type="PackedScene" uid="uid://eojp7lcevpq5" path="res://scenes/packed scenes/city pieces/alley_02.tscn" id="14_xqbjv"]
-[ext_resource type="PackedScene" uid="uid://bt2u74rrtdnnu" path="res://scenes/packed scenes/player.tscn" id="15_c10cu"]
+[ext_resource type="PackedScene" uid="uid://dsvq25iq46jfm" path="res://scenes/packed scenes/player.tscn" id="15_c10cu"]
 [ext_resource type="PackedScene" uid="uid://bb61oad3sl38s" path="res://scenes/packed scenes/city pieces/ground_01.tscn" id="15_seio2"]
 [ext_resource type="PackedScene" uid="uid://cyllxeecirij3" path="res://scenes/packed scenes/city pieces/tree_01.tscn" id="20_v3qc1"]
 [ext_resource type="PackedScene" uid="uid://cjswf5t6icwr5" path="res://scenes/packed scenes/city pieces/fence_1.tscn" id="21_2svob"]
