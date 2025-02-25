@@ -7,10 +7,11 @@
 [node name="Fence4" instance=ExtResource("1_4k3a7")]
 
 [node name="Fence4" parent="." index="0"]
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, -0.059)
 surface_material_override/0 = ExtResource("2_xught")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0720606, 0.999839, 0.0523969)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = ExtResource("3_qkayo")

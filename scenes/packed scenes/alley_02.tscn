@@ -5,16 +5,17 @@
 [ext_resource type="PhysicsMaterial" uid="uid://b7f637a3l4fdb" path="res://assets/physics materials/asphalt.tres" id="3_0qbs4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_el2ah"]
-size = Vector3(14.9973, 0.227966, 4.9603)
+size = Vector3(15, 0.25, 5)
 
 [node name="Alley02" instance=ExtResource("1_ru5ma")]
 
 [node name="Alley01_001" parent="." index="0"]
+transform = Transform3D(2.38419e-05, 1500, 1.49012e-05, 5.96046e-06, -0.000178814, 100, 200, -8.9407e-05, 0, 7.5, 0, 0.5)
 material_override = ExtResource("2_jqhae")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
 physics_material_override = ExtResource("3_0qbs4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4967, 0.313629, -0.495987)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
 shape = SubResource("BoxShape3D_el2ah")

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://5jnxt2oq081" path="res://assets/textures/Ground01Tex.png" id="1_8mt6r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a6svr"]
-size = Vector3(2, 0.2, 2)
+size = Vector3(600, 0.25, 600)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xpvc5"]
 
@@ -18,9 +18,10 @@ albedo_texture = ExtResource("1_8mt6r")
 physics_material_override = ExtResource("1_2on0p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
 shape = SubResource("BoxShape3D_a6svr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(300, 0, 0, 0, 300, 0, 0, 0, 300, 0, 0, 0)
 mesh = SubResource("PlaneMesh_xpvc5")
 surface_material_override/0 = SubResource("StandardMaterial3D_okaq3")

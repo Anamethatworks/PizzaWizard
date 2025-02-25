@@ -33,7 +33,6 @@ func slip_and_grip() -> Vector2:
 				var friction: float = terrain.physics_material_override.friction
 				x *= friction
 				y *= friction
-				print(friction)
 				set_friction_slip(friction * 10.5)
 	
 	return Vector2(x, y)
