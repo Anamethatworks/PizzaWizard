@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbla8acu07xiw"
-path="res://.godot/imported/MinimapFrame.png-b2a19298a901401a054123381d94ef3b.ctex"
+uid="uid://bj6sx50dxjiof"
+path="res://.godot/imported/PizzeriaIconBig.png-f2c46938bd2a761e82a5819ee9142fad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/MinimapFrame.png"
-dest_files=["res://.godot/imported/MinimapFrame.png-b2a19298a901401a054123381d94ef3b.ctex"]
+source_file="res://assets/sprites/PizzeriaIconBig.png"
+dest_files=["res://.godot/imported/PizzeriaIconBig.png-f2c46938bd2a761e82a5819ee9142fad.ctex"]
 
 [params]
 

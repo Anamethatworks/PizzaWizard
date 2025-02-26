@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr73mpl1a68q5"
-path="res://.godot/imported/PlayerIcon.png-763fe3f4a94dfbdebd16bb6a0efe15b0.ctex"
+uid="uid://bofs3en1lfoa"
+path="res://.godot/imported/MinimapBorder.png-f5585d9da8603be848d01d6df93b4cc1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/PlayerIcon.png"
-dest_files=["res://.godot/imported/PlayerIcon.png-763fe3f4a94dfbdebd16bb6a0efe15b0.ctex"]
+source_file="res://assets/sprites/MinimapBorder.png"
+dest_files=["res://.godot/imported/MinimapBorder.png-f5585d9da8603be848d01d6df93b4cc1.ctex"]
 
 [params]
 

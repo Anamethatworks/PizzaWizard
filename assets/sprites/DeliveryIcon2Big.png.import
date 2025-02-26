@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ub28ht3kycuk"
-path="res://.godot/imported/DeliveryIcon.png-1d19b160bb3c591124c47ba2587f3277.ctex"
+uid="uid://c7w6j222my2va"
+path="res://.godot/imported/DeliveryIcon2Big.png-3d4217b13696553767ae6cfbaacc4d05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/DeliveryIcon.png"
-dest_files=["res://.godot/imported/DeliveryIcon.png-1d19b160bb3c591124c47ba2587f3277.ctex"]
+source_file="res://assets/sprites/DeliveryIcon2Big.png"
+dest_files=["res://.godot/imported/DeliveryIcon2Big.png-3d4217b13696553767ae6cfbaacc4d05.ctex"]
 
 [params]
 

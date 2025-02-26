@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://hp2nckil2smm"]
+
+[ext_resource type="Texture2D" uid="uid://l24n4jctqevx" path="res://assets/sprites/DeliveryIcon2.png" id="1_c32kk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3ophk"]
+texture = ExtResource("1_c32kk")
+
+[node name="DeliverPos" type="Panel"]
+texture_filter = 3
+offset_left = 34.0
+offset_top = 25.0
+offset_right = 66.0
+offset_bottom = 57.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_3ophk")

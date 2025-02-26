@@ -1,0 +1,122 @@
+[gd_scene load_steps=13 format=3 uid="uid://c5hsril0egnha"]
+
+[ext_resource type="Texture2D" uid="uid://bofs3en1lfoa" path="res://assets/sprites/MinimapBorder.png" id="1_ajf47"]
+[ext_resource type="Script" path="res://scenes/MinimapManager.gd" id="1_jn204"]
+[ext_resource type="Texture2D" uid="uid://cavp4acjsqqo7" path="res://assets/sprites/PizzeriaIcon.png" id="2_xj88x"]
+[ext_resource type="Texture2D" uid="uid://cr3hel2arus4x" path="res://assets/sprites/MinimapRoundMask2.png" id="3_weevt"]
+[ext_resource type="Texture2D" uid="uid://clvhmo7dwl2lk" path="res://assets/sprites/Minimap3Tex.png" id="4_1jcc4"]
+[ext_resource type="Texture2D" uid="uid://cr73mpl1a68q5" path="res://assets/sprites/PlayerIcon.png" id="4_2wqw6"]
+[ext_resource type="PackedScene" uid="uid://hp2nckil2smm" path="res://scenes/deliver_pos.tscn" id="7_2r6yn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l7sgm"]
+texture = ExtResource("1_ajf47")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g5nc1"]
+texture = ExtResource("3_weevt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8cwr4"]
+texture = ExtResource("4_1jcc4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_icify"]
+texture = ExtResource("4_2wqw6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lc0c2"]
+texture = ExtResource("2_xj88x")
+
+[node name="MiniMap" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+script = ExtResource("1_jn204")
+
+[node name="MinMapRoundFrame" type="Panel" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -208.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 208.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_l7sgm")
+
+[node name="MinMapRoundMask" type="Panel" parent="."]
+clip_children = 1
+z_index = -1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -208.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 208.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_g5nc1")
+
+[node name="MinMapRound" type="Panel" parent="MinMapRoundMask"]
+layout_mode = 0
+offset_left = -286.0
+offset_top = -388.0
+offset_right = 464.0
+offset_bottom = 362.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_8cwr4")
+
+[node name="MinMapIconMask" type="Panel" parent="."]
+clip_children = 1
+z_index = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -208.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 208.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_g5nc1")
+
+[node name="PlayerPos" type="Panel" parent="MinMapIconMask"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_icify")
+
+[node name="PizzeriaPos" type="Panel" parent="MinMapIconMask"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 64.0
+offset_top = 91.0
+offset_right = 96.0
+offset_bottom = 123.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_lc0c2")
+
+[node name="DeliveryIcons" type="Control" parent="MinMapIconMask"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DeliverPos" parent="MinMapIconMask/DeliveryIcons" instance=ExtResource("7_2r6yn")]
+visible = false
+layout_mode = 0
+offset_left = 27.0
+offset_top = 33.0
+offset_right = 59.0
+offset_bottom = 65.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnq0sw1liebpg"
-path="res://.godot/imported/Minimap2Tex.png-da29cf38ecff57e45bd78866de72c76b.ctex"
+uid="uid://cr3hel2arus4x"
+path="res://.godot/imported/MinimapRoundMask2.png-8e46af7fd0b11dfe9dd2f581c8f67c32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/Minimap2Tex.png"
-dest_files=["res://.godot/imported/Minimap2Tex.png-da29cf38ecff57e45bd78866de72c76b.ctex"]
+source_file="res://assets/sprites/MinimapRoundMask2.png"
+dest_files=["res://.godot/imported/MinimapRoundMask2.png-8e46af7fd0b11dfe9dd2f581c8f67c32.ctex"]
 
 [params]
 
