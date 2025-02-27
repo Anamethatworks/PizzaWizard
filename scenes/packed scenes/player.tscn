@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://dsvq25iq46jfm"]
+[gd_scene load_steps=20 format=3 uid="uid://dsvq25iq46jfm"]
 
 [ext_resource type="Script" path="res://scripts/car.gd" id="1_fbag5"]
 [ext_resource type="Script" path="res://scripts/camera_rig.gd" id="2_i16p3"]
+[ext_resource type="Script" path="res://scripts/delivery_assist.gd" id="2_ndgut"]
 [ext_resource type="PackedScene" uid="uid://rirv5cogtbwj" path="res://assets/models/Car_Body.fbx" id="4_6eeew"]
 [ext_resource type="Script" path="res://scripts/overcomplicated_wheel.gd" id="4_hmo0v"]
 [ext_resource type="AudioStream" uid="uid://cy3xjtyw8u101" path="res://assets/Sounds/EngineStart.wav" id="5_huam1"]
@@ -13,8 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://bkw2pmkh6utyr" path="res://assets/models/RL_Wheel.fbx" id="8_r2qhb"]
 [ext_resource type="PackedScene" uid="uid://b4odq7vhsv4il" path="res://assets/models/FL_Wheel.fbx" id="9_i0731"]
 [ext_resource type="AudioStream" uid="uid://c813uqslyvsuo" path="res://assets/Sounds/Crash.wav" id="9_qv3xj"]
+[ext_resource type="Script" path="res://scripts/temp_manager.gd" id="15_o3ua6"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_c2rhw"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_doc81"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdad3"]
+transparency = 1
+albedo_color = Color(0.858824, 0.580392, 0.113725, 0.470588)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
 size = Vector3(1.475, 1.206, 4.729)
@@ -37,6 +45,16 @@ spring_length = 20.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig/SpringArm3D"]
 transform = Transform3D(-1, -1.51808e-08, -8.60946e-08, -3.55271e-15, -0.984808, 0.173648, -8.74228e-08, 0.173648, 0.984808, 0, 0, 0)
+
+[node name="DeliveryArrow" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("2_ndgut")
+
+[node name="ArrowMesh" type="MeshInstance3D" parent="DeliveryArrow"]
+transform = Transform3D(1.5, 0, 0, 0, -8.74228e-08, 0.25, 0, -2, -1.09278e-08, 0, 5, 0)
+mesh = SubResource("PrismMesh_doc81")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_xdad3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.837, 0.054)
@@ -118,5 +136,8 @@ stream = ExtResource("8_brjwe")
 
 [node name="CrashSound" type="AudioStreamPlayer3D" parent="SoundController"]
 stream = ExtResource("9_qv3xj")
+
+[node name="TempManager" type="Node" parent="."]
+script = ExtResource("15_o3ua6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
