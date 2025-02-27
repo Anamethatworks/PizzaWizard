@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var camera : Camera3D = get_child(0)
+@onready var camera : SpringArm3D = get_child(0)
 @onready var player : Node3D = $".."
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -576,6 +576,9 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6, 0, 
 [node name="Building81" parent="Buildings" instance=ExtResource("18_oaxa0")]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, 97.5, 0, -7.5)
 
+[node name="Alley22" parent="Buildings" instance=ExtResource("19_igrev")]
+transform = Transform3D(1.32, 0, 0, 0, 1, 0, 0, 0, 0.5, 2.58208, 0, -12.5444)
+
 [node name="Alley01" parent="Buildings" instance=ExtResource("19_igrev")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62, 0, 20)
 
@@ -1241,6 +1244,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.5, 0, 160)
 
 [node name="Pizzeria" parent="." instance=ExtResource("27_hm5x0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -6)
-
-[node name="Alley01" parent="." instance=ExtResource("19_igrev")]
-transform = Transform3D(1.32, 0, 0, 0, 1, 0, 0, 0, 0.5, 2.58208, 0, -12.5444)
