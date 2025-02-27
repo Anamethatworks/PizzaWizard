@@ -34,19 +34,20 @@ static func rank_orders() -> void:
 
 ## Creates a number of [Order]s randomly at various [DropoffPoint]s in [dropoffPoints]
 static func take_orders(number: int) -> void:
-	var dropoffs : int
-	var index : int
-	var new_order : Order
-	for i in range(number):
-		dropoffs = len(available_dropoff_points)
-		if dropoffs == 0:
-			break
-		index = randi_range(0, dropoffs - 1)
-		new_order = available_dropoff_points[index].add_order()
-		if new_order:
-			available_dropoff_points.pop_at(index)
-			current_orders.append(new_order)
-	rank_orders()
+	if len(current_orders) == 0:
+		var dropoffs : int
+		var index : int
+		var new_order : Order
+		for i in range(number):
+			dropoffs = len(available_dropoff_points)
+			if dropoffs == 0:
+				break
+			index = randi_range(0, dropoffs - 1)
+			new_order = available_dropoff_points[index].add_order()
+			if new_order:
+				available_dropoff_points.pop_at(index)
+				current_orders.append(new_order)
+		rank_orders()
 
 ## Removes an [Order] from the array of [current_orders] and destroys it
 static func finish_order(order: Order) -> void:
