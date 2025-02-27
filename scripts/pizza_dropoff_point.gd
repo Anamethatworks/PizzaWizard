@@ -14,6 +14,9 @@ var order_cooldown: float = 0.0
 ## The minimum time (sec) in-between two orders being placed from the same location
 const ORDER_COOLDOWN_DURATION: float = 30.0
 
+## The amount the distance between the pizzeria and the destination effects par time
+const PAR_DISTANCE_MULTIPLIER: float = 0.5
+
 ## A timer for how long the order has been waiting
 var time_since_order: float = 0.0
 
@@ -21,12 +24,17 @@ func _ready() -> void:
 	DeliveryManager.addDropoffPoint(self)
 	monitoring = false
 
+## Calculates par time for travel between two points
+static func calculate_par_time(hither : Vector3, yon : Vector3) -> float:
+	var distance = hither.distance_to(yon)
+	return distance * PAR_DISTANCE_MULTIPLIER
+
 ## Adds a new order at this location (if possible). Returns [code]current_order[/code] if successful, [code]null[/code] otherwise
 func add_order() -> Order:
 	if is_instance_valid(current_order) or order_cooldown > 0.0:
 		# There is already an order here or this location is still on cooldown
 		return null
-	var par_time: float = 1.0 # TODO: Calculate par time
+	var par_time: float = calculate_par_time(global_position, Pizzeria.active_location.global_position)
 	current_order = Order.new(self, par_time)
 	monitoring = true
 	return current_order

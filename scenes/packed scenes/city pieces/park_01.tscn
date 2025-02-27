@@ -1,18 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://csgl3p8gwb5yj"]
+[gd_scene load_steps=5 format=3 uid="uid://vxurx40lvqj1"]
 
 [ext_resource type="PackedScene" uid="uid://s05vksmknu3q" path="res://assets/models/Park01.fbx" id="1_bsxf4"]
 [ext_resource type="Material" uid="uid://q6pwly35thch" path="res://assets/materials/Park01Mat.tres" id="2_lk8pj"]
+[ext_resource type="PhysicsMaterial" uid="uid://bgktl7bbs0y2a" path="res://assets/physics materials/grass.tres" id="3_guc3i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ajyv3"]
-size = Vector3(20.0002, 0.249695, 19.9816)
+size = Vector3(20, 0.25, 20)
 
 [node name="Park01" instance=ExtResource("1_bsxf4")]
 
 [node name="Park1" parent="." index="0"]
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, -0.39, 0)
 material_override = ExtResource("2_lk8pj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+physics_material_override = ExtResource("3_guc3i")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9973, 0.274689, 5.98935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -0.125, 6)
 shape = SubResource("BoxShape3D_ajyv3")

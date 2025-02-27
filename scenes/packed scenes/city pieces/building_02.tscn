@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b27s51qrci6ny"]
+[gd_scene load_steps=6 format=3 uid="uid://bl4jduio1ib1w"]
 
 [ext_resource type="PackedScene" uid="uid://sdwi1jy6v0wg" path="res://assets/models/Building02.fbx" id="1_661pi"]
 [ext_resource type="Material" uid="uid://yaleemyfovwf" path="res://assets/materials/Building02Mat.tres" id="2_qepwt"]
+[ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="3_tmob8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j84uc"]
 size = Vector3(20.08, 5.15063, 15.1341)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b5ehv"]
+size = Vector3(15, 5, 8)
 
 [node name="Building02" instance=ExtResource("1_661pi")]
 
@@ -18,3 +22,12 @@ material_override = ExtResource("2_qepwt")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CrashType/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0498962, 2.72791, -0.561371)
 shape = SubResource("BoxShape3D_j84uc")
+
+[node name="PizzaDropoffPoint" parent="." index="2" instance=ExtResource("3_tmob8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="CollisionShape3D" parent="PizzaDropoffPoint" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.5)
+shape = SubResource("BoxShape3D_b5ehv")
+
+[editable path="PizzaDropoffPoint"]

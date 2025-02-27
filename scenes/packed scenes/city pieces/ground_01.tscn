@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpuc7nhxkrckw"]
+[gd_scene load_steps=4 format=3 uid="uid://bb61oad3sl38s"]
 
 [ext_resource type="PackedScene" uid="uid://besys45yhmxkh" path="res://assets/models/Ground01.fbx" id="1_bmf1n"]
+[ext_resource type="PhysicsMaterial" uid="uid://bgktl7bbs0y2a" path="res://assets/physics materials/grass.tres" id="2_kypjd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cwc67"]
-size = Vector3(29.6918, 0.18103, 30.0222)
+size = Vector3(30, 0.25, 30)
 
 [node name="Ground01" instance=ExtResource("1_bmf1n")]
 
+[node name="Ground01" parent="." index="0"]
+transform = Transform3D(1500, 0, 0, 0, -0.000178814, 1500, 0, -1500, -0.000178814, 0, 0, 0)
+
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+physics_material_override = ExtResource("2_kypjd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173035, 0.349426, 0.0127716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
 shape = SubResource("BoxShape3D_cwc67")

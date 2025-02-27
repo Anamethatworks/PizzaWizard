@@ -25,7 +25,7 @@ static func get_ambient_temperature(pos: Vector3, world_3d: World3D) -> float:
 	params.position = pos
 	var intersections : Array[Dictionary] = world_3d.direct_space_state.intersect_point(params)
 	for intersection in intersections:
-		var amb_temp = instance_from_id(intersection["collider_id"]).get("ambient_temperature")
-		if amb_temp:
-			return amb_temp
+		var got_temp = instance_from_id(intersection["collider_id"]).get("ambient_temperature")
+		if got_temp:
+			return got_temp
 	return 72.0
