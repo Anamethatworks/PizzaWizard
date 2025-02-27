@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dik1wyeffkyac"]
+
+[ext_resource type="Script" path="res://scripts/ui_manager.gd" id="1_cbekv"]
+
+[node name="UIPanel" type="Panel"]
+offset_right = 272.0
+offset_bottom = 476.0
+
+[node name="UIManager" type="Node" parent="."]
+script = ExtResource("1_cbekv")
+
+[node name="InfoDisplay" type="TextEdit" parent="."]
+layout_mode = 0
+offset_right = 272.0
+offset_bottom = 476.0
+text = "Total Wallet: $0.00
+Ambient Temperature: 0 F
+Current Orders:
+
+"
+
+[node name="OrderList" type="GridContainer" parent="."]
+layout_mode = 0
+offset_top = 89.0
+offset_right = 272.0
+offset_bottom = 476.0

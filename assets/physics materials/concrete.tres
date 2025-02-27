@@ -1,0 +1,4 @@
+[gd_resource type="PhysicsMaterial" format=3 uid="uid://c48psowu025na"]
+
+[resource]
+friction = 0.94

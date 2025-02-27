@@ -1,18 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://dmv03tyk5tbb1"]
+[gd_scene load_steps=18 format=3 uid="uid://dmv03tyk5tbb1"]
 
-[ext_resource type="Script" path="res://scripts/ui_manager.gd" id="1_1wesl"]
+[ext_resource type="PackedScene" uid="uid://dik1wyeffkyac" path="res://scenes/packed scenes/test_ui.tscn" id="1_bhf62"]
 [ext_resource type="Script" path="res://scripts/temp_zone.gd" id="1_na6vi"]
 [ext_resource type="Texture2D" uid="uid://x86ejv2g0gmr" path="res://assets/textures/pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg" id="2_xa6vl"]
-[ext_resource type="Script" path="res://scripts/temp_manager.gd" id="3_88qx7"]
-[ext_resource type="PackedScene" uid="uid://d0o6mq08mfgp6" path="res://scenes/packed scenes/player.tscn" id="4_jb266"]
+[ext_resource type="Script" path="res://scripts/temp_manager.gd" id="3_oa5ij"]
+[ext_resource type="PackedScene" uid="uid://bt2u74rrtdnnu" path="res://scenes/packed scenes/player.tscn" id="4_jb266"]
 [ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="6_7kxbt"]
 [ext_resource type="PackedScene" uid="uid://d1t0s5g077ud1" path="res://scenes/packed scenes/pizza_pickup_point.tscn" id="6_u5i5a"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_doc81"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdad3"]
-transparency = 1
-albedo_color = Color(0.858824, 0.580392, 0.113725, 0.470588)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dmqis"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,7 +22,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ludui"]
-size = Vector3(14.7939, 12.1153, 14.2777)
+size = Vector3(14.7939, 25.96, 14.2777)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rnn47"]
 
@@ -47,41 +41,12 @@ albedo_color = Color(0, 0.720236, 0.720236, 1)
 
 [node name="City" type="Node3D"]
 
-[node name="InfoPanel" type="Panel" parent="."]
-offset_right = 272.0
-offset_bottom = 476.0
+[node name="UIPanel" parent="." instance=ExtResource("1_bhf62")]
 
-[node name="UIManager" type="Node" parent="InfoPanel" node_paths=PackedStringArray("player", "arrow", "info_display", "order_list_display")]
-script = ExtResource("1_1wesl")
-player = NodePath("../../VehicleBody3D")
-arrow = NodePath("Arrow")
-info_display = NodePath("../InfoDisplay")
-order_list_display = NodePath("../OrderList")
+[node name="Player" parent="." instance=ExtResource("4_jb266")]
 
-[node name="Arrow" type="Node3D" parent="InfoPanel/UIManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="ArrowMesh" type="MeshInstance3D" parent="InfoPanel/UIManager/Arrow"]
-transform = Transform3D(1.5, 0, 0, 0, -8.74228e-08, 0.25, 0, -2, -1.09278e-08, 0, 5, 0)
-mesh = SubResource("PrismMesh_doc81")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_xdad3")
-
-[node name="InfoDisplay" type="TextEdit" parent="InfoPanel"]
-layout_mode = 0
-offset_right = 272.0
-offset_bottom = 476.0
-text = "Total Wallet: $0.00
-Ambient Temperature: 0 F
-Current Orders:
-
-"
-
-[node name="OrderList" type="GridContainer" parent="InfoPanel"]
-layout_mode = 0
-offset_top = 89.0
-offset_right = 272.0
-offset_bottom = 476.0
+[node name="TempManager" type="Node" parent="Player"]
+script = ExtResource("3_oa5ij")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -96,7 +61,6 @@ script = ExtResource("1_na6vi")
 ambient_temperature = -20.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ColdZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.55779, 0)
 shape = SubResource("BoxShape3D_ludui")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -109,11 +73,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_exfkb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_so2cn")
-
-[node name="VehicleBody3D" parent="." instance=ExtResource("4_jb266")]
-
-[node name="PizzaHolder" type="Node" parent="VehicleBody3D"]
-script = ExtResource("3_88qx7")
 
 [node name="Pizzeria" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.898, 0, -13.025)
