@@ -2,6 +2,7 @@ extends Control
 
 @onready var pizzeria_pos = $"MinMapIconMask/PizzeriaPos"
 @onready var minimap_pos = $"MinMapRoundMask/MinMapRound"
+@onready var player_icon = $"MinMapIconMask/PlayerPos"
 @onready var player = $"../Player"
 var pizzeria_location = Vector3(10.3, 0, -4)
 
@@ -23,3 +24,5 @@ func _process(delta: float) -> void:
 	var piz_x = pizzeria_location.x * map_to_world_ratio
 	var piz_y = pizzeria_location.z * map_to_world_ratio
 	pizzeria_pos.set_position(Vector2(pizzeria_offset.x + map_x, pizzeria_offset.y + map_y))
+	
+	player_icon.rotation = -player.rotation.y
