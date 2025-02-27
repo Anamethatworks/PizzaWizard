@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=18 format=3 uid="uid://55fh5e6ithbj"]
 
 [ext_resource type="Script" path="res://scripts/delivery_manager.gd" id="1_k4mol"]
@@ -9,17 +10,24 @@
 [ext_resource type="AudioStream" uid="uid://c813uqslyvsuo" path="res://assets/Sounds/Crash.wav" id="7_ysd6w"]
 [ext_resource type="PackedScene" uid="uid://bc725e116uqi8" path="res://scenes/packed scenes/building_01.tscn" id="8_0lnfb"]
 [ext_resource type="PackedScene" uid="uid://clvoyyu7amkfi" path="res://scenes/packed scenes/Driver.tscn" id="9_6vydc"]
+=======
+[gd_scene load_steps=10 format=3 uid="uid://55fh5e6ithbj"]
+
+[ext_resource type="Script" path="res://scripts/delivery_manager.gd" id="1_k4mol"]
+[ext_resource type="PackedScene" uid="uid://cyicas688v2qt" path="res://scenes/packed scenes/player.tscn" id="3_pd1um"]
+[ext_resource type="PackedScene" uid="uid://bc725e116uqi8" path="res://scenes/packed scenes/city pieces/building_01.tscn" id="8_0lnfb"]
+>>>>>>> a9915fa4fdc8bd54334bb08402548791ab3466ae
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kelcd"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_8g8ol"]
+[sub_resource type="Sky" id="Sky_xbf34"]
 sky_material = SubResource("ProceduralSkyMaterial_kelcd")
 
 [sub_resource type="Environment" id="Environment_0wquq"]
 background_mode = 2
-sky = SubResource("Sky_8g8ol")
+sky = SubResource("Sky_xbf34")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -28,8 +36,7 @@ glow_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5piy"]
 albedo_color = Color(1, 0.678431, 1, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_l8ed7"]
-size = Vector3(1.99951, 0.535034, 1.99609)
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_56ifm"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_cxp7t"]
 
@@ -60,29 +67,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_u5piy")
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00366211, -0.244617, -0.00195313)
-shape = SubResource("BoxShape3D_l8ed7")
+shape = SubResource("WorldBoundaryShape3D_56ifm")
 
 [node name="VehicleBody3D" parent="." instance=ExtResource("3_pd1um")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5433, 0, 3.46696)
-
-[node name="SoundController" type="Node3D" parent="VehicleBody3D"]
-
-[node name="StartSound" type="AudioStreamPlayer3D" parent="VehicleBody3D/SoundController"]
-stream = ExtResource("3_nmgu6")
-
-[node name="IdleSound" type="AudioStreamPlayer3D" parent="VehicleBody3D/SoundController"]
-stream = ExtResource("3_vnluo")
-parameters/looping = true
-
-[node name="DrivingSound" type="AudioStreamPlayer3D" parent="VehicleBody3D/SoundController"]
-stream = ExtResource("5_8dhie")
-
-[node name="HonkSound" type="AudioStreamPlayer3D" parent="VehicleBody3D/SoundController"]
-stream = ExtResource("6_8jtm4")
-
-[node name="CrashSound" type="AudioStreamPlayer3D" parent="VehicleBody3D/SoundController"]
-stream = ExtResource("7_ysd6w")
 
 [node name="Building01" parent="." instance=ExtResource("8_0lnfb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00931, 0.0960157, -20.3528)

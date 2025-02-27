@@ -1,16 +1,20 @@
 extends Node
 class_name TempManager
 
-var player : CharacterBody3D
+## The parent node to the node containing the temperature manager, provides
+## the position the ambient temperature is measured at
+static var parent : Node3D
+
+## The ambient temperature at the [parent]'s location
+static var amb_temp : float
 
 func _ready() -> void:
-	player = self.get_parent()
+	parent = self.get_parent()
 
 ## Decreases pizza temperature of all existing orders in [current_orders]
 func _process(delta: float) -> void:
+	amb_temp = get_ambient_temperature(parent.position, parent.get_world_3d())
 	for order in DeliveryManager.current_orders:
-		var amb_temp : float = get_ambient_temperature(player.position, player.get_world_3d())
-		print(amb_temp)
 		order.ordered_pizza.process_temperature(amb_temp, delta)
 
 ## Gets ambient temperature of surrounding atmosphere

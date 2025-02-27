@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PizzaWizard"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/Neocrystalis.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/pwxicon.svg"
 

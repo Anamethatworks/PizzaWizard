@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5dge6oxxmnxp"]
+
+[ext_resource type="PackedScene" uid="uid://kp4n5pv7v1ju" path="res://assets/models/Building06.fbx" id="1_16bwe"]
+[ext_resource type="Material" uid="uid://cdxw2oc1dqbyo" path="res://assets/materials/Building06Mat.tres" id="2_btnlp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c71kd"]
+size = Vector3(10.0215, 6.63922, 15.088)
+
+[node name="Building06" instance=ExtResource("1_16bwe")]
+
+[node name="Building06" parent="." index="0"]
+material_override = ExtResource("2_btnlp")
+
+[node name="CrashType" type="Node3D" parent="." index="1"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CrashType" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CrashType/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00903, 3.32993, -6.48383)
+shape = SubResource("BoxShape3D_c71kd")

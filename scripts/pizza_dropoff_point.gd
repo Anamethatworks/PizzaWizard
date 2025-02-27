@@ -32,6 +32,8 @@ func add_order() -> Order:
 	return current_order
 
 func _process(delta: float) -> void:
+	if current_order != null:
+		time_since_order += delta
 	if order_cooldown > 0.0:
 		order_cooldown -= delta
 
@@ -39,6 +41,7 @@ func _process(delta: float) -> void:
 func deliver_pizza() -> void:
 	var pizza_temp := current_order.ordered_pizza.temperature
 	current_order.fulfill(pizza_temp, time_since_order)
+	time_since_order = 0
 	current_order = null
 	if not ignore_cooldown:
 		order_cooldown = ORDER_COOLDOWN_DURATION
