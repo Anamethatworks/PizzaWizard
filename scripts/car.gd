@@ -221,7 +221,7 @@ func apply_wheel_slip() -> void:
 	var BL: Vector2 = $WheelBL.slip_and_grip()
 	var FL: Vector2 = $WheelFL.slip_and_grip()
 	
-	apply_force(Vector3(FR.x, 0.0, -FR.y).rotated(global_basis.y, global_rotation.y), $WheelFR.global_position - self.global_position)
-	apply_force(Vector3(BR.x, 0.0, -BR.y).rotated(global_basis.y, global_rotation.y), $WheelBR.global_position - self.global_position)
-	apply_force(Vector3(BL.x, 0.0, -BL.y).rotated(global_basis.y, global_rotation.y), $WheelBL.global_position - self.global_position)
-	apply_force(Vector3(FL.x, 0.0, -FL.y).rotated(global_basis.y, global_rotation.y), $WheelFL.global_position - self.global_position)
+	apply_force(Vector3(FR.x, 0.0, -FR.y).rotated(global_basis.y, global_rotation.y + $WheelFR.steering), $WheelFR.global_position - self.global_position)
+	apply_force(Vector3(BR.x, 0.0, -BR.y).rotated(global_basis.y, global_rotation.y + $WheelBR.steering), $WheelBR.global_position - self.global_position)
+	apply_force(Vector3(BL.x, 0.0, -BL.y).rotated(global_basis.y, global_rotation.y + $WheelBL.steering), $WheelBL.global_position - self.global_position)
+	apply_force(Vector3(FL.x, 0.0, -FL.y).rotated(global_basis.y, global_rotation.y + $WheelFL.steering), $WheelFL.global_position - self.global_position)
