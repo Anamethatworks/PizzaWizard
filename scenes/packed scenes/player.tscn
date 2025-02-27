@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dsvq25iq46jfm"]
+[gd_scene load_steps=15 format=3 uid="uid://bt2u74rrtdnnu"]
 
 [ext_resource type="Script" path="res://scripts/car.gd" id="1_fbag5"]
 [ext_resource type="Script" path="res://scripts/camera_rig.gd" id="2_i16p3"]
