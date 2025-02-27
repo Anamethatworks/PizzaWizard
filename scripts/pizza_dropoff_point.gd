@@ -59,3 +59,5 @@ func _on_body_entered(body: Node3D) -> void:
 	# Determine if the body is the player
 	if body.name == "Player":
 		deliver_pizza()
+		var minimap_node = $"../../../MiniMap"
+		minimap_node.call("remove_delivery_icon", (global_position))

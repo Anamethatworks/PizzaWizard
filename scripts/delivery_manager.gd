@@ -46,14 +46,14 @@ static func take_orders(number: int) -> void:
 		if new_order:
 			available_dropoff_points.pop_at(index)
 			current_orders.append(new_order)
-			MinimapManager.add_delivery_icon(new_order.dropoffPoint.global_position)
+			#MinimapManager.add_delivery_icon(new_order.dropoffPoint.global_position)
 	rank_orders()
 
 ## Removes an [Order] from the array of [current_orders] and destroys it
 static func finish_order(order: Order) -> void:
 	if order in current_orders:
 		available_dropoff_points.append(order.dropoffPoint)
-		MinimapManager.remove_delivery_icon(order.dropoffPoint.global_position)
+		#MinimapManager.remove_delivery_icon(order.dropoffPoint.global)
 		order.ordered_pizza.free()
 		current_orders.erase(order)
 		order.call_deferred("free")

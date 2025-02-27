@@ -52,4 +52,7 @@ func _on_body_entered(body: Node3D) -> void:
 		if n > 5:
 			n = 5
 		DeliveryManager.take_orders(n)
+		var minimap_node = $"../../MiniMap"
+		for i in range(0, len(DeliveryManager.current_orders)):
+			minimap_node.call("add_delivery_icon", (DeliveryManager.current_orders[i].dropoffPoint.global_position))
 		Score.earn_bonuses()
