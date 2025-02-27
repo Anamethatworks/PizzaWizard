@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=16 format=3 uid="uid://da6owwbktvy3y"]
-=======
 [gd_scene load_steps=20 format=3 uid="uid://dsvq25iq46jfm"]
->>>>>>> 9c6c59eeb68ba0e891e834016486d1c75467c708
 
 [ext_resource type="Script" path="res://scripts/car.gd" id="1_fbag5"]
 [ext_resource type="Script" path="res://scripts/camera_rig.gd" id="2_i16p3"]
@@ -31,7 +27,7 @@ albedo_color = Color(0.858824, 0.580392, 0.113725, 0.470588)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
 size = Vector3(1.475, 1.206, 4.729)
 
-[node name="Player" type="VehicleBody3D" groups=["Player"]]
+[node name="Player" type="VehicleBody3D"]
 mass = 1600.0
 center_of_mass_mode = 1
 can_sleep = false
@@ -64,13 +60,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_xdad3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.837, 0.054)
 shape = SubResource("BoxShape3D_qawn3")
 
-<<<<<<< HEAD
-[node name="Car_09" parent="CollisionShape3D" instance=ExtResource("3_p1rk1")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.837, 0.471)
-visible = false
-
-=======
->>>>>>> 9c6c59eeb68ba0e891e834016486d1c75467c708
 [node name="Car_Body" parent="." instance=ExtResource("4_6eeew")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0.525)
 
