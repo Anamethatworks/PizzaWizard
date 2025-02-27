@@ -1,8 +1,27 @@
+<<<<<<< HEAD
+[gd_scene load_steps=18 format=3 uid="uid://55fh5e6ithbj"]
+
+[ext_resource type="Script" path="res://scripts/delivery_manager.gd" id="1_k4mol"]
+[ext_resource type="AudioStream" uid="uid://1w65le37nahk" path="res://assets/Sounds/Start&Accerlate.mp3" id="3_nmgu6"]
+[ext_resource type="PackedScene" uid="uid://d0o6mq08mfgp6" path="res://scenes/player.tscn" id="3_pd1um"]
+[ext_resource type="AudioStream" uid="uid://bwafe74gp1enx" path="res://assets/Sounds/Idiling.mp3" id="3_vnluo"]
+[ext_resource type="AudioStream" uid="uid://wq1iqdjnfcli" path="res://assets/Sounds/Driving trimmed.wav" id="5_8dhie"]
+[ext_resource type="AudioStream" uid="uid://3ulpxxknevtw" path="res://assets/Sounds/NormalHorn end.wav" id="6_8jtm4"]
+[ext_resource type="AudioStream" uid="uid://c813uqslyvsuo" path="res://assets/Sounds/Crash.wav" id="7_ysd6w"]
+[ext_resource type="PackedScene" uid="uid://bc725e116uqi8" path="res://scenes/packed scenes/building_01.tscn" id="8_0lnfb"]
+[ext_resource type="PackedScene" uid="uid://clvoyyu7amkfi" path="res://scenes/packed scenes/Driver.tscn" id="9_6vydc"]
+=======
 [gd_scene load_steps=10 format=3 uid="uid://55fh5e6ithbj"]
 
 [ext_resource type="Script" path="res://scripts/delivery_manager.gd" id="1_k4mol"]
+<<<<<<< HEAD
+[ext_resource type="PackedScene" uid="uid://cyicas688v2qt" path="res://scenes/packed scenes/player.tscn" id="3_pd1um"]
+[ext_resource type="PackedScene" uid="uid://bc725e116uqi8" path="res://scenes/packed scenes/city pieces/building_01.tscn" id="8_0lnfb"]
+>>>>>>> a9915fa4fdc8bd54334bb08402548791ab3466ae
+=======
 [ext_resource type="PackedScene" uid="uid://dsvq25iq46jfm" path="res://scenes/packed scenes/player.tscn" id="3_pd1um"]
 [ext_resource type="PackedScene" uid="uid://brd4jm3vf1kqs" path="res://scenes/packed scenes/city pieces/building_01.tscn" id="8_0lnfb"]
+>>>>>>> 9c6c59eeb68ba0e891e834016486d1c75467c708
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kelcd"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -23,6 +42,15 @@ glow_enabled = true
 albedo_color = Color(1, 0.678431, 1, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_56ifm"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_cxp7t"]
+
+[sub_resource type="Curve3D" id="Curve3D_fscus"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 8.5965, 0, 4.08116, 0, 0, 0, 0, 0, 0, 21.6361, 0, 4.08116, 0, 0, 0, 0, 0, 0, 21.6361, 0, 14.5444, 0, 0, 0, 0, 0, 0, 8.5965, 0, 14.2815, 0, 0, 0, 0, 0, 0, 8.5965, 0, 4.08116),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="World_Root" type="Node3D"]
 
@@ -47,6 +75,19 @@ surface_material_override/0 = SubResource("StandardMaterial3D_u5piy")
 shape = SubResource("WorldBoundaryShape3D_56ifm")
 
 [node name="VehicleBody3D" parent="." instance=ExtResource("3_pd1um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5433, 0, 3.46696)
 
 [node name="Building01" parent="." instance=ExtResource("8_0lnfb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00931, 0.0960157, -20.3528)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_cxp7t")
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.435007, 0.573559, 0.026073)
+curve = SubResource("Curve3D_fscus")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.5965, 0, 4.08116)
+
+[node name="Driver" parent="Path3D/PathFollow3D" instance=ExtResource("9_6vydc")]
