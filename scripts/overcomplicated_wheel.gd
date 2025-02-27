@@ -93,7 +93,7 @@ func get_slip_velocity() -> Vector2:
 		slip_angle += 180.0
 	
 	# Manual hack to reduce lateral slip, especially when car is moving slowly
-	slip_angle *= sigmoid(local_velocity.length_squared() * 0.001)
+	slip_angle *= sigmoid(absf(local_velocity.x) * 0.01)
 	
 	return Vector2(slip, slip_angle)
 	

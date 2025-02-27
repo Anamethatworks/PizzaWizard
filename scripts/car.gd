@@ -2,11 +2,16 @@ extends VehicleBody3D
 
 #region car parameters
 # Parameters that can be tweaked to change the feel of the car
-const ENGINE_MAX_FORCE: float = 6000.0 ## The max force of the engine (in N)
-const BRAKE_MAX_FORCE: float = 4400.0 ## The max force of the brakes (in N)
-const MAX_STEERING_ANGLE: float = TAU / 9.0 ## The max angle of steering (in radians)
-const THROTTLE_SPEED: float = 100000.0 ## How quickly the engine reaches its max speed (in N/s)
+static var ENGINE_MAX_FORCE: float: ## The max force of the engine (in N)
+	get: return UpgradeList.ENGINE_MAX_FORCE.value
+static var MAX_STEERING_ANGLE: float: ## The max angle of steering (in radians)
+	get: return UpgradeList.MAX_STEERING_ANGLE.value
+static var THROTTLE_SPEED: float: ## How quickly the engine reaches its max speed (in N/s)
+	get: return UpgradeList.THROTTLE_SPEED.value
+
+const BRAKE_MAX_FORCE: float = 250.0 ## The max force of the brakes (in N)
 const STEERING_SPEED: float = 10.0 ## How fast the the wheels turn to the target angle (as a ratio/second)
+const BRAKE_SPEED: float = 100.0 ## How quickly the brake reaches its max force (in N/s)
 
 # NOTE: For the car to feel better while driving, these can be different than the actual car model
 @onready var track_front: float = absf($WheelFR.position.x - $WheelFL.position.x)
@@ -35,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	## The minimum longitudinal velocity for the car controller
 	## To begin accelerating in the opposite direction instead of braking
 	Moving = 0
-	const MIN_BRAKE_VELOCITY: float = 100.0
+	const MIN_BRAKE_VELOCITY: float = 10.0
 	
 	var longitudinal_velocity := -cos(global_rotation.y) * linear_velocity.z - sin(global_rotation.y) * linear_velocity.x
 	var lateral_velocity      := -sin(global_rotation.y) * linear_velocity.z + cos(global_rotation.y) * linear_velocity.x
@@ -44,20 +49,20 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("MoveForward") and Input.is_action_pressed("MoveBackward"):
 		Moving = 1
 		set_engine_force(move_toward(get_engine_force(), 0.5 * ENGINE_MAX_FORCE, THROTTLE_SPEED * delta))
-		set_brake(BRAKE_MAX_FORCE * 0.5)
+		set_brake(move_toward(get_brake(), BRAKE_MAX_FORCE * 0.5, BRAKE_SPEED * delta))
 	elif Input.is_action_pressed("MoveForward"):
 		Moving = 1
 		if longitudinal_velocity < -MIN_BRAKE_VELOCITY:
-			set_engine_force(move_toward(get_engine_force(), 0.0, THROTTLE_SPEED * delta))
-			set_brake(BRAKE_MAX_FORCE)
+			set_engine_force(0.0)
+			set_brake(move_toward(get_brake(), BRAKE_MAX_FORCE, BRAKE_SPEED * delta))
 		else:
 			set_brake(0.0)
 			set_engine_force(move_toward(get_engine_force(), ENGINE_MAX_FORCE, THROTTLE_SPEED * delta))
 	elif Input.is_action_pressed("MoveBackward"):
 		Moving = 1
 		if longitudinal_velocity > MIN_BRAKE_VELOCITY:
-			set_engine_force(move_toward(get_engine_force(), 0.0, THROTTLE_SPEED * delta))
-			set_brake(BRAKE_MAX_FORCE)
+			set_engine_force(0.0)
+			set_brake(move_toward(get_brake(), BRAKE_MAX_FORCE, BRAKE_SPEED * delta))
 		else:
 			set_brake(0.0)
 			set_engine_force(move_toward(get_engine_force(), -ENGINE_MAX_FORCE, THROTTLE_SPEED * delta))
