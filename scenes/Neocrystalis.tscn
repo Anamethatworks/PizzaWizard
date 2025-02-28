@@ -50,7 +50,7 @@ fog_density = 0.001
 [node name="UIPanel" parent="." instance=ExtResource("1_mrpau")]
 
 [node name="Player" parent="." instance=ExtResource("2_qlckg")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.6314, 0.1, -4.24924)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.1, 0)
 
 [node name="TempManager" type="Node" parent="Player"]
 script = ExtResource("3_8renb")
