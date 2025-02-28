@@ -6,9 +6,11 @@
 texture = ExtResource("1_c32kk")
 
 [node name="DeliverPos" type="Panel"]
+z_index = 6
 texture_filter = 3
-offset_left = 34.0
-offset_top = 25.0
-offset_right = 66.0
-offset_bottom = 57.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+pivot_offset = Vector2(10, 28)
 theme_override_styles/panel = SubResource("StyleBoxTexture_3ophk")

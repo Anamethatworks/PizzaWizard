@@ -103,6 +103,7 @@ pivot_offset = Vector2(8, 8)
 theme_override_styles/panel = SubResource("StyleBoxTexture_icify")
 
 [node name="PizzeriaPos" type="Panel" parent="MinMapIconMask"]
+z_index = 5
 texture_filter = 3
 layout_mode = 0
 offset_left = 64.0

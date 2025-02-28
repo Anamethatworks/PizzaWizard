@@ -7,7 +7,7 @@ extends Control
 @onready var player = $"../Player"
 var delivery_icon_scene = preload("res://scenes/deliver_pos.tscn")
 
-var pizzeria_location = Vector3(10.3, 0, -4)
+var pizzeria_location = Vector3(12.63, 0, -4.24)
 
 var minimap_offset = Vector2(-286, -388)
 var pizzeria_offset = Vector2(64, 91)
@@ -50,7 +50,17 @@ func _process(delta: float) -> void:
 	minimap_pos.set_position(Vector2(minimap_offset.x + map_x, minimap_offset.y + map_y))
 	
 	#Maps pizzeria icon to match game world position
-	pizzeria_pos.set_position(Vector2(pizzeria_offset.x + map_x, pizzeria_offset.y + map_y))
+	var piz_x = (player.position.x - pizzeria_location.x) * map_to_world_ratio
+	var piz_y = (player.position.z - pizzeria_location.z) * map_to_world_ratio
+	var piz_pos = Vector2(pizzeria_offset.x + piz_x, pizzeria_offset.y + piz_y)
+	if (Vector2(piz_x, piz_y).length() > 90):
+		var dir = Vector2(player.position.x - pizzeria_location.x, player.position.z - pizzeria_location.z)
+		var angle = atan2(dir.y, dir.x)
+		var new_x = cos(angle) * 80
+		var new_y = sin(angle) * 80
+		pizzeria_pos.set_position(Vector2(84 + new_x, 84 + new_y))
+	else:
+		pizzeria_pos.set_position(Vector2(pizzeria_offset.x + map_x, pizzeria_offset.y + map_y))
 	
 	#rotates player icon on minimap
 	player_icon.rotation = -player.rotation.y
@@ -59,4 +69,14 @@ func _process(delta: float) -> void:
 	for i in range(0, len(delivery_icons)):
 		var del_x = (player.position.x - deliver_locations[i].x) * map_to_world_ratio
 		var del_y = (player.position.z - deliver_locations[i].z) * map_to_world_ratio
-		delivery_icons[i].set_position(Vector2(89 + del_x, 69 + del_y))
+		var del_pos = Vector2(89 + del_x, 69 + del_y)
+		#print (Vector2((89 + del_x) - 100,(69 + del_y) - 100).length())
+		if (Vector2((89 + del_x) - 100,(69 + del_y) - 100).length() > 90):
+			var dir = Vector2(player.position.x - deliver_locations[i].x, player.position.z - deliver_locations[i].z)
+			var angle = atan2(dir.y, dir.x)
+			var new_x = cos(angle) * 80
+			var new_y = sin(angle) * 80
+			delivery_icons[i].set_position(Vector2(89 + new_x, 69 + new_y))
+			pass
+		else:
+			delivery_icons[i].set_position(Vector2(89 + del_x, 69 + del_y))
