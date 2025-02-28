@@ -3,7 +3,6 @@ extends Node
 var MAX_DISPLAY_ORDERS = 4
 
 var player : VehicleBody3D
-var arrow : Node3D
 var info_display : TextEdit
 
 var order_list_display : GridContainer
@@ -12,7 +11,6 @@ var order_format_string = "%d.) Temp: %d F\n     Par Time: %ds\n     Time Since 
 
 func _ready() -> void:
 	player = $"../../Player"
-	arrow = $Arrow
 	info_display = $"../InfoDisplay"
 	order_list_display = $"../OrderList"
 
@@ -41,14 +39,3 @@ func _process(delta : float) -> void:
 			DeliveryManager.current_orders[i].parTime,
 			DeliveryManager.current_orders[i].dropoffPoint.time_since_order
 		]
-		
-	# Point the arrow at the target location
-	arrow.global_position = player.global_position
-	var target = Pizzeria.active_location.global_position
-	if !DeliveryManager.current_orders.is_empty():
-		target = DeliveryManager.current_orders[0].dropoffPoint.get_parent_node_3d().position
-	arrow.look_at_from_position(
-			Vector3(player.position.x, 0, player.position.z),
-			Vector3(target.x, 0, target.z)
-		)
-	

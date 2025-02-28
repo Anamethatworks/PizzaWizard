@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://dt4c70r4fu65x" path="res://assets/materials/Building01Mat.tres" id="2_etbuf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_376bg"]
-size = Vector3(15.0055, 8.49854, 15.0132)
+size = Vector3(15.0055, 25, 15.0132)
 
 [node name="Building01" instance=ExtResource("1_qy1no")]
 
@@ -16,5 +16,5 @@ material_override = ExtResource("2_etbuf")
 [node name="StaticBody3D" type="StaticBody3D" parent="CrashType" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CrashType/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000183105, 4.25073, 0.00219727)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000183105, 12.5015, 0.00219727)
 shape = SubResource("BoxShape3D_376bg")

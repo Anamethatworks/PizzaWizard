@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="3_n2nah"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_udoto"]
-size = Vector3(15.0555, 8.01233, 10.0385)
+size = Vector3(15.0555, 20, 10.0385)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hi6qo"]
 size = Vector3(6, 5, 9)
@@ -20,7 +20,7 @@ material_override = ExtResource("2_c6em4")
 [node name="StaticBody3D" type="StaticBody3D" parent="CrashType" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CrashType/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5462, 3.91815, 3.94839)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5462, 9.91199, 3.94839)
 shape = SubResource("BoxShape3D_udoto")
 
 [node name="PizzaDropoffPoint" parent="." index="2" instance=ExtResource("3_n2nah")]

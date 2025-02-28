@@ -8,7 +8,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
 size = Vector3(1.475, 1.32617, 4.72877)
 
-[node name="VehicleBody3D" type="VehicleBody3D"]
+[node name="VehicleBody3D" type="VehicleBody3D" groups=["Player"]]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 mass = 1600.0
