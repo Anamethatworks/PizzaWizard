@@ -1,12 +1,11 @@
 extends Control
-class_name MinimapManager
 
 @onready var minmap_icon_mask = $"MinMapIconMask"
 @onready var pizzeria_pos = $"MinMapIconMask/PizzeriaPos"
 @onready var minimap_pos = $"MinMapRoundMask/MinMapRound"
 @onready var player_icon = $"MinMapIconMask/PlayerPos"
 @onready var player = $"../Player"
-static var delivery_icon_scene = preload("res://scenes/deliver_pos.tscn")
+var delivery_icon_scene = preload("res://scenes/deliver_pos.tscn")
 
 var pizzeria_location = Vector3(10.3, 0, -4)
 
@@ -14,8 +13,8 @@ var minimap_offset = Vector2(-286, -388)
 var pizzeria_offset = Vector2(64, 91)
 var map_to_world_ratio = 1.64
 
-static var deliver_locations : Array[Vector3] = []
-static var delivery_icons : Array[Control] = []
+var deliver_locations : Array[Vector3] = []
+var delivery_icons : Array[Control] = []
 
 func add_delivery_icon(loc: Vector3) -> void:
 	print("Adding delivery to " + str(len(deliver_locations)) + "total delivery locations")
@@ -27,12 +26,14 @@ func add_delivery_icon(loc: Vector3) -> void:
 
 func remove_delivery_icon(loc: Vector3) -> void:
 	print("Removing delivery from " + str(len(deliver_locations)) + "total delivery locations")
-	for i in range(len(deliver_locations) - 1):
+	for i in range(len(deliver_locations)):
 		print (len(deliver_locations))
 		if deliver_locations[i] == loc:
+			print("found location, should be deleting it")
 			deliver_locations.remove_at(i)
 			var icon = delivery_icons.pop_at(i)
 			minmap_icon_mask.remove_child(icon)
+			break
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -58,4 +59,4 @@ func _process(delta: float) -> void:
 	for i in range(0, len(delivery_icons)):
 		var del_x = (player.position.x - deliver_locations[i].x) * map_to_world_ratio
 		var del_y = (player.position.z - deliver_locations[i].z) * map_to_world_ratio
-		delivery_icons[i].set_position(Vector2(84 + del_x, 84 + del_y))
+		delivery_icons[i].set_position(Vector2(89 + del_x, 69 + del_y))
