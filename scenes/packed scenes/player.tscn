@@ -28,7 +28,7 @@ albedo_color = Color(0.858824, 0.580392, 0.113725, 0.470588)
 size = Vector3(1.475, 1.206, 4.729)
 
 [node name="Player" type="VehicleBody3D"]
-mass = 1600.0
+mass = 1560.0
 center_of_mass_mode = 1
 can_sleep = false
 contact_monitor = true

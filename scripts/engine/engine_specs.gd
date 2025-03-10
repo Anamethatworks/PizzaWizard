@@ -9,8 +9,11 @@ enum Setup {
 	RADIAL #Radial engine
 }
 
+@export_group("Layout")
 @export var setup: Setup = Setup.STRAIGHT
 @export_range(1, 32, 1, "hide_slider", "or_greater") var pistons: int = 4
+@export_range(60.0, 90.0, 0.0, "or_lesser", "or_greater") var vee_angle: float
+
 
 
 

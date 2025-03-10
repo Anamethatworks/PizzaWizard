@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EngineSpecs" load_steps=2 format=3 uid="uid://cw6wxvl01yen4"]
+
+[ext_resource type="Script" uid="uid://ck886v6uqkf6r" path="res://scripts/engine/engine_specs.gd" id="1_jav2t"]
+
+[resource]
+script = ExtResource("1_jav2t")
+setup = 1
+pistons = 6
+vee_angle = 60.0
+metadata/_custom_type_script = "uid://ck886v6uqkf6r"

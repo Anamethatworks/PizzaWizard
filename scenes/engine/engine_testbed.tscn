@@ -1,14 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://beiyfaum8xwi2"]
+[gd_scene load_steps=4 format=3 uid="uid://beiyfaum8xwi2"]
 
 [ext_resource type="Script" uid="uid://c0xgtye0cg1ok" path="res://scripts/engine/engine_testbed.gd" id="1_x8yu2"]
 [ext_resource type="Script" uid="uid://drqkwvmu7gwsi" path="res://scripts/engine/engine.gd" id="2_aabt7"]
-[ext_resource type="Script" uid="uid://ck886v6uqkf6r" path="res://scripts/engine/engine_specs.gd" id="3_jx5sp"]
-
-[sub_resource type="Resource" id="Resource_0mnjb"]
-script = ExtResource("3_jx5sp")
-setup = 0
-pistons = 4
-metadata/_custom_type_script = "uid://ck886v6uqkf6r"
+[ext_resource type="Resource" uid="uid://cw6wxvl01yen4" path="res://scripts/engine/engine specs/4GR-FSE.tres" id="3_x8yu2"]
 
 [node name="Base" type="Control"]
 layout_mode = 3
@@ -21,7 +15,7 @@ script = ExtResource("1_x8yu2")
 
 [node name="VehicleEngine" type="Node" parent="."]
 script = ExtResource("2_aabt7")
-specs = SubResource("Resource_0mnjb")
+specs = ExtResource("3_x8yu2")
 metadata/_custom_type_script = "uid://drqkwvmu7gwsi"
 
 [node name="EngineVisualizer" type="VBoxContainer" parent="."]
