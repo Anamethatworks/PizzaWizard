@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1t0s5g077ud1"]
 
-[ext_resource type="Script" path="res://scripts/pizzeria.gd" id="1_3342i"]
+[ext_resource type="Script" uid="uid://c5an6j8f3x7ju" path="res://scripts/pizzeria.gd" id="1_3342i"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_eknqw"]
 radius = 1.0
