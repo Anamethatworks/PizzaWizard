@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://beiyfaum8xwi2"]
+
+[ext_resource type="Script" uid="uid://c0xgtye0cg1ok" path="res://scripts/engine/engine_testbed.gd" id="1_x8yu2"]
+[ext_resource type="Script" uid="uid://drqkwvmu7gwsi" path="res://scripts/engine/engine.gd" id="2_aabt7"]
+[ext_resource type="Script" uid="uid://ck886v6uqkf6r" path="res://scripts/engine/engine_specs.gd" id="3_jx5sp"]
+
+[sub_resource type="Resource" id="Resource_0mnjb"]
+script = ExtResource("3_jx5sp")
+setup = 0
+pistons = 4
+metadata/_custom_type_script = "uid://ck886v6uqkf6r"
+
+[node name="Base" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x8yu2")
+
+[node name="VehicleEngine" type="Node" parent="."]
+script = ExtResource("2_aabt7")
+specs = SubResource("Resource_0mnjb")
+metadata/_custom_type_script = "uid://drqkwvmu7gwsi"
+
+[node name="EngineVisualizer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
