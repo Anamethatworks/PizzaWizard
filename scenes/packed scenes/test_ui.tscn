@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dik1wyeffkyac"]
 
-[ext_resource type="Script" path="res://scripts/ui_manager.gd" id="1_cbekv"]
+[ext_resource type="Script" uid="uid://l7pptkcybulm" path="res://scripts/ui_manager.gd" id="1_cbekv"]
 
 [node name="UIPanel" type="Panel"]
 offset_right = 272.0
