@@ -53,6 +53,8 @@ func _on_body_entered(body: Node3D) -> void:
 			n = 5
 		DeliveryManager.take_orders(n)
 		var minimap_node = $"../../MiniMap"
+		var ui_manager = $"../../UIPanel/UIManager"
 		for i in range(0, len(DeliveryManager.current_orders)):
 			minimap_node.call("add_delivery_icon", (DeliveryManager.current_orders[i].dropoffPoint.global_position))
+			ui_manager.call("add_order_ticket", DeliveryManager.current_orders[i].parTime, DeliveryManager.current_orders[i].dropoffPoint.global_position)
 		Score.earn_bonuses()

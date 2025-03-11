@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dik1wyeffkyac" path="res://scenes/packed scenes/test_ui.tscn" id="1_mrpau"]
 [ext_resource type="PackedScene" uid="uid://dsvq25iq46jfm" path="res://scenes/packed scenes/player.tscn" id="2_qlckg"]
-[ext_resource type="Script" uid="uid://b18b8q0sj0f2f" path="res://scripts/temp_manager.gd" id="3_8renb"]
+[ext_resource type="Script" path="res://scripts/temp_manager.gd" id="3_8renb"]
 [ext_resource type="PackedScene" uid="uid://cn3xuf41u7awb" path="res://scenes/packed scenes/city pieces/level_ground.tscn" id="4_lfvos"]
 [ext_resource type="PackedScene" uid="uid://brhx8i8tpofdj" path="res://scenes/packed scenes/city pieces/street_straight.tscn" id="5_g6pt7"]
 [ext_resource type="PackedScene" uid="uid://cqe1wp27m126b" path="res://scenes/packed scenes/city pieces/street_intersection.tscn" id="6_d016x"]
@@ -1248,3 +1248,5 @@ transform = Transform3D(1.32, 0, 0, 0, 1, 0, 0, 0, 0.5, 2.58208, 0, -12.5444)
 
 [node name="MiniMap" parent="." instance=ExtResource("26_8ak2p")]
 unique_name_in_owner = true
+
+[editable path="UIPanel"]

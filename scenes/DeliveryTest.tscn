@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://dfxuvnukfjcnh"]
 
 [ext_resource type="PackedScene" uid="uid://dik1wyeffkyac" path="res://scenes/packed scenes/test_ui.tscn" id="1_bhf62"]
-[ext_resource type="Script" uid="uid://dta3jlukygjep" path="res://scripts/temp_zone.gd" id="1_na6vi"]
+[ext_resource type="Script" path="res://scripts/temp_zone.gd" id="1_na6vi"]
 [ext_resource type="Texture2D" uid="uid://x86ejv2g0gmr" path="res://assets/textures/pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg" id="2_xa6vl"]
-[ext_resource type="Script" uid="uid://b18b8q0sj0f2f" path="res://scripts/temp_manager.gd" id="3_oa5ij"]
+[ext_resource type="Script" path="res://scripts/temp_manager.gd" id="3_oa5ij"]
 [ext_resource type="PackedScene" uid="uid://dsvq25iq46jfm" path="res://scenes/packed scenes/player.tscn" id="4_jb266"]
 [ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="6_7kxbt"]
 [ext_resource type="PackedScene" uid="uid://d1t0s5g077ud1" path="res://scenes/packed scenes/pizza_pickup_point.tscn" id="6_u5i5a"]
@@ -45,7 +45,7 @@ albedo_color = Color(0, 0.720236, 0.720236, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_jb266")]
 
-[node name="TempManager" type="Node" parent="Player"]
+[node name="TempManager2" type="Node" parent="Player"]
 script = ExtResource("3_oa5ij")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

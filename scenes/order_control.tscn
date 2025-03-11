@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://dpum0siq57wb3"]
+
+[ext_resource type="Script" path="res://scripts/order_ui.gd" id="1_inek1"]
+[ext_resource type="Texture2D" uid="uid://cdwf7s0fpak0a" path="res://assets/sprites/OrderTicket.png" id="1_x7rif"]
+[ext_resource type="Texture2D" uid="uid://dl8ipv8rjrtdp" path="res://assets/sprites/TempIcon.png" id="2_lr700"]
+[ext_resource type="Texture2D" uid="uid://vfgcfrgtafw2" path="res://assets/sprites/ParIcon.png" id="3_3bogj"]
+[ext_resource type="Texture2D" uid="uid://jxhtcatk6net" path="res://assets/sprites/TimeIcon.png" id="4_yahwv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u15v1"]
+texture = ExtResource("1_x7rif")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_agatn"]
+texture = ExtResource("2_lr700")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nd7hi"]
+texture = ExtResource("3_3bogj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3lgox"]
+texture = ExtResource("4_yahwv")
+
+[node name="OrderControl" type="Control"]
+custom_minimum_size = Vector2(116, 156)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_inek1")
+
+[node name="OrderPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+pivot_offset = Vector2(36, 50)
+theme_override_styles/panel = SubResource("StyleBoxTexture_u15v1")
+
+[node name="TempPanel" type="Panel" parent="OrderPanel"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 17.6711
+offset_top = 25.4031
+offset_right = 49.6711
+offset_bottom = 57.4031
+theme_override_styles/panel = SubResource("StyleBoxTexture_agatn")
+
+[node name="ParPanel" type="Panel" parent="OrderPanel"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 19.0467
+offset_top = 63.0739
+offset_right = 51.0467
+offset_bottom = 95.0739
+theme_override_styles/panel = SubResource("StyleBoxTexture_nd7hi")
+
+[node name="TimePanel" type="Panel" parent="OrderPanel"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 18.4802
+offset_top = 99.8468
+offset_right = 50.4802
+offset_bottom = 131.847
+theme_override_styles/panel = SubResource("StyleBoxTexture_3lgox")
+
+[node name="TempText" type="RichTextLabel" parent="OrderPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 44.5356
+offset_top = 28.2841
+offset_right = 108.536
+offset_bottom = 60.2841
+theme_override_colors/default_color = Color(0.099986, 0.099986, 0.099986, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.329412)
+theme_override_font_sizes/normal_font_size = 20
+text = "200°"
+
+[node name="ParText" type="RichTextLabel" parent="OrderPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 50.9844
+offset_top = 65.082
+offset_right = 114.984
+offset_bottom = 97.082
+theme_override_colors/default_color = Color(0.099986, 0.099986, 0.099986, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.329412)
+theme_override_font_sizes/normal_font_size = 20
+text = "70s"
+
+[node name="TimeText" type="RichTextLabel" parent="OrderPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 50.4359
+offset_top = 101.597
+offset_right = 114.436
+offset_bottom = 133.597
+theme_override_colors/default_color = Color(0.099986, 0.099986, 0.099986, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.329412)
+theme_override_font_sizes/normal_font_size = 20
+text = "70s"

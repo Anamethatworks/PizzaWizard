@@ -1,0 +1,5 @@
+[gd_resource type="SystemFont" format=3 uid="uid://wj6i27fp2c8k"]
+
+[resource]
+font_names = PackedStringArray("MV Boli")
+oversampling = 2.0
