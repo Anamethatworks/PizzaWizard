@@ -8,7 +8,7 @@ const TEMPERATURE_TOLERANCE: float = 27.0
 const BASE_TIP: float = 0.1
 
 ## The money the player has
-static var player_gold: int = 0
+static var player_gold: int = 1000
 
 ## If this script is autoloaded, this function can be called from anywhere using [method Money.get_payout()]
 ## [param temp]: the temperature of the pizza

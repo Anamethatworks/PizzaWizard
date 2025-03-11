@@ -5,53 +5,58 @@
 
 [node name="UpgradeStation" type="Area3D"]
 script = ExtResource("1_x7pae")
+metadata/_custom_type_script = "uid://fjitoi2kvmsw"
 
 [node name="Container" type="PanelContainer" parent="."]
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -54.5
-offset_top = -20.0
-offset_right = 54.5
-offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 6
+size_flags_vertical = 6
 script = ExtResource("1_dj5qc")
+metadata/_custom_type_script = "uid://1bmlp22byya1"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Container"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
 
 [node name="UpgradeName" type="Label" parent="Container/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Upgrade Station: %NAME%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="UpgradeDesc" type="Label" parent="Container/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "%DESC%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="UpgradeCost" type="Label" parent="Container/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Cost: %COST%G"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="UpgradeStatus" type="Label" parent="Container/VBoxContainer"]
 layout_mode = 2
-text = "No upgrade paired! If you're seeing this in-game, something has gone very wrong!"
+size_flags_horizontal = 4
+text = "No upgrade paired! If you're seeing this in-game, something has gone wrong!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CooldownTimer" type="Timer" parent="."]
+[node name="CooldownTimer" type="Timer" parent="Container"]
 process_callback = 0
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="CooldownTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Container/CooldownTimer" to="Container" method="_on_timer_timeout"]

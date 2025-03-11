@@ -29,9 +29,9 @@ func _init(tier_values: Array[Variant], tier_costs: Array[int], names: Array[Str
 	assert(len(tier_values) == len(tier_costs) + 1, "Mismatch between tier values and costs. Should have one more value than costs (the default value)")
 	assert(len(tier_costs) == len(names), "Mismatch between costs and names. Should have an equal length.")
 	upgrade_tiers = len(tier_costs)
-	values = tier_values
-	costs = tier_costs
-	upgrade_names = names
+	values = tier_values; values.make_read_only()
+	costs = tier_costs; costs.make_read_only()
+	upgrade_names = names; upgrade_names.make_read_only()
 	description = desc
 	upgrade_list.append(self)
 	UpgradeStation.unpaired_upgrades.append(self)
