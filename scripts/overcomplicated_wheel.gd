@@ -78,6 +78,8 @@ func pacejka_magic_formula_lateral(angle: float) -> float:
 ## x: The wheel slip
 ## y: The wheel slip angle
 func get_slip_velocity() -> Vector2:
+	# Inspired by Brian Beckman's "The Physics of Racing, Part 24: Combination Slip"
+	# http://autoxer.skiblack.com/phys_racing/phors24.htm
 	var theoretical_velocity := -get_rpm() * TAU / 60.0 * wheel_radius
 	var slip: float = 0.0 if (local_velocity.is_zero_approx()) else (theoretical_velocity - local_velocity.y) / local_velocity.length()
 	if absf(local_velocity.y) < 1.00: # Low velocity failsafe (So the car doesn't shake at rest)
@@ -91,10 +93,10 @@ func get_slip_velocity() -> Vector2:
 		slip_angle += 180.0
 	
 	# Manual hack to reduce lateral slip, especially when car is moving slowly
-	slip_angle *= sigmoid(local_velocity.length_squared() * 0.001)
+	slip_angle *= sigmoid(absf(local_velocity.x) * 0.01)
 	
 	return Vector2(slip, slip_angle)
 	
-## A sigmoid function for smoothly restricting an input
-func sigmoid(x: float) -> float:
+## A simple sigmoid function for smoothly restricting an input
+static func sigmoid(x: float) -> float:
 	return x / sqrt(1.0 + x * x)

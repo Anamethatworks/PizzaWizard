@@ -6,8 +6,8 @@ var player : VehicleBody3D
 var info_display : TextEdit
 
 var order_list_display : GridContainer
-var info_format_string = "Total Wallet: $%.*f\nAmbient Temperature: %d F\nCurrent Orders:"
-var order_format_string = "%d.) Temp: %d F\n     Par Time: %ds\n     Time Since Order: %ds\n"
+var info_format_string = "Total Wallet: $%.*f\nAmbient Temperature: %d° F\nCurrent Orders:"
+var order_format_string = "%d.) Temp: %d° F\n     Par Time: %ds\n     Time Since Order: %ds\n"
 
 func _ready() -> void:
 	player = $"../../Player"
