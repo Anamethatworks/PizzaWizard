@@ -24,7 +24,7 @@ static var MAX_STEERING_ANGLE := UpgradeableStat.new(
 static var MAX_MANA := UpgradeableStat.new(
 	[100, 150, 250, 500],
 	[5, 10, 20],
-	["Magic Training, Wizardry Practicum", "Arcane Study"],
+	["Magic Training", "Wizardry Practicum", "Arcane Study"],
 	"Increases Max Mana")
 
 static var PASSIVE_MANA_GAIN := UpgradeableStat.new(
