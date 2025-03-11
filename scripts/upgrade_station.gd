@@ -15,7 +15,7 @@ func _ready() -> void:
 	paired_upgrade = unpaired_upgrades.pop_back()
 	$Container.update_info()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if on_cooldown:
 		$Container.set_texts(	"Upgrade Station",
 								"Upgrade bought",

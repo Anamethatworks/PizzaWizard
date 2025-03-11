@@ -1,5 +1,4 @@
-@tool
-class_name UpgradeList extends Object
+@tool class_name UpgradeList extends Object
 ## Utility class for holding all the upgrades, so they can be easily modified/balance from one place
 ## And so they don't take up space in other scripts
 
@@ -32,3 +31,9 @@ static var PASSIVE_MANA_GAIN := UpgradeableStat.new(
 	[5, 10, 30],
 	[&"Ancient Wizard Hat", &"Witchcraft", &"Forbidden Tomes"],
 	&"Increase passive mana gain by XX%")
+
+static var TEMPERATURE_CHANGE_FACTOR := UpgradeableStat.new(
+	[1.0, 0.85, 0.66666666666667],
+	[15, 20],
+	[&"Insulated Pizza Boxes", &"Pizza Stasis"],
+	&"Decreases the speed at which pizzas cool down by XX%")

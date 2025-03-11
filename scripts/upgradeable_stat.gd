@@ -63,7 +63,7 @@ func get_description() -> StringName:
 	if len(values) > 1:
 		if values[0] is int or values[0] is float:
 			var increase: float = values[current_tier + 1] / values[current_tier]
-			increase -= 1.0
+			increase = absf(increase - 1.0)
 			var percent_increase: int = roundi(increase * 100.0)
 			return description.replace("XX%", str(percent_increase) + "%")
 	return description
