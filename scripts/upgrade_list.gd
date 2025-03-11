@@ -6,29 +6,29 @@ class_name UpgradeList extends Object
 static var ENGINE_MAX_FORCE := UpgradeableStat.new(
 	[2500.0, 4000.0, 6000.0],
 	[15, 20],
-	["Improved Fuel Mixture", "Mana Potion Fuel Injection"],
-	"Increases Top Speed")
+	[&"Improved Fuel Mixture", &"Mana Potion Fuel Injection"],
+	&"Increases engine force by XX%")
 	
 static var THROTTLE_SPEED := UpgradeableStat.new(
 	[6000.0, 8000.0, 10000.0],
 	[10, 15],
-	["Upgraded Engine", "Enchanted Engine"],
-	"Improves Acceleration")
+	[&"Engine Modification", &"Engine Enchantment"],
+	&"Improves acceleration by XX%")
 	
 static var MAX_STEERING_ANGLE := UpgradeableStat.new(
 	[TAU / 12.0, TAU / 9.0],
 	[10],
-	["Modified Steering"],
-	"Increases Steering Angle")
+	[&"Modified Steering"],
+	&"Increases steering angle by XX%")
 
 static var MAX_MANA := UpgradeableStat.new(
 	[100, 150, 250, 500],
 	[5, 10, 20],
-	["Magic Training", "Wizardry Practicum", "Arcane Study"],
-	"Increases Max Mana")
+	[&"Magic Training", &"Wizardry Practicum", &"Arcane Study"],
+	&"Increases max mana by XX%")
 
 static var PASSIVE_MANA_GAIN := UpgradeableStat.new(
 	[100.0 / 60.0, 200.0 / 60.0, 500.0 / 60.0, 2500.0 / 60.0],
 	[5, 10, 30],
-	["Ancient Wizard Hat", "Witchcraft", "Forbidden Tomes"],
-	"Increase Passive Mana Gain")
+	[&"Ancient Wizard Hat", &"Witchcraft", &"Forbidden Tomes"],
+	&"Increase passive mana gain by XX%")
