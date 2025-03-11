@@ -37,41 +37,17 @@ func _process(delta : float) -> void:
 		display_gold = lerp(float(display_gold), float(Money.player_gold), 0.1)
 		if (abs(display_gold - Money.player_gold) < 0.5):
 			display_gold = Money.player_gold
-		var new_wallet_val = float(int(display_gold * 100)) / 100.0
+		#var new_wallet_val = float(int(display_gold * 100)) / 100.0 #converted to cents but goes over text box length
+		var new_wallet_val = int(display_gold)
 		player_wallet_label.text = "[center]$" + str(new_wallet_val) + "[/center]"
 	
-
+	#Update time and temp of individual orders
 	for i in range(0, len(order_tickets)):
 		order_tickets[i].update_temp_label(DeliveryManager.current_orders[i].ordered_pizza.temperature)
 		order_tickets[i].update_time_label(DeliveryManager.current_orders[i].dropoffPoint.time_since_order)
-#	# Format the info display
-#	info_display.text = info_format_string % [
-#		2,	# pad to 2 decimal places 
-#		Money.player_gold,
-#		TempManager.amb_temp
-#	]
-#	
-#	# Clear the order list
-#	for child in order_list_display.get_children():
-#		child.free()
-#		
-#	# For the first 3 orders in [DeliveryManager.current_orders], display info
-#	var display_order : Label
-#	for i in len(DeliveryManager.current_orders):
-#		if i >= MAX_DISPLAY_ORDERS:
-#			break
-#		display_order = Label.new()
-#		order_list_display.add_child(display_order)
-#		display_order.text = order_format_string % [
-#			i + 1,
-#			DeliveryManager.current_orders[i].ordered_pizza.temperature,
-#			DeliveryManager.current_orders[i].parTime,
-#			DeliveryManager.current_orders[i].dropoffPoint.time_since_order
-#		]
 
 func add_order_ticket(par: int, pos: Vector3) -> void:
 	var new_ticket = order_ticket_scene.instantiate()
-	#new_ticket.get_child(0).rotation = randf_range(-5.0, 5.0)
 	new_ticket.call_deferred("random_rotate")
 	new_ticket.pos = pos
 	new_ticket.set_par_time(par)
