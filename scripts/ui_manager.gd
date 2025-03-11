@@ -9,33 +9,78 @@ var order_list_display : GridContainer
 var info_format_string = "Total Wallet: $%.*f\nAmbient Temperature: %d° F\nCurrent Orders:"
 var order_format_string = "%d.) Temp: %d° F\n     Par Time: %ds\n     Time Since Order: %ds\n"
 
+var display_gold = 0
+var display_temp = 73
+@onready var amb_temp_label = $"../TempLabel"
+@onready var player_wallet_label = $"../WalletLabel"
+@onready var order_ticket_holder = $"../HBoxContainer"
+var order_ticket_scene = preload("res://scenes/order_control.tscn")
+var order_tickets = []
+
 func _ready() -> void:
 	player = $"../../Player"
 	info_display = $"../InfoDisplay"
 	order_list_display = $"../OrderList"
 
+
 func _process(delta : float) -> void:
-	# Format the info display
-	info_display.text = info_format_string % [
-		2,	# pad to 2 decimal places 
-		Money.player_gold,
-		TempManager.amb_temp
-	]
+
+	#if display_temp isn't equal to amb_temp, lerp display_temp and display value
+	if (display_temp != TempManager.amb_temp):
+		display_temp = lerp(float(display_temp), float(TempManager.amb_temp), 0.1)
+		if (abs(display_temp - TempManager.amb_temp) < 0.5):
+			display_temp = TempManager.amb_temp
+		amb_temp_label.text = str(int(display_temp)) + "°"
+
+	#if display gold isn't equal to player_gold, lerp display_gold and display value
+	if (display_gold != Money.player_gold):
+		display_gold = lerp(float(display_gold), float(Money.player_gold), 0.1)
+		if (abs(display_gold - Money.player_gold) < 0.5):
+			display_gold = Money.player_gold
+		var new_wallet_val = float(int(display_gold * 100)) / 100.0
+		player_wallet_label.text = "[center]$" + str(new_wallet_val) + "[/center]"
 	
-	# Clear the order list
-	for child in order_list_display.get_children():
-		child.free()
-		
-	# For the first 3 orders in [DeliveryManager.current_orders], display info
-	var display_order : Label
-	for i in len(DeliveryManager.current_orders):
-		if i >= MAX_DISPLAY_ORDERS:
-			break
-		display_order = Label.new()
-		order_list_display.add_child(display_order)
-		display_order.text = order_format_string % [
-			i + 1,
-			DeliveryManager.current_orders[i].ordered_pizza.temperature,
-			DeliveryManager.current_orders[i].parTime,
-			DeliveryManager.current_orders[i].dropoffPoint.time_since_order
-		]
+
+	for i in range(0, len(order_tickets)):
+		order_tickets[i].update_temp_label(DeliveryManager.current_orders[i].ordered_pizza.temperature)
+		order_tickets[i].update_time_label(DeliveryManager.current_orders[i].dropoffPoint.time_since_order)
+#	# Format the info display
+#	info_display.text = info_format_string % [
+#		2,	# pad to 2 decimal places 
+#		Money.player_gold,
+#		TempManager.amb_temp
+#	]
+#	
+#	# Clear the order list
+#	for child in order_list_display.get_children():
+#		child.free()
+#		
+#	# For the first 3 orders in [DeliveryManager.current_orders], display info
+#	var display_order : Label
+#	for i in len(DeliveryManager.current_orders):
+#		if i >= MAX_DISPLAY_ORDERS:
+#			break
+#		display_order = Label.new()
+#		order_list_display.add_child(display_order)
+#		display_order.text = order_format_string % [
+#			i + 1,
+#			DeliveryManager.current_orders[i].ordered_pizza.temperature,
+#			DeliveryManager.current_orders[i].parTime,
+#			DeliveryManager.current_orders[i].dropoffPoint.time_since_order
+#		]
+
+func add_order_ticket(par: int, pos: Vector3) -> void:
+	var new_ticket = order_ticket_scene.instantiate()
+	#new_ticket.get_child(0).rotation = randf_range(-5.0, 5.0)
+	new_ticket.call_deferred("random_rotate")
+	new_ticket.pos = pos
+	new_ticket.set_par_time(par)
+	order_ticket_holder.add_child(new_ticket)
+	order_tickets.append(new_ticket)
+
+func remove_order_ticket(pos: Vector3) -> void:
+	for i in range(0, len(order_tickets)):
+		if order_tickets[i].pos == pos:
+			var popped_ticket = order_tickets.pop_at(i)
+			popped_ticket.queue_free()
+			break;

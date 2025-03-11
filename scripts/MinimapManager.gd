@@ -17,7 +17,7 @@ var deliver_locations : Array[Vector3] = []
 var delivery_icons : Array[Control] = []
 
 func add_delivery_icon(loc: Vector3) -> void:
-	print("Adding delivery to " + str(len(deliver_locations)) + "total delivery locations")
+	#print("Adding delivery to " + str(len(deliver_locations)) + "total delivery locations")
 	deliver_locations.append(loc)
 	var new_icon = delivery_icon_scene.instantiate()
 	minmap_icon_mask.add_child(new_icon)
@@ -25,13 +25,14 @@ func add_delivery_icon(loc: Vector3) -> void:
 	
 
 func remove_delivery_icon(loc: Vector3) -> void:
-	print("Removing delivery from " + str(len(deliver_locations)) + "total delivery locations")
+	#print("Removing delivery from " + str(len(deliver_locations)) + "total delivery locations")
 	for i in range(len(deliver_locations)):
-		print (len(deliver_locations))
+		#print (len(deliver_locations))
 		if deliver_locations[i] == loc:
-			print("found location, should be deleting it")
+			#print("found location, should be deleting it")
 			deliver_locations.remove_at(i)
 			var icon = delivery_icons.pop_at(i)
+			icon.queue_free()
 			minmap_icon_mask.remove_child(icon)
 			break
 
@@ -70,7 +71,6 @@ func _process(delta: float) -> void:
 		var del_x = (player.position.x - deliver_locations[i].x) * map_to_world_ratio
 		var del_y = (player.position.z - deliver_locations[i].z) * map_to_world_ratio
 		var del_pos = Vector2(89 + del_x, 69 + del_y)
-		#print (Vector2((89 + del_x) - 100,(69 + del_y) - 100).length())
 		if (Vector2((89 + del_x) - 100,(69 + del_y) - 100).length() > 90):
 			var dir = Vector2(player.position.x - deliver_locations[i].x, player.position.z - deliver_locations[i].z)
 			var angle = atan2(dir.y, dir.x)

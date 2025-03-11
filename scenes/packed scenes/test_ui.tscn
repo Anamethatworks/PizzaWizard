@@ -1,15 +1,70 @@
-[gd_scene load_steps=2 format=3 uid="uid://dik1wyeffkyac"]
+[gd_scene load_steps=9 format=3 uid="uid://dik1wyeffkyac"]
 
-[ext_resource type="Script" uid="uid://l7pptkcybulm" path="res://scripts/ui_manager.gd" id="1_cbekv"]
+[ext_resource type="Script" path="res://scripts/ui_manager.gd" id="1_cbekv"]
+[ext_resource type="Texture2D" uid="uid://cfekqwirwux2p" path="res://assets/sprites/MoneyIcon2.png" id="2_rp4mp"]
+[ext_resource type="SystemFont" uid="uid://wj6i27fp2c8k" path="res://assets/fonts/ui_font.tres" id="3_vsdgi"]
+[ext_resource type="Texture2D" uid="uid://bravp6wkudwmb" path="res://assets/sprites/TempIcon2.png" id="4_a1wdi"]
+[ext_resource type="PackedScene" uid="uid://dpum0siq57wb3" path="res://scenes/order_control.tscn" id="5_omk2h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4urmr"]
+bg_color = Color(0.329158, 0.329158, 0.329158, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fgqiv"]
+texture = ExtResource("2_rp4mp")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d6m1j"]
+texture = ExtResource("4_a1wdi")
 
 [node name="UIPanel" type="Panel"]
 offset_right = 272.0
 offset_bottom = 476.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4urmr")
 
 [node name="UIManager" type="Node" parent="."]
 script = ExtResource("1_cbekv")
 
+[node name="WalletPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 72.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_fgqiv")
+
+[node name="WalletLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 14.0
+offset_right = 188.0
+offset_bottom = 66.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_vsdgi")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]$0[/center]"
+
+[node name="TempPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 8.0
+offset_right = 238.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_d6m1j")
+
+[node name="TempLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 13.0
+offset_right = 326.0
+offset_bottom = 65.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_vsdgi")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "72°"
+
 [node name="InfoDisplay" type="TextEdit" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 272.0
 offset_bottom = 476.0
@@ -19,8 +74,21 @@ Current Orders:
 
 "
 
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 328.0
+offset_bottom = 206.0
+theme_override_constants/separation = -16
+
+[node name="OrderControl" parent="HBoxContainer" instance=ExtResource("5_omk2h")]
+visible = false
+layout_mode = 2
+
 [node name="OrderList" type="GridContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_top = 89.0
 offset_right = 272.0
 offset_bottom = 476.0
+theme_override_constants/h_separation = 16
