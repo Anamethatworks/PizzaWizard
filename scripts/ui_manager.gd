@@ -59,4 +59,4 @@ func remove_order_ticket(pos: Vector3) -> void:
 		if order_tickets[i].pos == pos:
 			var popped_ticket = order_tickets.pop_at(i)
 			popped_ticket.queue_free()
-			break;
+			break
