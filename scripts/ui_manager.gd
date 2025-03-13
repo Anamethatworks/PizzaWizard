@@ -50,7 +50,7 @@ func add_order_ticket(par: int, pos: Vector3) -> void:
 	var new_ticket = order_ticket_scene.instantiate()
 	new_ticket.call_deferred("random_rotate")
 	new_ticket.pos = pos
-	new_ticket.set_par_time(par)
+	new_ticket.call_deferred("set_par_time", par)
 	order_ticket_holder.add_child(new_ticket)
 	order_tickets.append(new_ticket)
 
@@ -59,4 +59,4 @@ func remove_order_ticket(pos: Vector3) -> void:
 		if order_tickets[i].pos == pos:
 			var popped_ticket = order_tickets.pop_at(i)
 			popped_ticket.queue_free()
-			break;
+			break
