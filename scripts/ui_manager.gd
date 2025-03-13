@@ -50,7 +50,7 @@ func add_order_ticket(par: int, pos: Vector3) -> void:
 	var new_ticket = order_ticket_scene.instantiate()
 	new_ticket.call_deferred("random_rotate")
 	new_ticket.pos = pos
-	new_ticket.set_par_time(par)
+	new_ticket.call_deferred("set_par_time", par)
 	order_ticket_holder.add_child(new_ticket)
 	order_tickets.append(new_ticket)
 
