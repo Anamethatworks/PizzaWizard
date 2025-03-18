@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dsvq25iq46jfm"]
+[gd_scene load_steps=21 format=3 uid="uid://dsvq25iq46jfm"]
 
 [ext_resource type="Script" path="res://scripts/car.gd" id="1_fbag5"]
 [ext_resource type="Script" path="res://scripts/camera_rig.gd" id="2_i16p3"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b4odq7vhsv4il" path="res://assets/models/FL_Wheel.fbx" id="9_i0731"]
 [ext_resource type="AudioStream" uid="uid://c813uqslyvsuo" path="res://assets/Sounds/Crash.wav" id="9_qv3xj"]
 [ext_resource type="Script" path="res://scripts/temp_manager.gd" id="15_o3ua6"]
+[ext_resource type="Script" path="res://scripts/caster.gd" id="16_fhh5b"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_doc81"]
 
@@ -145,5 +146,8 @@ avoidance_enabled = true
 radius = 3.0
 neighbor_distance = 10.0
 max_neighbors = 5
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("16_fhh5b")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
