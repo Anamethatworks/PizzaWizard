@@ -8,7 +8,7 @@
 size = Vector3(14.9609, 4.19147, 15.4194)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8gonc"]
-size = Vector3(15, 5, 5)
+size = Vector3(15, 5, 6)
 
 [node name="Building07" instance=ExtResource("1_3aj8p")]
 
@@ -27,10 +27,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50781, 2.08701, -6.5106)
 shape = SubResource("BoxShape3D_bitqv")
 
 [node name="PizzaDropoffPoint" parent="." index="3" instance=ExtResource("3_juv5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.55734, 1.87341, 0.32987)
 
 [node name="CollisionShape3D" parent="PizzaDropoffPoint" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.057, 0.627, 3)
 shape = SubResource("BoxShape3D_8gonc")
 
 [editable path="PizzaDropoffPoint"]

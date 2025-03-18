@@ -2,6 +2,10 @@ extends Area3D
 class_name DropoffPoint
 ## A location that can order pizzas
 
+const GLOWY_MATERIAL: Material = preload("res://assets/materials/glow.tres")
+
+@onready var building: MeshInstance3D = get_parent_node_3d().get_child(0)
+
 ## The current [Order] this location has, or [code]null[/code] if there is none
 var current_order: Order = null
 
@@ -23,6 +27,7 @@ var time_since_order: float = 0.0
 func _ready() -> void:
 	DeliveryManager.addDropoffPoint(self)
 	monitoring = false
+	init_particles()
 
 ## Calculates par time for travel between two points
 static func calculate_par_time(hither : Vector3, yon : Vector3) -> float:
@@ -36,6 +41,7 @@ func add_order() -> Order:
 		return null
 	var par_time: float = calculate_par_time(global_position, Pizzeria.active_location.global_position)
 	current_order = Order.new(self, par_time)
+	start_dropoff_effects()
 	monitoring = true
 	return current_order
 
@@ -63,3 +69,25 @@ func _on_body_entered(body: Node3D) -> void:
 		var ui_manager = $"../../../UIPanel/UIManager"
 		minimap_node.call("remove_delivery_icon", (global_position))
 		ui_manager.call("remove_order_ticket", (global_position))
+		end_dropoff_effects()
+
+## Initializes particles to be the same size and position as the collision for the dropoff point
+## Only needs to be run once at startup
+func init_particles() -> void:
+	var particles: GPUParticles3D = $GPUParticles3D
+	for child: Node in get_children():
+		if child is CollisionShape3D:
+			particles.scale = child.shape.size / 2.0
+			particles.position = child.position
+
+
+## Starts dropoff effects (building glow, particles)
+## Needs to be run each time the effects should start
+func start_dropoff_effects() -> void:
+	$GPUParticles3D.emitting = true
+	building.material_overlay = GLOWY_MATERIAL
+
+## Stops the dropoff effects and returns the building to its normal appearance
+func end_dropoff_effects() -> void:
+	building.material_overlay = null
+	$GPUParticles3D.emitting = false

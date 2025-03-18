@@ -24,10 +24,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73923, 2.54892, 6.50415)
 shape = SubResource("BoxShape3D_c55sn")
 
 [node name="PizzaDropoffPoint" parent="." index="2" instance=ExtResource("3_ym6j8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -1)
 
 [node name="CollisionShape3D" parent="PizzaDropoffPoint" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, 5)
 shape = SubResource("BoxShape3D_8eh0d")
 
 [editable path="PizzaDropoffPoint"]
