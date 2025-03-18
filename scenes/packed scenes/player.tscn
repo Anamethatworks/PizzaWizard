@@ -147,7 +147,7 @@ radius = 3.0
 neighbor_distance = 10.0
 max_neighbors = 5
 
-[node name="Node" type="Node" parent="."]
+[node name="Caster" type="Node" parent="."]
 script = ExtResource("16_fhh5b")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
