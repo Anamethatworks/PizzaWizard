@@ -1,85 +1,30 @@
-[gd_scene load_steps=39 format=3 uid="uid://1qetpejc7cmu"]
+[gd_scene load_steps=33 format=3 uid="uid://dru1flpf2w1iq"]
 
-[ext_resource type="Script" path="res://scripts/main_menu_manager.gd" id="1_10g8r"]
-[ext_resource type="Texture2D" uid="uid://dpidb0ph7lxqi" path="res://PWTitleLogo.png" id="2_cehbr"]
-[ext_resource type="Texture2D" uid="uid://do27ee0mdgln7" path="res://PWTitleTemp.png" id="3_eh6el"]
-[ext_resource type="Texture2D" uid="uid://dt1tt3f40r8kn" path="res://StarBurst2.png" id="4_d4boe"]
-[ext_resource type="Script" path="res://scripts/star_burst_anims.gd" id="5_7yxc5"]
-[ext_resource type="Script" path="res://scripts/MenuAnimManager.gd" id="6_gifkg"]
-[ext_resource type="Texture2D" uid="uid://vjafvv7sa1pe" path="res://TitleDarkBG.png" id="7_lkiac"]
-[ext_resource type="Texture2D" uid="uid://016umrlou53v" path="res://MenuButtonHovered.png" id="8_0kt5k"]
-[ext_resource type="Texture2D" uid="uid://dhvxg2ttdlgs6" path="res://MenuButtonDown.png" id="9_y6vvn"]
-[ext_resource type="Texture2D" uid="uid://dt0sskr6n6eyh" path="res://MenuButton.png" id="10_f6bd1"]
-[ext_resource type="PackedScene" uid="uid://bbddblows1ku5" path="res://scenes/city_for_menu.tscn" id="11_doeav"]
-
-[sub_resource type="Animation" id="Animation_y71wv"]
-resource_name = "MenuFadeIn"
-length = 3.0
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BlackFade/BlackPanel:theme_override_styles/panel:bg_color:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2, 3)
-}
-
-[sub_resource type="Animation" id="Animation_ir7uj"]
-resource_name = "MenuFadeOut"
-length = 2.0
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BlackFade/BlackPanel:theme_override_styles/panel:bg_color:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2)
-}
-
-[sub_resource type="Animation" id="Animation_4lrgs"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BlackFade/BlackPanel:theme_override_styles/panel:bg_color:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nori6"]
-_data = {
-"MenuFadeIn": SubResource("Animation_y71wv"),
-"MenuFadeOut": SubResource("Animation_ir7uj"),
-"RESET": SubResource("Animation_4lrgs")
-}
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tn5ty"]
-bg_color = Color(0, 0, 0, 0)
+[ext_resource type="Texture2D" uid="uid://dpidb0ph7lxqi" path="res://PWTitleLogo.png" id="1_t5ump"]
+[ext_resource type="Texture2D" uid="uid://do27ee0mdgln7" path="res://PWTitleTemp.png" id="2_bd2x7"]
+[ext_resource type="Texture2D" uid="uid://dt1tt3f40r8kn" path="res://StarBurst2.png" id="3_vngr1"]
+[ext_resource type="Script" path="res://scripts/star_burst_anims.gd" id="4_7r41l"]
+[ext_resource type="Script" path="res://scripts/MenuAnimManager.gd" id="5_23wvc"]
+[ext_resource type="Texture2D" uid="uid://vjafvv7sa1pe" path="res://TitleDarkBG.png" id="6_nsbuu"]
+[ext_resource type="Texture2D" uid="uid://016umrlou53v" path="res://MenuButtonHovered.png" id="7_1yjl2"]
+[ext_resource type="Texture2D" uid="uid://dhvxg2ttdlgs6" path="res://MenuButtonDown.png" id="8_a81f5"]
+[ext_resource type="Texture2D" uid="uid://dt0sskr6n6eyh" path="res://MenuButton.png" id="9_c5xyq"]
+[ext_resource type="PackedScene" uid="uid://bbddblows1ku5" path="res://scenes/city_for_menu.tscn" id="10_qslvp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7a3qj"]
-texture = ExtResource("2_cehbr")
+texture = ExtResource("1_t5ump")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_weujp"]
-texture = ExtResource("3_eh6el")
+texture = ExtResource("2_bd2x7")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pumoh"]
-texture = ExtResource("4_d4boe")
+texture = ExtResource("3_vngr1")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x5m1n"]
-texture = ExtResource("4_d4boe")
+texture = ExtResource("3_vngr1")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l58jx"]
-texture = ExtResource("4_d4boe")
+texture = ExtResource("3_vngr1")
 
 [sub_resource type="Animation" id="Animation_raai3"]
 length = 0.001
@@ -756,16 +701,16 @@ _data = {
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3a0d7"]
-texture = ExtResource("7_lkiac")
+texture = ExtResource("6_nsbuu")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jq3s7"]
-texture = ExtResource("8_0kt5k")
+texture = ExtResource("7_1yjl2")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68xh6"]
-texture = ExtResource("9_y6vvn")
+texture = ExtResource("8_a81f5")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h0j1c"]
-texture = ExtResource("10_f6bd1")
+texture = ExtResource("9_c5xyq")
 
 [sub_resource type="Animation" id="Animation_t3mh7"]
 resource_name = "CameraAnim1"
@@ -986,35 +931,9 @@ _data = {
 "RESET": SubResource("Animation_e8gro")
 }
 
-[node name="MainMenu" type="Node3D"]
-script = ExtResource("1_10g8r")
+[node name="MenuElements" type="Node"]
 
-[node name="BlackFade" type="Node" parent="."]
-
-[node name="BlackFadeAnim" type="AnimationPlayer" parent="BlackFade"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_nori6")
-}
-
-[node name="BlackPanel" type="Panel" parent="BlackFade"]
-z_index = 9
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_tn5ty")
-
-[node name="MenuElements" type="Node" parent="."]
-
-[node name="TitleLogo" type="Panel" parent="MenuElements"]
+[node name="TitleLogo" type="Panel" parent="."]
 visible = false
 offset_left = 392.0
 offset_top = 29.0
@@ -1023,7 +942,7 @@ offset_bottom = 352.0
 pivot_offset = Vector2(189, 162)
 theme_override_styles/panel = SubResource("StyleBoxTexture_7a3qj")
 
-[node name="MenuTitle" type="Panel" parent="MenuElements"]
+[node name="MenuTitle" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
@@ -1040,7 +959,7 @@ scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(469, 78)
 theme_override_styles/panel = SubResource("StyleBoxTexture_weujp")
 
-[node name="StarBurst1" type="Panel" parent="MenuElements/MenuTitle"]
+[node name="StarBurst1" type="Panel" parent="MenuTitle"]
 visible = false
 layout_mode = 0
 offset_left = 354.0
@@ -1051,7 +970,7 @@ rotation = 0.149663
 pivot_offset = Vector2(25, 25)
 theme_override_styles/panel = SubResource("StyleBoxTexture_pumoh")
 
-[node name="StarBurst2" type="Panel" parent="MenuElements/MenuTitle"]
+[node name="StarBurst2" type="Panel" parent="MenuTitle"]
 visible = false
 layout_mode = 0
 offset_left = 220.0
@@ -1062,7 +981,7 @@ rotation = -0.432017
 pivot_offset = Vector2(25, 25)
 theme_override_styles/panel = SubResource("StyleBoxTexture_x5m1n")
 
-[node name="StarBurst3" type="Panel" parent="MenuElements/MenuTitle"]
+[node name="StarBurst3" type="Panel" parent="MenuTitle"]
 visible = false
 layout_mode = 0
 offset_left = 779.0
@@ -1072,22 +991,22 @@ rotation = -0.300851
 pivot_offset = Vector2(25, 25)
 theme_override_styles/panel = SubResource("StyleBoxTexture_l58jx")
 
-[node name="StarBurstAnims" type="AnimationPlayer" parent="MenuElements/MenuTitle"]
+[node name="StarBurstAnims" type="AnimationPlayer" parent="MenuTitle"]
 libraries = {
 "": SubResource("AnimationLibrary_xauy5")
 }
 autoplay = "StarBurstIntros"
-script = ExtResource("5_7yxc5")
+script = ExtResource("4_7r41l")
 
-[node name="MenuTitleAnim" type="AnimationPlayer" parent="MenuElements"]
+[node name="MenuTitleAnim" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_56ykj")
 }
 autoplay = "MainMenuAnim"
-script = ExtResource("6_gifkg")
+script = ExtResource("5_23wvc")
 
-[node name="WhitePanel" type="Panel" parent="MenuElements"]
+[node name="WhitePanel" type="Panel" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1101,7 +1020,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gbyct")
 
-[node name="TitleDarkBG" type="Panel" parent="MenuElements"]
+[node name="TitleDarkBG" type="Panel" parent="."]
 z_index = -2
 anchors_preset = 8
 anchor_left = 0.5
@@ -1116,7 +1035,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_3a0d7")
 
-[node name="StartGame" type="Button" parent="MenuElements"]
+[node name="StartGame" type="Button" parent="."]
 texture_filter = 6
 anchors_preset = 8
 anchor_left = 0.5
@@ -1135,7 +1054,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_68xh6")
 theme_override_styles/normal = SubResource("StyleBoxTexture_h0j1c")
 text = "Start Wizardin'"
 
-[node name="QuitGame" type="Button" parent="MenuElements"]
+[node name="QuitGame" type="Button" parent="."]
 texture_filter = 6
 anchors_preset = 8
 anchor_left = 0.5
@@ -1155,20 +1074,17 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_h0j1c")
 text = "Quit
 "
 
-[node name="City" parent="MenuElements" instance=ExtResource("11_doeav")]
+[node name="City" parent="." instance=ExtResource("10_qslvp")]
 
-[node name="Camera3D" type="Camera3D" parent="MenuElements"]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.499998, 0.866027, 0, -0.866027, 0.499998, -20, 45, 16)
 
-[node name="CameraAnim" type="AnimationPlayer" parent="MenuElements"]
+[node name="CameraAnim" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_w28vk")
 }
 autoplay = "CameraAnim1"
 
-[connection signal="animation_finished" from="BlackFade/BlackFadeAnim" to="." method="_on_black_fade_anim_animation_finished"]
-[connection signal="animation_finished" from="MenuElements/MenuTitle/StarBurstAnims" to="MenuElements/MenuTitle/StarBurstAnims" method="_on_animation_finished"]
-[connection signal="animation_finished" from="MenuElements/MenuTitleAnim" to="MenuElements/MenuTitleAnim" method="_on_animation_finished"]
-[connection signal="pressed" from="MenuElements/StartGame" to="." method="_on_start_game_pressed"]
-[connection signal="pressed" from="MenuElements/QuitGame" to="." method="_on_quit_game_pressed"]
+[connection signal="animation_finished" from="MenuTitle/StarBurstAnims" to="MenuTitle/StarBurstAnims" method="_on_animation_finished"]
+[connection signal="animation_finished" from="MenuTitleAnim" to="MenuTitleAnim" method="_on_animation_finished"]
