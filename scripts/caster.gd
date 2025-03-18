@@ -1,5 +1,8 @@
 extends Node
 
+# The maximum amount of spells the player can hold at once
+const MAX_SPELLS = 5
+
 # An array of [Spell] objects, expands as the player collects spells
 var spells : Array[Spell]
 
@@ -12,8 +15,19 @@ const MAX_COOLDOWN : float = 0.5
 # The amount of time left before the player can cast another spell
 var cooldown : float = 0
 
+# Adds a spell to the spell list
+func learn_spell(new_spell : Spell) -> void:
+	spells.append(new_spell)
+	if len(spells) > MAX_SPELLS:
+		# TODO: UI system to prompt player to select a spell to
+		# discard. For now, pop our oldest spell.
+		spells.pop_at(0)
+
+# Debug stuff
 func _ready() -> void:
-	spells.append(Spell.new())
+	Magic.mana = 100
+	spells.append(ChangeTempSpell.new(100))
+	spells.append(ChangeTempSpell.new(-100))
 
 func _process(delta : float) -> void:
 	if len(spells) <= 0:
@@ -21,23 +35,20 @@ func _process(delta : float) -> void:
 		
 	if cooldown > 0:
 		cooldown -= delta
-	
 	if Input.is_action_just_pressed("CastSpell"):
 		if cooldown <= 0:
 			spells[selected].attempt_to_cast(self.get_parent().global_position)
 			cooldown = MAX_COOLDOWN
-		
-	if Input.is_action_just_pressed("ScrollSpellNext"):
-		if selected < len(spells) - 1:
-			selected += 1
-		else:
+	
+	var scroll_next : bool = Input.is_action_just_pressed("ScrollSpellNext")
+	var scroll_prev : bool = Input.is_action_just_pressed("ScrollSpellPrev")
+	if scroll_next:
+		selected += 1
+	elif scroll_prev:
+		selected -= 1	
+	if scroll_next or scroll_prev:
+		if selected >= len(spells):
 			selected = 0
-	elif Input.is_action_just_pressed("ScrollSpellPrev"):
-		if selected > 0:
-			selected -= 1
-		else:
+		elif selected < 0:
 			selected = len(spells) - 1
-
-# Adds a spell to the spell list
-func gain_spell(new_spell : Spell) -> void:
-	spells.append(new_spell)
+		print("Switched to %s!" % spells[selected].spell_name)
