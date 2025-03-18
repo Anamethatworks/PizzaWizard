@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do3yrtp1nfhpt"
-path.s3tc="res://.godot/imported/TireTex.png-3ad05ca43903eae028ca04d44fef39e7.s3tc.ctex"
+uid="uid://dhciyd6th2rdg"
+path="res://.godot/imported/CarTexture3.png-fbe5cab6c31498c76dc8346c93dd420b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/TireTex.png"
-dest_files=["res://.godot/imported/TireTex.png-3ad05ca43903eae028ca04d44fef39e7.s3tc.ctex"]
+source_file="res://assets/textures/CarTexture3.png"
+dest_files=["res://.godot/imported/CarTexture3.png-fbe5cab6c31498c76dc8346c93dd420b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
