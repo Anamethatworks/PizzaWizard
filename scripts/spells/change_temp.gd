@@ -17,13 +17,13 @@ func _init(delta_temp : float) -> void:
 	var cost : float = power * 0.6
 	super._init(cost, pow, name)
 	
-func is_valid_casting(cast_pos : Vector3) -> bool:
-	var mana_valid = super.is_valid_casting(cast_pos)
+func is_valid_casting(caster : Node3D) -> bool:
+	var mana_valid = super.is_valid_casting(caster)
 	var pizzas_to_heat = len(DeliveryManager.current_orders) > 0
 	return mana_valid and pizzas_to_heat
 
-func cast(cast_pos : Vector3) -> void:
-	super.cast(cast_pos)
+func cast(caster : Node3D) -> void:
+	super.cast(caster)
 	var delta_temp
 	if delta_temp_pos:
 		delta_temp = power * 2
