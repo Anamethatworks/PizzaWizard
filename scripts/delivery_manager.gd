@@ -1,9 +1,6 @@
 extends Object
 class_name DeliveryManager
 
-## An array of all [DropoffPoint]s
-static var dropoff_points : Array[DropoffPoint] = []
-
 ## An array of all [DropoffPoint]s without an associated order
 static var available_dropoff_points : Array[DropoffPoint] = []
 
@@ -12,7 +9,6 @@ static var current_orders : Array[Order] = []
 
 ## Adds a [DropoffPoint] to [dropoffPoints]
 static func addDropoffPoint(point : DropoffPoint) -> void:
-	dropoff_points.append(point)
 	available_dropoff_points.append(point)
 
 ## Ranks orders based on how close they are to their [parTime]s
@@ -58,3 +54,9 @@ static func finish_order(order: Order) -> void:
 		current_orders.erase(order)
 		order.call_deferred("free")
 	rank_orders()
+
+## Clears all [Order]s and [DropoffPoint]s from their respective arrays
+## Needed this to avoid orders breaking since the city in the main menu populates the arrays with references that are later null
+static func clear_orders() -> void:
+	available_dropoff_points.clear()
+	current_orders.clear()

@@ -1030,10 +1030,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 362.0
-offset_bottom = -168.0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -22.0
+offset_bottom = -384.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
@@ -1172,3 +1172,5 @@ autoplay = "CameraAnim1"
 [connection signal="animation_finished" from="MenuElements/MenuTitleAnim" to="MenuElements/MenuTitleAnim" method="_on_animation_finished"]
 [connection signal="pressed" from="MenuElements/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="MenuElements/QuitGame" to="." method="_on_quit_game_pressed"]
+
+[editable path="MenuElements/City"]

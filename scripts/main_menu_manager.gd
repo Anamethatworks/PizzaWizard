@@ -27,9 +27,9 @@ func _on_start_game_pressed() -> void:
 func _on_black_fade_anim_animation_finished(anim_name:StringName) -> void:
 	if anim_name == "MenuFadeIn":
 		var city_scene = game_scene.instantiate()
+		DeliveryManager.clear_orders()
 		get_tree().root.add_child(city_scene)
 		black_fade_anim.play("MenuFadeOut")
-		print (get_tree().root.get_child(0))
 		get_tree().root.get_child(0).remove_child(get_tree().root.get_child(0).get_child(1))
 
 
