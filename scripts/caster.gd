@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 # The maximum amount of spells the player can hold at once
 const MAX_SPELLS = 5
@@ -25,10 +25,11 @@ func learn_spell(new_spell : Spell) -> void:
 
 # Debug stuff
 func _ready() -> void:
-	Magic.mana = 100
-	spells.append(ChangeTempSpell.new(100))
-	spells.append(ChangeTempSpell.new(-100))
+	Magic.mana = 10000000
+	spells.append(FireballSpell.new(50))
 
+# TODO: Add indicators to mold earth, warp spells to indicate where
+# the ramp will appear and the player will be teleported respectively
 func _process(delta : float) -> void:
 	if len(spells) <= 0:
 		return
@@ -37,7 +38,7 @@ func _process(delta : float) -> void:
 		cooldown -= delta
 	if Input.is_action_just_pressed("CastSpell"):
 		if cooldown <= 0:
-			spells[selected].attempt_to_cast(self.get_parent().global_position)
+			spells[selected].attempt_to_cast(self)
 			cooldown = MAX_COOLDOWN
 	
 	var scroll_next : bool = Input.is_action_just_pressed("ScrollSpellNext")

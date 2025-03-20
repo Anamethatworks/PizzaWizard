@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqd6cvi6bgbmt"]
+
+[ext_resource type="Script" path="res://scripts/spells/spell effects/fireball_effect.gd" id="1_bsxam"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_isma2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_880nn"]
+
+[node name="Fireball" type="RigidBody3D" node_paths=PackedStringArray("collider", "mesh")]
+mass = 0.001
+gravity_scale = 0.0
+script = ExtResource("1_bsxam")
+collider = NodePath("Collider")
+mesh = NodePath("Mesh")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_isma2")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_880nn")
+skeleton = NodePath("")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
