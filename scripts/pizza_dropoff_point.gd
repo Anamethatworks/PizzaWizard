@@ -2,7 +2,7 @@ extends Area3D
 class_name DropoffPoint
 ## A location that can order pizzas
 
-const GLOWY_MATERIAL: Material = preload("res://assets/materials/glow.tres")
+@export var  GLOWY_MATERIAL: Material
 
 @onready var building: MeshInstance3D = get_parent_node_3d().get_child(0)
 
@@ -85,9 +85,9 @@ func init_particles() -> void:
 ## Needs to be run each time the effects should start
 func start_dropoff_effects() -> void:
 	$GPUParticles3D.emitting = true
-	building.material_overlay = GLOWY_MATERIAL
+	building.material_override = GLOWY_MATERIAL
 
 ## Stops the dropoff effects and returns the building to its normal appearance
 func end_dropoff_effects() -> void:
-	building.material_overlay = null
+	building.material_override = null
 	$GPUParticles3D.emitting = false

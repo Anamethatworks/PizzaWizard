@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dtcvi8uyju20p"]
+
+[ext_resource type="Shader" uid="uid://c68tel33t74ir" path="res://assets/shaders/glow.gdshader" id="1_nydi4"]
+[ext_resource type="Texture2D" uid="uid://sm8bigr0b8dh" path="res://assets/textures/Building06Tex.png" id="2_aheny"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_nydi4")
+shader_parameter/tex = ExtResource("2_aheny")

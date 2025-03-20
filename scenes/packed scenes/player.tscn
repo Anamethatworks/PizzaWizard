@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dsvq25iq46jfm"]
+[gd_scene load_steps=19 format=3 uid="uid://dsvq25iq46jfm"]
 
 [ext_resource type="Script" uid="uid://cmnf2h8vpy44g" path="res://scripts/car.gd" id="1_fbag5"]
 [ext_resource type="Script" uid="uid://b5q0diqknja6w" path="res://scripts/camera_rig.gd" id="2_i16p3"]
@@ -15,8 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://b4odq7vhsv4il" path="res://assets/models/FL_Wheel.fbx" id="9_i0731"]
 [ext_resource type="AudioStream" uid="uid://c813uqslyvsuo" path="res://assets/Sounds/Crash.wav" id="9_qv3xj"]
 [ext_resource type="Script" uid="uid://tmavtlh7b73" path="res://scripts/temp_manager.gd" id="15_o3ua6"]
-
-[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_c2rhw"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_doc81"]
 
@@ -38,13 +36,15 @@ script = ExtResource("1_fbag5")
 [node name="CameraRig" type="Node3D" parent="."]
 script = ExtResource("2_i16p3")
 
-[node name="SpringArm3D" type="SpringArm3D" parent="CameraRig"]
-transform = Transform3D(1, 0, 0, 0, -0.173648, 0.984808, 0, -0.984808, -0.173648, 0, 0, 0)
-shape = SubResource("SeparationRayShape3D_c2rhw")
-spring_length = 20.0
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(-1, -8.74228e-08, -1.42108e-14, -2.99003e-08, 0.34202, 0.939693, -8.21505e-08, 0.939693, -0.34202, 0, 25.605, -4.515)
+fov = 65.0
 
-[node name="Camera3D" type="Camera3D" parent="CameraRig/SpringArm3D"]
-transform = Transform3D(-1, -1.51808e-08, -8.60946e-08, -3.55271e-15, -0.984808, 0.173648, -8.74228e-08, 0.173648, 0.984808, 0, 0, 0)
+[node name="RayCast3D" type="RayCast3D" parent="CameraRig/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0)
+target_position = Vector3(0, 0, -26)
+collision_mask = 2
+hit_from_inside = true
 
 [node name="DeliveryArrow" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cd7hjyey304br"]
+
+[ext_resource type="Shader" uid="uid://caicffukv7k3n" path="res://assets/shaders/cutout.gdshader" id="1_uyvfj"]
+[ext_resource type="Texture2D" uid="uid://bkqcs6bnpd8jg" path="res://assets/textures/PizzaTex.png" id="2_uyvfj"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_uyvfj")
+shader_parameter/tex = ExtResource("2_uyvfj")

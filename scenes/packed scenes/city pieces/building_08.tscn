@@ -1,14 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcbjpccwwv7y2"]
+[gd_scene load_steps=13 format=3 uid="uid://dcbjpccwwv7y2"]
 
 [ext_resource type="PackedScene" uid="uid://pb5c8c0m54ix" path="res://assets/models/Building08.fbx" id="1_hrmtg"]
-[ext_resource type="Material" uid="uid://cyxn3upwcgho6" path="res://assets/materials/Building08Mat.tres" id="2_i6g38"]
+[ext_resource type="Material" uid="uid://ba4tmwwop2wo5" path="res://assets/materials/cutout materials/building8cutout.tres" id="2_re3ny"]
+[ext_resource type="Material" uid="uid://cf4nix8fm5hw0" path="res://assets/materials/cutout materials/cutout_base.tres" id="2_t0m1r"]
+[ext_resource type="Script" uid="uid://dg726gkyii7pl" path="res://building.gd" id="3_hrdbj"]
 [ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="3_vm516"]
+[ext_resource type="Material" uid="uid://dujf8ua33scrl" path="res://assets/materials/glow materials/building8glow.tres" id="4_mi7y0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hrdbj"]
+size = Vector3(15, 1, 10)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hrdbj"]
+top_radius = 5.0
+bottom_radius = 5.0
+height = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3dc41"]
-size = Vector3(0.126461, 0.152344, 0.164734)
+size = Vector3(10, 16.394, 15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dtkp2"]
-size = Vector3(0.148666, 0.12384, 0.164501)
+size = Vector3(15, 16.3935, 10)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hrdbj"]
+height = 16.394
+radius = 5.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o7l0u"]
 size = Vector3(19, 5, 20)
@@ -16,20 +31,56 @@ size = Vector3(19, 5, 20)
 [node name="Building08" instance=ExtResource("1_hrmtg")]
 
 [node name="Building08" parent="." index="0"]
-material_override = ExtResource("2_i6g38")
+ignore_occlusion_culling = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Building08" index="0"]
+[node name="Cutout" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.42109e-14, 0, 1.42109e-14, 1, 4, 0.5, -6.5)
+visible = false
+cast_shadow = 0
+ignore_occlusion_culling = true
+mesh = SubResource("BoxMesh_hrdbj")
+surface_material_override/0 = ExtResource("2_t0m1r")
+script = ExtResource("3_hrdbj")
+CUTOUT_MATERIAL = ExtResource("2_re3ny")
+metadata/_custom_type_script = "uid://dg726gkyii7pl"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Building08/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, -5.68434e-14, 0, 5.68434e-14, 1, 0.053282, 0.0664064, 0.0824891)
+[node name="CutoutBase2" type="MeshInstance3D" parent="Cutout" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.42109e-14, 0, 1.42109e-14, 1, 6.5, 0.5, -9)
+top_level = true
+cast_shadow = 0
+ignore_occlusion_culling = true
+mesh = SubResource("BoxMesh_hrdbj")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_t0m1r")
+
+[node name="CutoutBase3" type="MeshInstance3D" parent="Cutout" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.42109e-14, 0, 1.42109e-14, 1, 9, 0.5, -4)
+top_level = true
+mesh = SubResource("CylinderMesh_hrdbj")
+skeleton = NodePath("../CutoutBase2")
+surface_material_override/0 = ExtResource("2_t0m1r")
+
+[node name="CrashType" type="Node3D" parent="." index="2"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CrashType" index="0"]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CrashType/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 8.197, -6.5)
 shape = SubResource("BoxShape3D_3dc41")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Building08/StaticBody3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, -5.68434e-14, 0, 5.68434e-14, 1, 0.0652237, 0.0776674, 0.0832578)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CrashType/StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 8.19675, -9)
 shape = SubResource("BoxShape3D_dtkp2")
 
-[node name="PizzaDropoffPoint" parent="." index="1" instance=ExtResource("3_vm516")]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="CrashType/StaticBody3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 8.197, -4)
+shape = SubResource("CylinderShape3D_hrdbj")
+
+[node name="PizzaDropoffPoint" parent="." index="3" instance=ExtResource("3_vm516")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 0)
+visible = false
+GLOWY_MATERIAL = ExtResource("4_mi7y0")
 
 [node name="CollisionShape3D" parent="PizzaDropoffPoint" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -4)

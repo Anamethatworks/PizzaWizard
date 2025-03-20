@@ -1,11 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6s8ae7hx3kp7"]
+[gd_scene load_steps=10 format=3 uid="uid://b6s8ae7hx3kp7"]
 
 [ext_resource type="PackedScene" uid="uid://d2foga1vd8686" path="res://assets/models/Building05.fbx" id="1_3d8cu"]
-[ext_resource type="Material" uid="uid://cprbj108qxco0" path="res://assets/materials/Building05Mat.tres" id="2_5yjgt"]
+[ext_resource type="Material" uid="uid://c7qhebuej02oh" path="res://assets/materials/cutout materials/building5cutout.tres" id="2_5lk1v"]
+[ext_resource type="Material" uid="uid://cf4nix8fm5hw0" path="res://assets/materials/cutout materials/cutout_base.tres" id="2_6ldfi"]
+[ext_resource type="Script" uid="uid://dg726gkyii7pl" path="res://building.gd" id="3_arqio"]
 [ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="3_cu4aj"]
+[ext_resource type="Material" uid="uid://b2kpiqhrjvaht" path="res://assets/materials/glow materials/building5glow.tres" id="4_1eqmu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_arqio"]
+size = Vector3(9.931, 1, 15.087)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0riqk"]
-size = Vector3(9.93115, 3.56012, 15.087)
+size = Vector3(10, 9.19739, 15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s3hxu"]
 size = Vector3(10, 5, 6)
@@ -13,18 +19,31 @@ size = Vector3(10, 5, 6)
 [node name="Building05" instance=ExtResource("1_3d8cu")]
 
 [node name="Building05" parent="." index="0"]
-material_override = ExtResource("2_5yjgt")
+ignore_occlusion_culling = true
 
-[node name="CrashType" type="Node3D" parent="." index="1"]
+[node name="Cutout" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.009, 0.5, -7.534)
+visible = false
+cast_shadow = 0
+ignore_occlusion_culling = true
+mesh = SubResource("BoxMesh_arqio")
+surface_material_override/0 = ExtResource("2_6ldfi")
+script = ExtResource("3_arqio")
+CUTOUT_MATERIAL = ExtResource("2_5lk1v")
+metadata/_custom_type_script = "uid://dg726gkyii7pl"
+
+[node name="CrashType" type="Node3D" parent="." index="2"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CrashType" index="0"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CrashType/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.00903, 1.92514, -7.53424)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.59869, -7.5)
 shape = SubResource("BoxShape3D_0riqk")
 
-[node name="PizzaDropoffPoint" parent="." index="2" instance=ExtResource("3_cu4aj")]
+[node name="PizzaDropoffPoint" parent="." index="3" instance=ExtResource("3_cu4aj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50321, 1.73079, -0.809092)
+GLOWY_MATERIAL = ExtResource("4_1eqmu")
 
 [node name="CollisionShape3D" parent="PizzaDropoffPoint" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.503, 0.769, 3)
