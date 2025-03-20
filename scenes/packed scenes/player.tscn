@@ -25,7 +25,7 @@ transparency = 1
 albedo_color = Color(0.858824, 0.580392, 0.113725, 0.470588)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
-size = Vector3(1.475, 1.206, 4.729)
+size = Vector3(1.66416, 1.206, 4.93671)
 
 [node name="Player" type="VehicleBody3D"]
 mass = 1600.0
@@ -57,7 +57,7 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_xdad3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.837, 0.054)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.88758e-05, 0.837, 0.019363)
 shape = SubResource("BoxShape3D_qawn3")
 
 [node name="Car_Body" parent="." instance=ExtResource("4_6eeew")]

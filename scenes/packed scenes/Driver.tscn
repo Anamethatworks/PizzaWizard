@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://clvoyyu7amkfi"]
+[gd_scene load_steps=5 format=3 uid="uid://clvoyyu7amkfi"]
 
 [ext_resource type="Script" path="res://scripts/NPCdriving.gd" id="1_xlabq"]
+[ext_resource type="PackedScene" uid="uid://bsfkuxorstsjt" path="res://assets/models/Car_09.fbx" id="2_fbvrd"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_r8ks3"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_710fw"]
+size = Vector3(1.05933, 1, 1.17865)
 
 [sub_resource type="BoxMesh" id="BoxMesh_trytk"]
 
@@ -11,12 +13,18 @@
 [node name="CrashType" type="Node3D" parent="."]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="CrashType"]
+safe_margin = 0.01
 script = ExtResource("1_xlabq")
 
+[node name="Car_09" parent="CrashType/CharacterBody3D" instance=ExtResource("2_fbvrd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CrashType/CharacterBody3D"]
-shape = SubResource("BoxShape3D_r8ks3")
+transform = Transform3D(-2.09363e-07, 0, 1.42498, 0, 1.58557, 0, -4.78967, 0, -6.22877e-08, -0.000826231, 0.788227, 0.506245)
+shape = SubResource("BoxShape3D_710fw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CrashType/CharacterBody3D/CollisionShape3D"]
+visible = false
 mesh = SubResource("BoxMesh_trytk")
 skeleton = NodePath("")
 

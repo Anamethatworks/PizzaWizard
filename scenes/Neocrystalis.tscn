@@ -54,7 +54,7 @@ fog_density = 0.001
 
 [node name="UIPanel" parent="." instance=ExtResource("1_mrpau")]
 
-[node name="Player" parent="." instance=ExtResource("2_qlckg")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_qlckg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.1, 0)
 
 [node name="TempManager2" type="Node" parent="Player"]
@@ -1971,235 +1971,226 @@ unique_name_in_owner = true
 [node name="Drivers" type="Node3D" parent="."]
 
 [node name="Driver" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6321, 0.720971, 0.633241)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6321, 0, 0.633241)
 
 [node name="Driver2" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7654, 0.720971, 0.633241)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7654, 0, 0.633241)
 
 [node name="Driver14" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7434, 0.720971, 0.633241)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7434, 0, 0.633241)
 
 [node name="Driver15" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8777, 0.720971, 0.633241)
-
-[node name="Driver16" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.0802, 0.720971, 0.633241)
-
-[node name="Driver17" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.7339, 0.720971, 0.633241)
-
-[node name="Driver18" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.1169, 0.720971, 0.633241)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8777, 0, 0.633241)
 
 [node name="Driver3" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7654, 0.720971, -38.9503)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7654, 0, -38.9503)
 
 [node name="Driver13" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7654, 0.720971, -41.7478)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7654, 0, -41.7478)
 
 [node name="Driver4" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8625, 0.720971, -38.9503)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8625, 0, -38.9503)
 
 [node name="Driver10" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1553, 0.720971, -38.9503)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1553, 0, -38.9503)
 
 [node name="Driver11" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1553, 0.720971, -42.1088)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1553, 0, -42.1088)
 
 [node name="Driver12" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.043, 0.720971, -42.1088)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.043, 0, -42.1088)
 
 [node name="Driver5" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8625, 0.720971, 0.132187)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8625, 0, 0.132187)
 
 [node name="Driver7" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3358, 0.720971, 0.132187)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3358, 0, 0.132187)
 
 [node name="Driver8" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3358, 0.720971, 2.83943)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3358, 0, 2.83943)
 
 [node name="Driver9" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9528, 0.720971, 2.83943)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9528, 0, 2.83943)
 
 [node name="Driver19" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8625, 0.720971, 38.5127)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8625, 0, 38.5127)
 
 [node name="Driver20" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3358, 0.720971, 38.5127)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3358, 0, 38.5127)
 
 [node name="Driver21" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3358, 0.720971, 41.2199)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3358, 0, 41.2199)
 
 [node name="Driver22" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9528, 0.720971, 41.2199)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9528, 0, 41.2199)
 
 [node name="Driver39" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5733, 0.720971, 75.0906)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5733, 0, 75.0906)
 
 [node name="Driver40" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0466, 0.720971, 75.0906)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0466, 0, 75.0906)
 
 [node name="Driver41" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0466, 0.720971, 77.7979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0466, 0, 77.7979)
 
 [node name="Driver42" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.6636, 0.720971, 77.7979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.6636, 0, 77.7979)
 
 [node name="Driver43" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.319, 0.720971, 80.3918)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.319, 0, 80.3918)
 
 [node name="Driver44" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.793, 0.720971, 80.3918)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.793, 0, 80.3918)
 
 [node name="Driver45" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.793, 0.720971, 83.099)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.793, 0, 83.099)
 
 [node name="Driver46" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.41, 0.720971, 83.099)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.41, 0, 83.099)
 
 [node name="Driver47" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.0306, 0.720971, 78.2713)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.0306, 0, 78.2713)
 
 [node name="Driver48" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.5038, 0.720971, 78.2713)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.5038, 0, 78.2713)
 
 [node name="Driver49" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.5038, 0.720971, 80.9785)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.5038, 0, 80.9785)
 
 [node name="Driver50" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.1208, 0.720971, 80.9785)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.1208, 0, 80.9785)
 
 [node name="Driver51" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.7655, 0.720971, 39.5729)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.7655, 0, 39.5729)
 
 [node name="Driver52" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.2387, 0.720971, 39.5729)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.2387, 0, 39.5729)
 
 [node name="Driver53" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.2387, 0.720971, 42.2802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.2387, 0, 42.2802)
 
 [node name="Driver54" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.8558, 0.720971, 42.2802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.8558, 0, 42.2802)
 
 [node name="Driver55" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.729, 0.720971, 39.5729)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.729, 0, 39.5729)
 
 [node name="Driver56" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.202, 0.720971, 39.5729)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.202, 0, 39.5729)
 
 [node name="Driver57" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.202, 0.720971, 42.2802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.202, 0, 42.2802)
 
 [node name="Driver58" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.819, 0.720971, 42.2802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.819, 0, 42.2802)
 
 [node name="Driver59" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.7897, 0.720971, -44.1852)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.7897, 0, -44.1852)
 
 [node name="Driver60" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.2629, 0.720971, -44.1852)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.2629, 0, -44.1852)
 
 [node name="Driver61" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.2629, 0.720971, -41.478)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.2629, 0, -41.478)
 
 [node name="Driver62" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.8799, 0.720971, -41.478)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.8799, 0, -41.478)
 
 [node name="Driver63" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5975, 0.720971, -100.642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5975, 0, -100.642)
 
 [node name="Driver64" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0707, 0.720971, -100.642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0707, 0, -100.642)
 
 [node name="Driver65" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0707, 0.720971, -97.9352)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0707, 0, -97.9352)
 
 [node name="Driver66" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6877, 0.720971, -97.9352)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6877, 0, -97.9352)
 
 [node name="Driver67" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.7897, 0.720971, -99.0521)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.7897, 0, -99.0521)
 
 [node name="Driver68" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.2629, 0.720971, -99.0521)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.2629, 0, -99.0521)
 
 [node name="Driver69" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.2629, 0.720971, -96.3448)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.2629, 0, -96.3448)
 
 [node name="Driver70" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.8799, 0.720971, -96.3448)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.8799, 0, -96.3448)
 
 [node name="Driver71" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.799, 0.720971, -60.3537)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.799, 0, -60.3537)
 
 [node name="Driver72" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.3258, 0.720971, -60.3537)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.3258, 0, -60.3537)
 
 [node name="Driver73" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.3258, 0.720971, -57.6465)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.3258, 0, -57.6465)
 
 [node name="Driver74" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.7088, 0.720971, -57.6465)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.7088, 0, -57.6465)
 
 [node name="Driver75" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.1887, 0.720971, -100.293)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.1887, 0, -100.293)
 
 [node name="Driver76" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.7154, 0.720971, -100.293)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.7154, 0, -100.293)
 
 [node name="Driver77" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.7154, 0.720971, -97.5856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.7154, 0, -97.5856)
 
 [node name="Driver78" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.0984, 0.720971, -97.5856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.0984, 0, -97.5856)
 
 [node name="Driver23" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.3125, 0.720971, 38.5127)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.3125, 0, 38.5127)
 
 [node name="Driver24" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.8392, 0.720971, 38.5127)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.8392, 0, 38.5127)
 
 [node name="Driver25" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.8392, 0.720971, 41.2199)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.8392, 0, 41.2199)
 
 [node name="Driver26" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.2222, 0.720971, 41.2199)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.2222, 0, 41.2199)
 
 [node name="Driver27" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.2775, 0.720971, 38.5127)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.2775, 0, 38.5127)
 
 [node name="Driver28" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.8042, 0.720971, 38.5127)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.8042, 0, 38.5127)
 
 [node name="Driver29" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.8042, 0.720971, 41.2199)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.8042, 0, 41.2199)
 
 [node name="Driver30" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.1872, 0.720971, 41.2199)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.1872, 0, 41.2199)
 
 [node name="Driver31" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.217, 0.720971, 38.5127)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.217, 0, 38.5127)
 
 [node name="Driver32" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.743, 0.720971, 38.5127)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.743, 0, 38.5127)
 
 [node name="Driver33" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.743, 0.720971, 41.2199)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.743, 0, 41.2199)
 
 [node name="Driver34" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.126, 0.720971, 41.2199)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.126, 0, 41.2199)
 
 [node name="Driver35" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.8878, 0.720971, -0.0626335)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.8878, 0, -0.0626335)
 
 [node name="Driver36" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.4146, 0.720971, -0.0626335)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.4146, 0, -0.0626335)
 
 [node name="Driver37" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.4146, 0.720971, 2.64462)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.4146, 0, 2.64462)
 
 [node name="Driver38" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.7976, 0.720971, 2.64462)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.7976, 0, 2.64462)
 
 [node name="Driver6" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.364, 0.720971, 4.64395)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.364, 0, 4.64395)

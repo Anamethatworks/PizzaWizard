@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bkrypux03py77"]
+
+[ext_resource type="Texture2D" uid="uid://bkqcs6bnpd8jg" path="res://assets/textures/PizzaTex.png" id="1_denb3"]
+
+[resource]
+albedo_color = Color(0.544537, 0.192422, 0.483546, 1)
+albedo_texture = ExtResource("1_denb3")
