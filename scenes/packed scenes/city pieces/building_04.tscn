@@ -19,6 +19,7 @@ size = Vector3(6, 5, 9)
 [node name="Building04" instance=ExtResource("1_8jbp6")]
 
 [node name="Building04" parent="." index="0"]
+cast_shadow = 0
 ignore_occlusion_culling = true
 
 [node name="CutoutBase" type="MeshInstance3D" parent="." index="1"]

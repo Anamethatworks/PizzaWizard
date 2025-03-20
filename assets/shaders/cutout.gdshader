@@ -3,7 +3,7 @@ render_mode depth_draw_always;
 
 uniform sampler2D tex;
 
-const float CAR_SCREEN_HEIGHT = 0.614896897588;
+const float CAR_SCREEN_HEIGHT = 0.638388959237;
 
 float sigmoid(float x, float mid) {
 	float y = x - mid;

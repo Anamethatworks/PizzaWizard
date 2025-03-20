@@ -14,6 +14,7 @@ size = Vector3(15, 24.606, 15)
 [node name="Building01" instance=ExtResource("1_qy1no")]
 
 [node name="Building01" parent="." index="0"]
+cast_shadow = 0
 ignore_occlusion_culling = true
 
 [node name="Cutout" type="MeshInstance3D" parent="." index="1"]
