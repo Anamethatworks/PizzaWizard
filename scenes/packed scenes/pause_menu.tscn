@@ -1,0 +1,211 @@
+[gd_scene load_steps=15 format=3 uid="uid://bty8kpmn8dl28"]
+
+[ext_resource type="Script" path="res://scenes/packed scenes/pause_menu_manager.gd" id="1_0src1"]
+[ext_resource type="Texture2D" uid="uid://vjafvv7sa1pe" path="res://TitleDarkBG.png" id="1_p01r6"]
+[ext_resource type="Texture2D" uid="uid://016umrlou53v" path="res://MenuButtonHovered.png" id="2_o310o"]
+[ext_resource type="Texture2D" uid="uid://dhvxg2ttdlgs6" path="res://MenuButtonDown.png" id="3_mhp01"]
+[ext_resource type="Texture2D" uid="uid://dt0sskr6n6eyh" path="res://MenuButton.png" id="4_01fe6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsvan"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udffk"]
+texture = ExtResource("1_p01r6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3tyxk"]
+texture = ExtResource("2_o310o")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sjfbt"]
+texture = ExtResource("3_mhp01")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5u8om"]
+texture = ExtResource("4_01fe6")
+
+[sub_resource type="Animation" id="Animation_u16w7"]
+resource_name = "FadeInPauseMenu"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeMask:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_pyj1a"]
+resource_name = "FadeOutPauseMenu"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeMask:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_61edf"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeMask:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bq2uh"]
+_data = {
+"FadeInPauseMenu": SubResource("Animation_u16w7"),
+"FadeOutPauseMenu": SubResource("Animation_pyj1a"),
+"RESET": SubResource("Animation_61edf")
+}
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0src1")
+
+[node name="FadeMask" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+clip_children = 1
+layout_mode = 0
+offset_left = -384.0
+offset_top = -216.0
+offset_right = 1536.0
+offset_bottom = 864.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rsvan")
+
+[node name="BlackFade" type="Panel" parent="FadeMask"]
+z_index = -5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="FadeMask"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -290.0
+offset_right = 150.0
+offset_bottom = -190.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=2.0 connected=1][center]Paused[/center][/wave]"
+
+[node name="DarkBG" type="Panel" parent="FadeMask"]
+z_index = -4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1080.0
+offset_top = -438.0
+offset_right = 1087.0
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_udffk")
+
+[node name="Continue" type="Button" parent="FadeMask"]
+texture_filter = 6
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -140.0
+offset_right = 66.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(65, 16)
+theme_override_styles/hover = SubResource("StyleBoxTexture_3tyxk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_sjfbt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5u8om")
+text = "Keep Wizardin'"
+
+[node name="BackToMenu" type="Button" parent="FadeMask"]
+texture_filter = 6
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -60.0
+offset_right = 66.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(65, 16)
+theme_override_styles/hover = SubResource("StyleBoxTexture_3tyxk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_sjfbt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5u8om")
+text = "Back to Menu"
+
+[node name="QuitGame" type="Button" parent="FadeMask"]
+texture_filter = 6
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 22.0
+offset_right = 66.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(65, 16)
+theme_override_styles/hover = SubResource("StyleBoxTexture_3tyxk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_sjfbt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5u8om")
+text = "Quit
+"
+
+[node name="PauseMenuAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bq2uh")
+}
+
+[connection signal="pressed" from="FadeMask/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="FadeMask/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="FadeMask/QuitGame" to="." method="_on_quit_game_pressed"]
