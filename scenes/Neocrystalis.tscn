@@ -41,8 +41,13 @@ sky_material = SubResource("ProceduralSkyMaterial_m03pq")
 [sub_resource type="Environment" id="Environment_q0qbu"]
 background_mode = 2
 sky = SubResource("Sky_bi1dl")
+ambient_light_source = 3
 ambient_light_color = Color(0.121284, 0.103094, 0.0399917, 1)
+reflected_light_source = 2
 tonemap_mode = 2
+ssao_enabled = true
+ssao_radius = 0.5
+ssao_intensity = 3.0
 glow_enabled = true
 fog_enabled = true
 fog_density = 0.001
@@ -52,6 +57,7 @@ fog_density = 0.001
 [node name="UIPanel" parent="." instance=ExtResource("1_mrpau")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_wdary")]
+process_mode = 3
 
 [node name="Player" parent="." instance=ExtResource("2_qlckg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.1, 0)
@@ -1255,4 +1261,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, -0.001, 20)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, -0.001, 60)
 
 [editable path="UIPanel"]
-[editable path="PauseMenu"]
