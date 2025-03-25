@@ -1,9 +1,9 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://nf110agflkrn"]
 
 [ext_resource type="Shader" uid="uid://c68tel33t74ir" path="res://assets/shaders/glow.gdshader" id="1_iv4s8"]
-[ext_resource type="Texture2D" uid="uid://sm8bigr0b8dh" path="res://assets/textures/Building06Tex.png" id="2_blclo"]
+[ext_resource type="Texture2D" uid="uid://coppquui1tk1a" path="res://assets/textures/Building02Tex.png" id="2_iv4s8"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_iv4s8")
-shader_parameter/tex = ExtResource("2_blclo")
+shader_parameter/tex = ExtResource("2_iv4s8")

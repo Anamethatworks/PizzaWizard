@@ -22,7 +22,7 @@ static func get_payout(temp: float, goal_temp: float, time: float, par_time: flo
 	if temp_difference < 0:
 		temp_difference = 0
 	var time_ratio := time / par_time
-	var temp_multiplier := exp(-pow(temp_difference / TEMPERATURE_TOLERANCE, 2.0))
+	var temp_multiplier := (1.0 + 2.0 * exp(-pow(temp_difference / TEMPERATURE_TOLERANCE, 2.0))) / 3.0
 	var time_multiplier := exp(-(time_ratio - 1.0))
 	var total_payment := roundi(BASE_TIP * temp_multiplier * time_multiplier * price)
 	return maxi(0, total_payment)
