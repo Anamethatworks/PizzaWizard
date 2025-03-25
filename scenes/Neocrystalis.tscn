@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://vhqxgfoi6ib7"]
+[gd_scene load_steps=37 format=3 uid="uid://vhqxgfoi6ib7"]
 
 [ext_resource type="PackedScene" uid="uid://dik1wyeffkyac" path="res://scenes/packed scenes/test_ui.tscn" id="1_mrpau"]
 [ext_resource type="PackedScene" uid="uid://dsvq25iq46jfm" path="res://scenes/packed scenes/player.tscn" id="2_qlckg"]
@@ -49,6 +49,15 @@ tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
 fog_density = 0.001
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ryis7"]
+size = Vector3(170.161, 250.822, 160.883)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_byy71"]
+size = Vector3(315.614, 253.299, 102.321)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e5r1j"]
+size = Vector3(141.274, 270.417, 157.486)
 
 [node name="WorldOrigin" type="Node3D"]
 
@@ -2194,3 +2203,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.7976, 0, 2.64462)
 
 [node name="Driver6" parent="Drivers" instance=ExtResource("29_qrldq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.364, 0, 4.64395)
+
+[node name="MidTempParent" type="Area3D" parent="." groups=["MidZone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.2681, 123.912, 73.1554)
+priority = 1
+
+[node name="MidTempZone" type="CollisionShape3D" parent="MidTempParent" groups=["MidZone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.999435, 0)
+shape = SubResource("BoxShape3D_ryis7")
+
+[node name="ColdTempParent" type="Area3D" parent="." groups=["ColdZone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1584, 122.674, -59.0354)
+priority = 2
+
+[node name="ColdTempZone" type="CollisionShape3D" parent="ColdTempParent" groups=["ColdZone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.62939e-06)
+shape = SubResource("BoxShape3D_byy71")
+
+[node name="HotTempParent" type="Area3D" parent="." groups=["HotZone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.4604, 111.275, 60.9874)
+
+[node name="HotTempZone" type="CollisionShape3D" parent="HotTempParent" groups=["HotZone"]]
+shape = SubResource("BoxShape3D_e5r1j")
+
+[connection signal="area_entered" from="MidTempParent" to="Player" method="_on_mid_temp_parent_area_entered"]
+[connection signal="area_entered" from="ColdTempParent" to="Player" method="_on_cold_temp_parent_area_entered"]
+[connection signal="area_entered" from="HotTempParent" to="Player" method="_on_hot_temp_parent_area_entered"]

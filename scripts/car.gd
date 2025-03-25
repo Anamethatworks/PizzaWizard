@@ -33,6 +33,8 @@ var steering_angle: float = 0.0 ## Current steering angle (radians)
 
 var Moving = 0
 
+var CurrentTempZone = 72
+
 func _ready() -> void:
 	pass
 
@@ -179,8 +181,8 @@ func _on_body_entered(body: Node) -> void:
 		var impulse := Vector2(previous_lateral_velocity, previous_longitudinal_velocity).length()
 		$SoundController/CrashSound.play()
 		$SoundController/CrashSound.volume_db = log(impulse * 0.1) - 10.0
-	#print("checker")
-	#print(body.name)
+		
+	
 	#if body.get  #get_parent().name == "Building01":
 		#$SoundController/CrashSound.play()
 
@@ -230,3 +232,25 @@ func apply_wheel_slip() -> void:
 	apply_force(Vector3(BR.x, 0.0, -BR.y).rotated(global_basis.y, global_rotation.y + $WheelBR.steering), $WheelBR.global_position - self.global_position)
 	apply_force(Vector3(BL.x, 0.0, -BL.y).rotated(global_basis.y, global_rotation.y + $WheelBL.steering), $WheelBL.global_position - self.global_position)
 	apply_force(Vector3(FL.x, 0.0, -FL.y).rotated(global_basis.y, global_rotation.y + $WheelFL.steering), $WheelFL.global_position - self.global_position)
+
+
+func _on_mid_temp_parent_area_entered(area: Area3D) -> void:
+	print("MidCheck")
+	#dprint(SceneTree.get_nodes_in_group("MidZone"))
+	if area.is_in_group("MidZone"):
+		CurrentTempZone = 72
+		print("Mid", CurrentTempZone)
+
+
+func _on_cold_temp_parent_area_entered(area: Area3D) -> void:
+	print("ColdCheck")
+	if area.is_in_group("ColdZone"):
+		CurrentTempZone = 32
+		print("Cold", CurrentTempZone)
+
+
+func _on_hot_temp_parent_area_entered(area: Area3D) -> void:
+	print("HotCheck")
+	if area.is_in_group("HotZone"):
+		CurrentTempZone = 112
+		print("Hot", CurrentTempZone)
