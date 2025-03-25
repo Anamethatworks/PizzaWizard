@@ -48,6 +48,7 @@ func get_pizza_from_queue(keep_in_queue: bool = false) -> Pizza:
 func _on_body_entered(body: Node3D) -> void:
 	# Determine if the body is the player
 	if body.name == "Player":
+		@warning_ignore("integer_division")
 		var n := int(Score.orders_completed / 2) + 1
 		if n > 5:
 			n = 5

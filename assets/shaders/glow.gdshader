@@ -8,7 +8,7 @@ const float CAR_SCREEN_HEIGHT = 0.614896897588;
 void fragment() {
 	float a = 0.5 + 0.25 * sin(PI * TIME);
 	ALBEDO = vec3(0.9, 1.f, 1.f) * a + (1.f - a) * texture(tex, UV).xyz;
-	
+
 	// Also apply the cutout effect
 	float height = (INV_VIEW_MATRIX * vec4(VERTEX, 1.f)).y;
 	if (height > 1.f) {

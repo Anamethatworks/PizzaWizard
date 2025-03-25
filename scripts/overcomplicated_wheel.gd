@@ -5,14 +5,35 @@ var local_velocity := Vector2.ZERO # The velocity of the tire with respect to th
 var steer_test: float = 0.0 # Slip breaks if I use the actual steering value, but it works if I use this
 # If anyone can figure out why, please let me know -Sophie
 
+@onready var MASS: float = get_parent().mass
+
+var previous_force := Vector2.ZERO ## The force applied last frame
+
+## Reduces some of the previous force from the velocity used for calculation
+## So slip doesn't cause a feedback loop
+## Kind of hacky, but it makes the car less slidy (when it's not supposed to be slidy)
+func ignore_feedback_slip() -> void:
+	var accel: Vector2 = previous_force * wheel_load / MASS
+	if local_velocity.x > 0.0:
+		local_velocity.x = maxf(local_velocity.x - maxf(accel.x, 0.0), 0.0)
+	elif local_velocity.x < 0.0:
+		local_velocity.x = minf(local_velocity.x - minf(accel.x, 0.0), 0.0)
+		
+	if local_velocity.y > 0.0:
+		local_velocity.y = maxf(local_velocity.y - maxf(accel.y, 0.0), 0.0)
+	elif local_velocity.y < 0.0:
+		local_velocity.y = minf(local_velocity.y - minf(accel.y, 0.0), 0.0)
 
 ## Calculates the longitudinal/lateral forces caused by wheel slip
 func slip_and_grip() -> Vector2:
+	ignore_feedback_slip()
 	if not is_in_contact() or wheel_load < 0.0:
+		previous_force = Vector2.ZERO
 		return Vector2.ZERO
 	
 	var slip_velocity := get_slip_velocity()
 	if slip_velocity == Vector2.ZERO:
+		previous_force = Vector2.ZERO
 		return Vector2.ZERO
 	
 	const  SLIP_SCALE_FACTOR: float = 0.0796
@@ -34,6 +55,8 @@ func slip_and_grip() -> Vector2:
 				x *= friction
 				y *= friction
 				set_friction_slip(friction * 10.5)
+	
+	previous_force = Vector2(x, y)
 	return Vector2(x, y)
 	
 ## A simplified version of Pacejka's magic formula for longitudinal tire slip
@@ -81,9 +104,11 @@ func get_slip_velocity() -> Vector2:
 	# Inspired by Brian Beckman's "The Physics of Racing, Part 24: Combination Slip"
 	# http://autoxer.skiblack.com/phys_racing/phors24.htm
 	var theoretical_velocity := -get_rpm() * TAU / 60.0 * wheel_radius
-	var slip: float = 0.0 if (local_velocity.is_zero_approx()) else (theoretical_velocity - local_velocity.y) / local_velocity.length()
-	if absf(local_velocity.y) < 1.00: # Low velocity failsafe (So the car doesn't shake at rest)
-		slip *= 0.01
+	var slip: float = 0.0 if (local_velocity.length_squared() < 0.01) else (theoretical_velocity - local_velocity.y) / local_velocity.length()
+	
+	#if absf(local_velocity.y) < 1.00: # Low velocity failsafe (So the car doesn't shake at rest)
+		#slip *= 0.01
+	
 	var tire_velocity: Vector2 = Vector2(local_velocity.y, local_velocity.x).rotated(-steering)
 	var slip_angle: float = atan2(tire_velocity.y, tire_velocity.x)
 	slip_angle = rad_to_deg(slip_angle)
