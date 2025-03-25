@@ -1,0 +1,162 @@
+[gd_scene load_steps=13 format=3 uid="uid://j6cqxwx5ktru"]
+
+[ext_resource type="PackedScene" uid="uid://ch8t67vv0iclv" path="res://assets/models/Mailbox.fbx" id="1_dqknw"]
+[ext_resource type="Script" path="res://scripts/destructible_object.gd" id="1_tt1kb"]
+[ext_resource type="PackedScene" uid="uid://d1yabgygipvum" path="res://assets/models/MailboxBroken.fbx" id="2_7ulgj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1c16q"]
+size = Vector3(0.899536, 2.46008, 0.888306)
+
+[sub_resource type="Animation" id="Animation_oaxd1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mailbox:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MailboxBroken:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CPUParticles3D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_epjei"]
+resource_name = "DestructFlash"
+length = 3.0
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mailbox:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MailboxBroken:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.875, 2, 2.125, 2.25, 2.375, 2.5, 2.625, 2.6875, 2.75, 2.8125, 2.875, 2.9375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, true, false, true, false, true, false, true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CPUParticles3D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_on2p8"]
+_data = {
+"DestructFlash": SubResource("Animation_epjei"),
+"RESET": SubResource("Animation_oaxd1")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tna35"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_smwo5"]
+size = Vector3(0.85, 1.1, 0.01)
+
+[sub_resource type="Curve" id="Curve_hspji"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.403509, 1), 0.0704707, 0.0704707, 0, 0, Vector2(1, 0), -4.98038, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_u2a17"]
+offsets = PackedFloat32Array(0, 0.568093, 1)
+colors = PackedColorArray(0.876289, 0.851552, 0.877355, 1, 0.853887, 0.824321, 0.852319, 0.662745, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_ku36f"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Mailbox" type="RigidBody3D"]
+script = ExtResource("1_tt1kb")
+
+[node name="Mailbox" parent="." instance=ExtResource("1_dqknw")]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0, 0)
+
+[node name="MailboxBroken" parent="." instance=ExtResource("2_7ulgj")]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0117798, 1.21356, 0.00958252)
+shape = SubResource("BoxShape3D_1c16q")
+
+[node name="DestructAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_on2p8")
+}
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0238657, 1.08662, 0)
+material_override = SubResource("StandardMaterial3D_tna35")
+emitting = false
+amount = 20
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("BoxMesh_smwo5")
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+particle_flag_align_y = true
+direction = Vector3(0, 2, 0)
+spread = 90.0
+initial_velocity_min = 8.0
+initial_velocity_max = 10.0
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+damping_min = 1.0
+damping_max = 4.0
+scale_amount_curve = SubResource("Curve_hspji")
+color_ramp = SubResource("Gradient_u2a17")
+hue_variation_min = -0.1
+hue_variation_max = 0.1
+hue_variation_curve = SubResource("Curve_ku36f")
+
+[connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]
+[connection signal="animation_finished" from="DestructAnim" to="." method="_on_animation_finished"]
