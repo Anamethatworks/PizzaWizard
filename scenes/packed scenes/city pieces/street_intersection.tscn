@@ -19,3 +19,75 @@ physics_material_override = ExtResource("3_ftpjw")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 2.84217e-14, 1, 0, -0.125, 0)
 shape = SubResource("BoxShape3D_kku1t")
+
+[node name="NavigationLink3D1" type="NavigationLink3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
+bidirectional = false
+start_position = Vector3(9.5, 0.25, 0)
+end_position = Vector3(10.5, 0.25, 0)
+
+[node name="NavigationLink3D2" type="NavigationLink3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+bidirectional = false
+start_position = Vector3(0, 0.25, 9.5)
+end_position = Vector3(0, 0.25, 10.5)
+
+[node name="NavigationLink3D3" type="NavigationLink3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+bidirectional = false
+start_position = Vector3(-9.5, 0.25, 0)
+end_position = Vector3(-10.5, 0.25, 0)
+
+[node name="NavigationLink3D4" type="NavigationLink3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+bidirectional = false
+start_position = Vector3(0, 0.25, -9.5)
+end_position = Vector3(0, 0.25, -10.5)
+
+[node name="NavigationObstacle3D1" type="NavigationObstacle3D" parent="." index="6"]
+vertices = PackedVector3Array(5, 0, 10.2, -5, 0, 10.2, -5, 0, 9.8, 5, 0, 9.8)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false
+
+[node name="NavigationObstacle3D2" type="NavigationObstacle3D" parent="." index="7"]
+vertices = PackedVector3Array(10.2, 0, 5, 10.2, 0, -5, 9.8, 0, -5, 9.8, 0, 5)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false
+
+[node name="NavigationObstacle3D3" type="NavigationObstacle3D" parent="." index="8"]
+vertices = PackedVector3Array(5, 0, -10.2, -5, 0, -10.2, -5, 0, -9.8, 5, 0, -9.8)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false
+
+[node name="NavigationObstacle3D4" type="NavigationObstacle3D" parent="." index="9"]
+vertices = PackedVector3Array(-10.2, 0, 5, -10.2, 0, -5, -9.8, 0, -5, -9.8, 0, 5)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false
+
+[node name="Sidewalk1" type="NavigationObstacle3D" parent="." index="10"]
+vertices = PackedVector3Array(-3, 0, 10, -3, 0, 5, -3.5, 0, 3.5, -5, 0, 3, -10, 0, 3, -10, 0, 10)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false
+
+[node name="Sidewalk2" type="NavigationObstacle3D" parent="." index="11"]
+vertices = PackedVector3Array(3, 0, 10, 3, 0, 5, 3.5, 0, 3.5, 5, 0, 3, 10, 0, 3, 10, 0, 10)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false
+
+[node name="Sidewalk3" type="NavigationObstacle3D" parent="." index="12"]
+vertices = PackedVector3Array(3, 0, -10, 3, 0, -5, 3.5, 0, -3.5, 5, 0, -3, 10, 0, -3, 10, 0, -10)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false
+
+[node name="Sidewalk4" type="NavigationObstacle3D" parent="." index="13"]
+vertices = PackedVector3Array(-3, 0, -10, -3, 0, -5, -3.5, 0, -3.5, -5, 0, -3, -10, 0, -3, -10, 0, -10)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false

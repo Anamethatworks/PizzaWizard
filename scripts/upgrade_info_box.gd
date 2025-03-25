@@ -1,6 +1,6 @@
 class_name UpgradeInfoBox extends PanelContainer
 
-@onready var station: Area3D = get_parent()
+@onready var station: Area3D
 var on_cooldown := false ## If the station is on cooldown
 
 ## An array of all info boxes waiting for the player to get enough money to buy the upgrade
@@ -13,6 +13,7 @@ var stat: UpgradeableStat:
 
 func _ready() -> void:
 	## How many seconds before an upgrade station can be used again
+	station = get_parent()
 	const UPGRADE_COOLDOWN_TIME: float = 2.0
 	$CooldownTimer.wait_time = UPGRADE_COOLDOWN_TIME
 
