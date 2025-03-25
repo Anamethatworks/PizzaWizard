@@ -62,14 +62,15 @@ func _process(delta: float) -> void:
 	move_and_slide()
 	Blocked = false
 	
-	var Coll = self.get_slide_collision((get_slide_collision_count() - 1))
-	#sprint(Coll)
-	#for j in range(0, Coll.get_collision_count()-1):
-				#print("testing")
-	if Coll != null:
-		if Coll.get_collider(0).is_in_group("Player"):
-			Blocked = true
-			#print("working")
+	if get_slide_collision_count() > 0:
+		var Coll = self.get_slide_collision((get_slide_collision_count() - 1))
+		#sprint(Coll)
+		#for j in range(0, Coll.get_collision_count()-1):
+					#print("testing")
+		if Coll != null:
+			if Coll.get_collider(0).is_in_group("Player"):
+				Blocked = true
+				#print("working")
 	
 	
 	

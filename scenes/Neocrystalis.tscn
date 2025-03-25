@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://7dbvq33mmuit" path="res://scenes/packed scenes/city pieces/fence_2.tscn" id="24_mksxi"]
 [ext_resource type="PackedScene" uid="uid://xjtduw5wksiu" path="res://scenes/packed scenes/city pieces/fence_3.tscn" id="25_8coh6"]
 [ext_resource type="PackedScene" uid="uid://c1tp3jbp7b42p" path="res://scenes/packed scenes/city pieces/fence_4.tscn" id="26_0lcir"]
-[ext_resource type="PackedScene" path="res://scenes/mini_map.tscn" id="26_8ak2p"]
+[ext_resource type="PackedScene" uid="uid://c5hsril0egnha" path="res://scenes/mini_map.tscn" id="26_8ak2p"]
 [ext_resource type="PackedScene" uid="uid://314l22f0ors8" path="res://scenes/packed scenes/city pieces/building_pizzeria.tscn" id="27_hm5x0"]
 [ext_resource type="PackedScene" uid="uid://clvoyyu7amkfi" path="res://scenes/packed scenes/Driver.tscn" id="29_qrldq"]
 
