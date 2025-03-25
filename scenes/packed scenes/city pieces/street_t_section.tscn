@@ -59,17 +59,14 @@ avoidance_enabled = false
 [node name="Sidewalk1" type="NavigationObstacle3D" parent="." index="8"]
 vertices = PackedVector3Array(5, 0, -10, 3, 0, -10, 3, 0, 10, 5, 0, 10)
 affect_navigation_mesh = true
-carve_navigation_mesh = true
 avoidance_enabled = false
 
 [node name="Sidewalk2" type="NavigationObstacle3D" parent="." index="9"]
 vertices = PackedVector3Array(-3, 0, 10, -3, 0, 5, -3.5, 0, 3.5, -5, 0, 3, -10, 0, 3, -10, 0, 10)
 affect_navigation_mesh = true
-carve_navigation_mesh = true
 avoidance_enabled = false
 
 [node name="Sidewalk3" type="NavigationObstacle3D" parent="." index="10"]
 vertices = PackedVector3Array(-3, 0, -10, -3, 0, -5, -3.5, 0, -3.5, -5, 0, -3, -10, 0, -3, -10, 0, -10)
 affect_navigation_mesh = true
-carve_navigation_mesh = true
 avoidance_enabled = false

@@ -29,5 +29,9 @@ mesh = SubResource("BoxMesh_trytk")
 skeleton = NodePath("")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="CrashType/CharacterBody3D"]
-
-[connection signal="link_reached" from="CrashType/CharacterBody3D/NavigationAgent3D" to="CrashType/CharacterBody3D" method="_on_navigation_agent_3d_link_reached"]
+simplify_path = true
+avoidance_enabled = true
+radius = 3.0
+neighbor_distance = 10.0
+max_neighbors = 5
+max_speed = 15.0

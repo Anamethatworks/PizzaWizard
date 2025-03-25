@@ -72,12 +72,3 @@ func _process(delta: float) -> void:
 				Blocked = true
 				#print("working")
 	
-	
-	
-	
-					
-		
-
-
-
-		

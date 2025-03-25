@@ -53,11 +53,9 @@ avoidance_enabled = false
 [node name="Sidewalk1" type="NavigationObstacle3D" parent="." index="6"]
 vertices = PackedVector3Array(-10, 0, 5, -10, 0, 3, 10, 0, 3, 10, 0, 5)
 affect_navigation_mesh = true
-carve_navigation_mesh = true
 avoidance_enabled = false
 
 [node name="Sidewalk2" type="NavigationObstacle3D" parent="." index="7"]
 vertices = PackedVector3Array(-10, 0, -5, -10, 0, -3, 10, 0, -3, 10, 0, -5)
 affect_navigation_mesh = true
-carve_navigation_mesh = true
 avoidance_enabled = false
