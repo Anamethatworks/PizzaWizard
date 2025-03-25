@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c7qhebuej02oh"]
+
+[ext_resource type="Shader" uid="uid://caicffukv7k3n" path="res://assets/shaders/cutout.gdshader" id="1_knkud"]
+[ext_resource type="Texture2D" uid="uid://bdyemsm4hs08y" path="res://assets/textures/Building05Tex.png" id="2_knkud"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_knkud")
+shader_parameter/tex = ExtResource("2_knkud")

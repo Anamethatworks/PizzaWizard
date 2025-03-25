@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cf4nix8fm5hw0"]
+
+[ext_resource type="Shader" uid="uid://uih5xn0heg2u" path="res://assets/shaders/cutout_base.gdshader" id="1_wesv8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_wesv8")

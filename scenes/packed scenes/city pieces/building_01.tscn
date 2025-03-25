@@ -1,20 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://brd4jm3vf1kqs"]
+[gd_scene load_steps=7 format=3 uid="uid://brd4jm3vf1kqs"]
 
 [ext_resource type="PackedScene" uid="uid://bmypgfrljwtgg" path="res://assets/models/Building01.fbx" id="1_qy1no"]
-[ext_resource type="Material" uid="uid://dt4c70r4fu65x" path="res://assets/materials/Building01Mat.tres" id="2_etbuf"]
+[ext_resource type="Material" uid="uid://b1a3sdknuogf3" path="res://assets/materials/cutout materials/building1cutout.tres" id="2_0mxes"]
+[ext_resource type="Material" uid="uid://cf4nix8fm5hw0" path="res://assets/materials/cutout materials/cutout_base.tres" id="3_owr4l"]
+[ext_resource type="Script" uid="uid://dg726gkyii7pl" path="res://building.gd" id="4_vclqx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0mxes"]
+size = Vector3(15.005, 1, 15.013)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_376bg"]
-size = Vector3(15.0055, 25, 15.0132)
+size = Vector3(15, 24.606, 15)
 
 [node name="Building01" instance=ExtResource("1_qy1no")]
 
 [node name="Building01" parent="." index="0"]
-material_override = ExtResource("2_etbuf")
+cast_shadow = 0
+ignore_occlusion_culling = true
 
-[node name="CrashType" type="Node3D" parent="." index="1"]
+[node name="Cutout" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.002)
+visible = false
+cast_shadow = 0
+ignore_occlusion_culling = true
+mesh = SubResource("BoxMesh_0mxes")
+surface_material_override/0 = ExtResource("3_owr4l")
+script = ExtResource("4_vclqx")
+CUTOUT_MATERIAL = ExtResource("2_0mxes")
+metadata/_custom_type_script = "uid://dg726gkyii7pl"
+
+[node name="CrashType" type="Node3D" parent="." index="2"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CrashType" index="0"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CrashType/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000183105, 12.5015, 0.00219727)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.303, 0)
 shape = SubResource("BoxShape3D_376bg")
