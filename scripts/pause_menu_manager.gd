@@ -1,5 +1,6 @@
 extends Control
 
+@onready var black_fade = $"../../MainMenu/BlackFade"
 @onready var fade_mask = $"FadeMask"
 @onready var mask_anim = $"PauseMenuAnim"
 @onready var paused_text = $"FadeMask/PausedText"
@@ -49,11 +50,25 @@ func _process(delta: float) -> void:
 		if desired_quit_mod != quit_button.modulate:
 			quit_button.modulate = lerp(quit_button.modulate, desired_quit_mod, 0.1)
 
+func pause_fade_in_finished() -> void:
+	DeliveryManager.clear_orders()
+	print (get_tree().root.get_child((1)))
+	var ui_manager = $"../UIPanel/UIManager"
+	ui_manager.call("clear_order_tickets")
+	get_tree().root.get_child(1).queue_free()
+	#get_tree().root.remove_child(get_tree().root.get_child((1)))
+	black_fade.call("MenuFadeOut")
+
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
 
 func _on_back_to_menu_pressed() -> void:
-	pass # Replace with function body.
+	black_fade.call("PauseFadeIn", (self))
+
+	get_tree().paused = false
+	cont_button.visible = false
+	menu_button.visible = false
+	quit_button.visible = false
 
 func _on_continue_game_pressed() -> void:
 	pause_active = false

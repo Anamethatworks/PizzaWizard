@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dru1flpf2w1iq"]
+[gd_scene load_steps=31 format=3 uid="uid://bocbv1jc1g0h8"]
 
 [ext_resource type="Texture2D" uid="uid://dpidb0ph7lxqi" path="res://PWTitleLogo.png" id="1_t5ump"]
 [ext_resource type="Texture2D" uid="uid://do27ee0mdgln7" path="res://PWTitleTemp.png" id="2_bd2x7"]
@@ -6,9 +6,7 @@
 [ext_resource type="Script" path="res://scripts/star_burst_anims.gd" id="4_7r41l"]
 [ext_resource type="Script" path="res://scripts/MenuAnimManager.gd" id="5_23wvc"]
 [ext_resource type="Texture2D" uid="uid://vjafvv7sa1pe" path="res://TitleDarkBG.png" id="6_nsbuu"]
-[ext_resource type="Texture2D" uid="uid://016umrlou53v" path="res://MenuButtonHovered.png" id="7_1yjl2"]
-[ext_resource type="Texture2D" uid="uid://dhvxg2ttdlgs6" path="res://MenuButtonDown.png" id="8_a81f5"]
-[ext_resource type="Texture2D" uid="uid://dt0sskr6n6eyh" path="res://MenuButton.png" id="9_c5xyq"]
+[ext_resource type="FontFile" uid="uid://tbshfj8xrpar" path="res://assets/fonts/Bitshow.ttf" id="7_hnaoe"]
 [ext_resource type="PackedScene" uid="uid://bbddblows1ku5" path="res://scenes/city_for_menu.tscn" id="10_qslvp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7a3qj"]
@@ -362,7 +360,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0),
-"points": PackedFloat32Array(272, -0.25, 0, 0.25, 0, 500, -0.5, 0, 0.5, 0, 110, 0, 0, 0, 0),
+"points": PackedFloat32Array(-500, -0.25, 0, 0.25, 0, 350, -0.5, 0, 0.5, 0, -469, 0, 0, 0, 0),
 "times": PackedFloat32Array(0, 1, 2)
 }
 tracks/1/type = "bezier"
@@ -373,7 +371,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0),
-"points": PackedFloat32Array(811, -0.25, 0, 0.25, 0, 75, -0.724763, 14.4953, 0.6, -12, 130, 0, 0, 0, 0),
+"points": PackedFloat32Array(811, -0.25, 0, 0.25, 0, -231, -0.724763, 14.4953, 0.6, -12, -176, 0, 0, 0, 0),
 "times": PackedFloat32Array(0, 1, 2)
 }
 tracks/2/type = "bezier"
@@ -492,7 +490,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(110, -0.25, 0, 0.25, 0, 110, -0.25, 0, 0.25, 0, 110, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(-469, -0.25, 0, 0.25, 0, -469, -0.25, 0, 0.25, 0, -469, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1, 2)
 }
 tracks/1/type = "bezier"
@@ -503,7 +501,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 1, 0),
-"points": PackedFloat32Array(130, -0.5, 0, 0.5, 0, 140, 0, 0, 0, 0, 130, -0.5, 0, 0.5, 0),
+"points": PackedFloat32Array(-176, -0.5, 0, 0.5, 0, -166, 0, 0, 0, 0, -176, -0.5, 0, 0.5, 0),
 "times": PackedFloat32Array(0, 1, 2)
 }
 tracks/2/type = "bezier"
@@ -703,14 +701,14 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3a0d7"]
 texture = ExtResource("6_nsbuu")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jq3s7"]
-texture = ExtResource("7_1yjl2")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ticu"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68xh6"]
-texture = ExtResource("8_a81f5")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nxngl"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h0j1c"]
-texture = ExtResource("9_c5xyq")
+[sub_resource type="FontVariation" id="FontVariation_phgqi"]
+base_font = ExtResource("7_hnaoe")
+spacing_glyph = -6
+spacing_top = 7
 
 [sub_resource type="Animation" id="Animation_t3mh7"]
 resource_name = "CameraAnim1"
@@ -931,28 +929,43 @@ _data = {
 "RESET": SubResource("Animation_e8gro")
 }
 
-[node name="MenuElements" type="Node"]
-
-[node name="TitleLogo" type="Panel" parent="."]
-visible = false
-offset_left = 392.0
-offset_top = 29.0
-offset_right = 770.0
-offset_bottom = 352.0
-pivot_offset = Vector2(189, 162)
-theme_override_styles/panel = SubResource("StyleBoxTexture_7a3qj")
-
-[node name="MenuTitle" type="Panel" parent="."]
-modulate = Color(1, 1, 1, 0)
+[node name="MenuElements" type="Control"]
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 362.0
-offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLogo" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = -273.0
+offset_right = 189.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(189, 162)
+theme_override_styles/panel = SubResource("StyleBoxTexture_7a3qj")
+
+[node name="MenuTitle" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 938.0
+offset_bottom = 156.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
@@ -1007,21 +1020,23 @@ autoplay = "MainMenuAnim"
 script = ExtResource("5_23wvc")
 
 [node name="WhitePanel" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = 576.0
-offset_bottom = 324.0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gbyct")
 
 [node name="TitleDarkBG" type="Panel" parent="."]
 z_index = -2
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1037,42 +1052,72 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_3a0d7")
 
 [node name="StartGame" type="Button" parent="."]
 texture_filter = 6
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
+offset_left = -44.0
 offset_top = 176.0
 offset_right = 66.0
 offset_bottom = 208.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 pivot_offset = Vector2(65, 16)
-theme_override_styles/hover = SubResource("StyleBoxTexture_jq3s7")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_68xh6")
-theme_override_styles/normal = SubResource("StyleBoxTexture_h0j1c")
-text = "Start Wizardin'"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3ticu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nxngl")
+flat = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="StartGame"]
+z_index = -3
+layout_mode = 0
+offset_left = -10.0
+offset_right = 250.0
+offset_bottom = 80.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_hnaoe")
+theme_override_font_sizes/normal_font_size = 52
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=2.0 connected=1][center]START[/center][/wave]"
 
 [node name="QuitGame" type="Button" parent="."]
 texture_filter = 6
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = 216.0
+offset_left = -44.0
+offset_top = 256.0
 offset_right = 66.0
-offset_bottom = 248.0
+offset_bottom = 288.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 pivot_offset = Vector2(65, 16)
-theme_override_styles/hover = SubResource("StyleBoxTexture_jq3s7")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_68xh6")
-theme_override_styles/normal = SubResource("StyleBoxTexture_h0j1c")
-text = "Quit
-"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3ticu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nxngl")
+flat = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="QuitGame"]
+z_index = -3
+layout_mode = 0
+offset_left = -10.0
+offset_top = -2.0
+offset_right = 250.0
+offset_bottom = 83.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_phgqi")
+theme_override_font_sizes/normal_font_size = 52
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=2.0 connected=1][center]Q U I T[/center][/wave]"
 
 [node name="City" parent="." instance=ExtResource("10_qslvp")]
 
@@ -1088,3 +1133,5 @@ autoplay = "CameraAnim1"
 
 [connection signal="animation_finished" from="MenuTitle/StarBurstAnims" to="MenuTitle/StarBurstAnims" method="_on_animation_finished"]
 [connection signal="animation_finished" from="MenuTitleAnim" to="MenuTitleAnim" method="_on_animation_finished"]
+
+[editable path="City"]

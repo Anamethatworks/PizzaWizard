@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bty8kpmn8dl28"]
 
-[ext_resource type="Script" path="res://scenes/packed scenes/pause_menu_manager.gd" id="1_0src1"]
+[ext_resource type="Script" path="res://scripts/pause_menu_manager.gd" id="1_1jxsv"]
 [ext_resource type="Texture2D" uid="uid://vjafvv7sa1pe" path="res://TitleDarkBG.png" id="1_p01r6"]
 [ext_resource type="FontVariation" uid="uid://df7lcywkdf84v" path="res://assets/fonts/ui_font_var1.tres" id="4_4o178"]
 
@@ -207,7 +207,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0src1")
+script = ExtResource("1_1jxsv")
 
 [node name="FadeMask" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0)
