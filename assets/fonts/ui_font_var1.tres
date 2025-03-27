@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://df7lcywkdf84v"]
+
+[ext_resource type="FontFile" uid="uid://tbshfj8xrpar" path="res://assets/fonts/Bitshow.ttf" id="1_c4dm8"]
+
+[resource]
+base_font = ExtResource("1_c4dm8")
+spacing_glyph = -6
+spacing_top = 7

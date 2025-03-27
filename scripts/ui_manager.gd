@@ -60,3 +60,9 @@ func remove_order_ticket(pos: Vector3) -> void:
 			var popped_ticket = order_tickets.pop_at(i)
 			popped_ticket.queue_free()
 			break
+
+func clear_order_tickets() -> void:
+	for i in range(0, len(order_tickets)):
+		order_tickets[i].queue_free()
+	order_tickets = []
+

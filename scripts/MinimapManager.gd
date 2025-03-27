@@ -53,7 +53,6 @@ func _process(delta: float) -> void:
 	#Maps pizzeria icon to match game world position
 	var piz_x = (player.position.x - pizzeria_location.x) * map_to_world_ratio
 	var piz_y = (player.position.z - pizzeria_location.z) * map_to_world_ratio
-	var piz_pos = Vector2(pizzeria_offset.x + piz_x, pizzeria_offset.y + piz_y)
 	if (Vector2(piz_x, piz_y).length() > 90):
 		var dir = Vector2(player.position.x - pizzeria_location.x, player.position.z - pizzeria_location.z)
 		var angle = atan2(dir.y, dir.x)
@@ -70,13 +69,11 @@ func _process(delta: float) -> void:
 	for i in range(0, len(delivery_icons)):
 		var del_x = (player.position.x - deliver_locations[i].x) * map_to_world_ratio
 		var del_y = (player.position.z - deliver_locations[i].z) * map_to_world_ratio
-		var del_pos = Vector2(89 + del_x, 69 + del_y)
 		if (Vector2((89 + del_x) - 100,(69 + del_y) - 100).length() > 90):
 			var dir = Vector2(player.position.x - deliver_locations[i].x, player.position.z - deliver_locations[i].z)
 			var angle = atan2(dir.y, dir.x)
 			var new_x = cos(angle) * 80
 			var new_y = sin(angle) * 80
 			delivery_icons[i].set_position(Vector2(89 + new_x, 69 + new_y))
-			pass
 		else:
 			delivery_icons[i].set_position(Vector2(89 + del_x, 69 + del_y))
