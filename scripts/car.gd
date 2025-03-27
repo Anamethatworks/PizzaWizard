@@ -31,6 +31,8 @@ var lateral_acceleration: float = 0.0 ## Calculated lateral acceleration (m/s/s)
 
 var steering_angle: float = 0.0 ## Current steering angle (radians)
 
+var previous_linear_velocity: Vector3 = Vector3.ZERO
+
 var Moving = 0
 
 func _ready() -> void:
@@ -96,21 +98,27 @@ func _physics_process(delta: float) -> void:
 	apply_wheel_slip() # Apply forces based on each tire's slip and grip
 	
 	flip_failsafe()
+	launch_failsafe()
 	
 	previous_longitudinal_velocity = longitudinal_velocity
 	previous_lateral_velocity = lateral_velocity
+	previous_linear_velocity = linear_velocity
 
 
 ## If the player flips, turn the car back over
 func flip_failsafe() -> void:
-	if absf(global_rotation.x) >= PI / 2.0:
+	if absf(global_rotation.x) >= PI / 2.0 or absf(global_rotation.z) >= PI / 2.0:
 		global_rotation.x = 0.0
-		angular_velocity.x = 0.0
-		global_position.y += 1.0
-	if absf(global_rotation.z) >= PI / 2.0:
 		global_rotation.z = 0.0
+		angular_velocity.x = 0.0
 		angular_velocity.z = 0.0
 		global_position.y += 1.0
+
+## Detects if the player just gained an unrealistic amount of speed and freezes the car
+func launch_failsafe() -> void:
+	if linear_velocity.distance_squared_to(previous_linear_velocity) > 200.0:
+		linear_velocity = Vector3.ZERO
+		angular_velocity = Vector3.ZERO
 
 ## Calculates the longitudinal and lateral acceleration
 func calc_acceleration(long_velocity: float, lat_velocity: float, delta: float) -> void:

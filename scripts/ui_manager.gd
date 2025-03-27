@@ -65,4 +65,3 @@ func clear_order_tickets() -> void:
 	for i in range(0, len(order_tickets)):
 		order_tickets[i].queue_free()
 	order_tickets = []
-

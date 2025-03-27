@@ -39,34 +39,40 @@ start_position = Vector3(-9.5, 0.25, 0)
 end_position = Vector3(-10.5, 0.25, 0)
 
 [node name="NavigationObstacle3D1" type="NavigationObstacle3D" parent="." index="5"]
+visible = false
 vertices = PackedVector3Array(5, 0, 10.2, -5, 0, 10.2, -5, 0, 9.8, 5, 0, 9.8)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 avoidance_enabled = false
 
 [node name="NavigationObstacle3D2" type="NavigationObstacle3D" parent="." index="6"]
+visible = false
 vertices = PackedVector3Array(-10.2, 0, 5, -10.2, 0, -5, -9.8, 0, -5, -9.8, 0, 5)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 avoidance_enabled = false
 
 [node name="NavigationObstacle3D3" type="NavigationObstacle3D" parent="." index="7"]
+visible = false
 vertices = PackedVector3Array(5, 0, -10.2, -5, 0, -10.2, -5, 0, -9.8, 5, 0, -9.8)
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 avoidance_enabled = false
 
 [node name="Sidewalk1" type="NavigationObstacle3D" parent="." index="8"]
+visible = false
 vertices = PackedVector3Array(5, 0, -10, 3, 0, -10, 3, 0, 10, 5, 0, 10)
 affect_navigation_mesh = true
 avoidance_enabled = false
 
 [node name="Sidewalk2" type="NavigationObstacle3D" parent="." index="9"]
+visible = false
 vertices = PackedVector3Array(-3, 0, 10, -3, 0, 5, -3.5, 0, 3.5, -5, 0, 3, -10, 0, 3, -10, 0, 10)
 affect_navigation_mesh = true
 avoidance_enabled = false
 
 [node name="Sidewalk3" type="NavigationObstacle3D" parent="." index="10"]
+visible = false
 vertices = PackedVector3Array(-3, 0, -10, -3, 0, -5, -3.5, 0, -3.5, -5, 0, -3, -10, 0, -3, -10, 0, -10)
 affect_navigation_mesh = true
 avoidance_enabled = false
