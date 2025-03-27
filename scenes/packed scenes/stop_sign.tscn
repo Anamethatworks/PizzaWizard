@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://l4pno4gp2b20"]
+
+[ext_resource type="PackedScene" uid="uid://btcsdqxbu1pl2" path="res://assets/models/Stop_Sign.fbx" id="1_nqia5"]
+[ext_resource type="Script" path="res://scripts/destructible_object.gd" id="1_vjck6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tdcgu"]
+size = Vector3(0.337555, 2.99176, 0.993904)
+
+[sub_resource type="Animation" id="Animation_v24ev"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stop_Sign:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kjtw7"]
+resource_name = "DestructFlash"
+length = 3.0
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stop_Sign:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.875, 2, 2.125, 2.25, 2.375, 2.5, 2.625, 2.6875, 2.75, 2.8125, 2.875, 2.9375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, true, false, true, false, true, false, true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lcm0i"]
+_data = {
+"DestructFlash": SubResource("Animation_kjtw7"),
+"RESET": SubResource("Animation_v24ev")
+}
+
+[node name="StopSign" type="RigidBody3D"]
+script = ExtResource("1_vjck6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00828552, 1.51248, -0.00632858)
+shape = SubResource("BoxShape3D_tdcgu")
+
+[node name="Stop_Sign" parent="." instance=ExtResource("1_nqia5")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="DestructAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lcm0i")
+}
+
+[connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]
+[connection signal="animation_finished" from="DestructAnim" to="." method="_on_animation_finished"]
