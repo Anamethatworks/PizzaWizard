@@ -234,23 +234,17 @@ func apply_wheel_slip() -> void:
 	apply_force(Vector3(FL.x, 0.0, -FL.y).rotated(global_basis.y, global_rotation.y + $WheelFL.steering), $WheelFL.global_position - self.global_position)
 
 
-func _on_mid_temp_parent_area_entered(area: Area3D) -> void:
-	print("MidCheck")
-	#dprint(SceneTree.get_nodes_in_group("MidZone"))
-	if area.is_in_group("MidZone"):
+
+func _on_mid_temp_parent_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Player"):
 		CurrentTempZone = 72
-		print("Mid", CurrentTempZone)
 
 
-func _on_cold_temp_parent_area_entered(area: Area3D) -> void:
-	print("ColdCheck")
-	if area.is_in_group("ColdZone"):
+func _on_cold_temp_parent_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Player"):
 		CurrentTempZone = 32
-		print("Cold", CurrentTempZone)
 
 
-func _on_hot_temp_parent_area_entered(area: Area3D) -> void:
-	print("HotCheck")
-	if area.is_in_group("HotZone"):
+func _on_hot_temp_parent_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Player"):
 		CurrentTempZone = 112
-		print("Hot", CurrentTempZone)

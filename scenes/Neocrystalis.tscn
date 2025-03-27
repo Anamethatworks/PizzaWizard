@@ -64,7 +64,7 @@ size = Vector3(141.274, 270.417, 157.486)
 [node name="UIPanel" parent="." instance=ExtResource("1_mrpau")]
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_qlckg")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.1, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.74412, 0.1, 0)
 
 [node name="TempManager2" type="Node" parent="Player"]
 script = ExtResource("3_8renb")
@@ -2226,6 +2226,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.4604, 111.275, 60.9874)
 [node name="HotTempZone" type="CollisionShape3D" parent="HotTempParent" groups=["HotZone"]]
 shape = SubResource("BoxShape3D_e5r1j")
 
-[connection signal="area_entered" from="MidTempParent" to="Player" method="_on_mid_temp_parent_area_entered"]
-[connection signal="area_entered" from="ColdTempParent" to="Player" method="_on_cold_temp_parent_area_entered"]
-[connection signal="area_entered" from="HotTempParent" to="Player" method="_on_hot_temp_parent_area_entered"]
+[connection signal="body_entered" from="MidTempParent" to="Player" method="_on_mid_temp_parent_body_entered"]
+[connection signal="body_entered" from="ColdTempParent" to="Player" method="_on_cold_temp_parent_body_entered"]
+[connection signal="body_entered" from="HotTempParent" to="Player" method="_on_hot_temp_parent_body_entered"]
