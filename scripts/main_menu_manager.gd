@@ -17,9 +17,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if desired_start_mod != start_button.modulate:
-		start_button.modulate = lerp(start_button.modulate, desired_start_mod, 0.1 * delta * 10)
+		start_button.modulate = lerp(start_button.modulate, desired_start_mod, 0.1 * delta * 100)
 	if desired_quit_mod != quit_button.modulate:
-		quit_button.modulate = lerp(quit_button.modulate, desired_quit_mod, 0.1 * delta * 10)
+		quit_button.modulate = lerp(quit_button.modulate, desired_quit_mod, 0.1 * delta * 100)
 
 
 func _on_start_game_pressed() -> void:
