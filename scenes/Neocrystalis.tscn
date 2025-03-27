@@ -1,7 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://vhqxgfoi6ib7"]
+[gd_scene load_steps=37 format=3 uid="uid://vhqxgfoi6ib7"]
 
 [ext_resource type="PackedScene" uid="uid://dik1wyeffkyac" path="res://scenes/packed scenes/test_ui.tscn" id="1_mrpau"]
 [ext_resource type="PackedScene" uid="uid://dsvq25iq46jfm" path="res://scenes/packed scenes/player.tscn" id="2_qlckg"]
+[ext_resource type="PackedScene" path="res://scenes/packed scenes/pause_menu.tscn" id="2_yee5a"]
 [ext_resource type="Script" path="res://scripts/temp_manager.gd" id="3_8renb"]
 [ext_resource type="PackedScene" uid="uid://cn3xuf41u7awb" path="res://scenes/packed scenes/city pieces/level_ground.tscn" id="4_lfvos"]
 [ext_resource type="PackedScene" uid="uid://brhx8i8tpofdj" path="res://scenes/packed scenes/city pieces/street_straight.tscn" id="5_g6pt7"]
@@ -55,6 +56,9 @@ fog_density = 0.001
 [node name="WorldOrigin" type="Node3D"]
 
 [node name="UIPanel" parent="." instance=ExtResource("1_mrpau")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_yee5a")]
+process_mode = 3
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_qlckg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.1, 0)
@@ -1015,6 +1019,51 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.4447, -9.53674e-07, -63.2
 
 [node name="BuildingSide03" parent="Buildings" instance=ExtResource("10_k0dqq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.7975, -9.53674e-07, -53.2813)
+
+[node name="Mailbox" parent="Buildings" instance=ExtResource("30_oe14n")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 59.8366, 0.14608, 4.39474)
+
+[node name="Mailbox2" parent="Buildings" instance=ExtResource("30_oe14n")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 58.8366, 0.14608, 35.8947)
+
+[node name="Mailbox3" parent="Buildings" instance=ExtResource("30_oe14n")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.83656, 0.14608, 35.8947)
+
+[node name="Mailbox4" parent="Buildings" instance=ExtResource("30_oe14n")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -50.6634, 0.14608, 35.8947)
+
+[node name="Mailbox5" parent="Buildings" instance=ExtResource("30_oe14n")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 88.3366, 0.14608, 35.8947)
+
+[node name="Mailbox6" parent="Buildings" instance=ExtResource("30_oe14n")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 43.8366, 0.14608, 62.8947)
+
+[node name="Mailbox7" parent="Buildings" instance=ExtResource("30_oe14n")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -75.6634, 0.14608, 62.8947)
+
+[node name="StopSign" parent="Buildings" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.9218, 1.90735e-06, 43.6848)
+
+[node name="StopSign2" parent="Buildings" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9218, 1.90735e-06, 36.1848)
+
+[node name="StopSign3" parent="Buildings" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.9218, 1.90735e-06, 3.68485)
+
+[node name="StopSign4" parent="Buildings" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9218, 1.90735e-06, -3.81515)
+
+[node name="StopSign5" parent="Buildings" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.9218, 1.90735e-06, -36.3152)
+
+[node name="StopSign6" parent="Buildings" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9218, 1.90735e-06, -43.8152)
+
+[node name="StopSign7" parent="Buildings" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 73.0782, 1.90735e-06, 43.6848)
+
+[node name="StopSign8" parent="Buildings" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.0782, 1.90735e-06, 36.1848)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -2196,48 +2245,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.7976, 0, 2.64462)
 
 [node name="Driver6" parent="Drivers" instance=ExtResource("29_qrldq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.364, 0, 4.64395)
-
-[node name="Mailbox" parent="." instance=ExtResource("30_oe14n")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 59.8366, 0.14608, 4.39474)
-
-[node name="Mailbox2" parent="." instance=ExtResource("30_oe14n")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 58.8366, 0.14608, 35.8947)
-
-[node name="Mailbox3" parent="." instance=ExtResource("30_oe14n")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.83656, 0.14608, 35.8947)
-
-[node name="Mailbox4" parent="." instance=ExtResource("30_oe14n")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -50.6634, 0.14608, 35.8947)
-
-[node name="Mailbox5" parent="." instance=ExtResource("30_oe14n")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 88.3366, 0.14608, 35.8947)
-
-[node name="Mailbox6" parent="." instance=ExtResource("30_oe14n")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 43.8366, 0.14608, 62.8947)
-
-[node name="Mailbox7" parent="." instance=ExtResource("30_oe14n")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -75.6634, 0.14608, 62.8947)
-
-[node name="StopSign" parent="." instance=ExtResource("31_6cqjw")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.9218, 1.90735e-06, 43.6848)
-
-[node name="StopSign2" parent="." instance=ExtResource("31_6cqjw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9218, 1.90735e-06, 36.1848)
-
-[node name="StopSign3" parent="." instance=ExtResource("31_6cqjw")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.9218, 1.90735e-06, 3.68485)
-
-[node name="StopSign4" parent="." instance=ExtResource("31_6cqjw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9218, 1.90735e-06, -3.81515)
-
-[node name="StopSign5" parent="." instance=ExtResource("31_6cqjw")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.9218, 1.90735e-06, -36.3152)
-
-[node name="StopSign6" parent="." instance=ExtResource("31_6cqjw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9218, 1.90735e-06, -43.8152)
-
-[node name="StopSign7" parent="." instance=ExtResource("31_6cqjw")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 73.0782, 1.90735e-06, 43.6848)
-
-[node name="StopSign8" parent="." instance=ExtResource("31_6cqjw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.0782, 1.90735e-06, 36.1848)

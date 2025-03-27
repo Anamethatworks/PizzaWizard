@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://1qetpejc7cmu"]
+[gd_scene load_steps=8 format=3 uid="uid://du3wod3c5ekak"]
 
 [ext_resource type="Script" path="res://scripts/main_menu_manager.gd" id="1_10g8r"]
 [ext_resource type="Script" path="res://scripts/black_fade_manager.gd" id="2_1uxg3"]
