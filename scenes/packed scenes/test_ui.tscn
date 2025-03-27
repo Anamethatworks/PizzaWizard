@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dik1wyeffkyac"]
 
-[ext_resource type="Script" path="res://scripts/ui_manager.gd" id="1_cbekv"]
+[ext_resource type="Script" uid="uid://l7pptkcybulm" path="res://scripts/ui_manager.gd" id="1_cbekv"]
 [ext_resource type="Texture2D" uid="uid://cfekqwirwux2p" path="res://assets/sprites/MoneyIcon2.png" id="2_rp4mp"]
 [ext_resource type="SystemFont" uid="uid://wj6i27fp2c8k" path="res://assets/fonts/ui_font.tres" id="3_vsdgi"]
 [ext_resource type="Texture2D" uid="uid://bravp6wkudwmb" path="res://assets/sprites/TempIcon2.png" id="4_a1wdi"]
