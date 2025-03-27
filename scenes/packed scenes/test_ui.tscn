@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cfekqwirwux2p" path="res://assets/sprites/MoneyIcon2.png" id="2_rp4mp"]
 [ext_resource type="SystemFont" uid="uid://wj6i27fp2c8k" path="res://assets/fonts/ui_font.tres" id="3_vsdgi"]
 [ext_resource type="Texture2D" uid="uid://bravp6wkudwmb" path="res://assets/sprites/TempIcon2.png" id="4_a1wdi"]
-[ext_resource type="PackedScene" uid="uid://r0oplirhhvxh" path="res://scenes/order_control.tscn" id="5_omk2h"]
+[ext_resource type="PackedScene" uid="uid://r0oplirhhvxh" path="res://scenes/packed scenes/order_control.tscn" id="5_omk2h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4urmr"]
 bg_color = Color(0.329158, 0.329158, 0.329158, 0)

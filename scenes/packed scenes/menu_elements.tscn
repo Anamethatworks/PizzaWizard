@@ -1,13 +1,13 @@
 [gd_scene load_steps=31 format=3 uid="uid://bocbv1jc1g0h8"]
 
-[ext_resource type="Texture2D" uid="uid://dpidb0ph7lxqi" path="res://PWTitleLogo.png" id="1_t5ump"]
-[ext_resource type="Texture2D" uid="uid://do27ee0mdgln7" path="res://PWTitleTemp.png" id="2_bd2x7"]
-[ext_resource type="Texture2D" uid="uid://dt1tt3f40r8kn" path="res://StarBurst2.png" id="3_vngr1"]
+[ext_resource type="Texture2D" uid="uid://dpidb0ph7lxqi" path="res://assets/sprites/PWTitleLogo.png" id="1_t5ump"]
+[ext_resource type="Texture2D" uid="uid://do27ee0mdgln7" path="res://assets/sprites/PWTitleTemp.png" id="2_bd2x7"]
+[ext_resource type="Texture2D" uid="uid://dt1tt3f40r8kn" path="res://assets/sprites/StarBurst2.png" id="3_vngr1"]
 [ext_resource type="Script" path="res://scripts/star_burst_anims.gd" id="4_7r41l"]
 [ext_resource type="Script" path="res://scripts/MenuAnimManager.gd" id="5_23wvc"]
-[ext_resource type="Texture2D" uid="uid://vjafvv7sa1pe" path="res://TitleDarkBG.png" id="6_nsbuu"]
+[ext_resource type="Texture2D" uid="uid://vjafvv7sa1pe" path="res://assets/sprites/TitleDarkBG.png" id="6_nsbuu"]
 [ext_resource type="FontFile" uid="uid://tbshfj8xrpar" path="res://assets/fonts/Bitshow.ttf" id="7_hnaoe"]
-[ext_resource type="PackedScene" uid="uid://bbddblows1ku5" path="res://scenes/city_for_menu.tscn" id="10_qslvp"]
+[ext_resource type="PackedScene" uid="uid://bbddblows1ku5" path="res://scenes/packed scenes/city_for_menu.tscn" id="10_qslvp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7a3qj"]
 texture = ExtResource("1_t5ump")

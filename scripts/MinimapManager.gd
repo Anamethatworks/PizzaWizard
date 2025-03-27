@@ -5,7 +5,7 @@ extends Control
 @onready var minimap_pos = $"MinMapRoundMask/MinMapRound"
 @onready var player_icon = $"MinMapIconMask/PlayerPos"
 @onready var player = $"../Player"
-var delivery_icon_scene = preload("res://scenes/deliver_pos.tscn")
+var delivery_icon_scene = preload("res://scenes/packed scenes/deliver_pos.tscn")
 
 var pizzeria_location = Vector3(12.63, 0, -4.24)
 

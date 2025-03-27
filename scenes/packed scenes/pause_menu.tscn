@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://bty8kpmn8dl28"]
 
 [ext_resource type="Script" path="res://scripts/pause_menu_manager.gd" id="1_1jxsv"]
-[ext_resource type="Texture2D" uid="uid://vjafvv7sa1pe" path="res://TitleDarkBG.png" id="1_p01r6"]
-[ext_resource type="FontVariation" uid="uid://df7lcywkdf84v" path="res://assets/fonts/ui_font_var1.tres" id="4_4o178"]
+[ext_resource type="Texture2D" uid="uid://vjafvv7sa1pe" path="res://assets/sprites/TitleDarkBG.png" id="1_p01r6"]
+[ext_resource type="FontVariation" uid="uid://dtdj6q1ahxo61" path="res://assets/fonts/ui_font_var1.tres" id="4_4o178"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsvan"]
 bg_color = Color(1, 1, 1, 1)
@@ -201,6 +201,7 @@ _data = {
 }
 
 [node name="PauseMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -287,9 +288,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -94.0
-offset_top = 860.0
+offset_top = 860.002
 offset_right = 66.0
-offset_bottom = 892.0
+offset_bottom = 892.002
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -321,9 +322,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -44.0
-offset_top = 860.0
+offset_top = 859.988
 offset_right = 66.0
-offset_bottom = 892.0
+offset_bottom = 891.988
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -356,9 +357,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -94.0
-offset_top = 860.0
+offset_top = 860.002
 offset_right = 66.0
-offset_bottom = 892.0
+offset_bottom = 892.002
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
