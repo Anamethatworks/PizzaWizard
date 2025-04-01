@@ -3,9 +3,6 @@ extends Node3D
 # The maximum amount of spells the player can hold at once
 const MAX_SPELLS = 5
 
-# The maximum amount of spells the player can hold at once
-const MAX_SPELLS = 5
-
 # An array of [Spell] objects, expands as the player collects spells
 var spells : Array[Spell]
 
