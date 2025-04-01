@@ -48,7 +48,6 @@ func get_pizza_from_queue(keep_in_queue: bool = false) -> Pizza:
 func _on_body_entered(body: Node3D) -> void:
 	# Determine if the body is the player
 	if body.name == "Player":
-		@warning_ignore("integer_division")
 		var n := int(Score.orders_completed / 2) + 1
 		if n > 5:
 			n = 5
@@ -58,6 +57,8 @@ func _on_body_entered(body: Node3D) -> void:
 			var minimap_node = $"../../MiniMap"
 			var ui_manager = $"../../UIPanel/UIManager"
 			for i in range(0, len(DeliveryManager.current_orders)):
-				minimap_node.call("add_delivery_icon", (DeliveryManager.current_orders[i].dropoffPoint.global_position))
-				ui_manager.call("add_order_ticket", DeliveryManager.current_orders[i].parTime, DeliveryManager.current_orders[i].dropoffPoint.global_position)
+				if minimap_node != null:
+					minimap_node.call_deferred("add_delivery_icon", (DeliveryManager.current_orders[i].dropoffPoint.global_position))
+				if ui_manager != null:
+					ui_manager.call_deferred("add_order_ticket", DeliveryManager.current_orders[i].parTime, DeliveryManager.current_orders[i].dropoffPoint.global_position)
 		Score.earn_bonuses()

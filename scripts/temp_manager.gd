@@ -13,7 +13,8 @@ func _ready() -> void:
 
 ## Decreases pizza temperature of all existing orders in [current_orders]
 func _process(delta: float) -> void:
-	amb_temp = get_ambient_temperature(parent.position, parent.get_world_3d())
+	#amb_temp = get_ambient_temperature(parent.position, parent.get_world_3d())
+	amb_temp = get_zone_temp()
 	for order in DeliveryManager.current_orders:
 		order.ordered_pizza.process_temperature(amb_temp, delta)
 
@@ -27,5 +28,11 @@ static func get_ambient_temperature(pos: Vector3, world_3d: World3D) -> float:
 	for intersection in intersections:
 		var got_temp = instance_from_id(intersection["collider_id"]).get("ambient_temperature")
 		if got_temp:
+			#print(got_temp)
 			return got_temp
 	return 72.0
+	
+func get_zone_temp():
+	#print("cehck")
+	#print(parent.CurrentTempZone)
+	return parent.CurrentTempZone
