@@ -37,6 +37,9 @@ var Moving = 0
 
 var CurrentTempZone = 72
 
+## Disables flip failsafes for this long
+var ignore_failsafe_timer: float = 0.0
+
 func _ready() -> void:
 	pass
 
@@ -99,8 +102,11 @@ func _physics_process(delta: float) -> void:
 	calculate_wheel_velocities(longitudinal_velocity, lateral_velocity) # Calculate the local velocities of each wheel
 	apply_wheel_slip() # Apply forces based on each tire's slip and grip
 	
-	flip_failsafe()
-	launch_failsafe()
+	if ignore_failsafe_timer > 0:
+		ignore_failsafe_timer = maxf(ignore_failsafe_timer - delta, 0.0)
+	else:
+		flip_failsafe()
+		launch_failsafe()
 	
 	previous_longitudinal_velocity = longitudinal_velocity
 	previous_lateral_velocity = lateral_velocity
@@ -121,6 +127,10 @@ func launch_failsafe() -> void:
 	if linear_velocity.distance_squared_to(previous_linear_velocity) > 200.0:
 		linear_velocity = Vector3.ZERO
 		angular_velocity = Vector3.ZERO
+
+## Returns true if any tire has contact with the ground
+func is_any_tire_on_ground() -> bool:
+	return $WheelFR.is_in_contact() or $WheelBR.is_in_contact() or $WheelBL.is_in_contact() or $WheelFL.is_in_contact()
 
 ## Calculates the longitudinal and lateral acceleration
 func calc_acceleration(long_velocity: float, lat_velocity: float, delta: float) -> void:
