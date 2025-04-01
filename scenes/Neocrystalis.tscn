@@ -1,8 +1,8 @@
 [gd_scene load_steps=36 format=3 uid="uid://vhqxgfoi6ib7"]
 
+[ext_resource type="PackedScene" uid="uid://c5hsril0egnha" path="res://scenes/packed scenes/mini_map.tscn" id="1_c5o6y"]
 [ext_resource type="PackedScene" uid="uid://dik1wyeffkyac" path="res://scenes/packed scenes/test_ui.tscn" id="1_mrpau"]
 [ext_resource type="PackedScene" uid="uid://dsvq25iq46jfm" path="res://scenes/packed scenes/player.tscn" id="2_qlckg"]
-[ext_resource type="Script" path="res://scripts/temp_manager.gd" id="3_8renb"]
 [ext_resource type="PackedScene" uid="uid://cn3xuf41u7awb" path="res://scenes/packed scenes/city pieces/level_ground.tscn" id="4_lfvos"]
 [ext_resource type="PackedScene" uid="uid://brhx8i8tpofdj" path="res://scenes/packed scenes/city pieces/street_straight.tscn" id="5_g6pt7"]
 [ext_resource type="PackedScene" uid="uid://cqe1wp27m126b" path="res://scenes/packed scenes/city pieces/street_intersection.tscn" id="6_d016x"]
@@ -60,13 +60,12 @@ size = Vector3(141.274, 270.417, 157.486)
 
 [node name="WorldOrigin" type="Node3D"]
 
+[node name="MiniMap" parent="." instance=ExtResource("1_c5o6y")]
+
 [node name="UIPanel" parent="." instance=ExtResource("1_mrpau")]
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_qlckg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.74412, 0.1, 0)
-
-[node name="TempManager2" type="Node" parent="Player"]
-script = ExtResource("3_8renb")
 
 [node name="GroundPlane" parent="." instance=ExtResource("4_lfvos")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -1972,18 +1971,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -6)
 
 [node name="Alley01" parent="." instance=ExtResource("19_igrev")]
 transform = Transform3D(1.32, 0, 0, 0, 1, 0, 0, 0, 0.5, 2.58208, 0, -12.5444)
-
-[node name="MiniMap" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = true
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-script = null
 
 [node name="Drivers" type="Node3D" parent="."]
 

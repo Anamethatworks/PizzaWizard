@@ -1,4 +1,5 @@
 extends VehicleBody3D
+class_name Player
 
 #region car parameters
 # Parameters that can be tweaked to change the feel of the car

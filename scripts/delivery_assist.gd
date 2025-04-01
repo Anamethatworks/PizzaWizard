@@ -12,7 +12,4 @@ func _process(delta: float) -> void:
 	var target = Pizzeria.active_location.global_position
 	if !DeliveryManager.current_orders.is_empty():
 		target = DeliveryManager.current_orders[0].dropoffPoint.global_position
-	look_at_from_position(
-			Vector3(player.position.x, 0, player.position.z),
-			Vector3(target.x, 0, target.z)
-		)
+	look_at(Vector3(target.x, player.global_position.y, target.z))
