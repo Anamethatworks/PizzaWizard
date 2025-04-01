@@ -1,19 +1,28 @@
 class_name TimeManager extends Node3D
 ## A class for processing the time limit
 
+signal shift_ended
+
 @onready var sun: DirectionalLight3D = $Sun
 @onready var environ: Environment = $WorldEnvironment.environment
 
-const TIME_LIMIT: int = 15 ## How long a game lasts, in seconds
+const TIME_LIMIT: int = 300 ## How long a game lasts, in seconds
 
-const START_VISUAL_TIME: float =  6.0 ## The time (military time) at the start of the game
-const   END_VISUAL_TIME: float = 24.0 ## The time (military time) at the start of the game
+## The difference between the air temperature at its lowest and highest points through the day
+const DIURNAL_TEMP_DIFFERENCE: int = 30 # NOTE: The lowest temperature will probably occur at night, long after the player's shift has ended
+
+const START_VISUAL_TIME: float = 17.0 ## The time (military time) at the start of the game
+const   END_VISUAL_TIME: float = 22.0 ## The time (military time) at the start of the game
 
 static var time_scale: float = (END_VISUAL_TIME - START_VISUAL_TIME) / float(TIME_LIMIT)
 
+static var out_of_time := false ## Boolean for if the player has run out of time!
+
+static var ambient_temperature_offset: float = 0.0 ## The offset for the ambient temperature to get colder nights
+
 var time: float = 0.0 ## The time in seconds since the game started
 var visual_time: float: ## The visual (military) time
-	get: return time * time_scale + START_VISUAL_TIME
+	get: return fmod(time * time_scale + START_VISUAL_TIME, 24.0)
 	set(x): time = (x - START_VISUAL_TIME) / time_scale
 
 ## Rotates the TimeManager so the sun moves across the sky
@@ -33,7 +42,6 @@ func process_ambient_light() -> void:
 	const color_day = Color(0.6, 0.6, 0.6)
 	const color_dusk = Color(0.3, 0.3, 0.3)
 	const color_night = Color(0.1, 0.1, 0.1)
-	print(environ.ambient_light_color)
 	environ.ambient_light_color.r = cyclical_lerp(color_night.r, color_dusk.r, color_day.r)
 	environ.ambient_light_color.g = cyclical_lerp(color_night.g, color_dusk.g, color_day.g)
 	environ.ambient_light_color.b = cyclical_lerp(color_night.b, color_dusk.b, color_day.b)
@@ -43,7 +51,6 @@ func process_sunlight() -> void:
 	const color_day = Color(1.0, 1.0, 0.6)
 	const color_dusk = Color(0.8, 0.4, 0.2)
 	const color_night = Color(0.1, 0.1, 0.1)
-	print(environ.ambient_light_color)
 	sun.light_color.r = cyclical_lerp(color_night.r, color_dusk.r, color_day.r)
 	sun.light_color.g = cyclical_lerp(color_night.g, color_dusk.g, color_day.g)
 	sun.light_color.b = cyclical_lerp(color_night.b, color_dusk.b, color_day.b)
@@ -53,7 +60,23 @@ func _ready() -> void:
 	get_rotation_from_time()
 
 func _process(delta: float) -> void:
-	time += delta
+	# Increment time and detect if shift is over
+	if !out_of_time:
+		time += delta
+		if floori(time) >= TIME_LIMIT:
+			time = float(TIME_LIMIT)
+			out_of_time = true
+			shift_ended.emit()
+	# Process environmental effects
 	get_rotation_from_time()
 	process_ambient_light()
 	process_sunlight()
+	ambient_temperature_offset = diurnal_temperature_curve()
+
+func diurnal_temperature_curve() -> float:
+	if 0.0 <= visual_time and visual_time < 3.0:
+		return DIURNAL_TEMP_DIFFERENCE * pow(sin((visual_time -  3.0) * PI / 28.0), 2.0) - DIURNAL_TEMP_DIFFERENCE
+	if 3.0 <= visual_time and visual_time < 13.0:
+		return DIURNAL_TEMP_DIFFERENCE * pow(cos((visual_time - 13.0) * PI / 20.0), 2.0) - DIURNAL_TEMP_DIFFERENCE
+	else:
+		return DIURNAL_TEMP_DIFFERENCE * pow(cos((visual_time - 13.0) * PI / 28.0), 2.0) - DIURNAL_TEMP_DIFFERENCE

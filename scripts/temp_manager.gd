@@ -13,7 +13,7 @@ func _ready() -> void:
 
 ## Decreases pizza temperature of all existing orders in [current_orders]
 func _process(delta: float) -> void:
-	amb_temp = get_ambient_temperature(parent.position, parent.get_world_3d())
+	amb_temp = get_ambient_temperature(parent.position, parent.get_world_3d()) + TimeManager.ambient_temperature_offset
 	for order in DeliveryManager.current_orders:
 		order.ordered_pizza.process_temperature(amb_temp, delta)
 
