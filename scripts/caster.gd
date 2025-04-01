@@ -26,7 +26,7 @@ func learn_spell(new_spell : Spell) -> void:
 # Debug stuff
 func _ready() -> void:
 	Magic.mana = 10000000
-	spells.append(FireballSpell.new(50))
+	spells.append(CatapultSpell.new(50))
 
 # TODO: Add indicators to mold earth, warp spells to indicate where
 # the ramp will appear and the player will be teleported respectively

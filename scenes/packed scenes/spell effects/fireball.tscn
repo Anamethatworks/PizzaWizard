@@ -7,8 +7,11 @@
 [sub_resource type="SphereMesh" id="SphereMesh_880nn"]
 
 [node name="Fireball" type="RigidBody3D" node_paths=PackedStringArray("collider", "mesh")]
+collision_mask = 3
 mass = 0.001
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_bsxam")
 collider = NodePath("Collider")
 mesh = NodePath("Mesh")
@@ -20,4 +23,4 @@ shape = SubResource("SphereShape3D_isma2")
 mesh = SubResource("SphereMesh_880nn")
 skeleton = NodePath("")
 
-[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
