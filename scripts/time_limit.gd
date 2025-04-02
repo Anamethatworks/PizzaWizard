@@ -75,8 +75,8 @@ func _process(delta: float) -> void:
 
 func diurnal_temperature_curve() -> float:
 	if 0.0 <= visual_time and visual_time < 3.0:
-		return DIURNAL_TEMP_DIFFERENCE * pow(sin((visual_time -  3.0) * PI / 28.0), 2.0) - DIURNAL_TEMP_DIFFERENCE
+		return DIURNAL_TEMP_DIFFERENCE / 1372.0 * (visual_time + 11.0)*(visual_time + 11.0) * (visual_time - 10.0)
 	if 3.0 <= visual_time and visual_time < 13.0:
-		return DIURNAL_TEMP_DIFFERENCE * pow(cos((visual_time - 13.0) * PI / 20.0), 2.0) - DIURNAL_TEMP_DIFFERENCE
+		return DIURNAL_TEMP_DIFFERENCE /  500.0 * (visual_time -  3.0)*(visual_time -  3.0) * (18.0 - visual_time) - DIURNAL_TEMP_DIFFERENCE
 	else:
-		return DIURNAL_TEMP_DIFFERENCE * pow(cos((visual_time - 13.0) * PI / 28.0), 2.0) - DIURNAL_TEMP_DIFFERENCE
+		return DIURNAL_TEMP_DIFFERENCE / 1372.0 * (visual_time - 13.0)*(visual_time - 13.0) * (visual_time - 34.0)
