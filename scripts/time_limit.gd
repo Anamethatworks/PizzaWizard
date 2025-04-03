@@ -1,12 +1,15 @@
 class_name TimeManager extends Node3D
 ## A class for processing the time limit
 
+## Sent when the shift (game) ends
 signal shift_ended
+
+@onready var game_end_menu_packed: PackedScene = preload("res://scenes/UI/game_end_menu.tscn")
 
 @onready var sun: DirectionalLight3D = $Sun
 @onready var environ: Environment = $WorldEnvironment.environment
 
-const TIME_LIMIT: int = 300 ## How long a game lasts, in seconds
+const TIME_LIMIT: int = 45 ## How long a game lasts, in seconds
 
 ## The difference between the air temperature at its lowest and highest points through the day
 const DIURNAL_TEMP_DIFFERENCE: int = 30 # NOTE: The lowest temperature will probably occur at night, long after the player's shift has ended
@@ -16,14 +19,22 @@ const   END_VISUAL_TIME: float = 22.0 ## The time (military time) at the start o
 
 static var time_scale: float = (END_VISUAL_TIME - START_VISUAL_TIME) / float(TIME_LIMIT)
 
-static var out_of_time := false ## Boolean for if the player has run out of time!
+static var out_of_time := false ## Boolean for if the player has run out of time
 
-static var ambient_temperature_offset: float = 0.0 ## The offset for the ambient temperature to get colder nights
+static var ambient_temperature_offset: float = 0.0 ## The offset for the ambient temperature to get colder during the night
 
 var time: float = 0.0 ## The time in seconds since the game started
 var visual_time: float: ## The visual (military) time
 	get: return fmod(time * time_scale + START_VISUAL_TIME, 24.0)
 	set(x): time = (x - START_VISUAL_TIME) / time_scale
+
+## Resets everything for the next game
+static func reset_game() -> void:
+	Money.player_gold = 0
+	Score.orders_completed = 0
+	Score.player_score = 0
+	UpgradeableStat.reset_all_upgrades()
+	Magic.mana = 0.0
 
 ## Rotates the TimeManager so the sun moves across the sky
 func get_rotation_from_time() -> void:
@@ -58,21 +69,31 @@ func process_sunlight() -> void:
 
 func _ready() -> void:
 	get_rotation_from_time()
+	out_of_time = false
 
 func _process(delta: float) -> void:
 	# Increment time and detect if shift is over
 	if !out_of_time:
 		time += delta
 		if floori(time) >= TIME_LIMIT:
-			time = float(TIME_LIMIT)
-			out_of_time = true
-			shift_ended.emit()
+			end_shift()
 	# Process environmental effects
 	get_rotation_from_time()
 	process_ambient_light()
 	process_sunlight()
 	ambient_temperature_offset = diurnal_temperature_curve()
 
+## Is called once when the shift ends
+func end_shift() -> void:
+	time = float(TIME_LIMIT)
+	out_of_time = true
+	shift_ended.emit()
+	
+	# Menu
+	var menu: CenterContainer = game_end_menu_packed.instantiate()
+	get_tree().root.get_node("WorldOrigin").add_child(menu)
+	
+## Changes temperature depending on time of day
 func diurnal_temperature_curve() -> float:
 	if 0.0 <= visual_time and visual_time < 3.0:
 		return DIURNAL_TEMP_DIFFERENCE / 1372.0 * (visual_time + 11.0)*(visual_time + 11.0) * (visual_time - 10.0)

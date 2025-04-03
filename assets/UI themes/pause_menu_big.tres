@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://mxtkyouf7edq"]
+
+[ext_resource type="FontVariation" uid="uid://dtdj6q1ahxo61" path="res://assets/fonts/ui_font_var1.tres" id="1_0r775"]
+
+[sub_resource type="FontVariation" id="FontVariation_0r775"]
+base_font = ExtResource("1_0r775")
+spacing_glyph = -10
+
+[resource]
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/shadow_offset_x = 8
+RichTextLabel/constants/shadow_offset_y = 8
+RichTextLabel/font_sizes/normal_font_size = 100
+RichTextLabel/fonts/normal_font = SubResource("FontVariation_0r775")

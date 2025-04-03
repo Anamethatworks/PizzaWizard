@@ -49,36 +49,40 @@ func _physics_process(delta: float) -> void:
 	
 	var longitudinal_velocity := -cos(global_rotation.y) * linear_velocity.z - sin(global_rotation.y) * linear_velocity.x
 	var lateral_velocity      := -sin(global_rotation.y) * linear_velocity.z + cos(global_rotation.y) * linear_velocity.x
-
+	
 	#region throttle control
-	if Input.is_action_pressed("MoveForward") and Input.is_action_pressed("MoveBackward"):
-		Moving = 1
-		set_engine_force(move_toward(get_engine_force(), 0.5 * ENGINE_MAX_FORCE, THROTTLE_SPEED * delta))
-		set_brake(move_toward(get_brake(), BRAKE_MAX_FORCE * 0.5, BRAKE_SPEED * delta))
-	elif Input.is_action_pressed("MoveForward"):
-		Moving = 1
-		if longitudinal_velocity < -MIN_BRAKE_VELOCITY:
-			set_engine_force(0.0)
-			set_brake(move_toward(get_brake(), BRAKE_MAX_FORCE, BRAKE_SPEED * delta))
-		else:
-			set_brake(0.0)
-			set_engine_force(move_toward(get_engine_force(), ENGINE_MAX_FORCE, THROTTLE_SPEED * delta))
-	elif Input.is_action_pressed("MoveBackward"):
-		Moving = 1
-		if longitudinal_velocity > MIN_BRAKE_VELOCITY:
-			set_engine_force(0.0)
-			set_brake(move_toward(get_brake(), BRAKE_MAX_FORCE, BRAKE_SPEED * delta))
-		else:
-			set_brake(0.0)
-			set_engine_force(move_toward(get_engine_force(), -ENGINE_MAX_FORCE, THROTTLE_SPEED * delta))
+	if TimeManager.out_of_time:
+		set_engine_force(0.0)
+		set_brake(BRAKE_MAX_FORCE)
 	else:
-		set_brake(0.0)
-		set_engine_force(move_toward(get_engine_force(), 0.0, THROTTLE_SPEED * delta))
+		if Input.is_action_pressed("MoveForward") and Input.is_action_pressed("MoveBackward"):
+			Moving = 1
+			set_engine_force(move_toward(get_engine_force(), 0.5 * ENGINE_MAX_FORCE, THROTTLE_SPEED * delta))
+			set_brake(move_toward(get_brake(), BRAKE_MAX_FORCE * 0.5, BRAKE_SPEED * delta))
+		elif Input.is_action_pressed("MoveForward"):
+			Moving = 1
+			if longitudinal_velocity < -MIN_BRAKE_VELOCITY:
+				set_engine_force(0.0)
+				set_brake(move_toward(get_brake(), BRAKE_MAX_FORCE, BRAKE_SPEED * delta))
+			else:
+				set_brake(0.0)
+				set_engine_force(move_toward(get_engine_force(), ENGINE_MAX_FORCE, THROTTLE_SPEED * delta))
+		elif Input.is_action_pressed("MoveBackward"):
+			Moving = 1
+			if longitudinal_velocity > MIN_BRAKE_VELOCITY:
+				set_engine_force(0.0)
+				set_brake(move_toward(get_brake(), BRAKE_MAX_FORCE, BRAKE_SPEED * delta))
+			else:
+				set_brake(0.0)
+				set_engine_force(move_toward(get_engine_force(), -ENGINE_MAX_FORCE, THROTTLE_SPEED * delta))
+		else:
+			set_brake(0.0)
+			set_engine_force(move_toward(get_engine_force(), 0.0, THROTTLE_SPEED * delta))
 	#endregion
 
 	#region Sound FX
 	
-	if Input.is_action_just_pressed("Honk"):
+	if Input.is_action_just_pressed("Honk") and not TimeManager.out_of_time:
 		$SoundController/HonkSound.play()
 		
 	if engine_force == 0.0:
@@ -89,11 +93,15 @@ func _physics_process(delta: float) -> void:
 	
 	#endregion
 	
-	set_steering(move_toward(get_steering(), Input.get_axis("MoveRight", "MoveLeft") * MAX_STEERING_ANGLE, STEERING_SPEED * delta))
-
-	# Turn steering, depending on left/right player input
-	steering_angle = move_toward(steering_angle, Input.get_axis("MoveRight", "MoveLeft") * MAX_STEERING_ANGLE, STEERING_SPEED * delta)
 	
+	if TimeManager.out_of_time:
+		steering_angle = 0.0
+	else:
+		set_steering(move_toward(get_steering(), Input.get_axis("MoveRight", "MoveLeft") * MAX_STEERING_ANGLE, STEERING_SPEED * delta))
+
+		# Turn steering, depending on left/right player input
+		steering_angle = move_toward(steering_angle, Input.get_axis("MoveRight", "MoveLeft") * MAX_STEERING_ANGLE, STEERING_SPEED * delta)
+		
 	calculate_ackermann_steering(steering_angle) # Turn the actual wheels
 	calc_acceleration(longitudinal_velocity, lateral_velocity, delta) # Calculate acceleration to use in later functions
 	distribute_weight() # Transfer car weight between wheels

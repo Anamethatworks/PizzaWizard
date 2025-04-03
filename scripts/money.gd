@@ -2,13 +2,13 @@ extends Object
 class_name Money
 ## Class for money and calculating payout (should be globally loaded)
 
-## How tolerant the payment function is of temperature difference
-const TEMPERATURE_TOLERANCE: float = 27.0
-## The default amount the customer will tip
-const BASE_TIP: float = 0.1
 
-## The money the player has
-static var player_gold: int = 0
+const TEMPERATURE_TOLERANCE: float = 27.0 ## How tolerant the payment function is of temperature difference
+
+const BASE_TIP: float = 0.1 ## The default amount the customer will tip
+
+
+static var player_gold: int = 0 ## The money the player has
 
 ## If this script is autoloaded, this function can be called from anywhere using [method Money.get_payout()]
 ## [param temp]: the temperature of the pizza

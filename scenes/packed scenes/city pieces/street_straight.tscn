@@ -55,6 +55,7 @@ carve_navigation_mesh = true
 avoidance_enabled = false
 
 [node name="Sidewalk1" type="NavigationObstacle3D" parent="." index="6"]
+visible = false
 vertices = PackedVector3Array(-10, 0, 5, -10, 0, 3, 10, 0, 3, 10, 0, 5)
 affect_navigation_mesh = true
 avoidance_enabled = false

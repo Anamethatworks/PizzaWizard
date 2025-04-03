@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcbjpccwwv7y2"]
+[gd_scene load_steps=14 format=3 uid="uid://dcbjpccwwv7y2"]
 
 [ext_resource type="PackedScene" uid="uid://pb5c8c0m54ix" path="res://assets/models/Building08.fbx" id="1_hrmtg"]
 [ext_resource type="Material" uid="uid://ba4tmwwop2wo5" path="res://assets/materials/cutout materials/building8cutout.tres" id="2_re3ny"]
@@ -8,6 +8,9 @@
 [ext_resource type="Material" uid="uid://dujf8ua33scrl" path="res://assets/materials/glow materials/building8glow.tres" id="4_mi7y0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hrdbj"]
+size = Vector3(10, 1, 15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fw8iy"]
 size = Vector3(15, 1, 10)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_hrdbj"]
@@ -34,31 +37,26 @@ size = Vector3(19, 5, 20)
 cast_shadow = 0
 ignore_occlusion_culling = true
 
-[node name="Cutout" type="MeshInstance3D" parent="." index="1"]
+[node name="CutoutBase" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, -1.42109e-14, 0, 1.42109e-14, 1, 4, 0.5, -6.5)
-visible = false
 cast_shadow = 0
 ignore_occlusion_culling = true
 mesh = SubResource("BoxMesh_hrdbj")
 surface_material_override/0 = ExtResource("2_t0m1r")
 script = ExtResource("3_hrdbj")
 CUTOUT_MATERIAL = ExtResource("2_re3ny")
-metadata/_custom_type_script = "uid://dg726gkyii7pl"
+metadata/_edit_group_ = true
 
-[node name="CutoutBase2" type="MeshInstance3D" parent="Cutout" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.42109e-14, 0, 1.42109e-14, 1, 6.5, 0.5, -9)
-top_level = true
+[node name="CutoutBase2" type="MeshInstance3D" parent="CutoutBase" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5)
 cast_shadow = 0
 ignore_occlusion_culling = true
-mesh = SubResource("BoxMesh_hrdbj")
-skeleton = NodePath("../..")
+mesh = SubResource("BoxMesh_fw8iy")
 surface_material_override/0 = ExtResource("2_t0m1r")
 
-[node name="CutoutBase3" type="MeshInstance3D" parent="Cutout" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.42109e-14, 0, 1.42109e-14, 1, 9, 0.5, -4)
-top_level = true
+[node name="CutoutBase3" type="MeshInstance3D" parent="CutoutBase" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2.5)
 mesh = SubResource("CylinderMesh_hrdbj")
-skeleton = NodePath("../CutoutBase2")
 surface_material_override/0 = ExtResource("2_t0m1r")
 
 [node name="CrashType" type="Node3D" parent="." index="2"]
@@ -86,5 +84,7 @@ GLOWY_MATERIAL = ExtResource("4_mi7y0")
 [node name="CollisionShape3D" parent="PizzaDropoffPoint" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -4)
 shape = SubResource("BoxShape3D_o7l0u")
+
+[connection signal="visibility_changed" from="CutoutBase" to="CutoutBase" method="_on_visibility_changed"]
 
 [editable path="PizzaDropoffPoint"]

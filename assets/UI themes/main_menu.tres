@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://boh433ymqnlln"]
+
+[ext_resource type="FontFile" uid="uid://tbshfj8xrpar" path="res://assets/fonts/Bitshow.ttf" id="1_j3ygu"]
+
+[resource]
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/font_sizes/normal_font_size = 52
+RichTextLabel/fonts/normal_font = ExtResource("1_j3ygu")

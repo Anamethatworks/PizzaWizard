@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://du3wod3c5ekak"]
 
 [ext_resource type="Script" uid="uid://ctoh7jagx1qst" path="res://scripts/main_menu_manager.gd" id="1_10g8r"]
-[ext_resource type="Script" uid="uid://dp2t1q6h5in6o" path="res://scripts/black_fade_manager.gd" id="2_1uxg3"]
+[ext_resource type="Script" path="res://scripts/black_fade_manager.gd" id="2_1uxg3"]
 
 [sub_resource type="Animation" id="Animation_y71wv"]
 resource_name = "MenuFadeIn"
@@ -66,7 +66,7 @@ script = ExtResource("2_1uxg3")
 [node name="BlackFadeAnim" type="AnimationPlayer" parent="BlackFade"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_nori6")
+&"": SubResource("AnimationLibrary_nori6")
 }
 
 [node name="BlackPanel" type="Panel" parent="BlackFade"]
