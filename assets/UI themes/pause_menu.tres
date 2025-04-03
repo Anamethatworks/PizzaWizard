@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cqwim0eqpba2u"]
+
+[ext_resource type="FontVariation" uid="uid://dtdj6q1ahxo61" path="res://assets/fonts/ui_font_var1.tres" id="1_jpjyo"]
+
+[sub_resource type="FontVariation" id="FontVariation_jpjyo"]
+base_font = ExtResource("1_jpjyo")
+spacing_glyph = 1
+spacing_space = 9
+spacing_top = 4
+
+[resource]
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/font_sizes/normal_font_size = 52
+RichTextLabel/fonts/normal_font = SubResource("FontVariation_jpjyo")

@@ -1,28 +1,29 @@
-[gd_scene load_steps=31 format=3 uid="uid://bocbv1jc1g0h8"]
+[gd_scene load_steps=32 format=3 uid="uid://bocbv1jc1g0h8"]
 
-[ext_resource type="Texture2D" uid="uid://cvslt6kjo7ncj" path="res://assets/sprites/PWTitleLogo.png" id="1_t5ump"]
-[ext_resource type="Texture2D" uid="uid://pqa6qoov02mo" path="res://assets/sprites/PWTitleTemp.png" id="2_bd2x7"]
-[ext_resource type="Texture2D" uid="uid://cioinpk5n5b73" path="res://assets/sprites/StarBurst2.png" id="3_vngr1"]
-[ext_resource type="Script" uid="uid://dgmmhkrcudgus" path="res://scripts/star_burst_anims.gd" id="4_7r41l"]
-[ext_resource type="Script" uid="uid://rxkwfhnbxmo1" path="res://scripts/MenuAnimManager.gd" id="5_23wvc"]
-[ext_resource type="Texture2D" uid="uid://dfwus728rxm5y" path="res://assets/sprites/TitleDarkBG.png" id="6_nsbuu"]
-[ext_resource type="FontFile" uid="uid://tbshfj8xrpar" path="res://assets/fonts/Bitshow.ttf" id="7_hnaoe"]
-[ext_resource type="PackedScene" uid="uid://dofg6xbxxvob2" path="res://scenes/packed scenes/city_for_menu.tscn" id="10_qslvp"]
+[ext_resource type="Texture2D" uid="uid://cyutabvpv57mi" path="res://assets/sprites/PWTitleLogo.png" id="1_q72t4"]
+[ext_resource type="Texture2D" uid="uid://caxg016w0pqda" path="res://assets/sprites/PWTitleTemp.png" id="2_myqdm"]
+[ext_resource type="Texture2D" uid="uid://clkejtikn4wdx" path="res://assets/sprites/StarBurst2.png" id="3_hr27r"]
+[ext_resource type="Script" path="res://scripts/star_burst_anims.gd" id="4_uywj3"]
+[ext_resource type="Script" path="res://scripts/MenuAnimManager.gd" id="5_0lxxn"]
+[ext_resource type="Texture2D" uid="uid://dv07v7cj32eah" path="res://assets/sprites/TitleDarkBG.png" id="6_m60ak"]
+[ext_resource type="Theme" uid="uid://boh433ymqnlln" path="res://assets/UI themes/main_menu.tres" id="7_myqdm"]
+[ext_resource type="FontFile" uid="uid://tbshfj8xrpar" path="res://assets/fonts/Bitshow.ttf" id="7_yorly"]
+[ext_resource type="PackedScene" uid="uid://dofg6xbxxvob2" path="res://scenes/packed scenes/city_for_menu.tscn" id="8_utvrc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7a3qj"]
-texture = ExtResource("1_t5ump")
+texture = ExtResource("1_q72t4")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_weujp"]
-texture = ExtResource("2_bd2x7")
+texture = ExtResource("2_myqdm")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pumoh"]
-texture = ExtResource("3_vngr1")
+texture = ExtResource("3_hr27r")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x5m1n"]
-texture = ExtResource("3_vngr1")
+texture = ExtResource("3_hr27r")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l58jx"]
-texture = ExtResource("3_vngr1")
+texture = ExtResource("3_hr27r")
 
 [sub_resource type="Animation" id="Animation_raai3"]
 length = 0.001
@@ -699,14 +700,14 @@ _data = {
 bg_color = Color(1, 1, 1, 0.000862278)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3a0d7"]
-texture = ExtResource("6_nsbuu")
+texture = ExtResource("6_m60ak")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ticu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nxngl"]
 
 [sub_resource type="FontVariation" id="FontVariation_phgqi"]
-base_font = ExtResource("7_hnaoe")
+base_font = ExtResource("7_yorly")
 spacing_glyph = -6
 spacing_top = 7
 
@@ -1006,18 +1007,18 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_l58jx")
 
 [node name="StarBurstAnims" type="AnimationPlayer" parent="MenuTitle"]
 libraries = {
-"": SubResource("AnimationLibrary_xauy5")
+&"": SubResource("AnimationLibrary_xauy5")
 }
 autoplay = "StarBurstIntros"
-script = ExtResource("4_7r41l")
+script = ExtResource("4_uywj3")
 
 [node name="MenuTitleAnim" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_56ykj")
+&"": SubResource("AnimationLibrary_56ykj")
 }
 autoplay = "MainMenuAnim"
-script = ExtResource("5_23wvc")
+script = ExtResource("5_0lxxn")
 
 [node name="WhitePanel" type="Panel" parent="."]
 layout_mode = 1
@@ -1078,9 +1079,8 @@ offset_right = 250.0
 offset_bottom = 80.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("7_hnaoe")
-theme_override_font_sizes/normal_font_size = 52
+theme = ExtResource("7_myqdm")
+theme_override_fonts/normal_font = ExtResource("7_yorly")
 bbcode_enabled = true
 text = "[wave amp=50.0 freq=2.0 connected=1][center]START[/center][/wave]"
 
@@ -1113,13 +1113,12 @@ offset_right = 250.0
 offset_bottom = 83.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme = ExtResource("7_myqdm")
 theme_override_fonts/normal_font = SubResource("FontVariation_phgqi")
-theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
 text = "[wave amp=50.0 freq=2.0 connected=1][center]Q U I T[/center][/wave]"
 
-[node name="City" parent="." instance=ExtResource("10_qslvp")]
+[node name="City" parent="." instance=ExtResource("8_utvrc")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.499998, 0.866027, 0, -0.866027, 0.499998, -20, 45, 16)
@@ -1127,7 +1126,7 @@ transform = Transform3D(1, 0, 0, 0, 0.499998, 0.866027, 0, -0.866027, 0.499998, 
 [node name="CameraAnim" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_w28vk")
+&"": SubResource("AnimationLibrary_w28vk")
 }
 autoplay = "CameraAnim1"
 

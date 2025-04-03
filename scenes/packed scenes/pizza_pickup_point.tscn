@@ -7,6 +7,7 @@ radius = 1.0
 
 [node name="PizzaPickupPoint" type="Area3D"]
 script = ExtResource("1_3342i")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

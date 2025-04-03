@@ -16,7 +16,7 @@ var display_temp = 73
 @onready var player_wallet_label = $"../WalletLabel"
 @onready var timer_label = $"../TimeLabel"
 @onready var order_ticket_holder = $"../HBoxContainer"
-var order_ticket_scene = preload("res://scenes/packed scenes/order_control.tscn")
+var order_ticket_scene = preload("res://scenes/UI/order_control.tscn")
 var order_tickets = []
 
 func _ready() -> void:

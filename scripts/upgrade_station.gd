@@ -5,8 +5,7 @@ class_name UpgradeStation extends Area3D
 
 var paired_upgrade: UpgradeableStat ## The stat this station upgrades
 
-## A list of upgrades without a station.
-static var unpaired_upgrades: Array[UpgradeableStat] = []
+static var unpaired_upgrades: Array[UpgradeableStat] = [] ## A list of upgrades without a station.
 
 
 func _ready() -> void:

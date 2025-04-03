@@ -1,0 +1,114 @@
+[gd_scene load_steps=6 format=3 uid="uid://gurx2pk8vhfy"]
+
+[ext_resource type="Script" uid="uid://h6pjx7741ys5" path="res://scripts/game_end_menu.gd" id="1_42ai2"]
+[ext_resource type="Theme" uid="uid://mxtkyouf7edq" path="res://assets/UI themes/pause_menu_big.tres" id="1_vam6i"]
+[ext_resource type="Theme" uid="uid://cqwim0eqpba2u" path="res://assets/UI themes/pause_menu.tres" id="2_v4kcy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_42ai2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x6g4b"]
+
+[node name="GameEndMenu" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_42ai2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="ShiftComplete" type="RichTextLabel" parent="VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+theme = ExtResource("1_vam6i")
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=2.0 connected=1]SHIFT COMPLETE[/wave]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_v4kcy")
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=2.0 connected=1]{text}[/wave]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ToMenu" type="RichTextLabel" parent="VBoxContainer"]
+z_index = -3
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("2_v4kcy")
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=2.0 connected=1]TO MENU[/wave]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToMenu" type="Button" parent="VBoxContainer/ToMenu"]
+texture_filter = 6
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(65, 16)
+focus_neighbor_bottom = NodePath("../../Quit/QuitGame")
+focus_next = NodePath("../../Quit/QuitGame")
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_42ai2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_x6g4b")
+flat = true
+
+[node name="Quit" type="RichTextLabel" parent="VBoxContainer"]
+z_index = -3
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("2_v4kcy")
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=2.0 connected=1]QUIT[/wave]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitGame" type="Button" parent="VBoxContainer/Quit"]
+texture_filter = 6
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(65, 16)
+focus_neighbor_top = NodePath("../../ToMenu/BackToMenu")
+focus_previous = NodePath("../../ToMenu/BackToMenu")
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_42ai2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_x6g4b")
+flat = true
+
+[connection signal="focus_entered" from="VBoxContainer/ToMenu/BackToMenu" to="." method="_button_set_hover" flags=3 binds= [&"TO MENU", true]]
+[connection signal="focus_exited" from="VBoxContainer/ToMenu/BackToMenu" to="." method="_button_set_hover" flags=3 binds= [&"TO MENU", false]]
+[connection signal="mouse_entered" from="VBoxContainer/ToMenu/BackToMenu" to="." method="_button_set_hover" flags=3 binds= [&"TO MENU", true]]
+[connection signal="mouse_exited" from="VBoxContainer/ToMenu/BackToMenu" to="." method="_button_set_hover" flags=3 binds= [&"TO MENU", false]]
+[connection signal="pressed" from="VBoxContainer/ToMenu/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/Quit/QuitGame" to="." method="_button_set_hover" flags=3 binds= [&"QUIT", true]]
+[connection signal="focus_exited" from="VBoxContainer/Quit/QuitGame" to="." method="_button_set_hover" flags=3 binds= [&"QUIT", false]]
+[connection signal="mouse_entered" from="VBoxContainer/Quit/QuitGame" to="." method="_button_set_hover" flags=3 binds= [&"QUIT", true]]
+[connection signal="mouse_exited" from="VBoxContainer/Quit/QuitGame" to="." method="_button_set_hover" flags=3 binds= [&"QUIT", false]]
+[connection signal="pressed" from="VBoxContainer/Quit/QuitGame" to="." method="_on_quit_game_pressed"]
