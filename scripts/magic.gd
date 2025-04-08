@@ -1,6 +1,5 @@
 class_name Magic extends Node
 ## Class for magic and spells
-## Spells are not implemented, but mana is (as of 2/27)
 
 static var max_mana: float: ## The max mana the player can hold at once
 	get: return UpgradeList.MAX_MANA.value

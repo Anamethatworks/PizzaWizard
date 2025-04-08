@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://coukpnyat5ik4"]
+[gd_scene load_steps=26 format=3 uid="uid://kgwbuinfx0db"]
 
 [ext_resource type="PackedScene" uid="uid://dsvq25iq46jfm" path="res://scenes/packed scenes/player.tscn" id="1_sfkhk"]
 [ext_resource type="PackedScene" uid="uid://cn3xuf41u7awb" path="res://scenes/packed scenes/city pieces/level_ground.tscn" id="2_xb77x"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dqmn40hjq2om6" path="res://scenes/packed scenes/city pieces/alley_01.tscn" id="17_nneey"]
 [ext_resource type="PackedScene" uid="uid://eojp7lcevpq5" path="res://scenes/packed scenes/city pieces/alley_02.tscn" id="18_n4hyl"]
 [ext_resource type="PackedScene" uid="uid://bb61oad3sl38s" path="res://scenes/packed scenes/city pieces/ground_01.tscn" id="19_fp3kk"]
-[ext_resource type="Environment" uid="uid://b0l6otdc4qdf2" path="res://scenes/NeocrystalisMinimapEnviro.tres" id="20_756eq"]
+[ext_resource type="Environment" uid="uid://b7ia1d2tkoofc" path="res://scenes/NeocrystalisMinimapEnviro.tres" id="20_756eq"]
 [ext_resource type="PackedScene" uid="uid://cyllxeecirij3" path="res://scenes/packed scenes/city pieces/tree_01.tscn" id="20_kmotq"]
 [ext_resource type="PackedScene" uid="uid://cjswf5t6icwr5" path="res://scenes/packed scenes/city pieces/fence_1.tscn" id="21_wh5g0"]
 [ext_resource type="PackedScene" uid="uid://7dbvq33mmuit" path="res://scenes/packed scenes/city pieces/fence_2.tscn" id="22_7430o"]

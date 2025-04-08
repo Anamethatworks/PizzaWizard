@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dsvq25iq46jfm"]
+[gd_scene load_steps=21 format=3 uid="uid://dsvq25iq46jfm"]
 
 [ext_resource type="Script" uid="uid://cmnf2h8vpy44g" path="res://scripts/car.gd" id="1_fbag5"]
 [ext_resource type="Script" uid="uid://b5q0diqknja6w" path="res://scripts/camera_rig.gd" id="2_i16p3"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b4odq7vhsv4il" path="res://assets/models/FL_Wheel.fbx" id="9_i0731"]
 [ext_resource type="AudioStream" uid="uid://c813uqslyvsuo" path="res://assets/Sounds/Crash.wav" id="9_qv3xj"]
 [ext_resource type="Script" uid="uid://b18b8q0sj0f2f" path="res://scripts/temp_manager.gd" id="15_o3ua6"]
+[ext_resource type="Script" uid="uid://dhovpnupajfwn" path="res://scripts/minimap_cam.gd" id="16_1a6s3"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_doc81"]
 
@@ -24,6 +25,11 @@ albedo_color = Color(0.858824, 0.580392, 0.113725, 0.470588)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qawn3"]
 size = Vector3(1.66416, 1.206, 4.93671)
+
+[sub_resource type="Environment" id="Environment_1a6s3"]
+background_mode = 1
+ambient_light_source = 1
+reflected_light_source = 1
 
 [node name="Player" type="VehicleBody3D"]
 mass = 1600.0
@@ -38,6 +44,7 @@ script = ExtResource("2_i16p3")
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig"]
 transform = Transform3D(-1, -8.74228e-08, -1.42108e-14, -2.99003e-08, 0.34202, 0.939693, -8.21505e-08, 0.939693, -0.34202, 0, 25.605, -4.515)
+cull_mask = 1048543
 fov = 65.0
 
 [node name="RayCast3D" type="RayCast3D" parent="CameraRig/Camera3D"]
@@ -139,5 +146,29 @@ stream = ExtResource("9_qv3xj")
 
 [node name="TempManager" type="Node" parent="."]
 script = ExtResource("15_o3ua6")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(200, 200)
+offset_right = 750.0
+offset_bottom = 750.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+debug_draw = 1
+size = Vector2i(200, 200)
+size_2d_override = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 26, 0)
+top_level = true
+cull_mask = 32
+environment = SubResource("Environment_1a6s3")
+projection = 1
+size = 100.0
+near = 1.0
+far = 27.0
+script = ExtResource("16_1a6s3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

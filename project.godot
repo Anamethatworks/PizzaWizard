@@ -55,6 +55,7 @@ Pause={
 
 [layer_names]
 
+3d_render/layer_6="Minimap"
 3d_physics/layer_2="Buildings"
 
 [rendering]
