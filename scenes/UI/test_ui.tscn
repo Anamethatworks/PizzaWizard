@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bravp6wkudwmb" path="res://assets/sprites/TempIcon2.png" id="4_8g4s1"]
 [ext_resource type="PackedScene" uid="uid://r0oplirhhvxh" path="res://scenes/UI/order_control.tscn" id="5_dm4gx"]
 [ext_resource type="Theme" uid="uid://c5scxoi4o1rve" path="res://assets/UI themes/small_UI.tres" id="5_trx7p"]
+[ext_resource type="Texture2D" uid="uid://jxhtcatk6net" path="res://assets/sprites/TimeIcon.png" id="5_x5vqk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4urmr"]
 bg_color = Color(0.329158, 0.329158, 0.329158, 0)
@@ -15,10 +16,8 @@ texture = ExtResource("2_trx7p")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d6m1j"]
 texture = ExtResource("4_8g4s1")
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_80nwy"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8gmse"]
-texture = SubResource("PlaceholderTexture2D_80nwy")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8g4s1"]
+texture = ExtResource("5_x5vqk")
 
 [node name="UIPanel" type="Panel"]
 offset_right = 272.0
@@ -72,7 +71,7 @@ offset_left = 348.0
 offset_top = 8.0
 offset_right = 412.0
 offset_bottom = 72.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_8gmse")
+theme_override_styles/panel = SubResource("StyleBoxTexture_8g4s1")
 
 [node name="TimeLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
