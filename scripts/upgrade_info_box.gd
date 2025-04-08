@@ -37,14 +37,14 @@ func update_info() -> void:
 					"",
 					"")
 	elif stat.can_afford_upgrade(): # The player can buy the upgrade
-		set_texts(	"Upgrade Station: %NAME%",
+		set_texts(	"Upgrade Station: [wave amp=25.0 freq=2.0 connected=1]%NAME%[/wave]",
 					"%DESC%",
-					"Cost: %COST%G",
+					"Cost: $%COST%",
 					"Enter station to purchase")
 	else: # Another upgrade is available, but the player cannot afford it
-		set_texts(	"Upgrade Station: %NAME%",
+		set_texts(	"Upgrade Station: [wave amp=25.0 freq=2.0 connected=1]%NAME%[/wave]",
 					"%DESC%",
-					"Cost: %COST%G",
+					"Cost: $%COST%",
 					"Can't afford")
 
 ## Sets the text for each of the four text labels at once.

@@ -1,0 +1,27 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c5scxoi4o1rve"]
+
+[ext_resource type="SystemFont" uid="uid://wj6i27fp2c8k" path="res://assets/fonts/ui_font.tres" id="1_8ls6r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ls6r"]
+bg_color = Color(0.498039, 0.498039, 0.498039, 0.498039)
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+shadow_size = 1
+
+[resource]
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/fonts/font = ExtResource("1_8ls6r")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_8ls6r")
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/fonts/normal_font = ExtResource("1_8ls6r")
