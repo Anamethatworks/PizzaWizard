@@ -42,7 +42,7 @@ func _process(delta : float) -> void:
 			display_gold = Money.player_gold
 		#var new_wallet_val = float(int(display_gold * 100)) / 100.0 #converted to cents but goes over text box length
 		var new_wallet_val = int(display_gold)
-		player_wallet_label.text = str(new_wallet_val)
+		player_wallet_label.text = "$" + str(new_wallet_val)
 	
 	update_UI_timer()
 	

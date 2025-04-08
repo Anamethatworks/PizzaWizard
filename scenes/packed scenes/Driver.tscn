@@ -40,7 +40,7 @@ simplify_path = true
 avoidance_enabled = true
 radius = 3.0
 neighbor_distance = 10.0
-max_neighbors = 5
+max_neighbors = 8
 max_speed = 15.0
 
 [editable path="CrashType/CharacterBody3D/CollisionShape3D/Car_10"]

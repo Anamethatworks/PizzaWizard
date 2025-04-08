@@ -9,7 +9,7 @@ signal shift_ended
 @onready var sun: DirectionalLight3D = $Sun
 @onready var environ: Environment = $WorldEnvironment.environment
 
-const TIME_LIMIT: int = 45 ## How long a game lasts, in seconds
+const TIME_LIMIT: int = 300 ## How long a game lasts, in seconds
 
 ## The difference between the air temperature at its lowest and highest points through the day
 const DIURNAL_TEMP_DIFFERENCE: int = 30 # NOTE: The lowest temperature will probably occur at night, long after the player's shift has ended

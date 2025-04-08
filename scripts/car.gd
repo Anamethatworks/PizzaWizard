@@ -113,6 +113,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		flip_failsafe()
 		launch_failsafe()
+		underground_failsafe()
 	
 	previous_longitudinal_velocity = longitudinal_velocity
 	previous_lateral_velocity = lateral_velocity
@@ -133,6 +134,11 @@ func launch_failsafe() -> void:
 	if linear_velocity.distance_squared_to(previous_linear_velocity) > 200.0:
 		linear_velocity = Vector3.ZERO
 		angular_velocity = Vector3.ZERO
+
+## Detects if player is underground
+func underground_failsafe() -> void:
+	if global_position.y < -0.5:
+		global_position.y = 1.0
 
 ## Returns true if any tire has contact with the ground
 func is_any_tire_on_ground() -> bool:
