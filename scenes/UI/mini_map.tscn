@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bsh11aaltp0fu"]
+[gd_scene load_steps=15 format=3 uid="uid://bsh11aaltp0fu"]
 
 [ext_resource type="Texture2D" uid="uid://bofs3en1lfoa" path="res://assets/sprites/MinimapBorder.png" id="1_ajf47"]
 [ext_resource type="Script" uid="uid://n61vjrrrddfj" path="res://scripts/MinimapManager.gd" id="1_jn204"]
 [ext_resource type="Texture2D" uid="uid://cavp4acjsqqo7" path="res://assets/sprites/PizzeriaIcon.png" id="2_xj88x"]
 [ext_resource type="Texture2D" uid="uid://cr3hel2arus4x" path="res://assets/sprites/MinimapRoundMask2.png" id="3_weevt"]
 [ext_resource type="Texture2D" uid="uid://clvhmo7dwl2lk" path="res://assets/sprites/Minimap3Tex.png" id="4_1jcc4"]
+[ext_resource type="Script" uid="uid://dhovpnupajfwn" path="res://scripts/minimap_cam.gd" id="5_cp1uo"]
 [ext_resource type="Texture2D" uid="uid://bylqk4832v7is" path="res://assets/sprites/PlayerIcon2.png" id="5_hbnjj"]
 [ext_resource type="PackedScene" uid="uid://hp2nckil2smm" path="res://scenes/packed scenes/deliver_pos.tscn" id="7_2r6yn"]
 
@@ -16,6 +17,11 @@ texture = ExtResource("3_weevt")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8cwr4"]
 texture = ExtResource("4_1jcc4")
+
+[sub_resource type="Environment" id="Environment_tyyaf"]
+background_mode = 1
+ambient_light_source = 1
+reflected_light_source = 1
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_icify"]
 texture = ExtResource("5_hbnjj")
@@ -61,12 +67,39 @@ grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_g5nc1")
 
 [node name="MinMapRound" type="Panel" parent="MinMapRoundMask"]
+visible = false
 layout_mode = 0
 offset_left = -286.0
 offset_top = -388.0
 offset_right = 464.0
 offset_bottom = 362.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_8cwr4")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MinMapRoundMask"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 200)
+offset_left = 8.0
+offset_top = -8.0
+offset_right = 208.0
+offset_bottom = 192.0
+
+[node name="SubViewport" type="SubViewport" parent="MinMapRoundMask/SubViewportContainer"]
+handle_input_locally = false
+debug_draw = 1
+size = Vector2i(200, 200)
+size_2d_override = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="MinMapRoundMask/SubViewportContainer/SubViewport"]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 26, 0)
+top_level = true
+cull_mask = 32
+environment = SubResource("Environment_tyyaf")
+projection = 1
+size = 120.0
+near = 1.0
+far = 30.0
+script = ExtResource("5_cp1uo")
 
 [node name="MinMapIconMask" type="Panel" parent="."]
 clip_children = 1

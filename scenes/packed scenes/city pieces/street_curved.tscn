@@ -32,7 +32,7 @@ transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 
 material_override = ExtResource("2_5tqld")
 
 [node name="Minimap_Curve" type="MeshInstance3D" parent="." index="1"]
-transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, -0.25, 0)
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, -1.25, 0)
 layers = 32
 cast_shadow = 0
 gi_mode = 0
