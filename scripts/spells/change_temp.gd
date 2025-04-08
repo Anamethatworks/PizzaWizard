@@ -8,14 +8,17 @@ var delta_temp_pos : bool
 func _init(delta_temp : float) -> void:
 	var pow : float = abs(delta_temp)/2
 	var name : String
+	var desc : String
 	if delta_temp > 0:
 		name = "Incinerate"
+		desc = "Heats up all the pizzas in your car."
 		delta_temp_pos = true
 	else:
 		name = "Refrigerate"
+		desc = "Cools down all the pizzas in your car."
 		delta_temp_pos = false
 	var cost : float = power * 0.6
-	super._init(cost, pow, name)
+	super._init(cost, pow, name, desc)
 	
 func is_valid_casting(caster : Node3D) -> bool:
 	var mana_valid = super.is_valid_casting(caster)

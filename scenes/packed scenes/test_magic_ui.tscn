@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b1w2r3gd8lpu3"]
+
+[node name="MagicUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ManaBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 603.0
+offset_right = 436.0
+offset_bottom = 631.0
+tooltip_text = "Mana"
+show_percentage = false
+
+[node name="ManaText" type="Label" parent="ManaBar"]
+layout_mode = 0
+offset_top = -29.0
+offset_right = 80.0
+offset_bottom = 7.0
+text = "Mana:"
+
+[node name="SpellPanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 874.0
+offset_top = 469.0
+offset_right = 1134.0
+offset_bottom = 630.0
+
+[node name="SpellDisplay" type="Label" parent="SpellPanel"]
+layout_mode = 2
+text = "No Spell Selected"

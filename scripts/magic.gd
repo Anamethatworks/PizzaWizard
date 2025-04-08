@@ -1,4 +1,4 @@
-class_name Magic extends Node
+class_name Magic
 ## Class for magic and spells
 ## Spells are not implemented, but mana is (as of 2/27)
 
@@ -13,8 +13,10 @@ static var mana: float = 0.0 ## The current mana level the player has
 static var mana_passive_gain: float:
 	get: return UpgradeList.PASSIVE_MANA_GAIN.value
 
+## Adds delta_mana to the current mana
+static func add_mana(delta_mana : float) -> void:
+	mana = clampf(mana + delta_mana, 0, max_mana)
 
-
-
-func _physics_process(delta: float) -> void:
-	mana = minf(max_mana, mana + mana_passive_gain * delta)
+## Changes the current mana to new_mana
+static func change_mana(new_mana : float) -> void:
+	mana = clampf(new_mana, 0, max_mana)

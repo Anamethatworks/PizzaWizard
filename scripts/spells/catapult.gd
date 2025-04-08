@@ -4,7 +4,7 @@ class_name CatapultSpell
 func _init(pow : float) -> void:
 	var cost = pow * 0.2
 	var name = "Catapult"
-	super._init(cost, pow, name)
+	super._init(cost, pow, name, "Flings the caster forward over obstacles.")
 
 func is_valid_casting(caster : Node3D) -> bool:
 	var mana_valid : bool = super.is_valid_casting(caster)
