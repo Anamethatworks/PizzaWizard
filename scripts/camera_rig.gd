@@ -3,7 +3,7 @@ extends Node3D
 #@onready var camera : SpringArm3D = get_child(0)
 @onready var player : Node3D = $".."
 
-## The vurrent building being cutout, if there is one
+## The current building being cutout, if there is one
 var cutout_building: Building
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

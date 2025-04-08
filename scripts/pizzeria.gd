@@ -46,6 +46,8 @@ func get_pizza_from_queue(keep_in_queue: bool = false) -> Pizza:
 	return pizza_queue[0]
 
 func _on_body_entered(body: Node3D) -> void:
+	if TimeManager.out_of_time:
+		return
 	# Determine if the body is the player
 	if body.name == "Player":
 		var n := int(Score.orders_completed / 2) + 1

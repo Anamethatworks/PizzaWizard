@@ -4,6 +4,7 @@ var MAX_DISPLAY_ORDERS = 4
 
 var player : VehicleBody3D
 var info_display : TextEdit
+var time_manager: TimeManager
 
 var order_list_display : GridContainer
 var info_format_string = "Total Wallet: $%.*f\nAmbient Temperature: %d° F\nCurrent Orders:"
@@ -13,14 +14,16 @@ var display_gold = 0
 var display_temp = 73
 @onready var amb_temp_label = $"../TempLabel"
 @onready var player_wallet_label = $"../WalletLabel"
+@onready var timer_label = $"../TimeLabel"
 @onready var order_ticket_holder = $"../HBoxContainer"
-var order_ticket_scene = preload("res://scenes/packed scenes/order_control.tscn")
+var order_ticket_scene = preload("res://scenes/UI/order_control.tscn")
 var order_tickets = []
 
 func _ready() -> void:
 	player = $"../../Player"
 	info_display = $"../InfoDisplay"
 	order_list_display = $"../OrderList"
+	time_manager = $"../../TimeManager"
 
 
 func _process(delta : float) -> void:
@@ -39,7 +42,9 @@ func _process(delta : float) -> void:
 			display_gold = Money.player_gold
 		#var new_wallet_val = float(int(display_gold * 100)) / 100.0 #converted to cents but goes over text box length
 		var new_wallet_val = int(display_gold)
-		player_wallet_label.text = "[center]$" + str(new_wallet_val) + "[/center]"
+		player_wallet_label.text = "$" + str(new_wallet_val)
+	
+	update_UI_timer()
 	
 	#Update time and temp of individual orders
 	for i in range(0, len(order_tickets)):
@@ -65,3 +70,12 @@ func clear_order_tickets() -> void:
 	for i in range(0, len(order_tickets)):
 		order_tickets[i].queue_free()
 	order_tickets = []
+
+func update_UI_timer() -> void:
+	var time_left: float = float(TimeManager.TIME_LIMIT) - time_manager.time
+	var seconds: int = ceili(fmod(time_left, 60.0))
+	var minutes: int = floori(time_left / 60.0)
+	assert(seconds >= 0, "Timer UI tried to display negative seconds")
+	assert(minutes >= 0, "Timer UI tried to display negative minutes")
+	timer_label.text = str(minutes) + &":" + str(seconds).pad_zeros(2)
+	

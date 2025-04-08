@@ -35,8 +35,8 @@ const TEMPERATURE_TOLERANCE: float = 10.0
 ## at exactly the par time
 const BASE_SCORE: int = 100
 
-## The player's score
-static var player_score: int = 0
+
+static var player_score: int = 0 ## The player's score
 
 ## How many orders the player has completed
 static var orders_completed: int = 0

@@ -8,7 +8,7 @@ script = ExtResource("1_x7pae")
 metadata/_custom_type_script = "uid://fjitoi2kvmsw"
 
 [node name="Container" type="PanelContainer" parent="."]
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -19,6 +19,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 script = ExtResource("1_dj5qc")
 metadata/_custom_type_script = "uid://1bmlp22byya1"
+metadata/_edit_group_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Container"]
 layout_mode = 2

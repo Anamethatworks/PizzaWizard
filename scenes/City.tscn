@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://q048x2ygyw7n"]
 
-[ext_resource type="Script" uid="uid://dta3jlukygjep" path="res://scripts/temp_zone.gd" id="1_na6vi"]
+[ext_resource type="Script" uid="uid://cqxjuh6vsrjl1" path="res://scripts/temp_zone.gd" id="1_na6vi"]
 [ext_resource type="Texture2D" uid="uid://x86ejv2g0gmr" path="res://assets/textures/pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg" id="2_xa6vl"]
-[ext_resource type="Script" uid="uid://b18b8q0sj0f2f" path="res://scripts/temp_manager.gd" id="3_88qx7"]
+[ext_resource type="Script" uid="uid://tmavtlh7b73" path="res://scripts/temp_manager.gd" id="3_88qx7"]
 [ext_resource type="Script" uid="uid://b5q0diqknja6w" path="res://scripts/camera_rig.gd" id="4_mngga"]
 [ext_resource type="PackedScene" uid="uid://buxobhp1h3auw" path="res://assets/models/Car_08.blend" id="5_mtjjk"]
 [ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="6_7kxbt"]

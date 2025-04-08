@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://c5hsril0egnha"]
+[gd_scene load_steps=13 format=3 uid="uid://bsh11aaltp0fu"]
 
 [ext_resource type="Texture2D" uid="uid://bofs3en1lfoa" path="res://assets/sprites/MinimapBorder.png" id="1_ajf47"]
-[ext_resource type="Script" path="res://scripts/MinimapManager.gd" id="1_jn204"]
+[ext_resource type="Script" uid="uid://n61vjrrrddfj" path="res://scripts/MinimapManager.gd" id="1_jn204"]
 [ext_resource type="Texture2D" uid="uid://cavp4acjsqqo7" path="res://assets/sprites/PizzeriaIcon.png" id="2_xj88x"]
 [ext_resource type="Texture2D" uid="uid://cr3hel2arus4x" path="res://assets/sprites/MinimapRoundMask2.png" id="3_weevt"]
 [ext_resource type="Texture2D" uid="uid://clvhmo7dwl2lk" path="res://assets/sprites/Minimap3Tex.png" id="4_1jcc4"]

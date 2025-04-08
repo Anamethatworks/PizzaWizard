@@ -17,4 +17,6 @@ static var mana_passive_gain: float:
 
 
 func _physics_process(delta: float) -> void:
-	mana = minf(max_mana, mana + mana_passive_gain * delta)
+	# Increment mana
+	if !TimeManager.out_of_time:
+		mana = minf(max_mana, mana + mana_passive_gain * delta)

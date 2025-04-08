@@ -31,7 +31,6 @@ mesh = SubResource("BoxMesh_c2y5c")
 surface_material_override/0 = ExtResource("2_yp8xp")
 script = ExtResource("3_c2y5c")
 CUTOUT_MATERIAL = ExtResource("2_0s6af")
-metadata/_custom_type_script = "uid://dg726gkyii7pl"
 
 [node name="CrashType" type="Node3D" parent="." index="2"]
 
