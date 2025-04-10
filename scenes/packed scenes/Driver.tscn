@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://clvoyyu7amkfi"]
 
-[ext_resource type="Script" path="res://scripts/NPCdriving.gd" id="1_xlabq"]
+[ext_resource type="Script" uid="uid://r216h0x73opj" path="res://scripts/NPCdriving.gd" id="1_xlabq"]
 [ext_resource type="PackedScene" uid="uid://bsfkuxorstsjt" path="res://assets/models/Car_09.fbx" id="2_fbvrd"]
 [ext_resource type="Texture2D" uid="uid://b30ohntms38r8" path="res://assets/textures/CarTexture7.png" id="3_rp5g6"]
 

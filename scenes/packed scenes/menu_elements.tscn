@@ -1,11 +1,11 @@
 [gd_scene load_steps=31 format=3 uid="uid://bocbv1jc1g0h8"]
 
-[ext_resource type="Texture2D" uid="uid://dpidb0ph7lxqi" path="res://assets/sprites/PWTitleLogo.png" id="1_t5ump"]
-[ext_resource type="Texture2D" uid="uid://do27ee0mdgln7" path="res://assets/sprites/PWTitleTemp.png" id="2_bd2x7"]
-[ext_resource type="Texture2D" uid="uid://dt1tt3f40r8kn" path="res://assets/sprites/StarBurst2.png" id="3_vngr1"]
-[ext_resource type="Script" path="res://scripts/star_burst_anims.gd" id="4_7r41l"]
-[ext_resource type="Script" path="res://scripts/MenuAnimManager.gd" id="5_23wvc"]
-[ext_resource type="Texture2D" uid="uid://vjafvv7sa1pe" path="res://assets/sprites/TitleDarkBG.png" id="6_nsbuu"]
+[ext_resource type="Texture2D" uid="uid://l5gng2q4o0k7" path="res://assets/sprites/PWTitleLogo.png" id="1_t5ump"]
+[ext_resource type="Texture2D" uid="uid://bfbxo4iya7gfv" path="res://assets/sprites/PWTitleTemp.png" id="2_bd2x7"]
+[ext_resource type="Texture2D" uid="uid://cd7ys3rrjecap" path="res://assets/sprites/StarBurst2.png" id="3_vngr1"]
+[ext_resource type="Script" uid="uid://crvq71csfao6d" path="res://scripts/star_burst_anims.gd" id="4_7r41l"]
+[ext_resource type="Script" uid="uid://bospxe76cnqlp" path="res://scripts/MenuAnimManager.gd" id="5_23wvc"]
+[ext_resource type="Texture2D" uid="uid://cb3nd1grxbpxg" path="res://assets/sprites/TitleDarkBG.png" id="6_nsbuu"]
 [ext_resource type="FontFile" uid="uid://tbshfj8xrpar" path="res://assets/fonts/Bitshow.ttf" id="7_hnaoe"]
 [ext_resource type="PackedScene" uid="uid://bbddblows1ku5" path="res://scenes/packed scenes/city_for_menu.tscn" id="10_qslvp"]
 
@@ -344,9 +344,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xauy5"]
 _data = {
-"RESET": SubResource("Animation_raai3"),
-"StarBurstIdles": SubResource("Animation_01hoq"),
-"StarBurstIntros": SubResource("Animation_lqfdm")
+&"RESET": SubResource("Animation_raai3"),
+&"StarBurstIdles": SubResource("Animation_01hoq"),
+&"StarBurstIntros": SubResource("Animation_lqfdm")
 }
 
 [sub_resource type="Animation" id="Animation_087nb"]
@@ -690,9 +690,9 @@ tracks/12/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_56ykj"]
 _data = {
-"MainMenuAnim": SubResource("Animation_087nb"),
-"MainMenuIdle": SubResource("Animation_7rigw"),
-"RESET": SubResource("Animation_jhep3")
+&"MainMenuAnim": SubResource("Animation_087nb"),
+&"MainMenuIdle": SubResource("Animation_7rigw"),
+&"RESET": SubResource("Animation_jhep3")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbyct"]
@@ -924,9 +924,9 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w28vk"]
 _data = {
-"CameraAnim1": SubResource("Animation_t3mh7"),
-"CameraOrbit": SubResource("Animation_ssmrp"),
-"RESET": SubResource("Animation_e8gro")
+&"CameraAnim1": SubResource("Animation_t3mh7"),
+&"CameraOrbit": SubResource("Animation_ssmrp"),
+&"RESET": SubResource("Animation_e8gro")
 }
 
 [node name="MenuElements" type="Control"]

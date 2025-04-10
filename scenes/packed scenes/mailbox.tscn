@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://j6cqxwx5ktru"]
 
 [ext_resource type="PackedScene" uid="uid://ch8t67vv0iclv" path="res://assets/models/Mailbox.fbx" id="1_dqknw"]
-[ext_resource type="Script" path="res://scripts/destructible_object.gd" id="1_tt1kb"]
+[ext_resource type="Script" uid="uid://4upfe1wxeblg" path="res://scripts/destructible_object.gd" id="1_tt1kb"]
 [ext_resource type="PackedScene" uid="uid://d1yabgygipvum" path="res://assets/models/MailboxBroken.fbx" id="2_7ulgj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1c16q"]
@@ -89,8 +89,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_on2p8"]
 _data = {
-"DestructFlash": SubResource("Animation_epjei"),
-"RESET": SubResource("Animation_oaxd1")
+&"DestructFlash": SubResource("Animation_epjei"),
+&"RESET": SubResource("Animation_oaxd1")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tna35"]
@@ -109,7 +109,7 @@ offsets = PackedFloat32Array(0, 0.568093, 1)
 colors = PackedColorArray(0.876289, 0.851552, 0.877355, 1, 0.853887, 0.824321, 0.852319, 0.662745, 1, 1, 1, 0)
 
 [sub_resource type="Curve" id="Curve_ku36f"]
-min_value = -1.0
+_limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
