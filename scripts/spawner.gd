@@ -2,7 +2,7 @@ extends Node3D
 
 var SpawnerList = []
 var CloseList = []
-var MaxCars = 20
+var MaxCars = 30
 var CurrentCars = 0
 var NumSpawners = 15
 var DistanceChk = true
@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 		var currentSpawner = CloseList[randi()%CloseList.size()]
 		var ChildList = currentSpawner.get_children()
 		for j in ChildList:
-			if currentSpawner.position.distance_to(j.position) < 10 and j.is_in_group("VisChkr") == false:
+			if currentSpawner.global_position.distance_to(j.global_position) < 10 and j.is_in_group("VisChkr") == false:
 				DistanceChk = false
 		if DistanceChk == true:
 			var instance = Driver.instantiate()
@@ -51,19 +51,19 @@ func CalcCloseList():
 		if fstClose == null:
 			fstClose = SpawnerList[i] #Player.position.distance_to(SpawnerList[i].position)
 		else:
-			if (Player.position.distance_to(SpawnerList[i].position) < Player.position.distance_to(fstClose.position)) and VisChk.is_on_screen() == false:
+			if (Player.global_position.distance_to(SpawnerList[i].global_position) < Player.global_position.distance_to(fstClose.global_position)) and VisChk.is_on_screen() == false:
 				fstClose = SpawnerList[i] #Player.position.distance_to(SpawnerList[i].position)
 			else:
 				if SndClose == null:
 					SndClose = SpawnerList[i]
 				else:
-					if (Player.position.distance_to(SpawnerList[i].position) < Player.position.distance_to(SndClose.position)) and VisChk.is_on_screen() == false:
+					if (Player.global_position.distance_to(SpawnerList[i].global_position) < Player.global_position.distance_to(SndClose.global_position)) and VisChk.is_on_screen() == false:
 						SndClose = SpawnerList[i]
 					else:
 						if TrdClose == null:
 							TrdClose = SpawnerList[i]
 						else:
-							if (Player.position.distance_to(SpawnerList[i].position) < Player.position.distance_to(TrdClose.position)) and VisChk.is_on_screen() == false:
+							if (Player.global_position.distance_to(SpawnerList[i].global_position) < Player.global_position.distance_to(TrdClose.global_position)) and VisChk.is_on_screen() == false:
 								TrdClose = SpawnerList[i]
 		i += 1
 							
@@ -77,7 +77,7 @@ func MonitorDrivers():
 	var i = 0
 	while i < (NumSpawners - 1):
 		if (get_child(i).get_child(0) != null) and (get_child(i).get_child(0).is_in_group("VisChkr") == false) and CurrentCars >= 15:
-			if Player.position.distance_to(get_child(i).get_child(0).global_position) > 135:
+			if Player.global_position.distance_to(get_child(i).get_child(0).global_position) > 135:
 				get_child(i).get_child(0).queue_free()
 				CurrentCars -= 1
 				#print("working", Player.position.distance_to(get_child(i).get_child(0).global_position) )

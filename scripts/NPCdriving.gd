@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 var accel = 2
-var moveSpeed = 10
+var moveSpeed = 5.5
 var Blocked = false
 var timer = 0
 var lastPosition = 0
@@ -19,50 +19,25 @@ var currentTarget
 func _ready() -> void:
 	currentTarget = targets[randi()%targets.size()]
 	lastPosition = self.position
-	var driverType = randi()%3 + 1
-	if (driverType == 1):
-		accel = 3
-		moveSpeed = 8
-	if (driverType == 3):
-		accel = 5
-		moveSpeed = 15
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#timer += delta
-	if (timer >= 0.5):
-		if (self.position.distance_to(lastPosition) <= 1):
-			ClosestTargets()
-			currentTarget = ClosList[randi()%ClosList.size()]
-		timer = 0
-		lastPosition = self.position
 
 	var direction = Vector3()
-	#print(currentTarget.position, " ", self.position)
-	if (currentTarget.position.distance_to(self.position) <= 15):
+	if (currentTarget.global_position.distance_to(self.global_position) <= 15):
 		currentTarget = targets[randi()%targets.size()]
 	
 	nav.target_position = currentTarget.global_position # this one needs the @onready vars we defined earlier
 	
 	direction = nav.get_next_path_position() - global_position # and so does this
 	
-	if direction == LastDistance:
-		ClosestTargets()
-		currentTarget = ClosList[randi()%ClosList.size()]
-		nav.target_position = currentTarget.global_position # this one needs the @onready vars we defined earlier
-		direction = nav.get_next_path_position() - global_position # and so does this
-	LastDistance = direction
-	direction = direction.normalized()
-	
 	self.velocity = self.velocity.lerp(direction * moveSpeed, accel * delta)
-	
-	#print(self.velocity)
 	
 	if (Blocked == false):
 		rotation.y = atan2(self.velocity.x, self.velocity.z)
 	if (Blocked == true):
 		self.velocity = Vector3(0,0,0)
-	
 	
 	move_and_slide()
 	Blocked = false
