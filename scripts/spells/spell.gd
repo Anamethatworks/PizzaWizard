@@ -60,5 +60,18 @@ func fail(caster : Node3D) -> void:
 # Returns the info of the spell formatted into a UI element
 func get_spell_card() -> Control:
 	var card : Label = Label.new()
-	card.text = "%s\nPower: %d\nCost: %d mana\n%s" % [spell_name, power, mana_cost, spell_desc]
+	var info_text = "%s\nPower: %d\nCost: %d mana\n" % [spell_name, power, mana_cost]
+	var desc_formatted = ""
+	var chars_since_newline : int = 0
+	for i in len(spell_desc):
+		desc_formatted += spell_desc[i]
+		chars_since_newline += 1
+		if chars_since_newline >= 40:
+			var j : int = len(desc_formatted) - 1
+			while (desc_formatted[j] != " ") and (j >= 0):
+				j -= 1
+			if j != 0:
+				desc_formatted = desc_formatted.insert(j + 1, "\n")
+				chars_since_newline = 0
+	card.text = info_text + desc_formatted
 	return card
