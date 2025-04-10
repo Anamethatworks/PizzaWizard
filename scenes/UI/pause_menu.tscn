@@ -1,15 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://bty8kpmn8dl28"]
 
-[ext_resource type="Script" path="res://scripts/pause_menu_manager.gd" id="1_1jxsv"]
-[ext_resource type="Texture2D" uid="uid://vjafvv7sa1pe" path="res://assets/sprites/TitleDarkBG.png" id="1_p01r6"]
-[ext_resource type="FontVariation" uid="uid://dtdj6q1ahxo61" path="res://assets/fonts/ui_font_var1.tres" id="4_4o178"]
+[ext_resource type="Script" uid="uid://bte8oyid5sgwi" path="res://scripts/pause_menu_manager.gd" id="1_1jxsv"]
+[ext_resource type="Texture2D" uid="uid://dv07v7cj32eah" path="res://assets/sprites/TitleDarkBG.png" id="1_p01r6"]
+[ext_resource type="Theme" uid="uid://mxtkyouf7edq" path="res://assets/UI themes/pause_menu_big.tres" id="2_mko1u"]
+[ext_resource type="Theme" uid="uid://cqwim0eqpba2u" path="res://assets/UI themes/pause_menu.tres" id="4_feath"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsvan"]
 bg_color = Color(1, 1, 1, 1)
-
-[sub_resource type="FontVariation" id="FontVariation_nu262"]
-base_font = ExtResource("4_4o178")
-spacing_glyph = -10
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udffk"]
 texture = ExtResource("1_p01r6")
@@ -195,9 +192,9 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bq2uh"]
 _data = {
-"FadeInPauseMenu": SubResource("Animation_u16w7"),
-"FadeOutPauseMenu": SubResource("Animation_pyj1a"),
-"RESET": SubResource("Animation_61edf")
+&"FadeInPauseMenu": SubResource("Animation_u16w7"),
+&"FadeOutPauseMenu": SubResource("Animation_pyj1a"),
+&"RESET": SubResource("Animation_61edf")
 }
 
 [node name="PauseMenu" type="Control"]
@@ -255,11 +252,7 @@ offset_right = 250.0
 offset_bottom = -980.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0.0562916, 0.0562916, 0.0562916, 1)
-theme_override_constants/shadow_offset_y = 8
-theme_override_constants/shadow_offset_x = 8
-theme_override_fonts/normal_font = SubResource("FontVariation_nu262")
-theme_override_font_sizes/normal_font_size = 100
+theme = ExtResource("2_mko1u")
 bbcode_enabled = true
 text = "[wave amp=50.0 freq=2.0 connected=1][center]P a u s e d[/center][/wave]"
 
@@ -307,11 +300,9 @@ offset_right = 336.0
 offset_bottom = 85.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("4_4o178")
-theme_override_font_sizes/normal_font_size = 52
+theme = ExtResource("4_feath")
 bbcode_enabled = true
-text = "[wave amp=50.0 freq=2.0 connected=1][center]C O N T I N U E[/center][/wave]"
+text = "[wave amp=50.0 freq=2.0 connected=1][center]CONTINUE[/center][/wave]"
 
 [node name="QuitGame" type="Button" parent="FadeMask"]
 texture_filter = 6
@@ -342,11 +333,9 @@ offset_right = 250.0
 offset_bottom = 83.0
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("4_4o178")
-theme_override_font_sizes/normal_font_size = 52
+theme = ExtResource("4_feath")
 bbcode_enabled = true
-text = "[wave amp=50.0 freq=2.0 connected=1][center]Q U I T[/center][/wave]"
+text = "[wave amp=50.0 freq=2.0 connected=1][center]QUIT[/center][/wave]"
 
 [node name="BackToMenu" type="Button" parent="FadeMask"]
 texture_filter = 6
@@ -384,15 +373,13 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 mouse_filter = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("4_4o178")
-theme_override_font_sizes/normal_font_size = 52
+theme = ExtResource("4_feath")
 bbcode_enabled = true
-text = "[wave amp=50.0 freq=2.0 connected=1][center]T O    M E N U[/center][/wave]"
+text = "[wave amp=50.0 freq=2.0 connected=1][center]TO MENU[/center][/wave]"
 
 [node name="PauseMenuAnim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_bq2uh")
+&"": SubResource("AnimationLibrary_bq2uh")
 }
 
 [connection signal="mouse_entered" from="FadeMask/ContinueGame" to="." method="_on_continue_game_mouse_entered"]

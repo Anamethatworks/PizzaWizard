@@ -41,6 +41,7 @@ material = SubResource("StandardMaterial3D_bqgb3")
 
 [node name="PizzaDropoffPoint" type="Area3D"]
 script = ExtResource("1_16q7f")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

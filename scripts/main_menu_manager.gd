@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var game_scene = preload("res://scenes/Neocrystalis.tscn")
-@onready var menu_elements = preload("res://scenes/packed scenes/menu_elements.tscn")
+@onready var menu_elements = preload("res://scenes/UI/menu_elements.tscn")
 @onready var black_fade = $"BlackFade"
 var start_button
 var quit_button

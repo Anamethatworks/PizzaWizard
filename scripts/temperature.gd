@@ -17,7 +17,7 @@ static func get_delta_temperature(pizza_temperature: float, ambient_temperature:
 	## =0.02284003156575 => The pizza takes  30 seconds to get halfway to the ambient temperature
 	## =0.06696700846319 => The pizza takes  10 seconds to get halfway to the ambient temperature
 	## =0.5              => The pizza takes   1 second  to get halfway to the ambient temperature
-	const TEMP_CHANGE_SPEED: float = 0.02284003156575
+	const TEMP_CHANGE_SPEED: float = 0.01148597964710
 	# Formula for finding temp change speed:
 	# 1.0 - pow(0.5, 1.0 / T) where T is the number of seconds to reach halfway to the ambient temp.
 	return (ambient_temperature - pizza_temperature) * (1.0 - pow(1.0 - TEMP_CHANGE_SPEED, delta_time)) * TEMPERATURE_CHANGE_FACTOR

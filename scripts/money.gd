@@ -2,13 +2,13 @@ extends Object
 class_name Money
 ## Class for money and calculating payout (should be globally loaded)
 
-## How tolerant the payment function is of temperature difference
-const TEMPERATURE_TOLERANCE: float = 27.0
-## The default amount the customer will tip
-const BASE_TIP: float = 0.1
 
-## The money the player has
-static var player_gold: int = 0
+const TEMPERATURE_TOLERANCE: float = 27.0 ## How tolerant the payment function is of temperature difference
+
+const BASE_TIP: float = 0.25 ## The default amount the customer will tip
+
+
+static var player_gold: int = 0 ## The money the player has
 
 ## If this script is autoloaded, this function can be called from anywhere using [method Money.get_payout()]
 ## [param temp]: the temperature of the pizza
@@ -24,6 +24,7 @@ static func get_payout(temp: float, goal_temp: float, time: float, par_time: flo
 	var time_ratio := time / par_time
 	var temp_multiplier := (1.0 + 2.0 * exp(-pow(temp_difference / TEMPERATURE_TOLERANCE, 2.0))) / 3.0
 	var time_multiplier := exp(-(time_ratio - 1.0))
+	print(temp_multiplier * time_multiplier)
 	var total_payment := roundi(BASE_TIP * temp_multiplier * time_multiplier * price)
 	return maxi(0, total_payment)
 

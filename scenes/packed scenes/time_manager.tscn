@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bemumfuvi3r3a"]
+
+[ext_resource type="Script" uid="uid://dy31yy5cv6tla" path="res://scripts/time_limit.gd" id="1_yqses"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yqses"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_8g8ol"]
+sky_material = SubResource("ProceduralSkyMaterial_yqses")
+
+[sub_resource type="Environment" id="Environment_txl5a"]
+background_mode = 2
+sky = SubResource("Sky_8g8ol")
+ambient_light_source = 2
+ambient_light_energy = 5.0
+reflected_light_source = 2
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_density = 0.001
+
+[node name="TimeManager" type="Node3D"]
+script = ExtResource("1_yqses")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-1, 7.57103e-08, -4.37114e-08, 0, 0.5, 0.866025, 8.74228e-08, 0.866025, -0.5, 0, 0, 0)
+light_color = Color(1, 0.764706, 0.337255, 1)
+shadow_enabled = true
+shadow_reverse_cull_face = true
+
+[node name="Moon" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-1, 7.57103e-08, -4.37114e-08, 0, -0.5, -0.866025, -8.74228e-08, -0.866025, 0.5, 0, 0, 0)
+light_energy = 0.5
+shadow_enabled = true
+shadow_reverse_cull_face = true
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_txl5a")

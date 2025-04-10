@@ -1,14 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://qlndvjei3xvq"]
+[gd_scene load_steps=4 format=3 uid="uid://qlndvjei3xvq"]
 
 [ext_resource type="Script" uid="uid://1bmlp22byya1" path="res://scripts/upgrade_info_box.gd" id="1_dj5qc"]
 [ext_resource type="Script" uid="uid://fjitoi2kvmsw" path="res://scripts/upgrade_station.gd" id="1_x7pae"]
+[ext_resource type="Theme" uid="uid://c5scxoi4o1rve" path="res://assets/UI themes/small_UI.tres" id="3_ehxb1"]
 
 [node name="UpgradeStation" type="Area3D"]
 script = ExtResource("1_x7pae")
 metadata/_custom_type_script = "uid://fjitoi2kvmsw"
 
 [node name="Container" type="PanelContainer" parent="."]
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -17,8 +18,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+theme = ExtResource("3_ehxb1")
 script = ExtResource("1_dj5qc")
 metadata/_custom_type_script = "uid://1bmlp22byya1"
+metadata/_edit_group_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Container"]
 layout_mode = 2
@@ -26,31 +29,45 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="UpgradeName" type="Label" parent="Container/VBoxContainer"]
+[node name="UpgradeName" type="RichTextLabel" parent="Container/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Upgrade Station: %NAME%"
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Upgrade Station: [wave amp=25.0 freq=2.0 connected=1]%NAME%[/wave]"
+fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeDesc" type="Label" parent="Container/VBoxContainer"]
+[node name="UpgradeDesc" type="RichTextLabel" parent="Container/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
 text = "%DESC%"
+fit_content = true
+autowrap_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeCost" type="Label" parent="Container/VBoxContainer"]
+[node name="UpgradeCost" type="RichTextLabel" parent="Container/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Cost: %COST%G"
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Cost: $%COST%"
+fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UpgradeStatus" type="Label" parent="Container/VBoxContainer"]
+[node name="UpgradeStatus" type="RichTextLabel" parent="Container/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
 text = "No upgrade paired! If you're seeing this in-game, something has gone wrong!"
+fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 

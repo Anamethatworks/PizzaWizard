@@ -10,13 +10,11 @@ var current_tier: int = 0
 var upgrade_names: Array[StringName] ## The name of each upgrads. Like the cost, should have one fewer entry than there are values
 
 
-## Description of the upgrade. May contain "XX%", in which case
-## get_description() should be used to automatically calculate percentage increase
-var description: StringName = &"" 
+
+var description: StringName = &""  ## Description of the upgrade. May contain "XX%", in which case [code]get_description()[/code] should be used to automatically calculate percentage increase
 
 
-## THIS IS THE ACTUAL STAT MODIFIED BY THE UPGRADES
-var value: Variant:
+var value: Variant: ## THIS IS THE ACTUAL STAT MODIFIED BY THE UPGRADES
 	get: return values[current_tier]
 
 ## How to initialize an UpgradeableStat:
@@ -73,3 +71,7 @@ func get_description() -> StringName:
 func get_cost() -> int:
 	if is_at_max_tier(): return 0
 	return costs[current_tier]
+
+static func reset_all_upgrades() -> void:
+	for upgrade: UpgradeableStat in upgrade_list:
+		upgrade.current_tier = 0

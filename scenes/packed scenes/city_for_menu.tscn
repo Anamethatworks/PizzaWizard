@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bbddblows1ku5"]
+[gd_scene load_steps=29 format=3 uid="uid://dofg6xbxxvob2"]
 
 [ext_resource type="PackedScene" uid="uid://cyllxeecirij3" path="res://scenes/packed scenes/city pieces/tree_01.tscn" id="1_cx5kk"]
 [ext_resource type="PackedScene" uid="uid://cjswf5t6icwr5" path="res://scenes/packed scenes/city pieces/fence_1.tscn" id="2_4jhkk"]

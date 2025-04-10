@@ -1,10 +1,10 @@
 [gd_scene load_steps=21 format=3 uid="uid://dsvq25iq46jfm"]
 
-[ext_resource type="Script" path="res://scripts/car.gd" id="1_fbag5"]
-[ext_resource type="Script" path="res://scripts/camera_rig.gd" id="2_i16p3"]
+[ext_resource type="Script" uid="uid://cmnf2h8vpy44g" path="res://scripts/car.gd" id="1_fbag5"]
+[ext_resource type="Script" uid="uid://b5q0diqknja6w" path="res://scripts/camera_rig.gd" id="2_i16p3"]
 [ext_resource type="Script" path="res://scripts/delivery_assist.gd" id="2_ndgut"]
 [ext_resource type="PackedScene" uid="uid://rirv5cogtbwj" path="res://assets/models/Car_Body.fbx" id="4_6eeew"]
-[ext_resource type="Script" path="res://scripts/overcomplicated_wheel.gd" id="4_hmo0v"]
+[ext_resource type="Script" uid="uid://ytdeter15ui5" path="res://scripts/overcomplicated_wheel.gd" id="4_hmo0v"]
 [ext_resource type="AudioStream" uid="uid://cy3xjtyw8u101" path="res://assets/Sounds/EngineStart.wav" id="5_huam1"]
 [ext_resource type="PackedScene" uid="uid://dnwh1tl3xr74e" path="res://assets/models/FR_Wheel.fbx" id="6_3tdt2"]
 [ext_resource type="AudioStream" uid="uid://bwafe74gp1enx" path="res://assets/Sounds/Idiling.mp3" id="6_rst2e"]

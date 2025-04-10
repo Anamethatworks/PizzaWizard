@@ -1,19 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://dik1wyeffkyac"]
+[gd_scene load_steps=11 format=3 uid="uid://dik1wyeffkyac"]
 
-[ext_resource type="Script" path="res://scripts/ui_manager.gd" id="1_cbekv"]
-[ext_resource type="Texture2D" uid="uid://cfekqwirwux2p" path="res://assets/sprites/MoneyIcon2.png" id="2_rp4mp"]
-[ext_resource type="SystemFont" uid="uid://wj6i27fp2c8k" path="res://assets/fonts/ui_font.tres" id="3_vsdgi"]
-[ext_resource type="Texture2D" uid="uid://bravp6wkudwmb" path="res://assets/sprites/TempIcon2.png" id="4_a1wdi"]
-[ext_resource type="PackedScene" uid="uid://r0oplirhhvxh" path="res://scenes/packed scenes/order_control.tscn" id="5_omk2h"]
+[ext_resource type="Script" uid="uid://l7pptkcybulm" path="res://scripts/ui_manager.gd" id="1_up2am"]
+[ext_resource type="Texture2D" uid="uid://cfekqwirwux2p" path="res://assets/sprites/MoneyIcon2.png" id="2_trx7p"]
+[ext_resource type="Texture2D" uid="uid://bravp6wkudwmb" path="res://assets/sprites/TempIcon2.png" id="4_8g4s1"]
+[ext_resource type="PackedScene" uid="uid://r0oplirhhvxh" path="res://scenes/UI/order_control.tscn" id="5_dm4gx"]
+[ext_resource type="Theme" uid="uid://c5scxoi4o1rve" path="res://assets/UI themes/small_UI.tres" id="5_trx7p"]
+[ext_resource type="Texture2D" uid="uid://jxhtcatk6net" path="res://assets/sprites/TimeIcon.png" id="5_x5vqk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4urmr"]
 bg_color = Color(0.329158, 0.329158, 0.329158, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fgqiv"]
-texture = ExtResource("2_rp4mp")
+texture = ExtResource("2_trx7p")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d6m1j"]
-texture = ExtResource("4_a1wdi")
+texture = ExtResource("4_8g4s1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8g4s1"]
+texture = ExtResource("5_x5vqk")
 
 [node name="UIPanel" type="Panel"]
 offset_right = 272.0
@@ -21,7 +25,7 @@ offset_bottom = 476.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4urmr")
 
 [node name="UIManager" type="Node" parent="."]
-script = ExtResource("1_cbekv")
+script = ExtResource("1_up2am")
 
 [node name="WalletPanel" type="Panel" parent="."]
 layout_mode = 0
@@ -37,11 +41,10 @@ offset_left = 57.0
 offset_top = 14.0
 offset_right = 203.0
 offset_bottom = 66.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_vsdgi")
-theme_override_font_sizes/normal_font_size = 32
+theme = ExtResource("5_trx7p")
 bbcode_enabled = true
-text = "[center]$0[/center]"
+text = "$0"
+horizontal_alignment = 1
 
 [node name="TempPanel" type="Panel" parent="."]
 layout_mode = 0
@@ -57,11 +60,33 @@ offset_left = 234.0
 offset_top = 13.0
 offset_right = 330.0
 offset_bottom = 65.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_vsdgi")
-theme_override_font_sizes/normal_font_size = 32
+theme = ExtResource("5_trx7p")
 bbcode_enabled = true
 text = "72°"
+horizontal_alignment = 1
+
+[node name="TimePanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 348.0
+offset_top = 8.0
+offset_right = 412.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_8g4s1")
+
+[node name="TimeLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 13.0
+offset_right = 507.0
+offset_bottom = 65.0
+theme = ExtResource("5_trx7p")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "12:00"
+autowrap_mode = 0
+horizontal_alignment = 1
+visible_characters = 5
 
 [node name="InfoDisplay" type="TextEdit" parent="."]
 visible = false
@@ -81,7 +106,7 @@ offset_right = 328.0
 offset_bottom = 206.0
 theme_override_constants/separation = -16
 
-[node name="OrderControl" parent="HBoxContainer" instance=ExtResource("5_omk2h")]
+[node name="OrderControl" parent="HBoxContainer" instance=ExtResource("5_dm4gx")]
 visible = false
 layout_mode = 2
 
