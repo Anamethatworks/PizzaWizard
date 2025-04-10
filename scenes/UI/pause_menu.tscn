@@ -1,9 +1,15 @@
 [gd_scene load_steps=13 format=3 uid="uid://bty8kpmn8dl28"]
 
+<<<<<<< HEAD:scenes/UI/pause_menu.tscn
 [ext_resource type="Script" uid="uid://bte8oyid5sgwi" path="res://scripts/pause_menu_manager.gd" id="1_1jxsv"]
 [ext_resource type="Texture2D" uid="uid://dv07v7cj32eah" path="res://assets/sprites/TitleDarkBG.png" id="1_p01r6"]
 [ext_resource type="Theme" uid="uid://mxtkyouf7edq" path="res://assets/UI themes/pause_menu_big.tres" id="2_mko1u"]
 [ext_resource type="Theme" uid="uid://cqwim0eqpba2u" path="res://assets/UI themes/pause_menu.tres" id="4_feath"]
+=======
+[ext_resource type="Script" uid="uid://bc88abkhgcrg1" path="res://scripts/pause_menu_manager.gd" id="1_1jxsv"]
+[ext_resource type="Texture2D" uid="uid://cb3nd1grxbpxg" path="res://assets/sprites/TitleDarkBG.png" id="1_p01r6"]
+[ext_resource type="FontVariation" uid="uid://dtdj6q1ahxo61" path="res://assets/fonts/ui_font_var1.tres" id="4_4o178"]
+>>>>>>> DriverImprovements:scenes/packed scenes/pause_menu.tscn
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsvan"]
 bg_color = Color(1, 1, 1, 1)

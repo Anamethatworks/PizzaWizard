@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://khg70ty38gqb" path="res://assets/materials/cutout materials/building7cutout.tres" id="2_5w1l4"]
 [ext_resource type="Script" uid="uid://dg726gkyii7pl" path="res://building.gd" id="3_5vkum"]
 [ext_resource type="Material" uid="uid://cf4nix8fm5hw0" path="res://assets/materials/cutout materials/cutout_base.tres" id="3_hehcq"]
-[ext_resource type="PackedScene" uid="uid://d1t0s5g077ud1" path="res://scenes/packed scenes/pizza_pickup_point.tscn" id="4_lvgjy"]
+[ext_resource type="PackedScene" uid="uid://d1t0s5g077ud1" path="res://scenes/packed_scenes/pizza_pickup_point.tscn" id="4_lvgjy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_5vkum"]
 size = Vector3(14.961, 1, 15.419)

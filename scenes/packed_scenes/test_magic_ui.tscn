@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b1w2r3gd8lpu3"]
+[gd_scene load_steps=0 format=3 uid="uid://b1w2r3gd8lpu3"]
 
 [node name="MagicUI" type="Control"]
 layout_mode = 3
