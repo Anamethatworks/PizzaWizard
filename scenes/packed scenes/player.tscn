@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cmnf2h8vpy44g" path="res://scripts/car.gd" id="1_fbag5"]
 [ext_resource type="Script" uid="uid://b5q0diqknja6w" path="res://scripts/camera_rig.gd" id="2_i16p3"]
-[ext_resource type="Script" path="res://scripts/delivery_assist.gd" id="2_ndgut"]
+[ext_resource type="Script" uid="uid://dqkif74ok2oas" path="res://scripts/delivery_assist.gd" id="2_ndgut"]
 [ext_resource type="PackedScene" uid="uid://rirv5cogtbwj" path="res://assets/models/Car_Body.fbx" id="4_6eeew"]
 [ext_resource type="Script" uid="uid://ytdeter15ui5" path="res://scripts/overcomplicated_wheel.gd" id="4_hmo0v"]
 [ext_resource type="AudioStream" uid="uid://cy3xjtyw8u101" path="res://assets/Sounds/EngineStart.wav" id="5_huam1"]
@@ -38,7 +38,7 @@ script = ExtResource("2_i16p3")
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig"]
 transform = Transform3D(-1, -8.74228e-08, -1.42108e-14, -2.99003e-08, 0.34202, 0.939693, -8.21505e-08, 0.939693, -0.34202, 0, 25.605, -4.515)
-cull_mask = 1048543
+cull_mask = 1048351
 fov = 65.0
 
 [node name="RayCast3D" type="RayCast3D" parent="CameraRig/Camera3D"]

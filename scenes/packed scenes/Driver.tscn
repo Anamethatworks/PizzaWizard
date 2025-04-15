@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://deteprrsdove7" path="res://assets/materials/minimap materials/minimap_NPC_car.tres" id="4_qu3jo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_710fw"]
-size = Vector3(5.073, 1.586, 1.68)
+size = Vector3(4.533, 1.586, 1.425)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u523y"]
 albedo_texture = ExtResource("3_rp5g6")
@@ -38,7 +38,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_u523y")
 
 [node name="Minimap_NPC_Model" type="MeshInstance3D" parent="CrashType/CharacterBody3D/CollisionShape3D/Car_10"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.08868e-18, 0.136763, 1.16415e-10)
-layers = 32
+layers = 64
 cast_shadow = 0
 gi_mode = 0
 mesh = SubResource("PlaneMesh_ma12x")
