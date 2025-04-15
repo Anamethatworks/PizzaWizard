@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-var accel = 2
-var moveSpeed = 5.5
+var accel = 1
+var moveSpeed = 3.5
 var Blocked = false
 var timer = 0
 var lastPosition = 0

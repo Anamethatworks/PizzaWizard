@@ -2,7 +2,7 @@ extends Node3D
 
 var SpawnerList = []
 var CloseList = []
-var MaxCars = 30
+var MaxCars = 45
 var CurrentCars = 0
 var NumSpawners = 15
 var DistanceChk = true
@@ -83,24 +83,4 @@ func MonitorDrivers():
 				#print("working", Player.position.distance_to(get_child(i).get_child(0).global_position) )
 		i += 1
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
