@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhxv2v76sy5bu"]
+
+[ext_resource type="Script" uid="uid://bq6cd4resqwrj" path="res://scripts/full_screen_map.gd" id="1_cbbu2"]
+[ext_resource type="Environment" uid="uid://c4e0c4opge2kw" path="res://assets/fullscreen_map_environment.tres" id="1_orahd"]
+[ext_resource type="Texture2D" uid="uid://bylqk4832v7is" path="res://assets/sprites/PlayerIcon2.png" id="3_okeie"]
+[ext_resource type="Texture2D" uid="uid://cavp4acjsqqo7" path="res://assets/sprites/PizzeriaIcon.png" id="4_a2ugw"]
+
+[node name="FullScreenMap" type="CenterContainer"]
+modulate = Color(1, 1, 1, 0.74902)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cbbu2")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(768, 512)
+render_target_update_mode = 4
+
+[node name="FullscreenMapCamera" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 26, 25.7069)
+cull_mask = 160
+environment = ExtResource("1_orahd")
+projection = 1
+current = true
+size = 275.0
+near = 1.0
+far = 30.0
+
+[node name="Icons" type="Control" parent="."]
+custom_minimum_size = Vector2(768, 512)
+layout_mode = 2
+
+[node name="Player" type="Control" parent="Icons"]
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="Icons/Player"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -5.275
+offset_top = -8.0
+offset_right = 7.725
+offset_bottom = 8.0
+mouse_filter = 2
+texture = ExtResource("3_okeie")
+stretch_mode = 2
+
+[node name="Pizzeria" type="Control" parent="Icons"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Icons/Pizzeria"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+mouse_filter = 2
+texture = ExtResource("4_a2ugw")
+stretch_mode = 2

@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://chk63rskvkfs3"]
+
+[ext_resource type="Shader" uid="uid://r5jrxgy6d4fg" path="res://assets/shaders/minimap_street.gdshader" id="1_pw1sd"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_pw1sd")

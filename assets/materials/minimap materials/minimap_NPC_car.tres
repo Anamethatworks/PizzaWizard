@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://deteprrsdove7"]
+
+[ext_resource type="Shader" uid="uid://b2lchsq582whh" path="res://assets/shaders/minimap_NPC.gdshader" id="1_l0rdu"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_l0rdu")
+shader_parameter/col = Vector3(0, 0.85, 1)

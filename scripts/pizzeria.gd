@@ -63,4 +63,5 @@ func _on_body_entered(body: Node3D) -> void:
 					minimap_node.call_deferred("add_delivery_icon", (DeliveryManager.current_orders[i].dropoffPoint.global_position))
 				if ui_manager != null:
 					ui_manager.call_deferred("add_order_ticket", DeliveryManager.current_orders[i].parTime, DeliveryManager.current_orders[i].dropoffPoint.global_position)
+				FullScreenMap.singleton.call("add_order_location", Vector2(DeliveryManager.current_orders[i].dropoffPoint.global_position.x, DeliveryManager.current_orders[i].dropoffPoint.global_position.z))
 		Score.earn_bonuses()

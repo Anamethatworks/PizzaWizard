@@ -40,6 +40,7 @@ script = ExtResource("2_i16p3")
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig"]
 transform = Transform3D(-1, -8.74228e-08, -1.42108e-14, -2.99003e-08, 0.34202, 0.939693, -8.21505e-08, 0.939693, -0.34202, 0, 25.605, -4.515)
+cull_mask = 1048351
 fov = 65.0
 
 [node name="RayCast3D" type="RayCast3D" parent="CameraRig/Camera3D"]

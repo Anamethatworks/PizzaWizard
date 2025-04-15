@@ -1,11 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://dcbjpccwwv7y2"]
+[gd_scene load_steps=18 format=3 uid="uid://dcbjpccwwv7y2"]
 
 [ext_resource type="PackedScene" uid="uid://pb5c8c0m54ix" path="res://assets/models/Building08.fbx" id="1_hrmtg"]
 [ext_resource type="Material" uid="uid://ba4tmwwop2wo5" path="res://assets/materials/cutout materials/building8cutout.tres" id="2_re3ny"]
 [ext_resource type="Material" uid="uid://cf4nix8fm5hw0" path="res://assets/materials/cutout materials/cutout_base.tres" id="2_t0m1r"]
-[ext_resource type="Script" uid="uid://dg726gkyii7pl" path="res://building.gd" id="3_hrdbj"]
-[ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed_scenes/pizza_dropoff_point.tscn" id="3_vm516"]
+[ext_resource type="Script" path="res://scripts/building.gd" id="3_hrdbj"]
+[ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="3_vm516"]
 [ext_resource type="Material" uid="uid://dujf8ua33scrl" path="res://assets/materials/glow materials/building8glow.tres" id="4_mi7y0"]
+[ext_resource type="Material" uid="uid://b5mlm40mh34pl" path="res://assets/materials/minimap materials/minimap_building.tres" id="7_fw8iy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hrdbj"]
 size = Vector3(10, 1, 15)
@@ -30,6 +31,21 @@ radius = 5.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o7l0u"]
 size = Vector3(19, 5, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fw8iy"]
+material = ExtResource("7_fw8iy")
+size = Vector2(10, 15)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_syh10"]
+material = ExtResource("7_fw8iy")
+size = Vector2(15, 10)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3diy0"]
+material = ExtResource("7_fw8iy")
+top_radius = 5.0
+bottom_radius = 5.0
+height = 0.001
+rings = 0
 
 [node name="Building08" instance=ExtResource("1_hrmtg")]
 
@@ -85,6 +101,30 @@ GLOWY_MATERIAL = ExtResource("4_mi7y0")
 [node name="CollisionShape3D" parent="PizzaDropoffPoint" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, -4)
 shape = SubResource("BoxShape3D_o7l0u")
+
+[node name="MinimapMesh" type="Node3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="MeshInstance3D1" type="MeshInstance3D" parent="MinimapMesh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.666, -6.5)
+layers = 32
+cast_shadow = 0
+gi_mode = 0
+mesh = SubResource("PlaneMesh_fw8iy")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MinimapMesh" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.666, -9)
+layers = 32
+cast_shadow = 0
+gi_mode = 0
+mesh = SubResource("PlaneMesh_syh10")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MinimapMesh" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.666, -4)
+layers = 32
+cast_shadow = 0
+gi_mode = 0
+mesh = SubResource("CylinderMesh_3diy0")
 
 [connection signal="visibility_changed" from="CutoutBase" to="CutoutBase" method="_on_visibility_changed"]
 

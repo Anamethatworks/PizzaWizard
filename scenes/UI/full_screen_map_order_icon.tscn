@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf6sj0k2b8dy3"]
+
+[ext_resource type="Texture2D" uid="uid://l24n4jctqevx" path="res://assets/sprites/DeliveryIcon2.png" id="1_65tov"]
+
+[node name="Order" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+mouse_filter = 2
+texture = ExtResource("1_65tov")
+stretch_mode = 2

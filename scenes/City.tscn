@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://q048x2ygyw7n"]
+[gd_scene load_steps=19 format=3 uid="uid://c0achulqgblik"]
 
 [ext_resource type="Script" uid="uid://dta3jlukygjep" path="res://scripts/temp_zone.gd" id="1_na6vi"]
 [ext_resource type="Texture2D" uid="uid://x86ejv2g0gmr" path="res://assets/textures/pictures-of-a-checker-board-unique-8-best-of-free-printable-checkerboard-pattern-of-pictures-of-a-checker-board.jpg" id="2_xa6vl"]

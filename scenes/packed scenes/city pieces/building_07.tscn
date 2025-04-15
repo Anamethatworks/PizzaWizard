@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://baceer8t705ij"]
+[gd_scene load_steps=12 format=3 uid="uid://baceer8t705ij"]
 
 [ext_resource type="PackedScene" uid="uid://c4midl5g687vu" path="res://assets/models/Building07.fbx" id="1_3aj8p"]
 [ext_resource type="Material" uid="uid://khg70ty38gqb" path="res://assets/materials/cutout materials/building7cutout.tres" id="2_n6kdi"]
 [ext_resource type="Material" uid="uid://cf4nix8fm5hw0" path="res://assets/materials/cutout materials/cutout_base.tres" id="2_wch5r"]
-[ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed_scenes/pizza_dropoff_point.tscn" id="3_juv5f"]
-[ext_resource type="Script" uid="uid://dg726gkyii7pl" path="res://building.gd" id="3_qnhs7"]
+[ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="3_juv5f"]
+[ext_resource type="Script" path="res://scripts/building.gd" id="3_qnhs7"]
 [ext_resource type="Material" uid="uid://s35pa42onvqk" path="res://assets/materials/glow materials/building7glow.tres" id="4_ewmcp"]
+[ext_resource type="Material" uid="uid://b5mlm40mh34pl" path="res://assets/materials/minimap materials/minimap_building.tres" id="7_rsogf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qnhs7"]
 size = Vector3(14.961, 1, 15.419)
@@ -15,6 +16,10 @@ size = Vector3(15, 8.19519, 15.419)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8gonc"]
 size = Vector3(15, 5, 6)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ebldr"]
+material = ExtResource("7_rsogf")
+size = Vector2(15, 15.419)
 
 [node name="Building07" instance=ExtResource("1_3aj8p")]
 
@@ -31,7 +36,6 @@ mesh = SubResource("BoxMesh_qnhs7")
 surface_material_override/0 = ExtResource("2_wch5r")
 script = ExtResource("3_qnhs7")
 CUTOUT_MATERIAL = ExtResource("2_n6kdi")
-metadata/_custom_type_script = "uid://dg726gkyii7pl"
 
 [node name="Pizza" parent="." index="2"]
 visible = false
@@ -52,5 +56,15 @@ GLOWY_MATERIAL = ExtResource("4_ewmcp")
 [node name="CollisionShape3D" parent="PizzaDropoffPoint" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.057, 0.627, 3)
 shape = SubResource("BoxShape3D_8gonc")
+
+[node name="MinimapMesh" type="Node3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MinimapMesh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0.333, -6.5)
+layers = 32
+cast_shadow = 0
+gi_mode = 0
+mesh = SubResource("PlaneMesh_ebldr")
 
 [editable path="PizzaDropoffPoint"]
