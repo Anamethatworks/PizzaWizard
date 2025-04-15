@@ -1,19 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://dik1wyeffkyac"]
 
-<<<<<<< HEAD:scenes/UI/test_ui.tscn
 [ext_resource type="Script" uid="uid://l7pptkcybulm" path="res://scripts/ui_manager.gd" id="1_up2am"]
 [ext_resource type="Texture2D" uid="uid://cfekqwirwux2p" path="res://assets/sprites/MoneyIcon2.png" id="2_trx7p"]
 [ext_resource type="Texture2D" uid="uid://bravp6wkudwmb" path="res://assets/sprites/TempIcon2.png" id="4_8g4s1"]
 [ext_resource type="PackedScene" uid="uid://r0oplirhhvxh" path="res://scenes/UI/order_control.tscn" id="5_dm4gx"]
 [ext_resource type="Theme" uid="uid://c5scxoi4o1rve" path="res://assets/UI themes/small_UI.tres" id="5_trx7p"]
 [ext_resource type="Texture2D" uid="uid://jxhtcatk6net" path="res://assets/sprites/TimeIcon.png" id="5_x5vqk"]
-=======
-[ext_resource type="Script" uid="uid://l7pptkcybulm" path="res://scripts/ui_manager.gd" id="1_cbekv"]
-[ext_resource type="Texture2D" uid="uid://cfekqwirwux2p" path="res://assets/sprites/MoneyIcon2.png" id="2_rp4mp"]
-[ext_resource type="SystemFont" uid="uid://wj6i27fp2c8k" path="res://assets/fonts/ui_font.tres" id="3_vsdgi"]
-[ext_resource type="Texture2D" uid="uid://bravp6wkudwmb" path="res://assets/sprites/TempIcon2.png" id="4_a1wdi"]
-[ext_resource type="PackedScene" uid="uid://r0oplirhhvxh" path="res://scenes/packed scenes/order_control.tscn" id="5_omk2h"]
->>>>>>> DriverImprovements:scenes/packed scenes/test_ui.tscn
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4urmr"]
 bg_color = Color(0.329158, 0.329158, 0.329158, 0)

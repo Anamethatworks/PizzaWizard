@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://sdwi1jy6v0wg" path="res://assets/models/Building02.fbx" id="1_hovy6"]
 [ext_resource type="Material" uid="uid://yaleemyfovwf" path="res://assets/materials/Building02Mat.tres" id="2_uddia"]
-[ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed_scenes/pizza_dropoff_point.tscn" id="3_3qu1y"]
+[ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="3_3qu1y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j84uc"]
 size = Vector3(20.08, 5.15063, 15.1341)

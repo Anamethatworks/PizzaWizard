@@ -67,15 +67,8 @@ func _on_body_entered(body: Node3D) -> void:
 		deliver_pizza()
 		var minimap_node = $"../../../MiniMap"
 		var ui_manager = $"../../../UIPanel/UIManager"
-<<<<<<< HEAD
 		minimap_node.call_deferred("remove_delivery_icon", (global_position))
 		ui_manager.call_deferred("remove_order_ticket", (global_position))
-=======
-		if minimap_node != null:
-			minimap_node.call("remove_delivery_icon", (global_position))
-		if ui_manager != null:
-			ui_manager.call("remove_order_ticket", (global_position))
->>>>>>> DriverImprovements
 		end_dropoff_effects()
 
 ## Initializes particles to be the same size and position as the collision for the dropoff point

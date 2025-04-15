@@ -2,11 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cmnf2h8vpy44g" path="res://scripts/car.gd" id="1_fbag5"]
 [ext_resource type="Script" uid="uid://b5q0diqknja6w" path="res://scripts/camera_rig.gd" id="2_i16p3"]
-<<<<<<< HEAD
-[ext_resource type="Script" path="res://scripts/delivery_assist.gd" id="2_ndgut"]
-=======
 [ext_resource type="Script" uid="uid://dqkif74ok2oas" path="res://scripts/delivery_assist.gd" id="2_ndgut"]
->>>>>>> DriverImprovements
 [ext_resource type="PackedScene" uid="uid://rirv5cogtbwj" path="res://assets/models/Car_Body.fbx" id="4_6eeew"]
 [ext_resource type="Script" uid="uid://ytdeter15ui5" path="res://scripts/overcomplicated_wheel.gd" id="4_hmo0v"]
 [ext_resource type="AudioStream" uid="uid://cy3xjtyw8u101" path="res://assets/Sounds/EngineStart.wav" id="5_huam1"]
@@ -18,13 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://bkw2pmkh6utyr" path="res://assets/models/RL_Wheel.fbx" id="8_r2qhb"]
 [ext_resource type="PackedScene" uid="uid://b4odq7vhsv4il" path="res://assets/models/FL_Wheel.fbx" id="9_i0731"]
 [ext_resource type="AudioStream" uid="uid://c813uqslyvsuo" path="res://assets/Sounds/Crash.wav" id="9_qv3xj"]
-<<<<<<< HEAD
-[ext_resource type="Script" path="res://scripts/temp_manager.gd" id="15_o3ua6"]
 [ext_resource type="Script" path="res://scripts/caster.gd" id="16_fhh5b"]
 [ext_resource type="PackedScene" uid="uid://b1w2r3gd8lpu3" path="res://scenes/packed scenes/test_magic_ui.tscn" id="17_0qy3g"]
-=======
 [ext_resource type="Script" uid="uid://b18b8q0sj0f2f" path="res://scripts/temp_manager.gd" id="15_o3ua6"]
->>>>>>> DriverImprovements
 
 [sub_resource type="PrismMesh" id="PrismMesh_doc81"]
 

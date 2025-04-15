@@ -4,7 +4,7 @@ class_name FireballSpell
 func _init(pow : float) -> void:
 	var name = "Fireball"
 	var cost = pow * 0.8
-	spell_scene = preload("res://scenes/packed scenes/spell effects/fireball.tscn")
+	spell_scene = preload("res://scenes/packed scenes/spell_effects/fireball.tscn")
 	super._init(cost, pow, name, "Creates a ball of fire that clears the road ahead.")
 
 func cast(caster : Node3D) -> void:

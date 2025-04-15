@@ -1,12 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://du3wod3c5ekak"]
 
-<<<<<<< HEAD
-[ext_resource type="Script" uid="uid://ctoh7jagx1qst" path="res://scripts/main_menu_manager.gd" id="1_10g8r"]
-[ext_resource type="Script" path="res://scripts/black_fade_manager.gd" id="2_1uxg3"]
-=======
 [ext_resource type="Script" uid="uid://dcooqdskjfd57" path="res://scripts/main_menu_manager.gd" id="1_10g8r"]
 [ext_resource type="Script" uid="uid://e310e368jt5p" path="res://scripts/black_fade_manager.gd" id="2_1uxg3"]
->>>>>>> DriverImprovements
 
 [sub_resource type="Animation" id="Animation_y71wv"]
 resource_name = "MenuFadeIn"

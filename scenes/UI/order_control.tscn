@@ -1,18 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://r0oplirhhvxh"]
 
-<<<<<<< HEAD:scenes/UI/order_control.tscn
 [ext_resource type="Script" uid="uid://2tupobja7t02" path="res://scripts/order_ui.gd" id="1_hkunr"]
 [ext_resource type="Texture2D" uid="uid://cdwf7s0fpak0a" path="res://assets/sprites/OrderTicket.png" id="2_sse1d"]
 [ext_resource type="Texture2D" uid="uid://dl8ipv8rjrtdp" path="res://assets/sprites/TempIcon.png" id="3_4dp5d"]
 [ext_resource type="Texture2D" uid="uid://vfgcfrgtafw2" path="res://assets/sprites/ParIcon.png" id="4_wkf8i"]
 [ext_resource type="Texture2D" uid="uid://jxhtcatk6net" path="res://assets/sprites/TimeIcon.png" id="5_jlskc"]
-=======
-[ext_resource type="Script" uid="uid://ijmn5py8nlok" path="res://scripts/order_ui.gd" id="1_inek1"]
-[ext_resource type="Texture2D" uid="uid://cdwf7s0fpak0a" path="res://assets/sprites/OrderTicket.png" id="1_x7rif"]
-[ext_resource type="Texture2D" uid="uid://dl8ipv8rjrtdp" path="res://assets/sprites/TempIcon.png" id="2_lr700"]
-[ext_resource type="Texture2D" uid="uid://vfgcfrgtafw2" path="res://assets/sprites/ParIcon.png" id="3_3bogj"]
-[ext_resource type="Texture2D" uid="uid://jxhtcatk6net" path="res://assets/sprites/TimeIcon.png" id="4_yahwv"]
->>>>>>> DriverImprovements:scenes/packed scenes/order_control.tscn
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u15v1"]
 texture = ExtResource("2_sse1d")
