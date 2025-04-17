@@ -29,6 +29,7 @@ func _on_start_game_pressed() -> void:
 	quit_button.visible = false
 
 func populate_menu_elements() -> void:
+	Music.begin_menu_playback()
 	var elements = menu_elements.instantiate()
 	get_tree().root.get_child(0).add_child(elements)
 	start_button = $"MenuElements/StartGame"

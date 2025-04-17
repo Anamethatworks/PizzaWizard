@@ -20,7 +20,6 @@ func _ready() -> void:
 	else:
 		singleton = self
 		audio_player = $AudioStreamPlayer
-		begin_menu_playback()
 
 func _process(delta: float) -> void:
 	match mode:

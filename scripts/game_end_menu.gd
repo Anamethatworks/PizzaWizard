@@ -44,6 +44,7 @@ func _on_back_to_menu_pressed() -> void:
 	black_fade.call("PauseFadeIn", $"../PauseMenu")
 	toMenuButton.disabled = true
 	quitButton.disabled = true
+	Music.stop_gameplay_playback()
 
 ## Sets the button with the name [param button]'s hovered state to [param state]
 func _button_set_hover(button: StringName, state: bool) -> void:

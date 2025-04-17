@@ -19,7 +19,7 @@ var order_cooldown: float = 0.0
 const ORDER_COOLDOWN_DURATION: float = 30.0
 
 ## The amount the distance between the pizzeria and the destination effects par time
-const PAR_DISTANCE_MULTIPLIER: float = 0.5
+const PAR_DISTANCE_MULTIPLIER: float = 0.2
 
 ## A timer for how long the order has been waiting
 var time_since_order: float = 0.0
