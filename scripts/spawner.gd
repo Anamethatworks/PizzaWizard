@@ -25,9 +25,10 @@ func _process(delta: float) -> void:
 		CloseList = CalcCloseList()
 		var currentSpawner = CloseList[randi()%CloseList.size()]
 		var ChildList = currentSpawner.get_children()
-		for j in ChildList:
-			if currentSpawner.global_position.distance_to(j.global_position) < 10 and j.is_in_group("VisChkr") == false:
-				DistanceChk = false
+		#for j in ChildList:
+			#if currentSpawner.global_position.distance_to(j.global_position) < 5 and j.is_in_group("VisChkr") == false:
+				#pass
+				#DistanceChk = false
 		if DistanceChk == true:
 			var instance = Driver.instantiate()
 			currentSpawner.add_child(instance)
