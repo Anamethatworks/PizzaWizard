@@ -2380,7 +2380,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.7976, 0, 2.64462)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.364, 0, 4.64395)
 
 [node name="FullScreenMap" parent="." instance=ExtResource("34_fxwx2")]
-modulate = Color(1, 1, 1, 0.74902)
 size_flags_vertical = 3
 
 [connection signal="visibility_changed" from="Buildings/Building113/CutoutBase" to="Buildings/Building113/CutoutBase" method="_on_visibility_changed"]

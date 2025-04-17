@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://du3wod3c5ekak"]
+[gd_scene load_steps=9 format=3 uid="uid://du3wod3c5ekak"]
 
-[ext_resource type="Script" uid="uid://ctoh7jagx1qst" path="res://scripts/main_menu_manager.gd" id="1_10g8r"]
-[ext_resource type="Script" uid="uid://b8f4mjlmra1o2" path="res://scripts/black_fade_manager.gd" id="2_1uxg3"]
+[ext_resource type="Script" path="res://scripts/main_menu_manager.gd" id="1_10g8r"]
+[ext_resource type="Script" uid="uid://e310e368jt5p" path="res://scripts/black_fade_manager.gd" id="2_1uxg3"]
+[ext_resource type="PackedScene" uid="uid://cn38v53tff5mo" path="res://scenes/packed scenes/music_controller.tscn" id="3_2wh52"]
 
 [sub_resource type="Animation" id="Animation_y71wv"]
 resource_name = "MenuFadeIn"
@@ -59,6 +60,8 @@ bg_color = Color(0, 0, 0, 0)
 
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_10g8r")
+
+[node name="MusicController" parent="." instance=ExtResource("3_2wh52")]
 
 [node name="BlackFade" type="Node" parent="."]
 script = ExtResource("2_1uxg3")

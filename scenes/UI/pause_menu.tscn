@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bty8kpmn8dl28"]
 
 [ext_resource type="Script" uid="uid://bte8oyid5sgwi" path="res://scripts/pause_menu_manager.gd" id="1_1jxsv"]
-[ext_resource type="Texture2D" uid="uid://dv07v7cj32eah" path="res://assets/sprites/TitleDarkBG.png" id="1_p01r6"]
+[ext_resource type="Texture2D" uid="uid://b0gw48p5l7pl4" path="res://assets/sprites/TitleDarkBG.png" id="1_p01r6"]
 [ext_resource type="Theme" uid="uid://mxtkyouf7edq" path="res://assets/UI themes/pause_menu_big.tres" id="2_mko1u"]
 [ext_resource type="Theme" uid="uid://cqwim0eqpba2u" path="res://assets/UI themes/pause_menu.tres" id="4_feath"]
 
@@ -247,9 +247,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -250.0
-offset_top = -1140.0
+offset_top = -300.0
 offset_right = 250.0
-offset_bottom = -980.0
+offset_bottom = -140.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_mko1u")
@@ -281,9 +281,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -94.0
-offset_top = 860.002
+offset_top = -140.0
 offset_right = 66.0
-offset_bottom = 892.002
+offset_bottom = -108.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -313,9 +313,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -44.0
-offset_top = 859.988
+offset_top = -12.0
 offset_right = 66.0
-offset_bottom = 891.988
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -346,9 +346,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -94.0
-offset_top = 860.002
+offset_top = -76.0
 offset_right = 66.0
-offset_bottom = 892.002
+offset_bottom = -44.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
