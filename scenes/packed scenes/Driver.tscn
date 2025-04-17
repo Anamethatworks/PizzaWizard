@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://deteprrsdove7" path="res://assets/materials/minimap materials/minimap_NPC_car.tres" id="4_qu3jo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_710fw"]
-size = Vector3(4.533, 0.854401, 1.425)
+size = Vector3(4.533, 1.09139, 1.425)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u523y"]
 albedo_texture = ExtResource("3_rp5g6")
@@ -25,7 +25,7 @@ safe_margin = 0.01
 script = ExtResource("1_xlabq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CrashType/CharacterBody3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.000826231, 0.422428, 0.506245)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.000826231, 0.54092, 0.506245)
 shape = SubResource("BoxShape3D_710fw")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="CrashType/CharacterBody3D"]
