@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://cts6qi2167n5k"]
+
+[ext_resource type="PackedScene" uid="uid://brpl447ruy047" path="res://assets/models/MagicShop.fbx" id="1_476bj"]
+[ext_resource type="Material" uid="uid://dy7p661okmyhg" path="res://assets/materials/MagicshopBookMat.tres" id="2_3wvog"]
+[ext_resource type="Material" uid="uid://dlso5fnmv32v3" path="res://assets/materials/MagicshopLotMat.tres" id="3_oa2c8"]
+[ext_resource type="Material" uid="uid://dmmp5wil8pyyn" path="res://assets/materials/MagicshopBuildingMat.tres" id="4_t0cpo"]
+
+[node name="MagicShop" instance=ExtResource("1_476bj")]
+
+[node name="Spellbook" parent="." index="0"]
+material_override = ExtResource("2_3wvog")
+
+[node name="MagicShopLot" parent="." index="1"]
+material_override = ExtResource("3_oa2c8")
+
+[node name="MagicShop" parent="." index="2"]
+material_override = ExtResource("4_t0cpo")

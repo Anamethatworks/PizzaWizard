@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d0nnidtda7ews"]
+
+[ext_resource type="Texture2D" uid="uid://cb51om8ka8jou" path="res://assets/textures/ManaStationPump.png" id="1_ubfua"]
+
+[resource]
+albedo_texture = ExtResource("1_ubfua")
+albedo_texture_force_srgb = true

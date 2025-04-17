@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://brgg6dxvq4hsc"]
+
+[ext_resource type="PackedScene" uid="uid://u02m4ya6smna" path="res://assets/models/ManaStation.fbx" id="1_kbcc1"]
+[ext_resource type="Material" uid="uid://c66m7f43thbgc" path="res://assets/materials/ManastationLotMat.tres" id="2_f1hln"]
+[ext_resource type="Material" uid="uid://dtcxnyadfhm0k" path="res://assets/materials/ManastationBuildingMat.tres" id="3_qiwvh"]
+[ext_resource type="Material" uid="uid://bkjdibm3x1jon" path="res://assets/materials/ManastationACMat.tres" id="4_lhggg"]
+[ext_resource type="Material" uid="uid://b88advwuc3ohf" path="res://assets/materials/ManastationDumpsterMat.tres" id="5_ppcbk"]
+[ext_resource type="Material" uid="uid://n5a0mt14wqik" path="res://assets/materials/ManastationCanMat.tres" id="6_ppqbs"]
+[ext_resource type="Material" uid="uid://d0nnidtda7ews" path="res://assets/materials/ManastationPumpMat.tres" id="7_e1gyd"]
+
+[node name="ManaStation" instance=ExtResource("1_kbcc1")]
+
+[node name="Building09Lot" parent="." index="0"]
+material_override = ExtResource("2_f1hln")
+
+[node name="Building09" parent="." index="1"]
+material_override = ExtResource("3_qiwvh")
+
+[node name="AC" parent="." index="2"]
+material_override = ExtResource("4_lhggg")
+
+[node name="Dumpster" parent="." index="3"]
+material_override = ExtResource("5_ppcbk")
+
+[node name="GarbageCan1" parent="." index="4"]
+material_override = ExtResource("6_ppqbs")
+
+[node name="Pump1" parent="." index="5"]
+material_override = ExtResource("7_e1gyd")
+
+[node name="Pump1_001" parent="." index="6"]
+material_override = ExtResource("7_e1gyd")
+
+[node name="GarbageCan1_001" parent="." index="7"]
+material_override = ExtResource("6_ppqbs")
