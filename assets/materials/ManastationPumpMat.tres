@@ -3,5 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cb51om8ka8jou" path="res://assets/textures/ManaStationPump.png" id="1_ubfua"]
 
 [resource]
+albedo_color = Color(0.509286, 0.509286, 0.509286, 1)
 albedo_texture = ExtResource("1_ubfua")
 albedo_texture_force_srgb = true

@@ -3,4 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://o6c52o8jo8b2" path="res://assets/textures/ManaStationDumpster.png" id="1_0806o"]
 
 [resource]
+albedo_color = Color(0.450648, 0.450648, 0.450648, 1)
 albedo_texture = ExtResource("1_0806o")
