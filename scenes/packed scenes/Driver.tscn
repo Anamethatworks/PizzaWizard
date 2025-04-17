@@ -1,20 +1,53 @@
-[gd_scene load_steps=8 format=3 uid="uid://clvoyyu7amkfi"]
+[gd_scene load_steps=10 format=3 uid="uid://clvoyyu7amkfi"]
 
-[ext_resource type="Script" uid="uid://r216h0x73opj" path="res://scripts/NPCdriving.gd" id="1_xlabq"]
-[ext_resource type="PackedScene" uid="uid://bsfkuxorstsjt" path="res://assets/models/Car_09.fbx" id="2_fbvrd"]
-[ext_resource type="Texture2D" uid="uid://b30ohntms38r8" path="res://assets/textures/CarTexture7.png" id="3_rp5g6"]
-[ext_resource type="Material" uid="uid://deteprrsdove7" path="res://assets/materials/minimap materials/minimap_NPC_car.tres" id="4_qu3jo"]
+[ext_resource type="Script" uid="uid://r216h0x73opj" path="res://scripts/NPCdriving.gd" id="1_bhx5n"]
+[ext_resource type="PackedScene" uid="uid://bsfkuxorstsjt" path="res://assets/models/Car_09.fbx" id="2_yvkgg"]
+[ext_resource type="Texture2D" uid="uid://b30ohntms38r8" path="res://assets/textures/CarTexture7.png" id="3_risns"]
+
+[sub_resource type="Animation" id="Animation_3qbfa"]
+resource_name = "DriverDeath"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D/Car_10:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.33, 1.66, 2, 2.25, 2.5, 2.75, 3, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false, false]
+}
+
+[sub_resource type="Animation" id="Animation_qu3jo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D/Car_10:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ma12x"]
+_data = {
+&"DriverDeath": SubResource("Animation_3qbfa"),
+&"RESET": SubResource("Animation_qu3jo")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_710fw"]
-size = Vector3(4.533, 1.09139, 1.425)
+size = Vector3(5.073, 1.586, 1.68)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u523y"]
-albedo_texture = ExtResource("3_rp5g6")
+albedo_texture = ExtResource("3_risns")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ma12x"]
-material = ExtResource("4_qu3jo")
-size = Vector2(1.68, 5.073)
-center_offset = Vector3(-0.001, 0, 0.506)
+[sub_resource type="BoxMesh" id="BoxMesh_trytk"]
 
 [node name="Driver" type="Node3D"]
 
@@ -22,11 +55,28 @@ center_offset = Vector3(-0.001, 0, 0.506)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="CrashType"]
 safe_margin = 0.01
-script = ExtResource("1_xlabq")
+script = ExtResource("1_bhx5n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CrashType/CharacterBody3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_ma12x")
+}
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CrashType/CharacterBody3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.000826231, 0.54092, 0.506245)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.000826231, 0.788227, 0.506245)
 shape = SubResource("BoxShape3D_710fw")
+
+[node name="Car_10" parent="CrashType/CharacterBody3D/CollisionShape3D" instance=ExtResource("2_yvkgg")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0.506245, -0.92499, 0.000826253)
+visible = false
+
+[node name="Car" parent="CrashType/CharacterBody3D/CollisionShape3D/Car_10" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_u523y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CrashType/CharacterBody3D/CollisionShape3D"]
+visible = false
+mesh = SubResource("BoxMesh_trytk")
+skeleton = NodePath("")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="CrashType/CharacterBody3D"]
 simplify_path = true
@@ -36,18 +86,6 @@ neighbor_distance = 10.0
 max_neighbors = 8
 max_speed = 15.0
 
-[node name="Car_10" parent="CrashType/CharacterBody3D" instance=ExtResource("2_fbvrd")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.16415e-10, -0.136763, 0)
+[connection signal="animation_finished" from="CrashType/CharacterBody3D/AnimationPlayer" to="CrashType/CharacterBody3D" method="_on_animation_player_animation_finished"]
 
-[node name="Car" parent="CrashType/CharacterBody3D/Car_10" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_u523y")
-
-[node name="Minimap_NPC_Model" type="MeshInstance3D" parent="CrashType/CharacterBody3D/Car_10"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.08868e-18, 0.136763, 1.16415e-10)
-layers = 64
-cast_shadow = 0
-gi_mode = 0
-mesh = SubResource("PlaneMesh_ma12x")
-skeleton = NodePath("../../../..")
-
-[editable path="CrashType/CharacterBody3D/Car_10"]
+[editable path="CrashType/CharacterBody3D/CollisionShape3D/Car_10"]

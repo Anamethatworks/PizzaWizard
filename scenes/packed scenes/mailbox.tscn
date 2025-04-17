@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://j6cqxwx5ktru"]
 
 [ext_resource type="PackedScene" uid="uid://ch8t67vv0iclv" path="res://assets/models/Mailbox.fbx" id="1_dqknw"]
-[ext_resource type="Script" uid="uid://caqxdv5tug4ds" path="res://scripts/destructible_object.gd" id="1_tt1kb"]
+[ext_resource type="Script" path="res://scripts/destructible_object.gd" id="1_tt1kb"]
 [ext_resource type="PackedScene" uid="uid://d1yabgygipvum" path="res://assets/models/MailboxBroken.fbx" id="2_7ulgj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1c16q"]
@@ -129,7 +129,7 @@ shape = SubResource("BoxShape3D_1c16q")
 
 [node name="DestructAnim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_on2p8")
+&"": SubResource("AnimationLibrary_on2p8")
 }
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]

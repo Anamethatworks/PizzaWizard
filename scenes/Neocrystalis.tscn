@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dcbjpccwwv7y2" path="res://scenes/packed scenes/city pieces/building_08.tscn" id="17_rji14"]
 [ext_resource type="Material" uid="uid://cf4nix8fm5hw0" path="res://assets/materials/cutout materials/cutout_base.tres" id="18_2lhnr"]
 [ext_resource type="PackedScene" uid="uid://baceer8t705ij" path="res://scenes/packed scenes/city pieces/building_07.tscn" id="18_oaxa0"]
-[ext_resource type="Script" uid="uid://dg726gkyii7pl" path="res://scripts/building.gd" id="19_8sf7o"]
+[ext_resource type="Script" path="res://building.gd" id="19_8sf7o"]
 [ext_resource type="PackedScene" uid="uid://dqmn40hjq2om6" path="res://scenes/packed scenes/city pieces/alley_01.tscn" id="19_igrev"]
 [ext_resource type="PackedScene" uid="uid://eojp7lcevpq5" path="res://scenes/packed scenes/city pieces/alley_02.tscn" id="20_27h6u"]
 [ext_resource type="Material" uid="uid://ba4tmwwop2wo5" path="res://assets/materials/cutout materials/building8cutout.tres" id="20_g6fg7"]
