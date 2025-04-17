@@ -31,8 +31,14 @@ func _ready() -> void:
 
 ## Calculates par time for travel between two points
 static func calculate_par_time(hither : Vector3, yon : Vector3) -> float:
-	var distance = hither.distance_to(yon)
+	var distance = manhattan_distance(hither, yon)
 	return distance * PAR_DISTANCE_MULTIPLIER
+
+static func manhattan_distance(v1: Vector3, v2: Vector3) -> float:
+	return absf(v1.x - v2.x) + absf(v1.y - v2.y) + absf(v1.z - v2.z)
+
+
+
 
 ## Adds a new order at this location (if possible). Returns [code]current_order[/code] if successful, [code]null[/code] otherwise
 func add_order() -> Order:
