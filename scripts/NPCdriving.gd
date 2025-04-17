@@ -12,7 +12,7 @@ var LastDistance = Vector3(0,0,0)
 
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 @onready var targets = get_tree().get_nodes_in_group("Targets")
-@onready var Player = get_tree().get_nodes_in_group("Player")[0]
+@onready var player = get_tree().get_nodes_in_group("Player")[0]
 var currentTarget
 
 # Called when the node enters the scene tree for the first time.
@@ -55,19 +55,19 @@ func ClosestTargets():
 		if fstClose == null:
 			fstClose = i 
 		else:
-			if (Player.position.distance_to(i.position) < Player.position.distance_to(fstClose.position)):
+			if (player.position.distance_to(i.position) < player.position.distance_to(fstClose.position)):
 				fstClose = i 
 			else:
 				if SndClose == null:
 					SndClose = i
 				else:
-					if (Player.position.distance_to(i.position) < Player.position.distance_to(SndClose.position)):
+					if (player.position.distance_to(i.position) < player.position.distance_to(SndClose.position)):
 						SndClose = i
 					else:
 						if TrdClose == null:
 							TrdClose = i
 						else:
-							if (Player.position.distance_to(i.position) < Player.position.distance_to(TrdClose.position)):
+							if (player.position.distance_to(i.position) < player.position.distance_to(TrdClose.position)):
 								TrdClose = i
 	ClosList = [fstClose, SndClose, TrdClose]
 	

@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 
 func _on_start_game_pressed() -> void:
 	black_fade.call("MenuFadeIn", (self))
+	Music.stop_menu_playback()
 	start_button.visible = false
 	quit_button.visible = false
 
@@ -46,7 +47,8 @@ func menu_fade_in_finished() -> void:
 	DeliveryManager.clear_orders()
 	get_tree().root.add_child(city_scene)
 	black_fade.call("MenuFadeOut")
-	get_tree().root.get_child(0).remove_child(get_tree().root.get_child(0).get_child(1))
+	get_tree().root.get_child(0).remove_child(get_tree().root.get_child(0).get_node("MenuElements"))
+	Music.begin_gameplay_playback()
 
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()
