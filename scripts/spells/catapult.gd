@@ -9,7 +9,7 @@ func _init(pow : float) -> void:
 func is_valid_casting(caster : Node3D) -> bool:
 	var mana_valid : bool = super.is_valid_casting(caster)
 	var player : Player = caster.get_parent_node_3d()
-	return mana_valid and player.is_any_tire_on_ground() # or player is stationary
+	return mana_valid and player.is_any_tire_on_ground()
 
 func cast(caster : Node3D) -> void:
 	super.cast(caster)
