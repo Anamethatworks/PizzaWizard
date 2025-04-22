@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://icwfmajg0vgg"]
+
+[ext_resource type="Script" uid="uid://dpq7jo3c2am48" path="res://scripts/refuel_station.gd" id="1_drebt"]
+[ext_resource type="Theme" uid="uid://c5scxoi4o1rve" path="res://assets/UI themes/small_UI.tres" id="2_kc4j7"]
+[ext_resource type="Script" uid="uid://burlm61ydxlrw" path="res://scripts/refuel_info_box.gd" id="3_kc4j7"]
+
+[node name="Manastation" type="Area3D"]
+script = ExtResource("1_drebt")
+metadata/_custom_type_script = "uid://fjitoi2kvmsw"
+
+[node name="Container" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = ExtResource("2_kc4j7")
+script = ExtResource("3_kc4j7")
+metadata/_custom_type_script = "uid://1bmlp22byya1"
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="RefuelCost" type="RichTextLabel" parent="Container/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Refuel Cost: [wave amp=25.0 freq=2.0 connected=1]%COST%[/wave]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RefuelDesc" type="RichTextLabel" parent="Container/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Refills your mana instantly "
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RefuelStatus" type="RichTextLabel" parent="Container/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Drive next to pumps and 
+press B to refuel!"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CooldownTimer" type="Timer" parent="Container"]
+process_callback = 0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Container/CooldownTimer" to="Container" method="_on_timer_timeout"]

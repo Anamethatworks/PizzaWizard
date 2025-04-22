@@ -3,5 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://ecqpfuabkwsy" path="res://assets/textures/ManaStationAC.png" id="1_va7df"]
 
 [resource]
+albedo_color = Color(0.47788, 0.47788, 0.47788, 1)
 albedo_texture = ExtResource("1_va7df")
 albedo_texture_force_srgb = true
