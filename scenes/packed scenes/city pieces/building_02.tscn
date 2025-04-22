@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://sdwi1jy6v0wg" path="res://assets/models/Building02.fbx" id="1_661pi"]
 [ext_resource type="Material" uid="uid://b3o6upgpxxjic" path="res://assets/materials/cutout materials/building2cutout.tres" id="2_mh5h3"]
 [ext_resource type="Material" uid="uid://cf4nix8fm5hw0" path="res://assets/materials/cutout materials/cutout_base.tres" id="2_mrg3u"]
-[ext_resource type="Script" path="res://scripts/building.gd" id="3_eew6e"]
+[ext_resource type="Script" uid="uid://dg726gkyii7pl" path="res://scripts/building.gd" id="3_eew6e"]
 [ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="3_tmob8"]
 [ext_resource type="Material" uid="uid://nf110agflkrn" path="res://assets/materials/glow materials/building2glow.tres" id="4_bxtue"]
 [ext_resource type="Material" uid="uid://b5mlm40mh34pl" path="res://assets/materials/minimap materials/minimap_building.tres" id="7_up844"]
@@ -48,7 +48,6 @@ shape = SubResource("BoxShape3D_j84uc")
 
 [node name="PizzaDropoffPoint" parent="." index="3" instance=ExtResource("3_tmob8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.382, -6.67655)
-visible = false
 GLOWY_MATERIAL = ExtResource("4_bxtue")
 
 [node name="CollisionShape3D" parent="PizzaDropoffPoint" index="0"]
