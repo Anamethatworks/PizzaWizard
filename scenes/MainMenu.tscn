@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/main_menu_manager.gd" id="1_10g8r"]
 [ext_resource type="Script" path="res://scripts/black_fade_manager.gd" id="2_1uxg3"]
-[ext_resource type="PackedScene" path="res://scenes/packed scenes/music_controller.tscn" id="3_2wh52"]
+[ext_resource type="PackedScene" uid="uid://cn38v53tff5mo" path="res://scenes/packed scenes/music_controller.tscn" id="3_2wh52"]
 
 [sub_resource type="Animation" id="Animation_y71wv"]
 resource_name = "MenuFadeIn"
