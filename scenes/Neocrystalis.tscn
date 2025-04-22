@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bty8kpmn8dl28" path="res://scenes/UI/pause_menu.tscn" id="2_yee5a"]
 [ext_resource type="Script" uid="uid://b18b8q0sj0f2f" path="res://scripts/temp_manager.gd" id="3_8renb"]
 [ext_resource type="PackedScene" uid="uid://cn3xuf41u7awb" path="res://scenes/packed scenes/city pieces/level_ground.tscn" id="4_lfvos"]
+[ext_resource type="Script" uid="uid://bpxhau1ipici" path="res://scripts/spawner.gd" id="5_d3ids"]
 [ext_resource type="PackedScene" uid="uid://brhx8i8tpofdj" path="res://scenes/packed scenes/city pieces/street_straight.tscn" id="5_g6pt7"]
 [ext_resource type="PackedScene" uid="uid://cqe1wp27m126b" path="res://scenes/packed scenes/city pieces/street_intersection.tscn" id="6_d016x"]
 [ext_resource type="PackedScene" uid="uid://ve1etr7vlfpc" path="res://scenes/packed scenes/city pieces/street_curved.tscn" id="7_4x4d4"]
@@ -35,7 +36,6 @@
 [ext_resource type="PackedScene" uid="uid://c1tp3jbp7b42p" path="res://scenes/packed scenes/city pieces/fence_4.tscn" id="26_0lcir"]
 [ext_resource type="PackedScene" uid="uid://bsh11aaltp0fu" path="res://scenes/UI/mini_map.tscn" id="26_8ak2p"]
 [ext_resource type="PackedScene" uid="uid://314l22f0ors8" path="res://scenes/packed scenes/city pieces/building_pizzeria.tscn" id="27_hm5x0"]
-[ext_resource type="PackedScene" uid="uid://clvoyyu7amkfi" path="res://scenes/packed scenes/Driver.tscn" id="29_qrldq"]
 [ext_resource type="PackedScene" uid="uid://j6cqxwx5ktru" path="res://scenes/packed scenes/mailbox.tscn" id="30_oe14n"]
 [ext_resource type="PackedScene" uid="uid://l4pno4gp2b20" path="res://scenes/packed scenes/stop_sign.tscn" id="31_6cqjw"]
 [ext_resource type="PackedScene" uid="uid://bhxv2v76sy5bu" path="res://scenes/UI/full_screen_map.tscn" id="34_fxwx2"]
@@ -134,6 +134,84 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.1
 
 [node name="TempManager2" type="Node" parent="Player"]
 script = ExtResource("3_8renb")
+
+[node name="SpawnManager" type="Node3D" parent="."]
+script = ExtResource("5_d3ids")
+
+[node name="SubSpawner" type="Node3D" parent="SpawnManager" groups=["Spawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.6261, 0, 0)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="SpawnManager/SubSpawner" groups=["VisChkr"]]
+
+[node name="SubSpawner3" type="Node3D" parent="SpawnManager" groups=["Spawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.5273, 0, 99.9271)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="SpawnManager/SubSpawner3" groups=["VisChkr"]]
+
+[node name="SubSpawner2" type="Node3D" parent="SpawnManager" groups=["Spawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.961, 0, 39.8976)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="SpawnManager/SubSpawner2" groups=["VisChkr"]]
+
+[node name="SubSpawner4" type="Node3D" parent="SpawnManager" groups=["Spawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.6254, 0, 79.7953)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="SpawnManager/SubSpawner4" groups=["VisChkr"]]
+
+[node name="SubSpawner5" type="Node3D" parent="SpawnManager" groups=["Spawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.1318, 0, -39.8976)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="SpawnManager/SubSpawner5" groups=["VisChkr"]]
+
+[node name="SubSpawner6" type="Node3D" parent="SpawnManager" groups=["Spawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.4292, 0, -60.7615)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="SpawnManager/SubSpawner6" groups=["VisChkr"]]
+
+[node name="SubSpawner7" type="Node3D" parent="SpawnManager" groups=["Spawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.7953, 0, 40.9957)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="SpawnManager/SubSpawner7" groups=["VisChkr"]]
+
+[node name="SubSpawner8" type="Node3D" parent="SpawnManager" groups=["Spawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.425, 0, -100.293)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="SpawnManager/SubSpawner8" groups=["VisChkr"]]
+
+[node name="SubSpawner9" type="Node3D" parent="SpawnManager" groups=["Spawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.059, 0, 39.5316)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="SpawnManager/SubSpawner9" groups=["VisChkr"]]
+
+[node name="SubSpawner10" type="Node3D" parent="SpawnManager" groups=["Spawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.7658, 0, 0)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="SpawnManager/SubSpawner10" groups=["VisChkr"]]
+
+[node name="SubSpawner11" type="Node3D" parent="SpawnManager" groups=["Spawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.2447, 0, 140.191)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="SpawnManager/SubSpawner11" groups=["VisChkr"]]
+
+[node name="SubSpawner12" type="Node3D" parent="SpawnManager" groups=["Spawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.327, 0, 39.5316)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="SpawnManager/SubSpawner12" groups=["VisChkr"]]
+
+[node name="SubSpawner13" type="Node3D" parent="SpawnManager" groups=["Spawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.1318, 0, -68.4482)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="SpawnManager/SubSpawner13" groups=["VisChkr"]]
+
+[node name="SubSpawner14" type="Node3D" parent="SpawnManager" groups=["Spawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159.957, 0, 19.7658)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="SpawnManager/SubSpawner14" groups=["VisChkr"]]
+
+[node name="SubSpawner15" type="Node3D" parent="SpawnManager" groups=["Spawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.1613, 0, 65.1539)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="SpawnManager/SubSpawner15" groups=["VisChkr"]]
 
 [node name="GroundPlane" parent="." instance=ExtResource("4_lfvos")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -2107,233 +2185,6 @@ transform = Transform3D(1.32, 0, 0, 0, 1, 0, 0, 0, 0.5, 2.58208, 0, -12.5444)
 
 [node name="MiniMap" parent="." instance=ExtResource("26_8ak2p")]
 unique_name_in_owner = true
-
-[node name="Drivers" type="Node3D" parent="."]
-
-[node name="Driver" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6321, 0, 0.633241)
-
-[node name="Driver2" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7654, 0, 0.633241)
-
-[node name="Driver14" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7434, 0, 0.633241)
-
-[node name="Driver15" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8777, 0, 0.633241)
-
-[node name="Driver3" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7654, 0, -38.9503)
-
-[node name="Driver13" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7654, 0, -41.7478)
-
-[node name="Driver4" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8625, 0, -38.9503)
-
-[node name="Driver10" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1553, 0, -38.9503)
-
-[node name="Driver11" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1553, 0, -42.1088)
-
-[node name="Driver12" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.043, 0, -42.1088)
-
-[node name="Driver5" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8625, 0, 0.132187)
-
-[node name="Driver7" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3358, 0, 0.132187)
-
-[node name="Driver8" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3358, 0, 2.83943)
-
-[node name="Driver9" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9528, 0, 2.83943)
-
-[node name="Driver19" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8625, 0, 38.5127)
-
-[node name="Driver20" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3358, 0, 38.5127)
-
-[node name="Driver21" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3358, 0, 41.2199)
-
-[node name="Driver22" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9528, 0, 41.2199)
-
-[node name="Driver39" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5733, 0, 75.0906)
-
-[node name="Driver40" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0466, 0, 75.0906)
-
-[node name="Driver41" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0466, 0, 77.7979)
-
-[node name="Driver42" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.6636, 0, 77.7979)
-
-[node name="Driver43" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.319, 0, 80.3918)
-
-[node name="Driver44" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.793, 0, 80.3918)
-
-[node name="Driver45" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.793, 0, 83.099)
-
-[node name="Driver46" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.41, 0, 83.099)
-
-[node name="Driver47" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.0306, 0, 78.2713)
-
-[node name="Driver48" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.5038, 0, 78.2713)
-
-[node name="Driver49" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.5038, 0, 80.9785)
-
-[node name="Driver50" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.1208, 0, 80.9785)
-
-[node name="Driver51" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.7655, 0, 39.5729)
-
-[node name="Driver52" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.2387, 0, 39.5729)
-
-[node name="Driver53" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.2387, 0, 42.2802)
-
-[node name="Driver54" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.8558, 0, 42.2802)
-
-[node name="Driver55" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.729, 0, 39.5729)
-
-[node name="Driver56" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.202, 0, 39.5729)
-
-[node name="Driver57" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.202, 0, 42.2802)
-
-[node name="Driver58" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.819, 0, 42.2802)
-
-[node name="Driver59" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.7897, 0, -44.1852)
-
-[node name="Driver60" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.2629, 0, -44.1852)
-
-[node name="Driver61" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.2629, 0, -41.478)
-
-[node name="Driver62" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.8799, 0, -41.478)
-
-[node name="Driver63" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5975, 0, -100.642)
-
-[node name="Driver64" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0707, 0, -100.642)
-
-[node name="Driver65" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0707, 0, -97.9352)
-
-[node name="Driver66" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6877, 0, -97.9352)
-
-[node name="Driver67" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.7897, 0, -99.0521)
-
-[node name="Driver68" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.2629, 0, -99.0521)
-
-[node name="Driver69" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.2629, 0, -96.3448)
-
-[node name="Driver70" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.8799, 0, -96.3448)
-
-[node name="Driver71" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.799, 0, -60.3537)
-
-[node name="Driver72" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.3258, 0, -60.3537)
-
-[node name="Driver73" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.3258, 0, -57.6465)
-
-[node name="Driver74" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.7088, 0, -57.6465)
-
-[node name="Driver75" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.1887, 0, -100.293)
-
-[node name="Driver76" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.7154, 0, -100.293)
-
-[node name="Driver77" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.7154, 0, -97.5856)
-
-[node name="Driver78" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.0984, 0, -97.5856)
-
-[node name="Driver23" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.3125, 0, 38.5127)
-
-[node name="Driver24" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.8392, 0, 38.5127)
-
-[node name="Driver25" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.8392, 0, 41.2199)
-
-[node name="Driver26" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.2222, 0, 41.2199)
-
-[node name="Driver27" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.2775, 0, 38.5127)
-
-[node name="Driver28" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.8042, 0, 38.5127)
-
-[node name="Driver29" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.8042, 0, 41.2199)
-
-[node name="Driver30" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.1872, 0, 41.2199)
-
-[node name="Driver31" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.217, 0, 38.5127)
-
-[node name="Driver32" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.743, 0, 38.5127)
-
-[node name="Driver33" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.743, 0, 41.2199)
-
-[node name="Driver34" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.126, 0, 41.2199)
-
-[node name="Driver35" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.8878, 0, -0.0626335)
-
-[node name="Driver36" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.4146, 0, -0.0626335)
-
-[node name="Driver37" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.4146, 0, 2.64462)
-
-[node name="Driver38" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.7976, 0, 2.64462)
-
-[node name="Driver6" parent="Drivers" instance=ExtResource("29_qrldq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -118.364, 0, 4.64395)
 
 [node name="FullScreenMap" parent="." instance=ExtResource("34_fxwx2")]
 size_flags_vertical = 3

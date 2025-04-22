@@ -48,4 +48,10 @@ func dissipate():
 
 func _on_body_entered(body: Node) -> void:
 	# TODO: Knock cars off the road
-	dissipate()
+	if body.is_in_group("Driver"):
+		#print("test")
+		body.DeathCycle()
+		#pass
+	else:
+		#print(body)
+		dissipate()

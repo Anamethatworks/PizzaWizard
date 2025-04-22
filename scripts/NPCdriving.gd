@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 			var Coll = self.get_slide_collision((get_slide_collision_count() - 1))
 			if Coll != null:
 				if Coll.get_collider(0).is_in_group("Player"):
-					DeathCycle()
+					#DeathCycle()
 					self.velocity = Coll.get_collider_velocity()    #get_collider(0).GetNormal()
 					self.velocity *= 2
 					self.velocity.rotated(Vector3(0,1,0), deg_to_rad(randi_range(-20, 20)))
@@ -87,6 +87,7 @@ func ClosestTargets():
 	
 func DeathCycle():
 	#AiOn = false
+	#print("test")
 	Stuntimer = -10
 	self.get_child(0).play("DriverDeath")
 
