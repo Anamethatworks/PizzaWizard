@@ -36,9 +36,12 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause") and not TimeManager.out_of_time:
 		if !pause_active:
 			mask_anim.play("FadeInPauseMenu")
+			set_buttons_visible()
 			get_tree().paused = true
+			
 		else:
 			mask_anim.play("FadeOutPauseMenu")
+			set_buttons_invisible()
 			get_tree().paused = false
 		pause_active = !pause_active
 
@@ -58,6 +61,16 @@ func pause_fade_in_finished() -> void:
 	get_tree().root.get_child(1).queue_free()
 	#get_tree().root.remove_child(get_tree().root.get_child((1)))
 	black_fade.call("MenuFadeOut")
+
+func set_buttons_visible() -> void:
+	cont_button.set_visible(true)
+	menu_button.set_visible(true)
+	quit_button.set_visible(true)
+
+func set_buttons_invisible() -> void:
+	cont_button.set_visible(false)
+	menu_button.set_visible(false)
+	quit_button.set_visible(false)
 
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()

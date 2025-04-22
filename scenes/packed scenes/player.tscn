@@ -156,6 +156,13 @@ mana_bar = NodePath("MagicUI/ManaBar")
 spell_display_panel = NodePath("MagicUI/SpellPanel")
 
 [node name="MagicUI" parent="Caster" instance=ExtResource("17_0qy3g")]
+mouse_filter = 2
+
+[node name="ManaBar" parent="Caster/MagicUI" index="0"]
+mouse_filter = 1
+
+[node name="SpellPanel" parent="Caster/MagicUI" index="1"]
+mouse_filter = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 
