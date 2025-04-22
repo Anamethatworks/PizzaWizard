@@ -1,4 +1,24 @@
-[gd_scene load_steps=0 format=3 uid="uid://b1w2r3gd8lpu3"]
+[gd_scene load_steps=10 format=3 uid="uid://b1w2r3gd8lpu3"]
+
+[ext_resource type="Theme" uid="uid://c5scxoi4o1rve" path="res://assets/UI themes/small_UI.tres" id="1_fv5mh"]
+[ext_resource type="Texture2D" uid="uid://dpajfrcpy0hg" path="res://assets/sprites/ManaBarOutline4.png" id="1_u6fda"]
+[ext_resource type="Texture2D" uid="uid://untwmiu7cqe7" path="res://assets/sprites/ManaBarBG.png" id="2_2suyu"]
+[ext_resource type="Texture2D" uid="uid://dkxu2r88oakte" path="res://assets/sprites/rect20.png" id="4_shyxu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_shyxu"]
+texture = ExtResource("1_u6fda")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2suyu"]
+texture = ExtResource("2_2suyu")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2suyu"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dd20g"]
+texture = ExtResource("4_shyxu")
+modulate_color = Color(0.564961, 0.564962, 0.564961, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oqxcq"]
 
 [node name="MagicUI" type="Control"]
 layout_mode = 3
@@ -8,29 +28,103 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ManaBarFrame" type="Panel" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -40.0
+offset_right = 427.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_shyxu")
+
+[node name="ManaBarBG" type="Panel" parent="."]
+z_index = -4
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -40.0
+offset_right = 427.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_2suyu")
+
+[node name="ManaText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 78.0
+offset_top = -77.0
+offset_right = 274.0
+offset_bottom = -50.0
+grow_vertical = 0
+scale = Vector2(1.4, 1.4)
+size_flags_horizontal = 4
+theme = ExtResource("1_fv5mh")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[wave amp=25.0 freq=1.0 connected=1]Mana: %MIN%/%MAX%[/wave]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ManaBar" type="ProgressBar" parent="."]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 603.0
-offset_right = 436.0
-offset_bottom = 631.0
+modulate = Color(1, 0, 1, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -36.0
+offset_right = 424.0
+offset_bottom = -14.0
+grow_vertical = 0
 tooltip_text = "Mana"
+theme_override_styles/fill = SubResource("StyleBoxFlat_2suyu")
 show_percentage = false
 
-[node name="ManaText" type="Label" parent="ManaBar"]
-layout_mode = 0
-offset_top = -29.0
-offset_right = 80.0
-offset_bottom = 7.0
-text = "Mana:"
+[node name="SpellPanelFrame" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -276.0
+offset_top = -175.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_dd20g")
 
 [node name="SpellPanel" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_left = 874.0
-offset_top = 469.0
-offset_right = 1134.0
-offset_bottom = 630.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -268.0
+offset_top = -172.0
+offset_right = -16.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_oqxcq")
 
 [node name="SpellDisplay" type="Label" parent="SpellPanel"]
 layout_mode = 2
-text = "No Spell Selected"
+theme = ExtResource("1_fv5mh")
+text = "Fireball
+Power: 50
+Cost: 40 mana
+Creates a ball of fire that clears the road ahead."
+autowrap_mode = 3

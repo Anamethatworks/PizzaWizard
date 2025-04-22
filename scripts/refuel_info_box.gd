@@ -15,12 +15,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# Move the panel to where the station is in the world
 	self.set_position(get_viewport().get_camera_3d().unproject_position(station.global_position) - self.size * 0.5)
-	#print (self.global_position)
 	if Magic.mana != Magic.max_mana:
 		update_info()
 	var windowSize = DisplayServer.window_get_size()
 	var screenDiff = Vector2 (windowSize.x / 2 - (global_position.x + 100), windowSize.y / 2 - global_position.y)
-	#print (screenDiff, screenDiff.length())
 	var desired_length = clamp(screenDiff.length() - 20, 0, 200)
 	if (desired_length < 200):
 		container.modulate = Color(1.0, 1.0, 1.0, lerp(0.0, 1.0, desired_length/200))
