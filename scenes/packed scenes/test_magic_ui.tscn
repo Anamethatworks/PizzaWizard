@@ -27,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ManaBarFrame" type="Panel" parent="."]
 z_index = 2
@@ -39,6 +40,7 @@ offset_top = -40.0
 offset_right = 427.0
 offset_bottom = -10.0
 grow_vertical = 0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_shyxu")
 
 [node name="ManaBarBG" type="Panel" parent="."]
@@ -52,6 +54,7 @@ offset_top = -40.0
 offset_right = 427.0
 offset_bottom = -10.0
 grow_vertical = 0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_2suyu")
 
 [node name="ManaText" type="RichTextLabel" parent="."]
@@ -66,6 +69,7 @@ offset_bottom = -50.0
 grow_vertical = 0
 scale = Vector2(1.4, 1.4)
 size_flags_horizontal = 4
+mouse_filter = 2
 theme = ExtResource("1_fv5mh")
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
@@ -87,6 +91,7 @@ offset_right = 424.0
 offset_bottom = -14.0
 grow_vertical = 0
 tooltip_text = "Mana"
+mouse_filter = 1
 theme_override_styles/fill = SubResource("StyleBoxFlat_2suyu")
 show_percentage = false
 
@@ -103,6 +108,7 @@ offset_right = -8.0
 offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_dd20g")
 
 [node name="SpellPanel" type="PanelContainer" parent="."]
@@ -118,6 +124,7 @@ offset_right = -16.0
 offset_bottom = -11.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_oqxcq")
 
 [node name="SpellDisplay" type="Label" parent="SpellPanel"]
