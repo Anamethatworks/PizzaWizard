@@ -85,7 +85,6 @@ offset_right = 960.0
 offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tn5ty")
 
 [connection signal="animation_finished" from="BlackFade/BlackFadeAnim" to="BlackFade" method="_on_black_fade_anim_animation_finished"]
