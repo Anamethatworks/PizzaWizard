@@ -8,7 +8,7 @@ const MAJOR_THRESHOLD = 50
 const MINOR_THRESHOLD = 10
 
 # The cost of the spell in mana
-var mana_cost : float
+var mana_cost : int
 
 # The power of the spell, use depends on spell
 var power : float
@@ -23,17 +23,17 @@ var spell_desc : String
 var spell_scene : PackedScene
 
 # Init function
-func _init(cost : float, pow : float, name : String = "Default Spell", desc : String = "Does nothing."):
+func _init(cost : int, pow : float, name : String = "Default Spell", desc : String = "Does nothing."):
 	mana_cost = cost
 	power = pow
 	spell_name = name
 	spell_desc = desc
 	if power > MAJOR_THRESHOLD:
 		spell_name = "Major " + spell_name
-		mana_cost *= 1.5
+		mana_cost = int(mana_cost * 1.5)
 	elif power <= MINOR_THRESHOLD:
 		spell_name = "Minor " + spell_name
-		mana_cost *= 0.5
+		mana_cost = int(mana_cost * 0.5)
 
 # Overloadable function, checks if a casting is valid
 func is_valid_casting(caster : Node3D) -> bool:

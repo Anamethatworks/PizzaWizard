@@ -1,6 +1,6 @@
 class_name UpgradeStation extends Area3D
 ## Class for an upgrade station.
-## NOTE: Upgrade stations need a CollisionShape2D added as a child to work
+## NOTE: Upgrade stations need a CollisionShape3D added as a child to work
 ## 		This is done so the collision area can be modified for each station
 
 var paired_upgrade: UpgradeableStat ## The stat this station upgrades

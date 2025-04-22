@@ -1,4 +1,4 @@
-extends Node3D
+class_name Caster extends Node3D
 ## Handles casting & display of magic information
 
 ## The maximum amount of spells the player can hold at once
@@ -8,7 +8,7 @@ const MAX_SPELLS = 5
 const BAR_CHANGE_SPEED = 5.0
 
 ## An array of [Spell] objects, expands as the player collects spells
-var spells : Array[Spell]
+static var spells : Array[Spell]
 
 ## The index of the selected [Spell] in the [spells] array
 var selected : int = 0
@@ -17,7 +17,13 @@ var selected : int = 0
 const MAX_COOLDOWN : float = 0.5
 
 ## The amount of time left before the player can cast another spell
-var cooldown : float = 0
+static var cooldown : float = 0
+
+## The amount of time in seconds that must pass to gain passive mana refuel
+const PASSIVE_GAIN_COOLDOWN_MAX : float = 1
+
+## The amount of time left before the passive mana regain tick
+var passive_gain_cooldown : float = 0.0
 
 ## The mana bar UI  element
 @export var mana_bar : ProgressBar
@@ -26,7 +32,7 @@ var cooldown : float = 0
 @export var spell_display_panel : PanelContainer
 
 ## Adds a spell to the spell list
-func learn_spell(new_spell : Spell) -> void:
+static func learn_spell(new_spell : Spell) -> void:
 	spells.append(new_spell)
 	if len(spells) > MAX_SPELLS:
 		# TODO: UI system to prompt player to select a spell to
@@ -52,7 +58,10 @@ func _ready() -> void:
 # the ramp will appear and the player will be teleported respectively
 func _process(delta : float) -> void:
 	# Passively gain mana
-	Magic.add_mana(Magic.mana_passive_gain * delta)
+	passive_gain_cooldown -= delta
+	if (passive_gain_cooldown <= 0):
+		passive_gain_cooldown = PASSIVE_GAIN_COOLDOWN_MAX
+		Magic.add_mana(Magic.mana_passive_gain)
 	
 	# If the mana max value changes, change bar maximum
 	# while maintaining the percentage of mana in the bar

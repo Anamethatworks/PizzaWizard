@@ -2,7 +2,7 @@ extends Spell
 class_name CatapultSpell
 
 func _init(pow : float) -> void:
-	var cost = pow * 0.2
+	var cost = int(pow * 0.2)
 	var name = "Catapult"
 	super._init(cost, pow, name, "Flings the caster forward over obstacles.")
 

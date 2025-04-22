@@ -5,19 +5,18 @@ class_name ChangeTempSpell
 # true = increases, false = decreases
 var delta_temp_pos : bool
 
-func _init(delta_temp : float) -> void:
-	var pow : float = abs(delta_temp)/2
+func _init(power : float, incinerate : bool) -> void:
+	var pow : float = power
 	var name : String
 	var desc : String
-	if delta_temp > 0:
+	delta_temp_pos = incinerate
+	if incinerate:
 		name = "Incinerate"
 		desc = "Heats up all the pizzas in your car."
-		delta_temp_pos = true
 	else:
 		name = "Refrigerate"
 		desc = "Cools down all the pizzas in your car."
-		delta_temp_pos = false
-	var cost : float = power * 0.6
+	var cost : int = int(power * 0.6)
 	super._init(cost, pow, name, desc)
 	
 func is_valid_casting(caster : Node3D) -> bool:
@@ -29,8 +28,8 @@ func cast(caster : Node3D) -> void:
 	super.cast(caster)
 	var delta_temp
 	if delta_temp_pos:
-		delta_temp = power * 2
+		delta_temp = power * 0.5
 	else:
-		delta_temp = -power * 2
+		delta_temp = -power * 0.5
 	for order in DeliveryManager.current_orders:
 			order.ordered_pizza.temperature += delta_temp 

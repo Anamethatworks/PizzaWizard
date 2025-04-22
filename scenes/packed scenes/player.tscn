@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b4odq7vhsv4il" path="res://assets/models/FL_Wheel.fbx" id="9_i0731"]
 [ext_resource type="AudioStream" uid="uid://c813uqslyvsuo" path="res://assets/Sounds/Crash.wav" id="9_qv3xj"]
 [ext_resource type="Script" uid="uid://b18b8q0sj0f2f" path="res://scripts/temp_manager.gd" id="15_o3ua6"]
-[ext_resource type="Script" path="res://scripts/caster.gd" id="16_fhh5b"]
+[ext_resource type="Script" uid="uid://bqu2xi4wte4f3" path="res://scripts/caster.gd" id="16_fhh5b"]
 [ext_resource type="PackedScene" uid="uid://b1w2r3gd8lpu3" path="res://scenes/packed scenes/test_magic_ui.tscn" id="17_0qy3g"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_doc81"]

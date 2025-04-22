@@ -1,17 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://cts6qi2167n5k"]
+[gd_scene load_steps=8 format=3 uid="uid://cts6qi2167n5k"]
 
-[ext_resource type="PackedScene" uid="uid://brpl447ruy047" path="res://assets/models/MagicShop.fbx" id="1_476bj"]
+[ext_resource type="PackedScene" uid="uid://bmyysvl8u1k3d" path="res://assets/models/MagicShop.fbx" id="1_476bj"]
 [ext_resource type="Material" uid="uid://dy7p661okmyhg" path="res://assets/materials/MagicshopBookMat.tres" id="2_3wvog"]
 [ext_resource type="Material" uid="uid://dlso5fnmv32v3" path="res://assets/materials/MagicshopLotMat.tres" id="3_oa2c8"]
 [ext_resource type="Material" uid="uid://dmmp5wil8pyyn" path="res://assets/materials/MagicshopBuildingMat.tres" id="4_t0cpo"]
+[ext_resource type="Script" uid="uid://c16smdibnjlye" path="res://scripts/magic_shop.gd" id="5_3wvog"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_476bj"]
+size = Vector3(20.6536, 9.22607, 14.7553)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3wvog"]
+size = Vector3(21, 5, 7)
 
 [node name="MagicShop" instance=ExtResource("1_476bj")]
 
-[node name="Spellbook" parent="." index="0"]
+[node name="Body" type="StaticBody3D" parent="." index="0"]
+
+[node name="Collider" type="CollisionShape3D" parent="Body" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0144768, 4.11304, -0.016922)
+shape = SubResource("BoxShape3D_476bj")
+
+[node name="Spellbook" parent="." index="1"]
 material_override = ExtResource("2_3wvog")
 
-[node name="MagicShopLot" parent="." index="1"]
+[node name="MagicShopLot" parent="." index="2"]
 material_override = ExtResource("3_oa2c8")
 
-[node name="MagicShop" parent="." index="2"]
+[node name="MagicShop" parent="." index="3"]
 material_override = ExtResource("4_t0cpo")
+
+[node name="ShopArea" type="Area3D" parent="." index="4"]
+script = ExtResource("5_3wvog")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShopArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -9)
+shape = SubResource("BoxShape3D_3wvog")
+
+[node name="ShopUI" type="PanelContainer" parent="." index="5"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="area_entered" from="ShopArea" to="ShopArea" method="_on_area_entered"]
