@@ -89,3 +89,10 @@ visible = false
 vertices = PackedVector3Array(-10, 0, -5, 10, 0, -5, 10, 0, -3, -10, 0, -3)
 affect_navigation_mesh = true
 avoidance_enabled = false
+
+[node name="Divider" type="NavigationObstacle3D" parent="." index="9"]
+visible = false
+vertices = PackedVector3Array(-10, 0, 0.2, -10, 0, -0.2, 10, 0, -0.2, 10, 0, 0.2)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+avoidance_enabled = false
