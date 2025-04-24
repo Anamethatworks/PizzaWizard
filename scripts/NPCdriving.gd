@@ -1,44 +1,73 @@
 extends CharacterBody3D
 
-var accel = 1
-var moveSpeed = 3.5
-var Blocked = false
-var Stuntimer = 0
-var ChekColl = 0
-var ClosList = []
-var AiOn = true
-var DriverStun = false
-var KillTimer = 0
+var accel: float = 10.0
+var moveSpeed: float = 10.0
+var Stuntimer: float = 0.0
+var ClosList: Array[Marker3D] = []
+var AiOn := true
+var DriverStun := false
+var KillTimer: float = 0
 
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
-@onready var targets = get_tree().get_nodes_in_group("Targets")
-@onready var player = get_tree().get_nodes_in_group("Player")[0]
-var currentTarget
+@onready var targets: Array[Node] = get_tree().get_nodes_in_group("Targets")
+@onready var player: Player = get_tree().get_nodes_in_group("Player")[0]
+var currentTarget: Marker3D
+
+var delta2: float = 0.0
+
+
+var current_link: NavigationLink3D = null
+
+static var first: bool = true
+var is_first: bool = false
+
+var stuck: bool = false
+var stuck_frame_counter: int = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	currentTarget = targets[randi()%targets.size()]
+	currentTarget = targets.pick_random()
 	self.get_child(1).get_child(0).visible = true
+	if first:
+		nav.debug_enabled = true
+		first = false
+		is_first = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	delta2 = delta
 	#self.visb
 
+	if nav.is_navigation_finished():
+		ClosestTargets()
+		currentTarget = ClosList.pick_random()
+	
+	nav.target_position = currentTarget.global_position
+	
 	var direction = Vector3()
-	if (currentTarget.global_position.distance_to(self.global_position) <= 15):
-		currentTarget = targets[randi()%targets.size()]
+	if is_instance_valid(current_link):
+		#print("AT: " + str(global_position))
+		#print("TO: " + str(nav.get_next_path_position()))
+		direction = current_link.get_global_end_position() - global_position
+		var endpos: Vector3 = current_link.get_global_end_position()
+		var d = Vector2(global_position.x, global_position.z).distance_squared_to(Vector2(endpos.x, endpos.z))
+		if d < 0.25 or d > 1.0:
+			current_link = null
+			direction = nav.get_next_path_position() - global_position
+			#if is_first: print("LINK FINISHED")
+	else:
+		direction = nav.get_next_path_position() - global_position
 	
-	nav.target_position = currentTarget.global_position # this one needs the @onready vars we defined earlier
+	direction.y = 0.0
 	
-	direction = nav.get_next_path_position() - global_position # and so does this
-	
-	self.velocity = self.velocity.lerp(direction * moveSpeed, accel * delta)
+	nav.velocity = nav.velocity.move_toward(direction.normalized() * moveSpeed, accel * delta)
 	
 	if DriverStun == false:
 		rotation.y = atan2(self.velocity.x, self.velocity.z)
 	
 	if DriverStun == true:
-		self.velocity = Vector3(0,0,0)
+		nav.velocity = Vector3(0,0,0)
 		Stuntimer += delta
 		if Stuntimer >= 3:
 			DriverStun = false
@@ -61,35 +90,64 @@ func _process(delta: float) -> void:
 				
 	
 func ClosestTargets():
-	var fstClose = null
-	var SndClose = null
-	var TrdClose = null
-	for i in targets:
-		if fstClose == null:
+	var fstClose: Marker3D = null
+	var SndClose: Marker3D = null
+	var TrdClose: Marker3D = null
+	for i: Marker3D in targets:
+		if not is_instance_valid(fstClose):
 			fstClose = i 
 		else:
-			if (player.position.distance_to(i.position) < player.position.distance_to(fstClose.position)):
+			if player.position.distance_to(i.position) < player.position.distance_to(fstClose.position):
 				fstClose = i 
 			else:
-				if SndClose == null:
+				if not is_instance_valid(SndClose):
 					SndClose = i
 				else:
-					if (player.position.distance_to(i.position) < player.position.distance_to(SndClose.position)):
+					if player.position.distance_to(i.position) < player.position.distance_to(SndClose.position):
 						SndClose = i
 					else:
-						if TrdClose == null:
+						if not is_instance_valid(TrdClose):
 							TrdClose = i
 						else:
-							if (player.position.distance_to(i.position) < player.position.distance_to(TrdClose.position)):
+							if player.position.distance_to(i.position) < player.position.distance_to(TrdClose.position):
 								TrdClose = i
 	ClosList = [fstClose, SndClose, TrdClose]
 	
 	
 func DeathCycle():
-	#AiOn = false
-	#print("test")
 	Stuntimer = -10
-	self.get_child(0).play("DriverDeath")
+	$AnimationPlayer.play("DriverDeath")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	self.queue_free() # Replace with function body.
+	%"../..".queue_free() # Replace with function body.
+
+
+func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
+	if velocity.is_zero_approx():
+		stuck_frame_counter += 1
+		stuck = (stuck_frame_counter > 10)
+	elif stuck_frame_counter > 0:
+		stuck_frame_counter -= 1
+		stuck = (stuck_frame_counter > 0)
+	if DriverStun:
+		self.velocity = self.velocity.move_toward(Vector3.ZERO, accel * delta2)
+	elif stuck or is_instance_valid(current_link):
+		self.velocity = self.velocity.move_toward(nav.velocity, accel * delta2)
+	else:
+		self.velocity = self.velocity.move_toward(safe_velocity, accel * delta2)
+	move_and_slide()
+	nav.velocity = self.velocity
+	
+	$"../..".global_position = self.global_position
+	self.position = Vector3.ZERO
+	keep_at_ground_height()
+
+
+func _on_navigation_agent_3d_link_reached(details: Dictionary) -> void:
+	#if is_first: print("REACHED LINK")
+	if not is_instance_valid(current_link):
+		#if is_first: print("SET CURRENT LINK")
+		current_link = details.owner
+
+func keep_at_ground_height() -> void:
+	global_position.y = 0.0

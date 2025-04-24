@@ -2,9 +2,9 @@ extends Node3D
 
 var SpawnerList = []
 var CloseList = []
-var MaxCars = 45
-var CurrentCars = 0
-var NumSpawners = 15
+const MaxCars: int = 15
+var CurrentCars: int = 0
+var NumSpawners: int = 15
 var DistanceChk = true
 @onready var Player = get_tree().get_nodes_in_group("Player")[0]
 var Driver = preload("res://scenes/packed scenes/Driver.tscn")
