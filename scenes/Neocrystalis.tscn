@@ -2231,10 +2231,73 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26.92
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9218, 1.90735e-06, -43.8152)
 
 [node name="StopSign7" parent="Destructibles" instance=ExtResource("31_6cqjw")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 73.0782, 1.90735e-06, 43.6848)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 74.8671, 1.90735e-06, 43.9603)
+
+[node name="StopSign24" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 115.252, 1.90735e-06, 44.1961)
+
+[node name="StopSign25" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 154.381, 1.90735e-06, -36.0344)
+
+[node name="StopSign26" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 104.225, 1.90735e-06, -55.1331)
+
+[node name="StopSign27" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 75.8447, 1.90735e-06, -65.062)
 
 [node name="StopSign8" parent="Destructibles" instance=ExtResource("31_6cqjw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.0782, 1.90735e-06, 36.1848)
+
+[node name="StopSign9" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.4724, 1.90735e-06, 35.8144)
+
+[node name="StopSign18" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 35.5857, 1.90735e-06, 4.13678)
+
+[node name="StopSign28" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.8824, 2.14577e-06, -3.98091)
+
+[node name="StopSign29" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 84.2349, 2.14577e-06, 4.90638)
+
+[node name="StopSign19" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 35.0458, 1.90735e-06, -35.9202)
+
+[node name="StopSign20" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.7784, 1.36424e-12, -95.1408)
+
+[node name="StopSign21" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 84.0676, 1.36424e-12, -95.1408)
+
+[node name="StopSign22" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 123.949, -2.38417e-07, -94.9967)
+
+[node name="StopSign10" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.4724, 1.90735e-06, 44.1119)
+
+[node name="StopSign15" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.5637, 2.86102e-06, 95.597)
+
+[node name="StopSign17" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 75.9316, 2.86102e-06, 95.2539)
+
+[node name="StopSign23" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 115.918, 2.86102e-06, 95.2539)
+
+[node name="StopSign16" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 75.2212, 2.86102e-06, 104.112)
+
+[node name="StopSign11" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -115.385, 1.90735e-06, 44.1119)
+
+[node name="StopSign12" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -115.725, 1.90735e-06, 75.359)
+
+[node name="StopSign13" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -84.2598, 1.90735e-06, 75.359)
+
+[node name="StopSign14" parent="Destructibles" instance=ExtResource("31_6cqjw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -84.2598, 1.90735e-06, 44.2791)
 
 [node name="ManaStation" parent="." instance=ExtResource("40_2lhnr")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 75.0508, -0.300456, 76)
