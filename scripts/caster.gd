@@ -22,6 +22,7 @@ var cooldown : float = 0
 ## The mana bar UI  element
 @export var mana_bar : ProgressBar
 @export var mana_bar_text : RichTextLabel
+@export var mana_bar_particles : GPUParticles2D
 
 ## The container of the current spell
 @export var spell_display_panel : PanelContainer
@@ -48,6 +49,7 @@ func _ready() -> void:
 	mana_bar.max_value = Magic.max_mana
 	mana_bar.value = Magic.mana
 	mana_bar_text.text = "Mana: " + str(floori(Magic.mana)) + "/" + str(floori(Magic.max_mana))
+	mana_bar_particles.global_position = Vector2(14 + (205 * (Magic.mana / Magic.max_mana)), DisplayServer.window_get_size().y - 36)
 	
 	# Debug stuff
 	learn_spell(CatapultSpell.new(50))
@@ -59,7 +61,7 @@ func _ready() -> void:
 func _process(delta : float) -> void:
 	# Passively gain mana
 	Magic.add_mana(Magic.mana_passive_gain * delta)
-	
+
 	# If the mana max value changes, change bar maximum
 	# while maintaining the percentage of mana in the bar
 	if Magic.max_mana != mana_bar.max_value:
@@ -73,6 +75,9 @@ func _process(delta : float) -> void:
 		if abs(mana_bar.value - Magic.mana) <= mana_bar.step:
 			mana_bar.value = Magic.mana
 		mana_bar_text.text = "Mana: " + str(floori(Magic.mana)) + "/" + str(floori(Magic.max_mana))
+		mana_bar_particles.process_material.emission_box_extents = Vector3(205 * (Magic.mana / Magic.max_mana), 1.0, 1.0)
+		mana_bar_particles.global_position = Vector2(14 + (205 * (Magic.mana / Magic.max_mana)), DisplayServer.window_get_size().y - 36)
+		print (mana_bar_particles.global_position)
 	
 	# If the player has no spells, no more needs to be done
 	if len(spells) <= 0:

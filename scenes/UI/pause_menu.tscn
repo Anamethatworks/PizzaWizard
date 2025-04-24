@@ -273,6 +273,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_udffk")
 
 [node name="ContinueGame" type="Button" parent="FadeMask"]
+visible = false
 texture_filter = 6
 layout_mode = 1
 anchors_preset = 8
@@ -305,6 +306,7 @@ bbcode_enabled = true
 text = "[wave amp=50.0 freq=2.0 connected=1][center]CONTINUE[/center][/wave]"
 
 [node name="QuitGame" type="Button" parent="FadeMask"]
+visible = false
 texture_filter = 6
 layout_mode = 1
 anchors_preset = 8
@@ -338,6 +340,7 @@ bbcode_enabled = true
 text = "[wave amp=50.0 freq=2.0 connected=1][center]QUIT[/center][/wave]"
 
 [node name="BackToMenu" type="Button" parent="FadeMask"]
+visible = false
 texture_filter = 6
 layout_mode = 1
 anchors_preset = 8

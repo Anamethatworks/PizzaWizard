@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d2foga1vd8686" path="res://assets/models/Building05.fbx" id="1_3d8cu"]
 [ext_resource type="Material" uid="uid://c7qhebuej02oh" path="res://assets/materials/cutout materials/building5cutout.tres" id="2_5lk1v"]
 [ext_resource type="Material" uid="uid://cf4nix8fm5hw0" path="res://assets/materials/cutout materials/cutout_base.tres" id="2_6ldfi"]
-[ext_resource type="Script" path="res://scripts/building.gd" id="3_arqio"]
+[ext_resource type="Script" uid="uid://dg726gkyii7pl" path="res://scripts/building.gd" id="3_arqio"]
 [ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="3_cu4aj"]
 [ext_resource type="Material" uid="uid://b2kpiqhrjvaht" path="res://assets/materials/glow materials/building5glow.tres" id="4_1eqmu"]
 [ext_resource type="Material" uid="uid://b5mlm40mh34pl" path="res://assets/materials/minimap materials/minimap_building.tres" id="7_jg7r8"]
@@ -53,6 +53,9 @@ GLOWY_MATERIAL = ExtResource("4_1eqmu")
 [node name="CollisionShape3D" parent="PizzaDropoffPoint" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.503, 0.769, 3)
 shape = SubResource("BoxShape3D_s3hxu")
+
+[node name="GPUParticles3D" parent="PizzaDropoffPoint" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68001, 0, 0)
 
 [node name="MinimapMesh" type="Node3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)

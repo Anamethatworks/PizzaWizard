@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dqmwl4k5rvoe2" path="res://assets/models/Building04.fbx" id="1_8jbp6"]
 [ext_resource type="Material" uid="uid://dq6kamife8rf7" path="res://assets/materials/cutout materials/building4cutout.tres" id="2_0s6af"]
 [ext_resource type="Material" uid="uid://cf4nix8fm5hw0" path="res://assets/materials/cutout materials/cutout_base.tres" id="2_yp8xp"]
-[ext_resource type="Script" path="res://scripts/building.gd" id="3_c2y5c"]
+[ext_resource type="Script" uid="uid://dg726gkyii7pl" path="res://scripts/building.gd" id="3_c2y5c"]
 [ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="3_n2nah"]
 [ext_resource type="Material" uid="uid://bt5w88h5hb4ti" path="res://assets/materials/glow materials/building4glow.tres" id="6_c2y5c"]
 [ext_resource type="Material" uid="uid://b5mlm40mh34pl" path="res://assets/materials/minimap materials/minimap_building.tres" id="7_678do"]

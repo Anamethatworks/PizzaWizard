@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1w2r3gd8lpu3"]
+[gd_scene load_steps=17 format=3 uid="uid://b1w2r3gd8lpu3"]
 
 [ext_resource type="Theme" uid="uid://c5scxoi4o1rve" path="res://assets/UI themes/small_UI.tres" id="1_fv5mh"]
 [ext_resource type="Texture2D" uid="uid://dpajfrcpy0hg" path="res://assets/sprites/ManaBarOutline4.png" id="1_u6fda"]
 [ext_resource type="Texture2D" uid="uid://untwmiu7cqe7" path="res://assets/sprites/ManaBarBG.png" id="2_2suyu"]
 [ext_resource type="Texture2D" uid="uid://dkxu2r88oakte" path="res://assets/sprites/rect20.png" id="4_shyxu"]
+[ext_resource type="Texture2D" uid="uid://cjby6fygmg5w8" path="res://assets/sprites/StarBurst3.png" id="5_dd20g"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_shyxu"]
 texture = ExtResource("1_u6fda")
@@ -19,6 +20,42 @@ texture = ExtResource("4_shyxu")
 modulate_color = Color(0.564961, 0.564962, 0.564961, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oqxcq"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_oqxcq"]
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_3owxg"]
+_limits = [0.0, 1.0, 0.0, 1.5]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.178571, 1), 0.0, 0.0, 0, 0, Vector2(1.5, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_hwu17"]
+curve = SubResource("Curve_3owxg")
+
+[sub_resource type="Curve" id="Curve_cobbi"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.491071, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tewbi"]
+curve = SubResource("Curve_cobbi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iylj5"]
+lifetime_randomness = 0.1
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 1, 1)
+angle_min = -45.0
+angle_max = 45.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+gravity = Vector3(0, 40, 0)
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_tewbi")
+alpha_curve = SubResource("CurveTexture_hwu17")
+hue_variation_min = -0.1
+hue_variation_max = 0.1
 
 [node name="MagicUI" type="Control"]
 layout_mode = 3
@@ -93,6 +130,7 @@ grow_vertical = 0
 tooltip_text = "Mana"
 mouse_filter = 1
 theme_override_styles/fill = SubResource("StyleBoxFlat_2suyu")
+value = 100.0
 show_percentage = false
 
 [node name="SpellPanelFrame" type="Panel" parent="."]
@@ -135,3 +173,12 @@ Power: 50
 Cost: 40 mana
 Creates a ball of fire that clears the road ahead."
 autowrap_mode = 3
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0.855641, 0.621078, 1, 1)
+z_index = 5
+material = SubResource("CanvasItemMaterial_oqxcq")
+position = Vector2(219, 619)
+texture = ExtResource("5_dd20g")
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_iylj5")
