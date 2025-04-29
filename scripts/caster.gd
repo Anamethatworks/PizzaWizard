@@ -33,6 +33,8 @@ var passive_gain_cooldown : float = 0.0
 
 ## The mana bar UI  element
 @export var mana_bar : ProgressBar
+@export var mana_bar_text : RichTextLabel
+@export var mana_bar_particles : GPUParticles2D
 
 ## The container of the current spell
 @export var spell_display_panel : PanelContainer
@@ -40,7 +42,9 @@ var passive_gain_cooldown : float = 0.0
 # For the learn spell UI
 @export var learn_spell_ui : GridContainer
 
-## Adds a spell to the spell list, pulls up UI if player has MAX_SPELLS spells
+@onready var ui_theme = preload("res://assets/UI themes/small_UI.tres")
+
+## Adds a spell to the spell list
 func learn_spell(new_spell : Spell) -> void:
 	if len(spells) > MAX_SPELLS:
 		## learning_spell = new_spell
@@ -69,14 +73,19 @@ func _select_spell(spell_index : int) -> void:
 		
 ## Changes current displayed spell
 func change_displayed_spell_card(new_spell_card : Control) -> void:
+	new_spell_card.theme = ui_theme
 	spell_display_panel.get_child(0).queue_free()
 	spell_display_panel.add_child(new_spell_card)
+	#print (spell_display_panel.name)
 
 func _ready() -> void:
 	Magic.mana = Magic.max_mana
 	mana_bar.max_value = Magic.max_mana
 	mana_bar.value = Magic.mana
 	active_caster = self
+
+	mana_bar_text.text = "Mana: " + str(floori(Magic.mana)) + "/" + str(floori(Magic.max_mana))
+	mana_bar_particles.global_position = Vector2(14 + (205 * (Magic.mana / Magic.max_mana)), DisplayServer.window_get_size().y - 36)
 
 # TODO: Add indicators to mold earth, warp spells to indicate where
 # the ramp will appear and the player will be teleported respectively
@@ -99,6 +108,10 @@ func _process(delta : float) -> void:
 		mana_bar.value = lerpf(mana_bar.value, Magic.mana, delta * BAR_CHANGE_SPEED)
 		if abs(mana_bar.value - Magic.mana) <= mana_bar.step:
 			mana_bar.value = Magic.mana
+		mana_bar_text.text = "Mana: " + str(floori(Magic.mana)) + "/" + str(floori(Magic.max_mana))
+		mana_bar_particles.process_material.emission_box_extents = Vector3(205 * (Magic.mana / Magic.max_mana), 1.0, 1.0)
+		mana_bar_particles.global_position = Vector2(14 + (205 * (Magic.mana / Magic.max_mana)), DisplayServer.window_get_size().y - 36)
+		print (mana_bar_particles.global_position)
 	
 	# If the player has no spells, no more needs to be done
 	if len(spells) <= 0:

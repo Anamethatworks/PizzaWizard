@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://pb5c8c0m54ix" path="res://assets/models/Building08.fbx" id="1_hrmtg"]
 [ext_resource type="Material" uid="uid://ba4tmwwop2wo5" path="res://assets/materials/cutout materials/building8cutout.tres" id="2_re3ny"]
 [ext_resource type="Material" uid="uid://cf4nix8fm5hw0" path="res://assets/materials/cutout materials/cutout_base.tres" id="2_t0m1r"]
-[ext_resource type="Script" path="res://scripts/building.gd" id="3_hrdbj"]
+[ext_resource type="Script" uid="uid://dg726gkyii7pl" path="res://scripts/building.gd" id="3_hrdbj"]
 [ext_resource type="PackedScene" uid="uid://bhsec255cmfnm" path="res://scenes/packed scenes/pizza_dropoff_point.tscn" id="3_vm516"]
 [ext_resource type="Material" uid="uid://dujf8ua33scrl" path="res://assets/materials/glow materials/building8glow.tres" id="4_mi7y0"]
 [ext_resource type="Material" uid="uid://b5mlm40mh34pl" path="res://assets/materials/minimap materials/minimap_building.tres" id="7_fw8iy"]
@@ -95,7 +95,6 @@ shape = SubResource("CylinderShape3D_hrdbj")
 
 [node name="PizzaDropoffPoint" parent="." index="3" instance=ExtResource("3_vm516")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 0)
-visible = false
 GLOWY_MATERIAL = ExtResource("4_mi7y0")
 
 [node name="CollisionShape3D" parent="PizzaDropoffPoint" index="0"]

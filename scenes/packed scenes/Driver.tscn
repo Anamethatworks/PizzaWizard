@@ -49,11 +49,11 @@ albedo_texture = ExtResource("3_risns")
 
 [sub_resource type="BoxMesh" id="BoxMesh_trytk"]
 
-[node name="Driver" type="Node3D"]
+[node name="Driver" type="Node3D" groups=["Driver"]]
 
 [node name="CrashType" type="Node3D" parent="."]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="CrashType"]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="CrashType" groups=["Driver"]]
 safe_margin = 0.01
 script = ExtResource("1_bhx5n")
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhsec255cmfnm"]
+[gd_scene load_steps=18 format=3 uid="uid://bhsec255cmfnm"]
 
 [ext_resource type="Script" uid="uid://dqyog3ird5uap" path="res://scripts/pizza_dropoff_point.gd" id="1_16q7f"]
+[ext_resource type="Texture2D" uid="uid://cjby6fygmg5w8" path="res://assets/sprites/StarBurst3.png" id="2_rlgrx"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_eknqw"]
 radius = 1.0
@@ -13,8 +14,8 @@ point_count = 1
 curve = SubResource("Curve_mki7v")
 
 [sub_resource type="Curve" id="Curve_gy3my"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.446429, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_f3h3v"]
 curve = SubResource("Curve_gy3my")
@@ -35,9 +36,73 @@ alpha_curve = SubResource("CurveTexture_rlgrx")
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 1, 1, 0.498039)
+albedo_texture = ExtResource("2_rlgrx")
+billboard_mode = 2
 
 [sub_resource type="SphereMesh" id="SphereMesh_mki7v"]
 material = SubResource("StandardMaterial3D_bqgb3")
+
+[sub_resource type="Curve" id="Curve_f3h3v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.486607, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bqgb3"]
+curve = SubResource("Curve_f3h3v")
+
+[sub_resource type="Curve" id="Curve_0udms"]
+_limits = [0.0, 1.5, 0.0, 3.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1.03125, 1.5), 0.0, 0.0, 0, 0, Vector2(3, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4bog5"]
+curve = SubResource("Curve_0udms")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mwv82"]
+particle_flag_rotate_y = true
+emission_shape_offset = Vector3(0, 5, 0)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 1.0
+emission_ring_radius = 4.0
+emission_ring_inner_radius = 3.0
+emission_ring_cone_angle = 90.0
+angle_min = -90.0
+angle_max = 90.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+angular_velocity_min = 40.0
+angular_velocity_max = 90.0
+gravity = Vector3(0, -5, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+damping_min = 3.0
+damping_max = 3.0
+scale_min = 0.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_4bog5")
+scale_over_velocity_max = 4.0
+scale_over_velocity_curve = SubResource("CurveTexture_f3h3v")
+alpha_curve = SubResource("CurveTexture_bqgb3")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f4ft8"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.75, 0.615, 0.075, 1)
+albedo_texture = ExtResource("2_rlgrx")
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+disable_receive_shadows = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_l2kqw"]
+material = SubResource("StandardMaterial3D_f4ft8")
 
 [node name="PizzaDropoffPoint" type="Area3D"]
 script = ExtResource("1_16q7f")
@@ -47,11 +112,19 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_eknqw")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-emitting = false
+[node name="GPUParticles3DOld" type="GPUParticles3D" parent="."]
+visible = false
 lifetime = 3.0
 fixed_fps = 18
 process_material = SubResource("ParticleProcessMaterial_mki7v")
 draw_pass_1 = SubResource("SphereMesh_mki7v")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 128
+lifetime = 3.0
+fixed_fps = 18
+process_material = SubResource("ParticleProcessMaterial_mwv82")
+draw_pass_1 = SubResource("QuadMesh_l2kqw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

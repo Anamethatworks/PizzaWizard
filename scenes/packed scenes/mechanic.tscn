@@ -1,14 +1,43 @@
-[gd_scene load_steps=8 format=3 uid="uid://dq8bxgimrh6bs"]
+[gd_scene load_steps=19 format=3 uid="uid://dq8bxgimrh6bs"]
 
 [ext_resource type="PackedScene" uid="uid://babvk76yjtq28" path="res://assets/models/Mechanic.fbx" id="1_ne332"]
 [ext_resource type="PackedScene" uid="uid://qlndvjei3xvq" path="res://scenes/packed scenes/upgrade_station.tscn" id="2_b7vx7"]
+[ext_resource type="Texture2D" uid="uid://c1keh4wxbg3ma" path="res://assets/textures/MechanicGroundTex.png" id="3_fga8j"]
+[ext_resource type="Texture2D" uid="uid://vhxyhv3qx13w" path="res://assets/textures/MechanicTex.png" id="4_72rke"]
+[ext_resource type="Texture2D" uid="uid://dmwq762lq8be4" path="res://assets/textures/MechanicDoorTex.png" id="5_a1e48"]
+[ext_resource type="Texture2D" uid="uid://u40448tyeyce" path="res://assets/textures/MechanicBollardTex.png" id="6_4otcq"]
+[ext_resource type="Texture2D" uid="uid://by5euykuaq1q1" path="res://assets/textures/WrenchTex.png" id="7_0lko3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a1al8"]
 size = Vector3(4.72229, 1.92261, 5.48218)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amdyl"]
+albedo_color = Color(0.493545, 0.493546, 0.493546, 1)
+albedo_texture = ExtResource("3_fga8j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ngno"]
+albedo_color = Color(0.462291, 0.462291, 0.462291, 1)
+albedo_texture = ExtResource("4_72rke")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sn0ur"]
+albedo_color = Color(0.564962, 0.564962, 0.564962, 1)
+albedo_texture = ExtResource("5_a1e48")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1aw1"]
+albedo_color = Color(0.54099, 0.54099, 0.54099, 1)
+albedo_texture = ExtResource("6_4otcq")
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6usq3"]
 height = 0.0104614
 radius = 0.001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8ybu"]
+albedo_color = Color(0.564962, 0.564962, 0.564962, 1)
+albedo_texture = ExtResource("6_4otcq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83gfm"]
+albedo_color = Color(0.581033, 0.581033, 0.581033, 1)
+albedo_texture = ExtResource("7_0lko3")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bhbxo"]
 size = Vector3(9.56293, 6.49536, 10.9852)
@@ -27,17 +56,35 @@ size = Vector3(4.69716, 6.49536, 3.21809)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.00902, 1.36023, -6.06899)
 shape = SubResource("BoxShape3D_a1al8")
 
+[node name="MechanicLot" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_amdyl")
+
+[node name="MechanicBuilding" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_4ngno")
+
+[node name="MechanicDoor" parent="." index="3"]
+material_override = SubResource("StandardMaterial3D_sn0ur")
+
+[node name="Bollard1" parent="." index="4"]
+material_override = SubResource("StandardMaterial3D_f1aw1")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Bollard1" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bollard1/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0320135, 0.00435019, 0.00907593)
 shape = SubResource("CylinderShape3D_6usq3")
 
+[node name="Bollard2" parent="." index="5"]
+material_override = SubResource("StandardMaterial3D_q8ybu")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Bollard2" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bollard2/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.144372, 0.0019969, 0.00907593)
 shape = SubResource("CylinderShape3D_6usq3")
+
+[node name="Wrench" parent="." index="6"]
+material_override = SubResource("StandardMaterial3D_83gfm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="7"]
 

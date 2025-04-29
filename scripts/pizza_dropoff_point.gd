@@ -84,8 +84,9 @@ func init_particles() -> void:
 	var particles: GPUParticles3D = $GPUParticles3D
 	for child: Node in get_children():
 		if child is CollisionShape3D:
-			particles.scale = child.shape.size / 2.0
-			particles.position = child.position
+			pass
+			#particles.scale = child.shape.size / 2.0
+			#particles.position = child.position
 
 
 ## Starts dropoff effects (building glow, particles)

@@ -3,5 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://c4sgb1ylrydrx" path="res://assets/textures/ManaStationGroundTex.png" id="1_ob5qx"]
 
 [resource]
+albedo_color = Color(0.501407, 0.501406, 0.501406, 1)
 albedo_texture = ExtResource("1_ob5qx")
 albedo_texture_force_srgb = true

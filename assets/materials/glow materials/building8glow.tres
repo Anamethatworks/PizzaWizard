@@ -4,6 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://6rqy8tpofsh8" path="res://assets/textures/Building08Tex.png" id="2_ipuqc"]
 
 [resource]
-render_priority = 0
+render_priority = -1
 shader = ExtResource("1_ipuqc")
 shader_parameter/tex = ExtResource("2_ipuqc")

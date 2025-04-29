@@ -149,21 +149,22 @@ radius = 3.0
 neighbor_distance = 10.0
 max_neighbors = 5
 
-[node name="Caster" type="Node3D" parent="." node_paths=PackedStringArray("mana_bar", "spell_display_panel", "learn_spell_ui")]
+[node name="Caster" type="Node3D" parent="." node_paths=PackedStringArray("mana_bar", "mana_bar_text", "mana_bar_particles", "spell_display_panel", "learn_spell_ui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
 script = ExtResource("16_fhh5b")
 mana_bar = NodePath("MagicUI/ManaBar")
+mana_bar_text = NodePath("MagicUI/ManaText")
+mana_bar_particles = NodePath("MagicUI/GPUParticles2D")
 spell_display_panel = NodePath("MagicUI/SpellPanel")
 learn_spell_ui = NodePath("LearnSpellUI")
 
 [node name="MagicUI" parent="Caster" instance=ExtResource("17_0qy3g")]
-mouse_filter = 2
 
-[node name="ManaBar" parent="Caster/MagicUI" index="0"]
-mouse_filter = 1
-
-[node name="SpellPanel" parent="Caster/MagicUI" index="1"]
-mouse_filter = 2
+[node name="ManaText" parent="Caster/MagicUI" index="2"]
+offset_left = 77.0
+offset_top = -81.0
+offset_right = 273.0
+offset_bottom = -54.0
 
 [node name="LearnSpellUI" type="GridContainer" parent="Caster"]
 offset_top = 164.0
