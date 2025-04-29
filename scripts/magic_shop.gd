@@ -102,7 +102,6 @@ func purchase_spell() -> bool:
 	
 func _ready() -> void:
 	new_spell()
-	Money.player_gold += 500
 	
 func _process(delta: float) -> void:
 	# update UI

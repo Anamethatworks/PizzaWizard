@@ -7,13 +7,10 @@
 [ext_resource type="Script" uid="uid://c16smdibnjlye" path="res://scripts/magic_shop.gd" id="5_3wvog"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_476bj"]
-size = Vector3(20.6536, 9.22607, 14.7553)
+size = Vector3(20.0585, 8.29568, 14.0463)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3wvog"]
 size = Vector3(21, 5, 7)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_476bj"]
-size = Vector3(20.0585, 8.29568, 14.0463)
 
 [node name="MagicShop" instance=ExtResource("1_476bj")]
 
@@ -29,10 +26,16 @@ material_override = ExtResource("2_3wvog")
 [node name="MagicShopLot" parent="." index="2"]
 material_override = ExtResource("3_oa2c8")
 
-[node name="MagicShop" parent="." index="3"]
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00088501, 4.16814, 0.00820923)
+shape = SubResource("BoxShape3D_476bj")
+
+[node name="MagicShop" parent="." index="4"]
 material_override = ExtResource("4_t0cpo")
 
-[node name="ShopArea" type="Area3D" parent="." index="4" node_paths=PackedStringArray("shop_ui")]
+[node name="ShopArea" type="Area3D" parent="." index="5" node_paths=PackedStringArray("shop_ui")]
 script = ExtResource("5_3wvog")
 shop_ui = NodePath("../ShopPanel")
 
@@ -40,7 +43,7 @@ shop_ui = NodePath("../ShopPanel")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -9)
 shape = SubResource("BoxShape3D_3wvog")
 
-[node name="ShopPanel" type="Panel" parent="." index="5"]
+[node name="ShopPanel" type="Panel" parent="." index="6"]
 offset_left = 499.0
 offset_top = 193.0
 offset_right = 749.0
@@ -54,8 +57,3 @@ alignment = 1
 
 [connection signal="body_entered" from="ShopArea" to="ShopArea" method="_on_body_entered"]
 [connection signal="body_exited" from="ShopArea" to="ShopArea" method="_on_body_exited"]
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00088501, 4.16814, 0.00820923)
-shape = SubResource("BoxShape3D_476bj")
