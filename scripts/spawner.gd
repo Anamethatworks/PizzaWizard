@@ -1,9 +1,9 @@
-extends Node3D
+class_name NPC_Spawner extends Node3D
 
 var SpawnerList = []
 var CloseList = []
 const MaxCars: int = 15
-var CurrentCars: int = 0
+static var CurrentCars: int = 0
 var NumSpawners: int = 15
 var DistanceChk = true
 @onready var Player = get_tree().get_nodes_in_group("Player")[0]
@@ -17,7 +17,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	#print(Player.position.distance_to(self.position))
 	
 	if CurrentCars < MaxCars:
