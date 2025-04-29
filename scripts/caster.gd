@@ -1,26 +1,32 @@
 class_name Caster extends Node3D
 ## Handles casting & display of magic information
 
+## Gives access to the caster to other parts of the code
+static var active_caster : Caster
+
 ## The maximum amount of spells the player can hold at once
 const MAX_SPELLS = 5
-
-## The speed at which the mana bar will change
-const BAR_CHANGE_SPEED = 5.0
-
-## An array of [Spell] objects, expands as the player collects spells
-static var spells : Array[Spell]
-
-## The index of the selected [Spell] in the [spells] array
-var selected : int = 0
 
 ## The minimum time between spell castings
 const MAX_COOLDOWN : float = 0.5
 
-## The amount of time left before the player can cast another spell
-static var cooldown : float = 0
+## The speed at which the mana bar will change
+const BAR_CHANGE_SPEED = 5.0
 
 ## The amount of time in seconds that must pass to gain passive mana refuel
 const PASSIVE_GAIN_COOLDOWN_MAX : float = 1
+
+## An array of [Spell] objects, expands as the player collects spells
+var spells : Array[Spell]
+
+## The amount of time left before the player can cast another spell
+var cooldown : float = 0
+
+## Whether the player is in the learn spell UI
+var learning_spell : Spell = null
+
+## The index of the selected [Spell] in the [spells] array
+var selected : int = 0
 
 ## The amount of time left before the passive mana regain tick
 var passive_gain_cooldown : float = 0.0
@@ -31,13 +37,35 @@ var passive_gain_cooldown : float = 0.0
 ## The container of the current spell
 @export var spell_display_panel : PanelContainer
 
-## Adds a spell to the spell list
-static func learn_spell(new_spell : Spell) -> void:
-	spells.append(new_spell)
+# For the learn spell UI
+@export var learn_spell_ui : GridContainer
+
+## Adds a spell to the spell list, pulls up UI if player has MAX_SPELLS spells
+func learn_spell(new_spell : Spell) -> void:
 	if len(spells) > MAX_SPELLS:
-		# TODO: UI system to prompt player to select a spell to
-		# discard. For now, pop our oldest spell.
-		spells.pop_at(0)
+		## learning_spell = new_spell
+		
+		## # display currently equipped spells as buttons
+		## learn_spell_ui.visible = true
+		## for i in range(1, len(spells) + 1):
+		##  	var spell_button : Button = Button.new()
+		##  	spell_button.add_child(spells[i-1].get_spell_card())
+		##  	learn_spell_ui.add_child(spell_button)
+		##  	spell_button.button_down.connect(_select_spell.bind(i))
+		
+		spells.pop_front()
+		spells.append(new_spell)
+	else:
+		spells.append(new_spell)
+	change_displayed_spell_card(new_spell.get_spell_card())
+		
+func _select_spell(spell_index : int) -> void:
+	assert(learning_spell != null)
+	spells[spell_index] = learning_spell
+	for child in learn_spell_ui.get_children():
+		queue_free()
+	learn_spell_ui.visible = false
+	learning_spell = null
 		
 ## Changes current displayed spell
 func change_displayed_spell_card(new_spell_card : Control) -> void:
@@ -48,11 +76,7 @@ func _ready() -> void:
 	Magic.mana = Magic.max_mana
 	mana_bar.max_value = Magic.max_mana
 	mana_bar.value = Magic.mana
-	
-	# Debug stuff
-	learn_spell(CatapultSpell.new(50))
-	spells.append(FireballSpell.new(50))
-	change_displayed_spell_card(spells[selected].get_spell_card())
+	active_caster = self
 
 # TODO: Add indicators to mold earth, warp spells to indicate where
 # the ramp will appear and the player will be teleported respectively
@@ -83,12 +107,12 @@ func _process(delta : float) -> void:
 	# Cast spell if possible
 	if cooldown > 0:
 		cooldown -= delta
-	if Input.is_action_just_pressed("CastSpell"):
+	if Input.is_action_just_pressed("CastSpell") and (learning_spell == null):
 		if cooldown <= 0:
 			spells[selected].attempt_to_cast(self)
 			cooldown = MAX_COOLDOWN
 	
-	# Scroll through the spell list
+	# Handle scrolling through the spell list
 	var scroll_next : bool = Input.is_action_just_pressed("ScrollSpellNext")
 	var scroll_prev : bool = Input.is_action_just_pressed("ScrollSpellPrev")
 	if scroll_next:
@@ -101,3 +125,15 @@ func _process(delta : float) -> void:
 		elif selected < 0:
 			selected = len(spells) - 1
 		change_displayed_spell_card(spells[selected].get_spell_card())
+		
+	# Handle number key selection
+	for i in range(1, 6):
+		if Input.is_action_just_pressed("Select%d" % i):
+			if (learning_spell == null):
+				if i >= len(spells):
+					selected = len(spells) - 1
+				else:
+					selected = i
+				change_displayed_spell_card(spells[selected].get_spell_card())
+			else:
+				_select_spell(i)

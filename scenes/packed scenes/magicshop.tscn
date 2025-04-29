@@ -29,15 +29,25 @@ material_override = ExtResource("3_oa2c8")
 [node name="MagicShop" parent="." index="3"]
 material_override = ExtResource("4_t0cpo")
 
-[node name="ShopArea" type="Area3D" parent="." index="4"]
+[node name="ShopArea" type="Area3D" parent="." index="4" node_paths=PackedStringArray("shop_ui")]
 script = ExtResource("5_3wvog")
+shop_ui = NodePath("../ShopPanel")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ShopArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -9)
 shape = SubResource("BoxShape3D_3wvog")
 
-[node name="ShopUI" type="PanelContainer" parent="." index="5"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="ShopPanel" type="Panel" parent="." index="5"]
+offset_left = 499.0
+offset_top = 193.0
+offset_right = 749.0
+offset_bottom = 353.0
 
-[connection signal="area_entered" from="ShopArea" to="ShopArea" method="_on_area_entered"]
+[node name="ShopUI" type="VBoxContainer" parent="ShopPanel" index="0"]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 160.0
+alignment = 1
+
+[connection signal="body_entered" from="ShopArea" to="ShopArea" method="_on_body_entered"]
+[connection signal="body_exited" from="ShopArea" to="ShopArea" method="_on_body_exited"]

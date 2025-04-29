@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b4odq7vhsv4il" path="res://assets/models/FL_Wheel.fbx" id="9_i0731"]
 [ext_resource type="AudioStream" uid="uid://c813uqslyvsuo" path="res://assets/Sounds/Crash.wav" id="9_qv3xj"]
 [ext_resource type="Script" uid="uid://b18b8q0sj0f2f" path="res://scripts/temp_manager.gd" id="15_o3ua6"]
-[ext_resource type="Script" uid="uid://bqu2xi4wte4f3" path="res://scripts/caster.gd" id="16_fhh5b"]
+[ext_resource type="Script" uid="uid://b5xy3ugbokojy" path="res://scripts/caster.gd" id="16_fhh5b"]
 [ext_resource type="PackedScene" uid="uid://b1w2r3gd8lpu3" path="res://scenes/packed scenes/test_magic_ui.tscn" id="17_0qy3g"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_doc81"]
@@ -149,11 +149,12 @@ radius = 3.0
 neighbor_distance = 10.0
 max_neighbors = 5
 
-[node name="Caster" type="Node3D" parent="." node_paths=PackedStringArray("mana_bar", "spell_display_panel")]
+[node name="Caster" type="Node3D" parent="." node_paths=PackedStringArray("mana_bar", "spell_display_panel", "learn_spell_ui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
 script = ExtResource("16_fhh5b")
 mana_bar = NodePath("MagicUI/ManaBar")
 spell_display_panel = NodePath("MagicUI/SpellPanel")
+learn_spell_ui = NodePath("LearnSpellUI")
 
 [node name="MagicUI" parent="Caster" instance=ExtResource("17_0qy3g")]
 mouse_filter = 2
@@ -163,6 +164,12 @@ mouse_filter = 1
 
 [node name="SpellPanel" parent="Caster/MagicUI" index="1"]
 mouse_filter = 2
+
+[node name="LearnSpellUI" type="GridContainer" parent="Caster"]
+offset_top = 164.0
+offset_right = 1149.0
+offset_bottom = 401.0
+columns = 5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 
