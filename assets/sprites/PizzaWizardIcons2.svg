@@ -7,7 +7,7 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg33056"
-   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
    sodipodi:docname="PizzaWizardIcons2.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,17 +24,59 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="6.0007856"
-     inkscape:cx="2519.0035"
-     inkscape:cy="-486.51963"
+     inkscape:zoom="0.3750491"
+     inkscape:cx="553.26089"
+     inkscape:cy="1649.1174"
      inkscape:window-width="1920"
-     inkscape:window-height="1027"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="0"
+     inkscape:deskcolor="#505050" />
   <defs
      id="defs33053">
+    <linearGradient
+       id="linearGradient21"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#bba133;stop-opacity:0.25;"
+         offset="0"
+         id="stop21" />
+      <stop
+         style="stop-color:#827024;stop-opacity:0.52999997;"
+         offset="0.16401021"
+         id="stop35" />
+      <stop
+         style="stop-color:#a18a2c;stop-opacity:0.75;"
+         offset="0.33300412"
+         id="stop32" />
+      <stop
+         style="stop-color:#817024;stop-opacity:0.75;"
+         offset="0.39860821"
+         id="stop33" />
+      <stop
+         style="stop-color:#907c27;stop-opacity:0.75;"
+         offset="0.45599467"
+         id="stop34" />
+      <stop
+         style="stop-color:#a18a2b;stop-opacity:0.75;"
+         offset="0.57329369"
+         id="stop40" />
+      <stop
+         style="stop-color:#8a7724;stop-opacity:0.73413897;"
+         offset="0.73455149"
+         id="stop41" />
+      <stop
+         style="stop-color:#776620;stop-opacity:0.51359516;"
+         offset="0.8851735"
+         id="stop42" />
+      <stop
+         style="stop-color:#786721;stop-opacity:0.25;"
+         offset="1"
+         id="stop22" />
+    </linearGradient>
     <rect
        x="2449.0127"
        y="-545.26194"
@@ -142,7 +184,7 @@
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
        id="filter11241"
-       x="-0.068208479"
+       x="-0.068208484"
        y="-0.078262461"
        width="1.1360026"
        height="1.1565295">
@@ -1078,6 +1120,28 @@
        y1="25.444057"
        x2="362.98996"
        y2="58.444057" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter11"
+       x="-0.025460907"
+       y="-1.578576"
+       width="1.0509218"
+       height="4.157152">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.2073731"
+         id="feGaussianBlur11" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient21"
+       id="linearGradient22"
+       x1="169.60486"
+       y1="369.13995"
+       x2="431.10486"
+       y2="531.63995"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -1435,7 +1499,7 @@
     <g
        id="g40540"
        inkscape:label="FailedClock"
-       transform="translate(38.52327,7.4001892)">
+       transform="translate(263.85687,-76.328226)">
       <circle
          style="opacity:1;fill:#c83737;stroke:#1a1a1a;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
          id="circle8712"
@@ -2178,16 +2242,114 @@
        transform="scale(0.26458333)"
        id="text37050"
        style="font-size:21.3333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';white-space:pre;shape-inside:url(#rect37052)" />
-    <text
-       xml:space="preserve"
-       style="font-size:5.64444px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';stroke-width:0.264583"
-       x="667.72095"
-       y="-127.68884"
-       id="text42140"><tspan
-         sodipodi:role="line"
-         id="tspan42138"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:System-ui;-inkscape-font-specification:'System-ui, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
-         x="667.72095"
-         y="-127.68884">START</tspan></text>
+    <ellipse
+       style="display:inline;opacity:0.9;fill:#cccccc;stroke:#3c174f;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.700246;filter:url(#filter11)"
+       id="path11"
+       cx="142.59502"
+       cy="255.20131"
+       rx="76.542747"
+       ry="1.2345606"
+       transform="matrix(1.3362596,0,0,1,-47.948949,0)"
+       inkscape:export-filename="ManaBarOutline2.png"
+       inkscape:export-xdpi="50.726757"
+       inkscape:export-ydpi="50.726757" />
+    <rect
+       style="display:inline;fill:none;fill-opacity:1;stroke:#41174f;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.700246"
+       id="rect1"
+       width="209"
+       height="14"
+       x="38.095013"
+       y="253.96675"
+       rx="3"
+       ry="3"
+       inkscape:export-filename="ManaBarOutline4.png"
+       inkscape:export-xdpi="50.726757"
+       inkscape:export-ydpi="50.726757" />
+    <ellipse
+       style="display:inline;opacity:0.5;fill:#000000;stroke:#3b1c4a;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.700246;filter:url(#filter11)"
+       id="ellipse11"
+       cx="142.3456"
+       cy="264.80392"
+       rx="76.542747"
+       ry="1.2345606"
+       transform="matrix(1.3118483,0,0,1,-44.140814,1.9282659)" />
+    <rect
+       style="display:inline;opacity:0.382151;fill:#220b28;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.700246"
+       id="rect17"
+       width="209"
+       height="14"
+       x="38.095013"
+       y="253.96675"
+       rx="3"
+       ry="3"
+       inkscape:export-filename="ManaBarBG.png"
+       inkscape:export-xdpi="50.726757"
+       inkscape:export-ydpi="50.726757" />
+    <rect
+       style="display:inline;opacity:1;fill:#645e41;fill-opacity:1;stroke:none;stroke-width:2.81322;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.700246"
+       id="rect19"
+       width="103.19801"
+       height="56.098778"
+       x="-40.804787"
+       y="354.27579"
+       rx="13.342188"
+       ry="12.021167"
+       inkscape:export-filename="ManaBarBG.png"
+       inkscape:export-xdpi="50.726757"
+       inkscape:export-ydpi="50.726757" />
+    <rect
+       style="display:inline;fill:none;fill-opacity:1;stroke:#4f3f17;stroke-width:2.81322;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.700246"
+       id="rect18"
+       width="103.19801"
+       height="56.098778"
+       x="-40.804794"
+       y="461.02707"
+       rx="13.342188"
+       ry="12.021167"
+       inkscape:export-filename="SpellInfoPanel.png"
+       inkscape:export-xdpi="50.726757"
+       inkscape:export-ydpi="50.726757" />
+    <ellipse
+       style="display:inline;opacity:0.5;fill:#000000;stroke:#4a3a1c;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.700246;filter:url(#filter11)"
+       id="ellipse18"
+       cx="142.3456"
+       cy="264.80392"
+       rx="76.542747"
+       ry="1.2345606"
+       transform="matrix(0.6019712,0,0,0.54075265,-74.893738,265.74836)" />
+    <rect
+       style="opacity:1;fill:url(#linearGradient22);fill-opacity:1;stroke:#504416;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.700246"
+       id="rect20"
+       width="260"
+       height="161"
+       x="169.60486"
+       y="369.13995"
+       rx="5"
+       ry="5"
+       inkscape:export-filename="rect20.png"
+       inkscape:export-xdpi="25.882891"
+       inkscape:export-ydpi="25.882891" />
+    <ellipse
+       style="display:inline;opacity:0.9;fill:#cccccc;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.700246;filter:url(#filter11);fill-opacity:0.26535627"
+       id="ellipse17"
+       cx="142.59502"
+       cy="255.20131"
+       rx="76.542747"
+       ry="1.2345606"
+       transform="matrix(1.6583423,0,0,3.5182798,63.133513,-521.44858)"
+       inkscape:export-filename="ManaBarOutline2.png"
+       inkscape:export-xdpi="50.726757"
+       inkscape:export-ydpi="50.726757" />
+    <ellipse
+       style="display:inline;opacity:0.9;fill:#000000;fill-opacity:0.265356;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.700246;filter:url(#filter11)"
+       id="ellipse20"
+       cx="142.59502"
+       cy="255.20131"
+       rx="76.542747"
+       ry="1.2345606"
+       transform="matrix(1.6583423,0,0,3.5182798,63.133513,-372.07319)"
+       inkscape:export-filename="ManaBarOutline2.png"
+       inkscape:export-xdpi="50.726757"
+       inkscape:export-ydpi="50.726757" />
   </g>
 </svg>
