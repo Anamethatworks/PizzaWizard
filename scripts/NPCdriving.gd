@@ -53,7 +53,7 @@ func _process(delta: float) -> void:
 	nav.velocity = nav.velocity.move_toward(direction.normalized() * moveSpeed, accel * delta)
 	
 	if DriverStun == false:
-		rotation.y = atan2(self.velocity.x, self.velocity.z)
+		rotation.y = lerp_angle(rotation.y, atan2(self.velocity.x, self.velocity.z), 1.0 - pow(0.01, delta))
 	
 	if DriverStun == true:
 		nav.velocity = Vector3(0,0,0)
@@ -77,20 +77,33 @@ func DeathCycle():
 	
 func process_offscreen_cars() -> void:
 	var d := player.global_position.distance_squared_to(global_position)
-	if d >= 3500.0:
+	if d >= 4000.0:
+		var player_direction: Vector2 = Vector2(player.linear_velocity.x, player.linear_velocity.z)
+		if player_direction.length_squared() < 0.1:
+			return
+		player_direction = Vector2.from_angle(player_direction.angle() + randfn(0.0, 1.0)) # Perturb angle randomly
 		var player_goal: Vector2 = Vector2(player.global_position.x, player.global_position.z) + \
-			Vector2.from_angle(-player.rotation.y - PI / 2.0) * 57.0
+			player_direction * 57.0
+		
 		var target_pos: Vector3 = Vector3(player_goal.x, 0.0, player_goal.y)
 		$"../..".global_position = target_pos
 		ClosestTargets()
 		currentTarget = targets[randi_range(0, 5)]
 		move_and_slide()
-		$"../..".global_position = nav.get_next_path_position()
+		if player.global_position.distance_squared_to(nav.get_next_path_position()) < 3750.0:
+			cull()
+		else:
+			$"../..".global_position = nav.get_next_path_position()
 			
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	NPC_Spawner.CurrentCars -= 1
-	%"../..".queue_free()
+	cull()
+
+## Culls the car
+func cull() -> void:
+	if is_instance_valid($"../.."):
+		NPC_Spawner.CurrentCars -= 1
+		$"../..".queue_free()
 
 
 func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
@@ -103,7 +116,7 @@ func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
 		stuck_frame_counter -= 1
 		stuck = (stuck_frame_counter > 0)
 	if DriverStun:
-		self.velocity = self.velocity.move_toward(Vector3.ZERO, accel * delta2)
+		self.velocity = self.velocity.move_toward(Vector3.ZERO, accel * delta2 * 5.0)
 	elif stuck or is_instance_valid(current_link):
 		self.velocity = self.velocity.move_toward(nav.velocity, accel * delta2)
 	else:
