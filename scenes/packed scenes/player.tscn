@@ -145,9 +145,8 @@ script = ExtResource("15_o3ua6")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 avoidance_enabled = true
-radius = 3.0
-neighbor_distance = 10.0
-max_neighbors = 5
+radius = 0.83
+max_neighbors = 1
 
 [node name="Caster" type="Node3D" parent="." node_paths=PackedStringArray("mana_bar", "mana_bar_text", "mana_bar_particles", "spell_display_panel", "learn_spell_ui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)

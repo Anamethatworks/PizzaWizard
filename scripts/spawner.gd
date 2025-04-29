@@ -1,12 +1,12 @@
-extends Node3D
+class_name NPC_Spawner extends Node3D
 
 var SpawnerList = []
 var CloseList = []
-var MaxCars = 45
-var CurrentCars = 0
-var NumSpawners = 15
+const MaxCars: int = 15
+static var CurrentCars: int = 0
+var NumSpawners: int = 15
 var DistanceChk = true
-@onready var Player = get_tree().get_nodes_in_group("Player")[0]
+@onready var player = get_tree().get_nodes_in_group("Player")[0]
 var Driver = preload("res://scenes/packed scenes/Driver.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,19 +17,19 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	#print(Player.position.distance_to(self.position))
 	
 	if CurrentCars < MaxCars:
-		DistanceChk = true
-		CloseList = CalcCloseList()
-		var currentSpawner = CloseList[randi()%CloseList.size()]
+		#DistanceChk = true
+		#CloseList = CalcCloseList()
+		var currentSpawner = SpawnerList.pick_random()
 		var ChildList = currentSpawner.get_children()
 		#for j in ChildList:
 			#if currentSpawner.global_position.distance_to(j.global_position) < 5 and j.is_in_group("VisChkr") == false:
 				#pass
 				#DistanceChk = false
-		if DistanceChk == true:
+		if player.global_position.distance_squared_to(currentSpawner.global_position) > 3000.0:
 			var instance = Driver.instantiate()
 			currentSpawner.add_child(instance)
 			CurrentCars += 1
@@ -52,19 +52,19 @@ func CalcCloseList():
 		if fstClose == null:
 			fstClose = SpawnerList[i] #Player.position.distance_to(SpawnerList[i].position)
 		else:
-			if (Player.global_position.distance_to(SpawnerList[i].global_position) < Player.global_position.distance_to(fstClose.global_position)) and VisChk.is_on_screen() == false:
+			if (player.global_position.distance_to(SpawnerList[i].global_position) < player.global_position.distance_to(fstClose.global_position)) and VisChk.is_on_screen() == false:
 				fstClose = SpawnerList[i] #Player.position.distance_to(SpawnerList[i].position)
 			else:
 				if SndClose == null:
 					SndClose = SpawnerList[i]
 				else:
-					if (Player.global_position.distance_to(SpawnerList[i].global_position) < Player.global_position.distance_to(SndClose.global_position)) and VisChk.is_on_screen() == false:
+					if (player.global_position.distance_to(SpawnerList[i].global_position) < player.global_position.distance_to(SndClose.global_position)) and VisChk.is_on_screen() == false:
 						SndClose = SpawnerList[i]
 					else:
 						if TrdClose == null:
 							TrdClose = SpawnerList[i]
 						else:
-							if (Player.global_position.distance_to(SpawnerList[i].global_position) < Player.global_position.distance_to(TrdClose.global_position)) and VisChk.is_on_screen() == false:
+							if (player.global_position.distance_to(SpawnerList[i].global_position) < player.global_position.distance_to(TrdClose.global_position)) and VisChk.is_on_screen() == false:
 								TrdClose = SpawnerList[i]
 		i += 1
 							
