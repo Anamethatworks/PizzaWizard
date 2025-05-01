@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://brgg6dxvq4hsc"]
+[gd_scene load_steps=16 format=3 uid="uid://brgg6dxvq4hsc"]
 
-[ext_resource type="PackedScene" uid="uid://u02m4ya6smna" path="res://assets/models/ManaStation.fbx" id="1_kbcc1"]
+[ext_resource type="PackedScene" uid="uid://bgixfi2g5mg7b" path="res://assets/models/ManaStation.fbx" id="1_kbcc1"]
 [ext_resource type="Material" uid="uid://c66m7f43thbgc" path="res://assets/materials/ManastationLotMat.tres" id="2_f1hln"]
 [ext_resource type="Material" uid="uid://dtcxnyadfhm0k" path="res://assets/materials/ManastationBuildingMat.tres" id="3_qiwvh"]
 [ext_resource type="Material" uid="uid://bkjdibm3x1jon" path="res://assets/materials/ManastationACMat.tres" id="4_lhggg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://n5a0mt14wqik" path="res://assets/materials/ManastationCanMat.tres" id="6_ppqbs"]
 [ext_resource type="Material" uid="uid://d0nnidtda7ews" path="res://assets/materials/ManastationPumpMat.tres" id="7_e1gyd"]
 [ext_resource type="PackedScene" uid="uid://icwfmajg0vgg" path="res://scenes/packed scenes/refuel_station.tscn" id="8_f1hln"]
+[ext_resource type="Material" uid="uid://b5mlm40mh34pl" path="res://assets/materials/minimap materials/minimap_building.tres" id="9_qiwvh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kbcc1"]
 size = Vector3(3.1358, 1.31842, 1.73492)
@@ -24,6 +25,10 @@ radius = 0.40332
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lhggg"]
 size = Vector3(8.83254, 3.0481, 8.7392)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lhggg"]
+material = ExtResource("9_qiwvh")
+size = Vector2(9, 4)
 
 [node name="ManaStation" instance=ExtResource("1_kbcc1")]
 
@@ -83,6 +88,15 @@ shape = SubResource("CylinderShape3D_lhggg")
 [node name="Collider" type="CollisionShape3D" parent="Manastation" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.14522, 1.90417, -3.36842)
 shape = SubResource("BoxShape3D_lhggg")
+
+[node name="MinimapMesh" type="Node3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, -2, -10)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MinimapMesh" index="0"]
+layers = 32
+cast_shadow = 0
+gi_mode = 0
+mesh = SubResource("PlaneMesh_lhggg")
 
 [connection signal="body_exited" from="Manastation" to="Manastation" method="_on_body_exited"]
 

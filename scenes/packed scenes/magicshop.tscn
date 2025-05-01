@@ -1,16 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://cts6qi2167n5k"]
+[gd_scene load_steps=10 format=3 uid="uid://cts6qi2167n5k"]
 
-[ext_resource type="PackedScene" uid="uid://bmyysvl8u1k3d" path="res://assets/models/MagicShop.fbx" id="1_476bj"]
+[ext_resource type="PackedScene" uid="uid://cadffjhhulhjn" path="res://assets/models/MagicShop.fbx" id="1_476bj"]
 [ext_resource type="Material" uid="uid://dy7p661okmyhg" path="res://assets/materials/MagicshopBookMat.tres" id="2_3wvog"]
 [ext_resource type="Material" uid="uid://dlso5fnmv32v3" path="res://assets/materials/MagicshopLotMat.tres" id="3_oa2c8"]
 [ext_resource type="Material" uid="uid://dmmp5wil8pyyn" path="res://assets/materials/MagicshopBuildingMat.tres" id="4_t0cpo"]
 [ext_resource type="Script" uid="uid://c16smdibnjlye" path="res://scripts/magic_shop.gd" id="5_3wvog"]
+[ext_resource type="Material" uid="uid://b5mlm40mh34pl" path="res://assets/materials/minimap materials/minimap_building.tres" id="6_oa2c8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_476bj"]
 size = Vector3(20.0585, 8.29568, 14.0463)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3wvog"]
 size = Vector3(21, 5, 7)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t0cpo"]
+material = ExtResource("6_oa2c8")
+size = Vector2(20, 14)
 
 [node name="MagicShop" instance=ExtResource("1_476bj")]
 
@@ -54,6 +59,15 @@ layout_mode = 0
 offset_right = 250.0
 offset_bottom = 160.0
 alignment = 1
+
+[node name="MinimapMesh" type="Node3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MinimapMesh" index="0"]
+layers = 32
+cast_shadow = 0
+gi_mode = 0
+mesh = SubResource("PlaneMesh_t0cpo")
 
 [connection signal="body_entered" from="ShopArea" to="ShopArea" method="_on_body_entered"]
 [connection signal="body_exited" from="ShopArea" to="ShopArea" method="_on_body_exited"]

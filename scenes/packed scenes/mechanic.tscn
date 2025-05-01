@@ -1,12 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://dq8bxgimrh6bs"]
+[gd_scene load_steps=21 format=3 uid="uid://dq8bxgimrh6bs"]
 
-[ext_resource type="PackedScene" uid="uid://babvk76yjtq28" path="res://assets/models/Mechanic.fbx" id="1_ne332"]
+[ext_resource type="PackedScene" uid="uid://c331orb3roj7q" path="res://assets/models/Mechanic.fbx" id="1_ne332"]
 [ext_resource type="PackedScene" uid="uid://qlndvjei3xvq" path="res://scenes/packed scenes/upgrade_station.tscn" id="2_b7vx7"]
-[ext_resource type="Texture2D" uid="uid://c1keh4wxbg3ma" path="res://assets/textures/MechanicGroundTex.png" id="3_fga8j"]
-[ext_resource type="Texture2D" uid="uid://vhxyhv3qx13w" path="res://assets/textures/MechanicTex.png" id="4_72rke"]
-[ext_resource type="Texture2D" uid="uid://dmwq762lq8be4" path="res://assets/textures/MechanicDoorTex.png" id="5_a1e48"]
-[ext_resource type="Texture2D" uid="uid://u40448tyeyce" path="res://assets/textures/MechanicBollardTex.png" id="6_4otcq"]
-[ext_resource type="Texture2D" uid="uid://by5euykuaq1q1" path="res://assets/textures/WrenchTex.png" id="7_0lko3"]
+[ext_resource type="Texture2D" uid="uid://csbjocdge80ov" path="res://assets/textures/MechanicGroundTex.png" id="3_fga8j"]
+[ext_resource type="Texture2D" uid="uid://babnbi6iwxbgy" path="res://assets/textures/MechanicTex.png" id="4_72rke"]
+[ext_resource type="Texture2D" uid="uid://bmxntg0ob0k2p" path="res://assets/textures/MechanicDoorTex.png" id="5_a1e48"]
+[ext_resource type="Texture2D" uid="uid://dveohr7x4ndcf" path="res://assets/textures/MechanicBollardTex.png" id="6_4otcq"]
+[ext_resource type="Texture2D" uid="uid://b5ksevuncckdy" path="res://assets/textures/WrenchTex.png" id="7_0lko3"]
+[ext_resource type="Material" uid="uid://b5mlm40mh34pl" path="res://assets/materials/minimap materials/minimap_building.tres" id="8_72rke"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a1al8"]
 size = Vector3(4.72229, 1.92261, 5.48218)
@@ -47,6 +48,10 @@ size = Vector3(3.6257, 6.49536, 10.9852)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_72rke"]
 size = Vector3(4.69716, 6.49536, 3.21809)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a1e48"]
+material = ExtResource("8_72rke")
+size = Vector2(18, 11)
 
 [node name="Mechanic" instance=ExtResource("1_ne332")]
 
@@ -99,3 +104,12 @@ shape = SubResource("BoxShape3D_fga8j")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99077, 3.23328, -10.3763)
 shape = SubResource("BoxShape3D_72rke")
+
+[node name="MinimapMesh" type="Node3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -2, -6.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MinimapMesh" index="0"]
+layers = 32
+cast_shadow = 0
+gi_mode = 0
+mesh = SubResource("PlaneMesh_a1e48")
