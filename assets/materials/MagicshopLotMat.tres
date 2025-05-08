@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dlso5fnmv32v3"]
 
-[ext_resource type="Texture2D" uid="uid://bu5gsu5wcsbbl" path="res://assets/textures/MagicShopLotTex.png" id="1_u1q0s"]
+[ext_resource type="Texture2D" uid="uid://3bpvle3cx6fr" path="res://assets/textures/MagicShopLotTex.png" id="1_u1q0s"]
 
 [resource]
 albedo_color = Color(0.501407, 0.501406, 0.501406, 1)

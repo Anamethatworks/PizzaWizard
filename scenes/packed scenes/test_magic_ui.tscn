@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://b1w2r3gd8lpu3"]
 
 [ext_resource type="Theme" uid="uid://c5scxoi4o1rve" path="res://assets/UI themes/small_UI.tres" id="1_fv5mh"]
-[ext_resource type="Texture2D" uid="uid://dpajfrcpy0hg" path="res://assets/sprites/ManaBarOutline4.png" id="1_u6fda"]
-[ext_resource type="Texture2D" uid="uid://untwmiu7cqe7" path="res://assets/sprites/ManaBarBG.png" id="2_2suyu"]
-[ext_resource type="Texture2D" uid="uid://dkxu2r88oakte" path="res://assets/sprites/rect20.png" id="4_shyxu"]
-[ext_resource type="Texture2D" uid="uid://cjby6fygmg5w8" path="res://assets/sprites/StarBurst3.png" id="5_dd20g"]
+[ext_resource type="Texture2D" uid="uid://b25uwdmb8hbv6" path="res://assets/sprites/ManaBarOutline4.png" id="1_u6fda"]
+[ext_resource type="Texture2D" uid="uid://c621vk4j6fbqi" path="res://assets/sprites/ManaBarBG.png" id="2_2suyu"]
+[ext_resource type="Texture2D" uid="uid://ewicv257401w" path="res://assets/sprites/rect20.png" id="4_shyxu"]
+[ext_resource type="Texture2D" uid="uid://c0q8vk0dynydv" path="res://assets/sprites/StarBurst3.png" id="5_dd20g"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_shyxu"]
 texture = ExtResource("1_u6fda")

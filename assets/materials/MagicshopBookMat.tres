@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dy7p661okmyhg"]
 
-[ext_resource type="Texture2D" uid="uid://ceghjtou80gl5" path="res://assets/textures/SpellbookTex.png" id="1_k2f5w"]
+[ext_resource type="Texture2D" uid="uid://dy0g1h6qws1nh" path="res://assets/textures/SpellbookTex.png" id="1_k2f5w"]
 
 [resource]
 albedo_color = Color(0.458405, 0.458405, 0.458405, 1)

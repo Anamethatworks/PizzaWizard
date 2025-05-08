@@ -103,7 +103,7 @@ func purchase_spell() -> bool:
 func _ready() -> void:
 	new_spell()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# update UI
 	shop_ui.set_position(
 		get_viewport().get_camera_3d().unproject_position(

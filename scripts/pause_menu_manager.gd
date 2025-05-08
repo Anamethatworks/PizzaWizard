@@ -31,7 +31,7 @@ var desired_quit_mod = Color(1, 1, 1, 1)
 var pause_lerp = 0.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("Pause") and not TimeManager.out_of_time:
 		if !pause_active:

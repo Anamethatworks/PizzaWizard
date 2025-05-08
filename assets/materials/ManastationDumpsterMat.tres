@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b88advwuc3ohf"]
 
-[ext_resource type="Texture2D" uid="uid://o6c52o8jo8b2" path="res://assets/textures/ManaStationDumpster.png" id="1_0806o"]
+[ext_resource type="Texture2D" uid="uid://kp1v6a8ighsu" path="res://assets/textures/ManaStationDumpster.png" id="1_0806o"]
 
 [resource]
 albedo_color = Color(0.450648, 0.450648, 0.450648, 1)

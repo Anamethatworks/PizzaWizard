@@ -34,7 +34,7 @@ static func reset_game() -> void:
 	Score.orders_completed = 0
 	Score.player_score = 0
 	UpgradeableStat.reset_all_upgrades()
-	Magic.mana = 0.0
+	Magic.mana = 0
 
 ## Rotates the TimeManager so the sun moves across the sky
 func get_rotation_from_time() -> void:

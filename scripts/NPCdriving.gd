@@ -96,7 +96,7 @@ func process_offscreen_cars() -> void:
 			$"../..".global_position = nav.get_next_path_position()
 			
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	cull()
 
 ## Culls the car

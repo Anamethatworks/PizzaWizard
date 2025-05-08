@@ -19,7 +19,7 @@ func _ready() -> void:
 	$Icons/Pizzeria.position.x = pizzeria_uv.x * $Icons.size.x
 	$Icons/Pizzeria.position.y = pizzeria_uv.y * $Icons.size.y
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Map"):
 		set_visible(true)
 	elif Input.is_action_just_released("Map"):

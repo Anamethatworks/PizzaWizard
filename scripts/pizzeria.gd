@@ -50,7 +50,7 @@ func _on_body_entered(body: Node3D) -> void:
 		return
 	# Determine if the body is the player
 	if body.name == "Player":
-		var n := int(Score.orders_completed / 2) + 1
+		var n := int(Score.orders_completed / 2.0) + 1
 		if n > 5:
 			n = 5
 		var num_orders = len(DeliveryManager.current_orders)

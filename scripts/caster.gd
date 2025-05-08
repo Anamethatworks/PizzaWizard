@@ -85,6 +85,7 @@ func _ready() -> void:
 	active_caster = self
 
 	mana_bar_text.text = "Mana: " + str(floori(Magic.mana)) + "/" + str(floori(Magic.max_mana))
+	@warning_ignore("integer_division")
 	mana_bar_particles.global_position = Vector2(14 + (205 * (Magic.mana / Magic.max_mana)), DisplayServer.window_get_size().y - 36)
 
 # TODO: Add indicators to mold earth, warp spells to indicate where
@@ -109,7 +110,9 @@ func _process(delta : float) -> void:
 		if abs(mana_bar.value - Magic.mana) <= mana_bar.step:
 			mana_bar.value = Magic.mana
 		mana_bar_text.text = "Mana: " + str(floori(Magic.mana)) + "/" + str(floori(Magic.max_mana))
+		@warning_ignore("integer_division")
 		mana_bar_particles.process_material.emission_box_extents = Vector3(205 * (Magic.mana / Magic.max_mana), 1.0, 1.0)
+		@warning_ignore("integer_division")
 		mana_bar_particles.global_position = Vector2(14 + (205 * (Magic.mana / Magic.max_mana)), DisplayServer.window_get_size().y - 36)
 		print (mana_bar_particles.global_position)
 	

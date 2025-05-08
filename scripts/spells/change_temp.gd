@@ -5,8 +5,8 @@ class_name ChangeTempSpell
 # true = increases, false = decreases
 var delta_temp_pos : bool
 
-func _init(power : float, incinerate : bool) -> void:
-	var pow : float = power
+func _init(spell_power: float, incinerate : bool) -> void:
+	var powr: float = spell_power
 	var name : String
 	var desc : String
 	delta_temp_pos = incinerate
@@ -16,8 +16,8 @@ func _init(power : float, incinerate : bool) -> void:
 	else:
 		name = "Refrigerate"
 		desc = "Cools down all the pizzas in your car."
-	var cost : int = int(power * 0.6)
-	super._init(cost, pow, name, desc)
+	var cost : int = int(spell_power * 0.6)
+	super._init(cost, powr, name, desc)
 	
 func is_valid_casting(caster : Node3D) -> bool:
 	var mana_valid = super.is_valid_casting(caster)

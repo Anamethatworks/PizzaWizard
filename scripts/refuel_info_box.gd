@@ -29,7 +29,7 @@ func update_info() -> void:
 
 ## Sets the text for each of the four text labels at once.
 func set_texts(cost: String) -> void:
-	$VBoxContainer/RefuelCost.text = cost.replace("%COST%", str(ceil((Magic.max_mana - Magic.mana) / 10))) if cost.contains("%COST%") else cost
+	$VBoxContainer/RefuelCost.text = cost.replace("%COST%", str(ceil((Magic.max_mana - Magic.mana) / 10.0))) if cost.contains("%COST%") else cost
 
 ## Updates all info boxes for upgrades the player can get depending on their
 ## money (i.e. not on cooldown or at max level)

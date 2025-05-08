@@ -17,14 +17,14 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	#print(Player.position.distance_to(self.position))
 	
 	if CurrentCars < MaxCars:
 		#DistanceChk = true
 		#CloseList = CalcCloseList()
 		var currentSpawner = SpawnerList.pick_random()
-		var ChildList = currentSpawner.get_children()
+		#var ChildList = currentSpawner.get_children()
 		#for j in ChildList:
 			#if currentSpawner.global_position.distance_to(j.global_position) < 5 and j.is_in_group("VisChkr") == false:
 				#pass

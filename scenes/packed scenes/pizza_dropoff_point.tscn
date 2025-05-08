@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://bhsec255cmfnm"]
 
 [ext_resource type="Script" uid="uid://dqyog3ird5uap" path="res://scripts/pizza_dropoff_point.gd" id="1_16q7f"]
-[ext_resource type="Texture2D" uid="uid://cjby6fygmg5w8" path="res://assets/sprites/StarBurst3.png" id="2_rlgrx"]
+[ext_resource type="Texture2D" uid="uid://c0q8vk0dynydv" path="res://assets/sprites/StarBurst3.png" id="2_rlgrx"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_eknqw"]
 radius = 1.0
@@ -59,13 +59,9 @@ curve = SubResource("Curve_0udms")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mwv82"]
 particle_flag_rotate_y = true
-emission_shape_offset = Vector3(0, 5, 0)
-emission_shape = 6
-emission_ring_axis = Vector3(0, 1, 0)
-emission_ring_height = 1.0
-emission_ring_radius = 4.0
-emission_ring_inner_radius = 3.0
-emission_ring_cone_angle = 90.0
+emission_shape_offset = Vector3(0, 2, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
 angle_min = -90.0
 angle_max = 90.0
 direction = Vector3(0, 1, 0)

@@ -26,7 +26,7 @@ func _ready() -> void:
 	time_manager = $"../../TimeManager"
 
 
-func _process(delta : float) -> void:
+func _process(_delta: float) -> void:
 
 	#if display_temp isn't equal to amb_temp, lerp display_temp and display value
 	if (display_temp != TempManager.amb_temp):

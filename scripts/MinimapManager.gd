@@ -42,7 +42,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#Maps UI positions in general to match game world positions
 	var map_x = player.position.x * map_to_world_ratio
 	var map_y = player.position.z * map_to_world_ratio

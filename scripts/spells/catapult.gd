@@ -1,10 +1,10 @@
 extends Spell
 class_name CatapultSpell
 
-func _init(pow : float) -> void:
-	var cost = int(pow * 0.2)
+func _init(powr: float) -> void:
+	var cost = int(powr * 0.2)
 	var name = "Catapult"
-	super._init(cost, pow, name, "Flings the caster forward over obstacles.")
+	super._init(cost, powr, name, "Flings the caster forward over obstacles.")
 
 func is_valid_casting(caster : Node3D) -> bool:
 	var mana_valid : bool = super.is_valid_casting(caster)

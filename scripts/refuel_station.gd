@@ -12,7 +12,7 @@ func _ready() -> void:
 func _process(_delta) -> void:
 	if player_present:
 		if Input.is_action_just_pressed("Refuel"):
-			var cost = ceil((Magic.max_mana - Magic.mana) / 10)
+			var cost = ceil((Magic.max_mana - Magic.mana) / 10.0)
 			if Money.player_gold >= cost:
 				Money.earn_money(-cost)
 				Magic.add_mana(Magic.max_mana - Magic.mana)

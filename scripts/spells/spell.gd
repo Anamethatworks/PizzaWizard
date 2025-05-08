@@ -23,9 +23,9 @@ var spell_desc : String
 var spell_scene : PackedScene
 
 # Init function
-func _init(cost : int, pow : float, name : String = "Default Spell", desc : String = "Does nothing."):
+func _init(cost : int, powr : float, name : String = "Default Spell", desc : String = "Does nothing."):
 	mana_cost = cost
-	power = pow
+	power = powr
 	spell_name = name
 	spell_desc = desc
 	if power > MAJOR_THRESHOLD:
@@ -36,7 +36,7 @@ func _init(cost : int, pow : float, name : String = "Default Spell", desc : Stri
 		mana_cost = int(mana_cost * 0.5)
 
 # Overloadable function, checks if a casting is valid
-func is_valid_casting(caster : Node3D) -> bool:
+func is_valid_casting(_caster: Node3D) -> bool:
 	return Magic.mana >= mana_cost
 
 # Attempts to cast a spell, fails if there's not enough mana, takes position of caster
@@ -48,11 +48,11 @@ func attempt_to_cast(caster : Node3D) -> void:
 		fail(caster)
 
 # Overloadable function, called when spell is cast, takes position of caster
-func cast(caster : Node3D) -> void:
+func cast(_caster: Node3D) -> void:
 	print("Casted %s for %d mana!" % [spell_name, mana_cost])
 
 # Called when spell fails to cast, takes position of caster
-func fail(caster : Node3D) -> void:
+func fail(_caster : Node3D) -> void:
 	# TODO: Add a poof of particles around the player to
 	# indicate the spell failed
 	print("Cast of %s failed!" % spell_name)
